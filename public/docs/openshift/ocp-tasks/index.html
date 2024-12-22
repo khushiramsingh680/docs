@@ -1,0 +1,1564 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="generator" content="Hugo 0.122.0">
+<meta name="robots" content="index, follow">
+
+<link rel="shortcut icon" href="/favicons/favicon.ico" >
+
+<title>Openshift 4 Tasks | Documentation</title>
+<meta name="description" content="Openshift">
+<meta property="og:title" content="Openshift 4 Tasks" />
+<meta property="og:description" content="Openshift" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/docs/openshift/ocp-tasks/" /><meta property="article:section" content="docs" />
+
+
+
+<meta itemprop="name" content="Openshift 4 Tasks">
+<meta itemprop="description" content="Openshift">
+
+<meta itemprop="wordCount" content="4165">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Openshift 4 Tasks"/>
+<meta name="twitter:description" content="Openshift"/>
+
+
+
+
+<link rel="preload" href="/scss/main.min.b5bfe2535b6f07595fd9cb7a4018024e52e136c3b43e03a17a1e47a950822d03.css" as="style">
+<link href="/scss/main.min.b5bfe2535b6f07595fd9cb7a4018024e52e136c3b43e03a17a1e47a950822d03.css" rel="stylesheet" integrity="">
+
+<script
+  src="https://code.jquery.com/jquery-3.6.0.min.js"
+  integrity="sha384-vtXRMe3mGCbOeY7l30aIg8H9p3GdeSe4IFlP6G8JMa7o7lXvnz3GFKzPxzJdPfGK"
+  crossorigin="anonymous"></script>
+<script
+  src="https://unpkg.com/lunr@2.3.9/lunr.min.js"
+  integrity="sha384-203J0SNzyqHby3iU6hzvzltrWi/M41wOP5Gu+BiJMz5nwKykbkUx8Kp7iti0Lpli"
+  crossorigin="anonymous"></script>
+<link rel="stylesheet" href="/css/prism.css"/>
+<script type="text/javascript"  src="/js/highlight-search.js"></script>
+<script type="text/javascript"  src="/js/manage-side-panels.js"></script>
+  </head>
+  <body class="td-page highlightable">
+    <header>
+      
+<nav class="js-navbar-scroll navbar navbar-expand navbar-dark flex-column flex-md-row td-navbar">
+        <a class="navbar-brand" href="/">
+		<span class="navbar-logo"><svg version="1.0" xmlns="http://www.w3.org/2000/svg" width="217pt" height="232pt" viewBox="0 0 217 232"><g transform="translate(0.000000,232.000000) scale(0.100000,-0.100000)" fill="#000" stroke="none"><path d="M1017 2250c-397-48-698-367-731-775-9-106-3-113 66-87l55 20 11-71c6-39 10-72 9-73s-58-22-127-47c-104-37-124-48-122-64 7-37 56-150 88-205l34-56 66 25 66 26 65-72c206-226 513-322 808-252 367 88 634 417 635 784 0 43-4 77-10 77-5 0-32-9-60-20s-55-20-59-20c-5 0-12 26-16 59-4 32-20 96-36 142s-30 88-31 92c-2 5 54 29 124 55l128 46-31 55c-17 31-33 58-34 59-2 2-31-6-64-19l-61-22-23 29c-81 104-172 178-292 235-140 68-309 97-458 79zm226-299c90-24 136-46 206-101l52-41 61 20 60 20 26-31c15-17 35-44 44-59l17-28-52-19c-29-11-86-32-128-47l-76-27 24-58c26-66 43-144 43-201 0-22 2-39 5-39 2 0 27 9 55 20s55 20 60 20c17 0 10-63-14-131-127-359-580-484-862-237l-35 31-70-24-71-24-30 35c-37 43-97 164-104 212l-6 34 123 46 124 45-3 64c-2 35-5 66-7 68-2 1-27-5-55-14s-53-15-55-14c-2 2 1 29 7 59 32 179 185 352 361 409 112 36 192 39 3e2 12z"/><path d="M134 321c-77-33-95-169-29-231 19-18 36-23 71-23 40 0 51 4 75 30 50 56 47 153-5 202-26 25-80 35-112 22zm82-62c26-29 26-99 0-128-24-26-47-27-77-2-19 15-24 29-24 64 0 76 58 114 101 66z"/><path d="M1172 320c-27-12-44-52-33-82 4-12 31-32 61-47 30-14 58-34 64-43 26-43-50-76-99-44-15 10-26 12-30 6-10-16 4-29 44-40 62-17 114 13 114 65 0 35-19 53-80 81-54 23-67 46-41 72 15 15 62 16 88 2 23-12 35 3 16 19-20 17-77 23-104 11z"/><path d="M350 195V70h25c23 0 25 4 25 45v45h40c76 0 115 40 103 104-8 42-38 56-120 56h-73V195zm134 69c18-18 18-17 10-38-4-11-19-16-50-16-44 0-44 0-44 35 0 33 2 35 34 35 19 0 42-7 50-16z"/><path d="M6e2 195V70h90c83 0 90 2 90 20 0 16-8 19-62 22-63 3-63 3-66 36-3 31-2 32 36 32 36 0 39 2 34 25-4 21-10 25-38 25-30 0-34 3-34 25 0 24 2 25 65 25 58 0 65 2 65 20 0 19-7 20-90 20h-90V195z"/><path d="M850 195c0-117 1-125 20-125 17 0 19 8 22 83l3 82 55-82c41-62 61-83 78-83 22 0 22 2 22 125 0 117-1 125-20 125-17 0-19-8-22-82l-3-82-54 82c-42 65-59 82-77 82-24 0-24 0-24-125z"/><path d="M1360 195c0-104 2-125 15-125 12 0 15 13 15 60v60h65 65v-60c0-47 3-60 15-60 13 0 15 21 15 125s-2 125-15 125c-12 0-15-13-15-55v-55h-65-65v55c0 42-3 55-15 55-13 0-15-21-15-125z"/><path d="M1620 195c0-104 2-125 15-125s15 21 15 125-2 125-15 125-15-21-15-125z"/><path d="M1730 195c0-77 4-125 10-125s10 27 10 60v60h35c19 0 35 5 35 10 0 6-16 10-35 10-35 0-35 0-35 45v45h60c33 0 60 4 60 10s-30 10-70 10h-70V195z"/><path d="M1930 310c0-5 18-10 40-10h40V185c0-70 4-115 10-115s10 45 10 115v115h40c22 0 40 5 40 10 0 6-37 10-90 10s-90-4-90-10z"/></g></svg></span><span class="font-weight-bold">Documentation</span>
+	</a>
+	<div class="td-navbar-nav-scroll ml-md-auto" id="main_navbar">
+		<ul class="navbar-nav mt-2 mt-lg-0">
+			
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/" ><i class='fa fa-home'></i><span>Home</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/docs/azure/" ><i class='fab fa-azure'></i><span>Azure Cloud Computing</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/docs/azure-devops/" ><i class='fab fa-azure'></i><span>Azure Devops</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/docs/gitlab/" ><i class='fab fa-gitlab'></i><span>Gitlab Tutorials</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link active" href="/docs/openshift/" ><i class='fab fa-openshift'></i><span class="active">OpenShift Administration</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/docs/kvm/" ><i class="fab fa-linux"></i><span>Redhat Ansible</span></a>
+			</li>
+			
+			
+			
+		</ul>
+	</div>
+	<div class="navbar-nav d-none d-lg-block">
+<form class="d-flex align-items-center">
+  <input type="search"
+  class="form-control td-search-input"
+  placeholder="&#xf002; Search this site…"
+  aria-label="Search this site…"
+  autocomplete="off"
+  
+  data-offline-search-index-json-src="/offline-search-index.d4ee35dfb31ed3b96d119091cf664ad4.json"
+  data-offline-search-base-href="/"
+  data-offline-search-max-results="20">
+</form>
+</div>
+</nav>
+
+      <div class="manage-panels">
+    <button type="button" class="button-left" id="left-panel-manager" title="Hide sidebar">""</button>
+    <button type="button" class="button-right" id="right-panel-manager" title="Hide sidebar">""</button>
+</div>
+    </header>
+    <div class="container-fluid td-outer">
+      <div class="td-main autonumbering">
+        <div class="row flex-xl-nowrap">
+          <aside class="col-12 col-md-3 col-xl-2 td-sidebar d-print-none">
+            
+<div id="td-sidebar-menu" class="td-sidebar__inner">
+  <div id="content-mobile">
+  <form class="td-sidebar__search d-flex align-items-center">
+    
+<form class="d-flex align-items-center">
+  <input type="search"
+  class="form-control td-search-input"
+  placeholder="&#xf002; Search this site…"
+  aria-label="Search this site…"
+  autocomplete="off"
+  
+  data-offline-search-index-json-src="/offline-search-index.d4ee35dfb31ed3b96d119091cf664ad4.json"
+  data-offline-search-base-href="/"
+  data-offline-search-max-results="20">
+</form>
+
+    <button class="btn btn-link td-sidebar__toggle d-md-none p-0 ml-3 fas fa-bars" type="button" data-toggle="collapse" data-target="#td-section-nav" aria-controls="td-docs-nav" aria-expanded="false" aria-label="Toggle section navigation">
+    </button>
+  </form>
+  </div>
+  <div id="content-desktop"></div>
+  <nav class="collapse td-sidebar-nav foldable-nav" id="td-section-nav">
+    <ul class="td-sidebar-nav__section pr-md-3 ul-0">
+      <li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id="m-docs-li">
+  <a href="/docs/" class="align-left pl-0 td-sidebar-link td-sidebar-link__section tree-root" id="m-docs"><span class="">Docs</span></a>
+  <ul class="ul-1">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-docsazure-li">
+  <input type="checkbox" id="m-docsazure-check"/>
+  <label for="m-docsazure-check"><a href="/docs/azure/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-docsazure"><i class="fab fa-azure"></i><span class="">Azure Cloud Computing</span></a></label>
+  
+  <ul class="ul-2 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazurelinux-basics-li">
+  <input type="checkbox" id="m-docsazurelinux-basics-check"/>
+  <label for="m-docsazurelinux-basics-check"><a href="/docs/azure/linux-basics/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazurelinux-basics"><i class="fab fa-azure"></i><span class="">Linux Basics</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazureazure-vm-li">
+  <input type="checkbox" id="m-docsazureazure-vm-check"/>
+  <label for="m-docsazureazure-vm-check"><a href="/docs/azure/azure-vm/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazureazure-vm"><i class="fab fa-azure"></i><span class="">Azure Cloud Virtual Machine (01)</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazureazuredevops-li">
+  <input type="checkbox" id="m-docsazureazuredevops-check"/>
+  <label for="m-docsazureazuredevops-check"><a href="/docs/azure/azuredevops/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazureazuredevops"><i class="fab fa-azure"></i><span class="">Azure Devops</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazureazure-network-li">
+  <input type="checkbox" id="m-docsazureazure-network-check"/>
+  <label for="m-docsazureazure-network-check"><a href="/docs/azure/azure-network/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazureazure-network"><i class="fab fa-azure"></i><span class="">Azure Cloud Networking</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazureazure-storage-li">
+  <input type="checkbox" id="m-docsazureazure-storage-check"/>
+  <label for="m-docsazureazure-storage-check"><a href="/docs/azure/azure-storage/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazureazure-storage"><i class="fab fa-azure"></i><span class="">Azure Cloud Storage</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazureazure-cli-li">
+  <input type="checkbox" id="m-docsazureazure-cli-check"/>
+  <label for="m-docsazureazure-cli-check"><a href="/docs/azure/azure-cli/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazureazure-cli"><i class="fab fa-azure"></i><span class="">Azure Cli</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazureazure-vmss-li">
+  <input type="checkbox" id="m-docsazureazure-vmss-check"/>
+  <label for="m-docsazureazure-vmss-check"><a href="/docs/azure/azure-vmss/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazureazure-vmss"><i class="fab fa-azure"></i><span class="">Azure Cloud Virtual Machine Scale Set</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazureazure-lb-li">
+  <input type="checkbox" id="m-docsazureazure-lb-check"/>
+  <label for="m-docsazureazure-lb-check"><a href="/docs/azure/azure-lb/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazureazure-lb"><i class="fab fa-azure"></i><span class="">Azure Cloud LoadBalancers</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazureazure-monitor-li">
+  <input type="checkbox" id="m-docsazureazure-monitor-check"/>
+  <label for="m-docsazureazure-monitor-check"><a href="/docs/azure/azure-monitor/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazureazure-monitor"><i class="fab fa-azure"></i><span class="">Azure Monitoring</span></a></label>
+  
+</li>
+  </ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-docsazure-devops-li">
+  <input type="checkbox" id="m-docsazure-devops-check"/>
+  <label for="m-docsazure-devops-check"><a href="/docs/azure-devops/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-docsazure-devops"><i class="fab fa-azure"></i><span class="">Azure Devops</span></a></label>
+  
+  <ul class="ul-2 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazure-devopsazure-board-li">
+  <input type="checkbox" id="m-docsazure-devopsazure-board-check"/>
+  <label for="m-docsazure-devopsazure-board-check"><a href="/docs/azure-devops/azure-board/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazure-devopsazure-board"><i class="fab fa-azure"></i><span class="">Azure Board</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazure-devopsazuredevops-01-li">
+  <input type="checkbox" id="m-docsazure-devopsazuredevops-01-check"/>
+  <label for="m-docsazure-devopsazuredevops-01-check"><a href="/docs/azure-devops/azuredevops-01/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazure-devopsazuredevops-01"><i class="fab fa-azure"></i><span class="">Part 1</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazure-devopsazuredevops-li">
+  <input type="checkbox" id="m-docsazure-devopsazuredevops-check"/>
+  <label for="m-docsazure-devopsazuredevops-check"><a href="/docs/azure-devops/azuredevops/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazure-devopsazuredevops"><i class="fab fa-azure"></i><span class="">Azure Devops</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazure-devopsazuredevops-02-li">
+  <input type="checkbox" id="m-docsazure-devopsazuredevops-02-check"/>
+  <label for="m-docsazure-devopsazuredevops-02-check"><a href="/docs/azure-devops/azuredevops-02/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazure-devopsazuredevops-02"><i class="fab fa-azure"></i><span class="">Part 2</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazure-devopsazuredevops-03-li">
+  <input type="checkbox" id="m-docsazure-devopsazuredevops-03-check"/>
+  <label for="m-docsazure-devopsazuredevops-03-check"><a href="/docs/azure-devops/azuredevops-03/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazure-devopsazuredevops-03"><i class="fab fa-azure"></i><span class="">Part 3</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazure-devopsazuredevops-04-li">
+  <input type="checkbox" id="m-docsazure-devopsazuredevops-04-check"/>
+  <label for="m-docsazure-devopsazuredevops-04-check"><a href="/docs/azure-devops/azuredevops-04/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazure-devopsazuredevops-04"><i class="fab fa-azure"></i><span class="">part 4</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazure-devopsazuredevops-05-li">
+  <input type="checkbox" id="m-docsazure-devopsazuredevops-05-check"/>
+  <label for="m-docsazure-devopsazuredevops-05-check"><a href="/docs/azure-devops/azuredevops-05/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazure-devopsazuredevops-05"><i class="fab fa-azure"></i><span class="">Part 5</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazure-devopsazuredevops-06-li">
+  <input type="checkbox" id="m-docsazure-devopsazuredevops-06-check"/>
+  <label for="m-docsazure-devopsazuredevops-06-check"><a href="/docs/azure-devops/azuredevops-06/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazure-devopsazuredevops-06"><i class="fab fa-azure"></i><span class="">Part 6</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazure-devopsaks-li">
+  <input type="checkbox" id="m-docsazure-devopsaks-check"/>
+  <label for="m-docsazure-devopsaks-check"><a href="/docs/azure-devops/aks/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazure-devopsaks"><i class="fab fa-azure"></i><span class="">AKS</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazure-devopstest-li">
+  <input type="checkbox" id="m-docsazure-devopstest-check"/>
+  <label for="m-docsazure-devopstest-check"><a href="/docs/azure-devops/test/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazure-devopstest"><i class="fab fa-azure"></i><span class="">Azure Devops Test Plans</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazure-devopsdocker-li">
+  <input type="checkbox" id="m-docsazure-devopsdocker-check"/>
+  <label for="m-docsazure-devopsdocker-check"><a href="/docs/azure-devops/docker/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazure-devopsdocker"><i class="fab fa-azure"></i><span class="">Docker</span></a></label>
+  
+</li>
+  </ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-docsgitlab-li">
+  <input type="checkbox" id="m-docsgitlab-check"/>
+  <label for="m-docsgitlab-check"><a href="/docs/gitlab/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-docsgitlab"><i class="fab fa-gitlab"></i><span class="">Gitlab Tutorials</span></a></label>
+  
+  <ul class="ul-2 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsgitlabgitlab01-li">
+  <input type="checkbox" id="m-docsgitlabgitlab01-check"/>
+  <label for="m-docsgitlabgitlab01-check"><a href="/docs/gitlab/gitlab01/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsgitlabgitlab01"><i class="fab fa-gitlab"></i><span class="">GitLab Installation</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsgitlabgitlab-with-ldap-li">
+  <input type="checkbox" id="m-docsgitlabgitlab-with-ldap-check"/>
+  <label for="m-docsgitlabgitlab-with-ldap-check"><a href="/docs/gitlab/gitlab-with-ldap/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsgitlabgitlab-with-ldap"><i class="fas fa-server"></i><span class="">Gitlab Authentication with LDAP</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsgitlabgitlab-container-registry-li">
+  <input type="checkbox" id="m-docsgitlabgitlab-container-registry-check"/>
+  <label for="m-docsgitlabgitlab-container-registry-check"><a href="/docs/gitlab/gitlab-container-registry/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsgitlabgitlab-container-registry"><i class="fab fa-docker"></i><span class="">GitLab Container Registry</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsgitlabgitlab-logs-troubleshooting-li">
+  <input type="checkbox" id="m-docsgitlabgitlab-logs-troubleshooting-check"/>
+  <label for="m-docsgitlabgitlab-logs-troubleshooting-check"><a href="/docs/gitlab/gitlab-logs-troubleshooting/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsgitlabgitlab-logs-troubleshooting"><i class="fas fa-file-alt"></i><span class="">Logs and Troubleshooting</span></a></label>
+  
+</li>
+  </ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id="m-docsopenshift-li">
+  <input type="checkbox" id="m-docsopenshift-check" checked/>
+  <label for="m-docsopenshift-check"><a href="/docs/openshift/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-docsopenshift"><i class="fab fa-openshift"></i><span class="">OpenShift Administration</span></a></label>
+  
+  <ul class="ul-2 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsopenshiftocp-onvmware-copy-li">
+  <input type="checkbox" id="m-docsopenshiftocp-onvmware-copy-check"/>
+  <label for="m-docsopenshiftocp-onvmware-copy-check"><a href="/docs/openshift/ocp-onvmware-copy/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsopenshiftocp-onvmware-copy"><i class="fab fa-openshift"></i><span class="">Openshift Installation on Vmware</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsopenshiftocp-sno-li">
+  <input type="checkbox" id="m-docsopenshiftocp-sno-check"/>
+  <label for="m-docsopenshiftocp-sno-check"><a href="/docs/openshift/ocp-sno/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsopenshiftocp-sno"><i class="fab fa-openshift"></i><span class="">Openshift Single node Cluster</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsopenshiftocp-tasks-li">
+  <input type="checkbox" id="m-docsopenshiftocp-tasks-check"/>
+  <label for="m-docsopenshiftocp-tasks-check"><a href="/docs/openshift/ocp-tasks/" class="align-left pl-0  active td-sidebar-link td-sidebar-link__page" id="m-docsopenshiftocp-tasks"><span class="td-sidebar-nav-active-item">Openshift 4 Tasks</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsopenshiftocp-tekton-li">
+  <input type="checkbox" id="m-docsopenshiftocp-tekton-check"/>
+  <label for="m-docsopenshiftocp-tekton-check"><a href="/docs/openshift/ocp-tekton/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsopenshiftocp-tekton"><span class="">Openshift Tekton Pipeline</span></a></label>
+  
+</li>
+  </ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-docskvm-li">
+  <input type="checkbox" id="m-docskvm-check"/>
+  <label for="m-docskvm-check"><a href="/docs/kvm/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-docskvm"><i class="fab fa-linux"></i><span class="">Redhat Ansible</span></a></label>
+  
+  <ul class="ul-2 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docskvmkvm-li">
+  <input type="checkbox" id="m-docskvmkvm-check"/>
+  <label for="m-docskvmkvm-check"><a href="/docs/kvm/kvm/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docskvmkvm"><i class="fab fa-kvm"></i><span class="">KVM</span></a></label>
+  
+</li>
+  </ul>
+</li>
+  </ul>
+</li>
+    </ul>
+  </nav>
+</div>
+
+          </aside>
+          <aside class="d-none d-xl-block col-xl-2 td-sidebar-toc d-print-none">
+            
+
+    <div class="td-page-meta ml-2 pb-1 pt-2 mb-0">
+        <div class="toc-title">Actions</div>
+        <a href="/edit/master/content/docs/Openshift/Ocp-tasks.md" target="_blank" rel="noopener"><i class="fa fa-edit fa-fw"></i> Contribute to this page</a>
+        <a href="/issues/new?issue%5Btitle=%f0%9f%93%83%20docs:%20update%20page%20docs/Openshift/Ocp-tasks.md" target="_blank" rel="noopener"><i class="fab fa-gitlab fa-fw"></i> Create a documentation issue</a>
+       
+    </div>
+
+            
+<div class="td-page-meta ml-2 pb-1 pt-2 mb-0 right-menu-toc">
+
+    
+        
+            <div class="toc-title">Table of content</div>
+            <div class="td-toc"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#openshift-administrators-roles-and-responsibilities">OpenShift Administrators Roles and Responsibilities.</a></li>
+    <li><a href="#updating-ssh-keys-on-openshift-4-nodes-via-machineconfig">Updating SSH Keys on OpenShift 4 Nodes via MachineConfig</a>
+      <ul>
+        <li><a href="#step-1-generate-a-new-ssh-key-pair-optional">Step 1: Generate a New SSH Key Pair (Optional)</a></li>
+        <li><a href="#step-2-create-a-machineconfig-yaml-file-for-ssh-key-update">Step 2: Create a MachineConfig YAML File for SSH Key Update</a></li>
+        <li><a href="#step-3-apply-the-machineconfig">Step 3: Apply the MachineConfig</a></li>
+        <li><a href="#step-4-verify-the-ssh-key-update">Step 4: Verify the SSH Key Update</a></li>
+      </ul>
+    </li>
+    <li><a href="#adding-an-ssl-certificate-to-trusted-store-in-openshift-cluster">Adding an SSL Certificate to Trusted Store in OpenShift Cluster</a>
+      <ul>
+        <li><a href="#step-1-obtain-the-ssl-certificate">Step 1: Obtain the SSL Certificate</a></li>
+        <li><a href="#step-2-create-a-configmap-or-secret">Step 2: Create a ConfigMap or Secret</a></li>
+        <li><a href="#create-a-secret">Create a Secret</a></li>
+        <li><a href="#create-a-configmap-optional">Create a ConfigMap (Optional)</a></li>
+        <li><a href="#step-3-configure-the-trusted-ca">Step 3: Configure the Trusted CA</a></li>
+        <li><a href="#for-custom-certificates">For Custom Certificates</a></li>
+        <li><a href="#step-4-update-the-api-server">Step 4: Update the API Server</a></li>
+        <li><a href="#step-5-restart-affected-pods">Step 5: Restart Affected Pods</a></li>
+        <li><a href="#step-6-verify-the-configuration">Step 6: Verify the Configuration</a></li>
+      </ul>
+    </li>
+    <li><a href="#ssl-related-tasks-in-openshift-4-administration">SSL Related Tasks in OpenShift 4 Administration</a>
+      <ul>
+        <li><a href="#table-of-contents">Table of Contents</a></li>
+        <li><a href="#adding-a-custom-ssl-certificate">Adding a Custom SSL Certificate</a></li>
+        <li><a href="#step-1-obtain-the-ssl-certificate-1">Step 1: Obtain the SSL Certificate</a></li>
+        <li><a href="#step-2-create-a-secret-for-the-ssl-certificate">Step 2: Create a Secret for the SSL Certificate</a></li>
+        <li><a href="#step-3-configure-ingress-or-routes-to-use-the-custom-ssl-certificate">Step 3: Configure Ingress or Routes to Use the Custom SSL Certificate</a></li>
+        <li><a href="#renewing-ssl-certificates">Renewing SSL Certificates</a></li>
+        <li><a href="#step-1-obtain-the-new-ssl-certificate">Step 1: Obtain the New SSL Certificate</a></li>
+        <li><a href="#step-2-update-the-existing-secret">Step 2: Update the Existing Secret</a></li>
+        <li><a href="#step-3-verify-the-route">Step 3: Verify the Route</a></li>
+      </ul>
+    </li>
+    <li><a href="#updating-the-default-ssl-certificate">Updating the Default SSL Certificate</a>
+      <ul>
+        <li><a href="#step-1-create-or-update-a-configmap">Step 1: Create or Update a ConfigMap</a></li>
+        <li><a href="#step-2-patch-the-api-server">Step 2: Patch the API Server</a></li>
+        <li><a href="#verifying-ssl-certificates">Verifying SSL Certificates</a></li>
+        <li><a href="#step-1-verify-ssl-certificate-in-use">Step 1: Verify SSL Certificate in Use</a></li>
+        <li><a href="#step-2-check-the-certificate-chain">Step 2: Check the Certificate Chain</a></li>
+      </ul>
+    </li>
+    <li><a href="#changing-configuration-for-all-openshift-nodes">Changing Configuration for All OpenShift Nodes</a>
+      <ul>
+        <li><a href="#step-1-identify-the-configuration-change">Step 1: Identify the Configuration Change</a></li>
+        <li><a href="#step-2-create-a-machineconfig">Step 2: Create a MachineConfig</a></li>
+        <li><a href="#step-3-monitor-the-status-of-the-machine-config-pool">Step 3: Monitor the Status of the Machine Config Pool</a></li>
+        <li><a href="#step-4-verify-the-configuration-change">Step 4: Verify the Configuration Change</a></li>
+        <li><a href="#step-5-restart-affected-services-or-pods">Step 5: Restart Affected Services or Pods</a></li>
+        <li><a href="#important-notes">Important Notes</a></li>
+        <li><a href="#changing-configuration-for-all-openshift-nodes-1">Changing Configuration for All OpenShift Nodes</a></li>
+        <li><a href="#modifying-systemd-services">Modifying Systemd Services</a></li>
+        <li><a href="#step-1-create-a-machineconfig-for-systemd-modifications">Step 1: Create a MachineConfig for Systemd Modifications</a></li>
+        <li><a href="#step-2-apply-the-machineconfig">Step 2: Apply the MachineConfig</a></li>
+        <li><a href="#step-3-verify-the-change">Step 3: Verify the Change</a></li>
+      </ul>
+    </li>
+    <li><a href="#adjusting-kernel-parameters">Adjusting Kernel Parameters</a>
+      <ul>
+        <li><a href="#step-1-create-a-machineconfig-for-kernel-parameters">Step 1: Create a MachineConfig for Kernel Parameters</a></li>
+        <li><a href="#step-2-apply-the-machineconfig-1">Step 2: Apply the MachineConfig</a></li>
+        <li><a href="#step-3-verify-the-change-1">Step 3: Verify the Change</a></li>
+      </ul>
+    </li>
+    <li><a href="#changing-the-default-container-runtime-settings">Changing the Default Container Runtime Settings</a>
+      <ul>
+        <li><a href="#step-1-create-a-machineconfig-for-container-runtime-settings">Step 1: Create a MachineConfig for Container Runtime Settings</a></li>
+        <li><a href="#step-2-apply-the-machineconfig-2">Step 2: Apply the MachineConfig</a></li>
+        <li><a href="#step-3-verify-the-change-2">Step 3: Verify the Change</a></li>
+        <li><a href="#step-4-monitor-the-machine-config-pool">Step 4: Monitor the Machine Config Pool</a></li>
+      </ul>
+    </li>
+    <li><a href="#upgrading-openshift-cluster">Upgrading OpenShift Cluster</a>
+      <ul>
+        <li><a href="#prerequisites">Prerequisites</a></li>
+        <li><a href="#step-1-prepare-for-the-upgrade">Step 1: Prepare for the Upgrade</a></li>
+        <li><a href="#step-2-upgrade-the-cluster">Step 2: Upgrade the Cluster</a></li>
+        <li><a href="#step-3-post-upgrade-tasks">Step 3: Post-Upgrade Tasks</a></li>
+        <li><a href="#step-4-clean-up">Step 4: Clean Up</a></li>
+        <li><a href="#important-notes-1">Important Notes</a></li>
+      </ul>
+    </li>
+    <li><a href="#upgrading-openshift-nodes-in-batches">Upgrading OpenShift Nodes in Batches</a>
+      <ul>
+        <li><a href="#prerequisites-1">Prerequisites</a></li>
+        <li><a href="#step-1-prepare-for-the-upgrade-1">Step 1: Prepare for the Upgrade</a></li>
+        <li><a href="#step-2-upgrade-the-nodes">Step 2: Upgrade the Nodes</a></li>
+        <li><a href="#step-3-uncordon-the-nodes">Step 3: Uncordon the Nodes</a></li>
+        <li><a href="#step-4-repeat-for-remaining-nodes">Step 4: Repeat for Remaining Nodes</a></li>
+        <li><a href="#step-5-post-upgrade-verification">Step 5: Post-Upgrade Verification</a></li>
+        <li><a href="#important-notes-2">Important Notes</a></li>
+      </ul>
+    </li>
+    <li><a href="#how-to-change-the-no-of-node-unavailable-while-upgrading">How to change the no of node unavailable while upgrading</a>
+      <ul>
+        <li><a href="#verify-the-maxunavailable-value">Verify the maxUnavailable value:</a></li>
+      </ul>
+    </li>
+    <li><a href="#modifying-openshift-project-templates">Modifying OpenShift Project Templates</a>
+      <ul>
+        <li><a href="#key-components-of-a-project-template">Key Components of a Project Template</a></li>
+        <li><a href="#viewing-existing-templates">Viewing Existing Templates</a></li>
+        <li><a href="#modifying-a-template">Modifying a Template</a></li>
+        <li><a href="#1-export-the-template">1. Export the Template</a></li>
+        <li><a href="#2-edit-the-template">2. Edit the Template</a></li>
+        <li><a href="#3-apply-the-modified-template">3. Apply the Modified Template</a></li>
+      </ul>
+    </li>
+    <li><a href="#adding-resource-quotas">Adding Resource Quotas</a></li>
+    <li><a href="#adding-limitranges">Adding LimitRanges</a>
+      <ul>
+        <li><a href="#creating-a-new-template">Creating a New Template</a></li>
+        <li><a href="#example-template-structure">Example Template Structure</a></li>
+        <li><a href="#conclusion">Conclusion</a></li>
+        <li><a href="#configuring-a-node-selector-for-a-project">Configuring a Node Selector for a Project</a></li>
+        <li><a href="#applying-quotas-to-multiple-projects">Applying Quotas to Multiple Projects</a></li>
+        <li><a href="#the-following-is-an-example-of-creating-a-cluster-resource-quota-for-all-projects-that-have-been-assigned-the-environmentqa-label">The following is an example of creating a cluster resource quota for all projects that have been assigned the environment=qa label:</a></li>
+      </ul>
+    </li>
+    <li><a href="#exposing-the-internal-openshift-registry">Exposing the Internal OpenShift Registry</a>
+      <ul>
+        <li><a href="#verify-registry-status">Verify Registry Status</a></li>
+        <li><a href="#expose-the-registry-service">Expose the Registry Service</a></li>
+        <li><a href="#retrieve-the-route-url">Retrieve the Route URL</a></li>
+        <li><a href="#log-in-to-the-registry-using-oc-cli">Log in to the Registry using oc CLI</a></li>
+        <li><a href="#alternatively-log-in-using-docker-cli">Alternatively, log in using Docker CLI</a></li>
+        <li><a href="#push-and-pull-images">Push and Pull Images</a></li>
+        <li><a href="#push">Push</a></li>
+        <li><a href="#pull">Pull</a></li>
+      </ul>
+    </li>
+    <li><a href="#overview-of-the-openshift-config-namespace-in-openshift">Overview of the <code>openshift-config</code> Namespace in OpenShift</a>
+      <ul>
+        <li><a href="#key-resources-in-openshift-config">Key Resources in <code>openshift-config</code></a></li>
+        <li><a href="#1-authentication-and-oauth-configuration">1. <strong>Authentication and OAuth Configuration</strong></a></li>
+        <li><a href="#2-ingress-and-proxy-configuration">2. <strong>Ingress and Proxy Configuration</strong></a></li>
+        <li><a href="#3-network-configuration">3. <strong>Network Configuration</strong></a></li>
+        <li><a href="#4-certificate-and-secret-management">4. <strong>Certificate and Secret Management</strong></a></li>
+        <li><a href="#5-image-registry-configuration">5. <strong>Image Registry Configuration</strong></a></li>
+        <li><a href="#6-etcd-configuration">6. <strong>Etcd Configuration</strong></a></li>
+        <li><a href="#7-cluster-operators-configuration">7. <strong>Cluster Operators Configuration</strong></a></li>
+        <li><a href="#8-custom-configurations-for-openshift-components">8. <strong>Custom Configurations for OpenShift Components</strong></a></li>
+        <li><a href="#summary-of-key-resource-types-in-openshift-config">Summary of Key Resource Types in <code>openshift-config</code></a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+        
+    
+
+</div>
+          </aside>
+          <main class="col-12 col-md-9 col-xl-8 pl-md-5" role="main">
+            
+  
+
+            <nav aria-label="breadcrumb" class="td-breadcrumbs">
+  <ol class="breadcrumb">
+  <li class="breadcrumb-item">
+    <a href="/docs/">Docs</a>
+  </li>
+  <li class="breadcrumb-item">
+    <a href="/docs/openshift/">OpenShift Administration</a>
+  </li>
+  <li class="breadcrumb-item active" aria-current="page">
+    <a href="/docs/openshift/ocp-tasks/">Openshift 4 Tasks</a>
+  </li>
+  </ol>
+</nav>
+            
+<div class="td-content">
+	<h1>Openshift 4 Tasks</h1>
+	<div class="lead">Openshift</div>
+	<header class="article-meta">
+		
+
+  
+    
+
+
+  
+    
+
+
+  
+
+		
+	</header>    
+	<ul>
+<li><a href="#openshift-administrators-roles-and-responsibilities">OpenShift Administrators Roles and Responsibilities</a></li>
+<li><a href="#updating-ssh-keys-on-openshift-4-nodes-via-machineconfig">Updating SSH Keys on OpenShift 4 Nodes via MachineConfig</a></li>
+<li><a href="#adding-an-ssl-certificate-to-trusted-store-in-openshift-cluster">Adding an SSL Certificate to Trusted Store in OpenShift Cluster</a></li>
+<li><a href="#ssl-related-tasks-in-openshift-4-administration">SSL Related Tasks in OpenShift 4 Administration</a></li>
+<li><a href="#updating-the-default-ssl-certificate">Updating the Default SSL Certificate</a></li>
+<li><a href="#changing-configuration-for-all-openshift-nodes">Changing Configuration for All OpenShift Nodes</a></li>
+<li><a href="#adjusting-kernel-parameters">Adjusting Kernel Parameters</a></li>
+<li><a href="#changing-the-default-container-runtime-settings">Changing the Default Container Runtime Settings</a></li>
+<li><a href="#upgrading-openshift-cluster">Upgrading OpenShift Cluster</a></li>
+<li><a href="#upgrading-openshift-nodes-in-batches">Upgrading OpenShift Nodes in Batches</a></li>
+<li><a href="#how-to-change-the-no-of-node-unavailable-while-upgrading">How to change the no of node unavailable while upgrading</a></li>
+<li><a href="#modifying-openshift-project-templates">Modifying OpenShift Project Templates</a></li>
+<li><a href="#adding-resource-quotas">Adding Resource Quotas</a></li>
+<li><a href="#adding-limitranges">Adding LimitRanges</a></li>
+<li><a href="#exposing-the-internal-openshift-registry">Exposing the Internal OpenShift Registry</a></li>
+<li><a href="#overview-of-the-openshift-config-namespace-in-openshift">Overview of the <code>openshift-config</code> Namespace in OpenShift</a></li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="openshift-administrators-roles-and-responsibilities" data-heading="OpenShift Administrators Roles and Responsibilities." data-level="2" data-permalink="/docs/openshift/ocp-tasks/" data-title="Openshift 4 Tasks" -->
+<h2 id="openshift-administrators-roles-and-responsibilities">OpenShift Administrators Roles and Responsibilities.</h2><ol>
+<li>
+<p><strong>Capacity Planning</strong></p>
+</li>
+<li>
+<p><strong>Proof of concepts</strong></p>
+</li>
+<li>
+<p><strong>Cluster Installation and Upgrades</strong></p>
+<ul>
+<li>Set up new clusters, apply regular updates, and perform major upgrades.
+This includes managing Red Hat OpenShift Cluster Manager and leveraging tools like Red Hat Advanced Cluster Management (RHACM) for multi-cluster environments.</li>
+</ul>
+</li>
+<li>
+<p><strong>User Management and Access Control</strong></p>
+<ul>
+<li>Implement role-based access control (RBAC) policies, manage users and permissions, and integrate authentication providers like LDAP or Active Directory.</li>
+</ul>
+</li>
+<li>
+<p><strong>Storage Management</strong></p>
+<ul>
+<li>Configure persistent storage using OpenShift Container Storage (OCS) or other storage providers. Manage storage classes, Persistent Volumes (PVs), and Persistent Volume Claims (PVCs) to ensure reliable data storage for applications.</li>
+</ul>
+</li>
+<li>
+<p><strong>Networking and Ingress Configuration</strong></p>
+<ul>
+<li>Manage networking policies, routes, ingress controllers, and network security configurations. Tasks include setting up cluster networking (SDN or OpenShift SDN), load balancing, and managing multi-cluster networking with RHACM.</li>
+</ul>
+</li>
+<li>
+<p><strong>Monitoring and Logging</strong></p>
+<ul>
+<li>Use Prometheus and Grafana for monitoring, and EFK/ELK stacks (Elasticsearch, Fluentd, Kibana) for centralized logging. Set up alerting for resource utilization, network traffic, and error logs to proactively manage cluster health.</li>
+</ul>
+</li>
+<li>
+<p><strong>Security Compliance and Vulnerability Management</strong></p>
+<ul>
+<li>Apply security patches, manage OpenShift&rsquo;s integrated security features, and scan images for vulnerabilities. Enable features like the OpenShift Compliance Operator for automated security checks.</li>
+</ul>
+</li>
+<li>
+<p><strong>Resource Optimization and Quota Management</strong></p>
+<ul>
+<li>Monitor and optimize resource usage (CPU, memory), and set quotas and limits for namespaces and projects to prevent resource exhaustion and ensure fair resource allocation.</li>
+</ul>
+</li>
+<li>
+<p><strong>Backup and Disaster Recovery</strong></p>
+<ul>
+<li>Implement backup and restore strategies using tools like Velero for Kubernetes backups, Kasten, or Red Hat-supported backup solutions. DR planning includes setting up automated backups and validating restore procedures regularly.</li>
+</ul>
+</li>
+<li>
+<p><strong>Operator Lifecycle Management (OLM)</strong></p>
+<ul>
+<li>Install, upgrade, and manage Operators for automating infrastructure components and applications. Ensure Operators are kept up-to-date and compatible with the OpenShift environment.</li>
+</ul>
+</li>
+<li>
+<p><strong>Support and Troubleshooting</strong></p>
+<ul>
+<li>Regularly troubleshoot performance issues, manage logs, resolve configuration errors, and work with Red Hat Support or internal resources for escalations. Common issues include network latency, failed deployments, or resource constraints impacting applications.</li>
+</ul>
+</li>
+</ol>
+<p>These tasks keep an OpenShift 4 environment secure, high-performing, and aligned with organizational requirements, especially for production-grade clusters.</p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="updating-ssh-keys-on-openshift-4-nodes-via-machineconfig" data-heading="Updating SSH Keys on OpenShift 4 Nodes via MachineConfig" data-level="2" data-permalink="/docs/openshift/ocp-tasks/" data-title="Openshift 4 Tasks" -->
+<h2 id="updating-ssh-keys-on-openshift-4-nodes-via-machineconfig">Updating SSH Keys on OpenShift 4 Nodes via MachineConfig</h2><p>OpenShift 4 uses the Machine Config Operator (MCO) to manage node configurations. To update SSH keys across all master and worker nodes, create a <code>MachineConfig</code> resource to apply the new SSH public key.</p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="step-1-generate-a-new-ssh-key-pair-optional" data-heading="Step 1: Generate a New SSH Key Pair (Optional)" data-level="3" data-permalink="/docs/openshift/ocp-tasks/" data-title="Openshift 4 Tasks" -->
+<h3 id="step-1-generate-a-new-ssh-key-pair-optional">Step 1: Generate a New SSH Key Pair (Optional)</h3><p>If you don’t already have an SSH key pair, generate a new one on your local machine:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>ssh-keygen -t rsa -b <span style="color:#ae81ff">4096</span> -C <span style="color:#e6db74">&#34;your_email@example.com&#34;</span>
+</span></span></code></pre></div><p>This command creates two files:</p>
+<ul>
+<li>~/.ssh/id_rsa (private key)</li>
+<li>~/.ssh/id_rsa.pub (public key)</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="step-2-create-a-machineconfig-yaml-file-for-ssh-key-update" data-heading="Step 2: Create a MachineConfig YAML File for SSH Key Update" data-level="3" data-permalink="/docs/openshift/ocp-tasks/" data-title="Openshift 4 Tasks" -->
+<h3 id="step-2-create-a-machineconfig-yaml-file-for-ssh-key-update">Step 2: Create a MachineConfig YAML File for SSH Key Update</h3><p>Create a YAML file, e.g., <code>ssh-key-update.yaml</code>, with the following content. Replace <code>&lt;your-ssh-public-key&gt;</code> with the actual content of your SSH public key.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">apiVersion</span>: <span style="color:#ae81ff">machineconfiguration.openshift.io/v1</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">kind</span>: <span style="color:#ae81ff">MachineConfig</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">metadata</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">name</span>: <span style="color:#ae81ff">ssh-key-update</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">labels</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">machineconfiguration.openshift.io/role</span>: <span style="color:#ae81ff">&lt;node-role&gt; </span> <span style="color:#75715e"># Replace &lt;node-role&gt; with &#34;worker&#34; or &#34;master&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">spec</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">config</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">ignition</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">version</span>: <span style="color:#ae81ff">3.2.0</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">passwd</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">users</span>:
+</span></span><span style="display:flex;"><span>        - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">core</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">sshAuthorizedKeys</span>:
+</span></span><span style="display:flex;"><span>            - <span style="color:#e6db74">&#34;ssh-rsa &lt;your-ssh-public-key&gt;&#34;</span>
+</span></span></code></pre></div><ul>
+<li><strong>machineconfiguration.openshift.io/role</strong>: Set this to <code>worker</code> to target worker nodes or <code>master</code> to target master nodes.</li>
+<li><strong>sshAuthorizedKeys</strong>: Add your SSH public key here (the content of <code>id_rsa.pub</code>).</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="step-3-apply-the-machineconfig" data-heading="Step 3: Apply the MachineConfig" data-level="3" data-permalink="/docs/openshift/ocp-tasks/" data-title="Openshift 4 Tasks" -->
+<h3 id="step-3-apply-the-machineconfig">Step 3: Apply the MachineConfig</h3><ol>
+<li>Apply the <code>MachineConfig</code> to your OCP 4 cluster:</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>oc apply -f ssh-key-update.yaml
+</span></span></code></pre></div><ol start="2">
+<li>Monitor the rollout status to confirm that the update is applied across nodes:</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>oc get machineconfigpool
+</span></span></code></pre></div><p>Wait until the <code>UPDATED</code> status is <code>True</code> for the respective <code>machineconfigpool</code> (e.g., <code>worker</code> or <code>master</code>).</p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="step-4-verify-the-ssh-key-update" data-heading="Step 4: Verify the SSH Key Update" data-level="3" data-permalink="/docs/openshift/ocp-tasks/" data-title="Openshift 4 Tasks" -->
+<h3 id="step-4-verify-the-ssh-key-update">Step 4: Verify the SSH Key Update</h3><p>Once the rollout is complete, verify that you can SSH into the nodes as the <code>core</code> user:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>ssh core@&lt;node-ip&gt;
+</span></span></code></pre></div><p>This should authenticate using the updated SSH key.</p>
+<hr>
+<p><strong>Important Notes</strong>:</p>
+<ul>
+<li><strong>Do not manually modify SSH keys</strong> directly on nodes, as the Machine Config Operator will revert changes outside of its control.</li>
+<li><strong>Role-based MachineConfig</strong>: If you need different keys for master and worker nodes, create separate <code>MachineConfig</code> files, each with the appropriate <code>machineconfiguration.openshift.io/role</code> label.</li>
+<li><strong>Automation</strong>: Changes applied with MachineConfig will persist across reboots and node replacements, aligning with OpenShift&rsquo;s immutable infrastructure approach.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="adding-an-ssl-certificate-to-trusted-store-in-openshift-cluster" data-heading="Adding an SSL Certificate to Trusted Store in OpenShift Cluster" data-level="2" data-permalink="/docs/openshift/ocp-tasks/" data-title="Openshift 4 Tasks" -->
+<h2 id="adding-an-ssl-certificate-to-trusted-store-in-openshift-cluster">Adding an SSL Certificate to Trusted Store in OpenShift Cluster</h2><p>To add an SSL certificate to the trusted store in an OpenShift cluster, follow these steps:</p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="step-1-obtain-the-ssl-certificate" data-heading="Step 1: Obtain the SSL Certificate" data-level="3" data-permalink="/docs/openshift/ocp-tasks/" data-title="Openshift 4 Tasks" -->
+<h3 id="step-1-obtain-the-ssl-certificate">Step 1: Obtain the SSL Certificate</h3><p>Make sure you have the SSL certificate file (e.g., <code>my-certificate.crt</code>) that you want to add to the trusted store.</p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="step-2-create-a-configmap-or-secret" data-heading="Step 2: Create a ConfigMap or Secret" data-level="3" data-permalink="/docs/openshift/ocp-tasks/" data-title="Openshift 4 Tasks" -->
+<h3 id="step-2-create-a-configmap-or-secret">Step 2: Create a ConfigMap or Secret</h3><p>You can either use a <code>ConfigMap</code> or a <code>Secret</code> to store the SSL certificate. A <code>Secret</code> is recommended for sensitive data.</p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="create-a-secret" data-heading="Create a Secret" data-level="3" data-permalink="/docs/openshift/ocp-tasks/" data-title="Openshift 4 Tasks" -->
+<h3 id="create-a-secret">Create a Secret</h3><ol>
+<li><strong>Create a Secret containing the SSL certificate:</strong></li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>oc create secret generic my-ssl-cert --from-file<span style="color:#f92672">=</span>ca.crt<span style="color:#f92672">=</span>my-certificate.crt -n &lt;namespace&gt;
+</span></span></code></pre></div><p>Replace <code>&lt;namespace&gt;</code> with the desired namespace where you want to create the secret.</p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="create-a-configmap-optional" data-heading="Create a ConfigMap (Optional)" data-level="3" data-permalink="/docs/openshift/ocp-tasks/" data-title="Openshift 4 Tasks" -->
+<h3 id="create-a-configmap-optional">Create a ConfigMap (Optional)</h3><p>If you choose to use a <code>ConfigMap</code>, you can create it with:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>oc create configmap my-ssl-cert --from-file<span style="color:#f92672">=</span>my-certificate.crt -n &lt;namespace&gt;
+</span></span></code></pre></div><!-- end-chunk -->
+<!-- begin-chunk data-anchor="step-3-configure-the-trusted-ca" data-heading="Step 3: Configure the Trusted CA" data-level="3" data-permalink="/docs/openshift/ocp-tasks/" data-title="Openshift 4 Tasks" -->
+<h3 id="step-3-configure-the-trusted-ca">Step 3: Configure the Trusted CA</h3><p>To configure the OpenShift cluster to trust the SSL certificate, you need to add it to the appropriate configuration.</p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="for-custom-certificates" data-heading="For Custom Certificates" data-level="3" data-permalink="/docs/openshift/ocp-tasks/" data-title="Openshift 4 Tasks" -->
+<h3 id="for-custom-certificates">For Custom Certificates</h3><ol>
+<li><strong>Edit the <code>ClusterIP</code> service to use the custom CA:</strong></li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>oc patch configmap/cluster --type merge -p <span style="color:#e6db74">&#39;{&#34;data&#34;:{&#34;trust-ca.crt&#34;: &#34;your-certificate-data&#34;}}&#39;</span> -n openshift-config
+</span></span></code></pre></div><p>Replace <code>&quot;your-certificate-data&quot;</code> with the actual contents of your SSL certificate.</p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="step-4-update-the-api-server" data-heading="Step 4: Update the API Server" data-level="3" data-permalink="/docs/openshift/ocp-tasks/" data-title="Openshift 4 Tasks" -->
+<h3 id="step-4-update-the-api-server">Step 4: Update the API Server</h3><ol>
+<li><strong>Edit the API server configuration to include your SSL certificate:</strong></li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>oc patch apiserver cluster --type merge --patch <span style="color:#e6db74">&#39;{&#34;spec&#34;:{&#34;trustedCA&#34;:{&#34;name&#34;:&#34;my-ssl-cert&#34;}}}&#39;</span>
+</span></span></code></pre></div><!-- end-chunk -->
+<!-- begin-chunk data-anchor="step-5-restart-affected-pods" data-heading="Step 5: Restart Affected Pods" data-level="3" data-permalink="/docs/openshift/ocp-tasks/" data-title="Openshift 4 Tasks" -->
+<h3 id="step-5-restart-affected-pods">Step 5: Restart Affected Pods</h3><p>To apply the changes, you may need to restart the affected pods, such as the API server or any applications that need to trust the new certificate.</p>
+<ol>
+<li><strong>Restart the affected pods:</strong></li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>oc rollout restart deployment/&lt;deployment-name&gt; -n &lt;namespace&gt;
+</span></span></code></pre></div><!-- end-chunk -->
+<!-- begin-chunk data-anchor="step-6-verify-the-configuration" data-heading="Step 6: Verify the Configuration" data-level="3" data-permalink="/docs/openshift/ocp-tasks/" data-title="Openshift 4 Tasks" -->
+<h3 id="step-6-verify-the-configuration">Step 6: Verify the Configuration</h3><ol>
+<li><strong>Verify that the certificate has been added to the trusted store:</strong>
+You can check the trusted certificates by accessing a pod and verifying the CA store:</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>oc exec -it &lt;pod-name&gt; -- cat /etc/pki/ca-trust/extracted/pem/tls-ca-bundle.pem
+</span></span></code></pre></div><hr>
+<p><strong>Important Notes</strong>:</p>
+<ul>
+<li>Always ensure you have the correct permissions to create secrets and modify configurations in the cluster.</li>
+<li>Be cautious when handling sensitive information like SSL certificates.</li>
+<li>Depending on your OpenShift version and setup, some steps may vary slightly.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="ssl-related-tasks-in-openshift-4-administration" data-heading="SSL Related Tasks in OpenShift 4 Administration" data-level="2" data-permalink="/docs/openshift/ocp-tasks/" data-title="Openshift 4 Tasks" -->
+<h2 id="ssl-related-tasks-in-openshift-4-administration">SSL Related Tasks in OpenShift 4 Administration</h2><p>As an OpenShift 4 administrator, managing SSL certificates is crucial for securing communications. This guide outlines common SSL-related tasks, including adding custom certificates, renewing certificates, and managing the default certificate.</p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="table-of-contents" data-heading="Table of Contents" data-level="3" data-permalink="/docs/openshift/ocp-tasks/" data-title="Openshift 4 Tasks" -->
+<h3 id="table-of-contents">Table of Contents</h3><ol>
+<li><a href="#adding-a-custom-ssl-certificate">Adding a Custom SSL Certificate</a></li>
+<li><a href="#renewing-ssl-certificates">Renewing SSL Certificates</a></li>
+<li><a href="#updating-the-default-ssl-certificate">Updating the Default SSL Certificate</a></li>
+<li><a href="#verifying-ssl-certificates">Verifying SSL Certificates</a></li>
+</ol>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="adding-a-custom-ssl-certificate" data-heading="Adding a Custom SSL Certificate" data-level="3" data-permalink="/docs/openshift/ocp-tasks/" data-title="Openshift 4 Tasks" -->
+<h3 id="adding-a-custom-ssl-certificate">Adding a Custom SSL Certificate</h3><!-- end-chunk -->
+<!-- begin-chunk data-anchor="step-1-obtain-the-ssl-certificate-1" data-heading="Step 1: Obtain the SSL Certificate" data-level="3" data-permalink="/docs/openshift/ocp-tasks/" data-title="Openshift 4 Tasks" -->
+<h3 id="step-1-obtain-the-ssl-certificate-1">Step 1: Obtain the SSL Certificate</h3><p>Ensure you have the SSL certificate files (e.g., <code>my-certificate.crt</code> and <code>my-key.key</code>).</p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="step-2-create-a-secret-for-the-ssl-certificate" data-heading="Step 2: Create a Secret for the SSL Certificate" data-level="3" data-permalink="/docs/openshift/ocp-tasks/" data-title="Openshift 4 Tasks" -->
+<h3 id="step-2-create-a-secret-for-the-ssl-certificate">Step 2: Create a Secret for the SSL Certificate</h3><ol>
+<li><strong>Create a Secret containing the SSL certificate and key:</strong></li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>oc create secret tls my-tls-secret --cert<span style="color:#f92672">=</span>my-certificate.crt --key<span style="color:#f92672">=</span>my-key.key -n &lt;namespace&gt;
+</span></span></code></pre></div><p>Replace <code>&lt;namespace&gt;</code> with the desired namespace.</p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="step-3-configure-ingress-or-routes-to-use-the-custom-ssl-certificate" data-heading="Step 3: Configure Ingress or Routes to Use the Custom SSL Certificate" data-level="3" data-permalink="/docs/openshift/ocp-tasks/" data-title="Openshift 4 Tasks" -->
+<h3 id="step-3-configure-ingress-or-routes-to-use-the-custom-ssl-certificate">Step 3: Configure Ingress or Routes to Use the Custom SSL Certificate</h3><ol>
+<li><strong>Edit your Ingress or Route to reference the Secret:</strong></li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">apiVersion</span>: <span style="color:#ae81ff">route.openshift.io/v1</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">kind</span>: <span style="color:#ae81ff">Route</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">metadata</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">name</span>: <span style="color:#ae81ff">my-route</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">namespace</span>: <span style="color:#ae81ff">&lt;namespace&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">spec</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">host</span>: <span style="color:#ae81ff">myapp.example.com</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">to</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">kind</span>: <span style="color:#ae81ff">Service</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">name</span>: <span style="color:#ae81ff">my-service</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">tls</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">termination</span>: <span style="color:#ae81ff">edge</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">certificate</span>: |<span style="color:#e6db74">
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      -----BEGIN CERTIFICATE-----
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      &lt;your-certificate-content&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      -----END CERTIFICATE-----</span>      
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">key</span>: |<span style="color:#e6db74">
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      -----BEGIN PRIVATE KEY-----
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      &lt;your-key-content&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      -----END PRIVATE KEY-----</span>      
+</span></span></code></pre></div><!-- end-chunk -->
+<!-- begin-chunk data-anchor="renewing-ssl-certificates" data-heading="Renewing SSL Certificates" data-level="3" data-permalink="/docs/openshift/ocp-tasks/" data-title="Openshift 4 Tasks" -->
+<h3 id="renewing-ssl-certificates">Renewing SSL Certificates</h3><!-- end-chunk -->
+<!-- begin-chunk data-anchor="step-1-obtain-the-new-ssl-certificate" data-heading="Step 1: Obtain the New SSL Certificate" data-level="3" data-permalink="/docs/openshift/ocp-tasks/" data-title="Openshift 4 Tasks" -->
+<h3 id="step-1-obtain-the-new-ssl-certificate">Step 1: Obtain the New SSL Certificate</h3><p>Acquire the new SSL certificate files when it&rsquo;s time to renew your certificate.</p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="step-2-update-the-existing-secret" data-heading="Step 2: Update the Existing Secret" data-level="3" data-permalink="/docs/openshift/ocp-tasks/" data-title="Openshift 4 Tasks" -->
+<h3 id="step-2-update-the-existing-secret">Step 2: Update the Existing Secret</h3><ol>
+<li><strong>Update the Secret with the new certificate and key:</strong></li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>oc create secret tls my-tls-secret --cert<span style="color:#f92672">=</span>new-certificate.crt --key<span style="color:#f92672">=</span>new-key.key -n &lt;namespace&gt; --dry-run<span style="color:#f92672">=</span>client -o yaml | oc apply -f -
+</span></span></code></pre></div><!-- end-chunk -->
+<!-- begin-chunk data-anchor="step-3-verify-the-route" data-heading="Step 3: Verify the Route" data-level="3" data-permalink="/docs/openshift/ocp-tasks/" data-title="Openshift 4 Tasks" -->
+<h3 id="step-3-verify-the-route">Step 3: Verify the Route</h3><p>Ensure that the updated SSL certificate is being used:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>oc get route my-route -n &lt;namespace&gt; -o yaml
+</span></span></code></pre></div><!-- end-chunk -->
+<!-- begin-chunk data-anchor="updating-the-default-ssl-certificate" data-heading="Updating the Default SSL Certificate" data-level="2" data-permalink="/docs/openshift/ocp-tasks/" data-title="Openshift 4 Tasks" -->
+<h2 id="updating-the-default-ssl-certificate">Updating the Default SSL Certificate</h2><!-- end-chunk -->
+<!-- begin-chunk data-anchor="step-1-create-or-update-a-configmap" data-heading="Step 1: Create or Update a ConfigMap" data-level="3" data-permalink="/docs/openshift/ocp-tasks/" data-title="Openshift 4 Tasks" -->
+<h3 id="step-1-create-or-update-a-configmap">Step 1: Create or Update a ConfigMap</h3><p>If you need to update the default certificates for the cluster (e.g., for the API server), create or update a <code>ConfigMap</code>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>oc create configmap custom-ca --from-file<span style="color:#f92672">=</span>my-certificate.crt -n openshift-config --dry-run<span style="color:#f92672">=</span>client -o yaml | oc apply -f -
+</span></span></code></pre></div><!-- end-chunk -->
+<!-- begin-chunk data-anchor="step-2-patch-the-api-server" data-heading="Step 2: Patch the API Server" data-level="3" data-permalink="/docs/openshift/ocp-tasks/" data-title="Openshift 4 Tasks" -->
+<h3 id="step-2-patch-the-api-server">Step 2: Patch the API Server</h3><ol>
+<li><strong>Patch the API server to use the new custom CA:</strong></li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>oc patch apiserver cluster --type merge --patch <span style="color:#e6db74">&#39;{&#34;spec&#34;:{&#34;trustedCA&#34;:{&#34;name&#34;:&#34;custom-ca&#34;}}}&#39;</span>
+</span></span></code></pre></div><!-- end-chunk -->
+<!-- begin-chunk data-anchor="verifying-ssl-certificates" data-heading="Verifying SSL Certificates" data-level="3" data-permalink="/docs/openshift/ocp-tasks/" data-title="Openshift 4 Tasks" -->
+<h3 id="verifying-ssl-certificates">Verifying SSL Certificates</h3><!-- end-chunk -->
+<!-- begin-chunk data-anchor="step-1-verify-ssl-certificate-in-use" data-heading="Step 1: Verify SSL Certificate in Use" data-level="3" data-permalink="/docs/openshift/ocp-tasks/" data-title="Openshift 4 Tasks" -->
+<h3 id="step-1-verify-ssl-certificate-in-use">Step 1: Verify SSL Certificate in Use</h3><p>You can verify which SSL certificate is currently in use for a route:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>oc get route my-route -n &lt;namespace&gt; -o jsonpath<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;{.spec.tls}&#39;</span>
+</span></span></code></pre></div><!-- end-chunk -->
+<!-- begin-chunk data-anchor="step-2-check-the-certificate-chain" data-heading="Step 2: Check the Certificate Chain" data-level="3" data-permalink="/docs/openshift/ocp-tasks/" data-title="Openshift 4 Tasks" -->
+<h3 id="step-2-check-the-certificate-chain">Step 2: Check the Certificate Chain</h3><p>To check the certificate chain of a service, you can exec into a pod and use tools like <code>openssl</code>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>oc exec -it &lt;pod-name&gt; -- /bin/sh
+</span></span><span style="display:flex;"><span>openssl s_client -connect myapp.example.com:443 -showcerts
+</span></span></code></pre></div><hr>
+<p><strong>Important Notes</strong>:</p>
+<ul>
+<li>Ensure you have the necessary permissions to manage secrets and configurations in OpenShift.</li>
+<li>Always back up existing certificates and configurations before making changes.</li>
+<li>Monitor the expiration of certificates and set reminders to renew them in advance.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="changing-configuration-for-all-openshift-nodes" data-heading="Changing Configuration for All OpenShift Nodes" data-level="2" data-permalink="/docs/openshift/ocp-tasks/" data-title="Openshift 4 Tasks" -->
+<h2 id="changing-configuration-for-all-openshift-nodes">Changing Configuration for All OpenShift Nodes</h2><p>OpenShift 4 uses the Machine Config Operator to manage the configuration of nodes. To change the configuration for all nodes, follow these steps:</p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="step-1-identify-the-configuration-change" data-heading="Step 1: Identify the Configuration Change" data-level="3" data-permalink="/docs/openshift/ocp-tasks/" data-title="Openshift 4 Tasks" -->
+<h3 id="step-1-identify-the-configuration-change">Step 1: Identify the Configuration Change</h3><p>Determine what specific configuration you need to change. Common changes include:</p>
+<ul>
+<li>Updating SSH keys</li>
+<li>Modifying systemd services</li>
+<li>Adjusting kernel parameters</li>
+<li>Changing the default container runtime settings</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="step-2-create-a-machineconfig" data-heading="Step 2: Create a MachineConfig" data-level="3" data-permalink="/docs/openshift/ocp-tasks/" data-title="Openshift 4 Tasks" -->
+<h3 id="step-2-create-a-machineconfig">Step 2: Create a MachineConfig</h3><ol>
+<li><strong>Create a YAML file for the MachineConfig</strong>. For example, to update the SSH keys, create a file named <code>update-ssh-keys.yaml</code> with the following content:</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">apiVersion</span>: <span style="color:#ae81ff">machineconfiguration.openshift.io/v1</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">kind</span>: <span style="color:#ae81ff">MachineConfig</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">metadata</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">name</span>: <span style="color:#ae81ff">update-ssh-keys</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">labels</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">machineconfiguration.openshift.io/role</span>: <span style="color:#ae81ff">worker</span> <span style="color:#75715e"># or master</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">spec</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">config</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">ignition</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">version</span>: <span style="color:#ae81ff">3.2.0</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">passwd</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">users</span>:
+</span></span><span style="display:flex;"><span>        - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">core</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">sshAuthorizedKeys</span>:
+</span></span><span style="display:flex;"><span>            - <span style="color:#e6db74">&#34;ssh-rsa &lt;your-new-ssh-public-key&gt;&#34;</span>
+</span></span></code></pre></div><p>Replace <code>&lt;your-new-ssh-public-key&gt;</code> with the actual content of the new SSH public key.</p>
+<ol start="2">
+<li><strong>Apply the MachineConfig</strong>:</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>oc apply -f update-ssh-keys.yaml
+</span></span></code></pre></div><!-- end-chunk -->
+<!-- begin-chunk data-anchor="step-3-monitor-the-status-of-the-machine-config-pool" data-heading="Step 3: Monitor the Status of the Machine Config Pool" data-level="3" data-permalink="/docs/openshift/ocp-tasks/" data-title="Openshift 4 Tasks" -->
+<h3 id="step-3-monitor-the-status-of-the-machine-config-pool">Step 3: Monitor the Status of the Machine Config Pool</h3><p>After applying the MachineConfig, you should monitor the status of the affected Machine Config Pool to ensure the changes are applied:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>oc get machineconfigpool
+</span></span></code></pre></div><p>Wait until the <code>UPDATED</code> status is <code>True</code> for the respective Machine Config Pool (e.g., <code>worker</code> or <code>master</code>).</p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="step-4-verify-the-configuration-change" data-heading="Step 4: Verify the Configuration Change" data-level="3" data-permalink="/docs/openshift/ocp-tasks/" data-title="Openshift 4 Tasks" -->
+<h3 id="step-4-verify-the-configuration-change">Step 4: Verify the Configuration Change</h3><ol>
+<li><strong>SSH into one of the nodes</strong> to verify the configuration change:</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>ssh core@&lt;node-ip&gt;
+</span></span></code></pre></div><ol start="2">
+<li><strong>Check the updated configuration</strong> as needed, for example, to verify SSH keys:</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>cat ~/.ssh/authorized_keys
+</span></span></code></pre></div><!-- end-chunk -->
+<!-- begin-chunk data-anchor="step-5-restart-affected-services-or-pods" data-heading="Step 5: Restart Affected Services or Pods" data-level="3" data-permalink="/docs/openshift/ocp-tasks/" data-title="Openshift 4 Tasks" -->
+<h3 id="step-5-restart-affected-services-or-pods">Step 5: Restart Affected Services or Pods</h3><p>Some changes might require restarting affected services or pods. To restart the affected pods, you can use:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>oc rollout restart deployment/&lt;deployment-name&gt; -n &lt;namespace&gt;
+</span></span></code></pre></div><!-- end-chunk -->
+<!-- begin-chunk data-anchor="important-notes" data-heading="Important Notes" data-level="3" data-permalink="/docs/openshift/ocp-tasks/" data-title="Openshift 4 Tasks" -->
+<h3 id="important-notes">Important Notes</h3><ul>
+<li><strong>Machine Config Operator</strong>: Be cautious when using the Machine Config Operator, as incorrect configurations can lead to node failures.</li>
+<li><strong>Backup Existing Configurations</strong>: Always backup your existing configurations before making changes.</li>
+<li><strong>Node Role</strong>: Make sure to specify the correct node role (master or worker) in the labels of your MachineConfig.</li>
+<li><strong>Multiple Changes</strong>: If you have multiple changes to apply, consider creating a single MachineConfig that encapsulates all required changes, rather than creating multiple individual MachineConfigs.</li>
+</ul>
+<hr>
+<p>This guide provides a structured approach to changing configurations for all OpenShift nodes. If you have specific configurations in mind or need further assistance, feel free to ask!</p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="changing-configuration-for-all-openshift-nodes-1" data-heading="Changing Configuration for All OpenShift Nodes" data-level="3" data-permalink="/docs/openshift/ocp-tasks/" data-title="Openshift 4 Tasks" -->
+<h3 id="changing-configuration-for-all-openshift-nodes-1">Changing Configuration for All OpenShift Nodes</h3><p>OpenShift 4 uses the Machine Config Operator (MCO) to manage the configuration of nodes. This guide provides steps to modify systemd services, adjust kernel parameters, and change default container runtime settings.</p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="modifying-systemd-services" data-heading="Modifying Systemd Services" data-level="3" data-permalink="/docs/openshift/ocp-tasks/" data-title="Openshift 4 Tasks" -->
+<h3 id="modifying-systemd-services">Modifying Systemd Services</h3><!-- end-chunk -->
+<!-- begin-chunk data-anchor="step-1-create-a-machineconfig-for-systemd-modifications" data-heading="Step 1: Create a MachineConfig for Systemd Modifications" data-level="3" data-permalink="/docs/openshift/ocp-tasks/" data-title="Openshift 4 Tasks" -->
+<h3 id="step-1-create-a-machineconfig-for-systemd-modifications">Step 1: Create a MachineConfig for Systemd Modifications</h3><ol>
+<li><strong>Create a YAML file for the MachineConfig</strong>. For example, to modify a systemd service, create a file named <code>modify-systemd.yaml</code> with the following content:</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">apiVersion</span>: <span style="color:#ae81ff">machineconfiguration.openshift.io/v1</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">kind</span>: <span style="color:#ae81ff">MachineConfig</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">metadata</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">name</span>: <span style="color:#ae81ff">modify-systemd</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">labels</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">machineconfiguration.openshift.io/role</span>: <span style="color:#ae81ff">worker</span> <span style="color:#75715e"># or master</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">spec</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">config</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">ignition</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">version</span>: <span style="color:#ae81ff">3.2.0</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">systemd</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">units</span>:
+</span></span><span style="display:flex;"><span>        - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">my-service.service</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">enabled</span>: <span style="color:#66d9ef">true</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">dropins</span>:
+</span></span><span style="display:flex;"><span>            - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">10</span>-<span style="color:#ae81ff">my-custom.conf</span>
+</span></span><span style="display:flex;"><span>              <span style="color:#f92672">contents</span>: |<span style="color:#e6db74">
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">                [Service]
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">                Environment=&#34;MY_ENV_VAR=my_value&#34;</span>                
+</span></span></code></pre></div><p>Replace <code>my-service.service</code> and the <code>Environment</code> variables with your actual service name and configuration.</p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="step-2-apply-the-machineconfig" data-heading="Step 2: Apply the MachineConfig" data-level="3" data-permalink="/docs/openshift/ocp-tasks/" data-title="Openshift 4 Tasks" -->
+<h3 id="step-2-apply-the-machineconfig">Step 2: Apply the MachineConfig</h3><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>oc apply -f modify-systemd.yaml
+</span></span></code></pre></div><!-- end-chunk -->
+<!-- begin-chunk data-anchor="step-3-verify-the-change" data-heading="Step 3: Verify the Change" data-level="3" data-permalink="/docs/openshift/ocp-tasks/" data-title="Openshift 4 Tasks" -->
+<h3 id="step-3-verify-the-change">Step 3: Verify the Change</h3><p>SSH into the node and check the status of the modified service:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>ssh core@&lt;node-ip&gt;
+</span></span><span style="display:flex;"><span>systemctl status my-service.service
+</span></span></code></pre></div><!-- end-chunk -->
+<!-- begin-chunk data-anchor="adjusting-kernel-parameters" data-heading="Adjusting Kernel Parameters" data-level="2" data-permalink="/docs/openshift/ocp-tasks/" data-title="Openshift 4 Tasks" -->
+<h2 id="adjusting-kernel-parameters">Adjusting Kernel Parameters</h2><!-- end-chunk -->
+<!-- begin-chunk data-anchor="step-1-create-a-machineconfig-for-kernel-parameters" data-heading="Step 1: Create a MachineConfig for Kernel Parameters" data-level="3" data-permalink="/docs/openshift/ocp-tasks/" data-title="Openshift 4 Tasks" -->
+<h3 id="step-1-create-a-machineconfig-for-kernel-parameters">Step 1: Create a MachineConfig for Kernel Parameters</h3><ol>
+<li><strong>Create a YAML file for the MachineConfig</strong>. For example, to adjust kernel parameters, create a file named <code>adjust-kernel-params.yaml</code> with the following content:</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">apiVersion</span>: <span style="color:#ae81ff">machineconfiguration.openshift.io/v1</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">kind</span>: <span style="color:#ae81ff">MachineConfig</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">metadata</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">name</span>: <span style="color:#ae81ff">adjust-kernel-params</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">labels</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">machineconfiguration.openshift.io/role</span>: <span style="color:#ae81ff">worker</span> <span style="color:#75715e"># or master</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">spec</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">config</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">ignition</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">version</span>: <span style="color:#ae81ff">3.2.0</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">kernelArguments</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#e6db74">&#34;parameter1=value1&#34;</span>
+</span></span><span style="display:flex;"><span>      - <span style="color:#e6db74">&#34;parameter2=value2&#34;</span>
+</span></span></code></pre></div><p>Replace <code>parameter1=value1</code> and <code>parameter2=value2</code> with the actual kernel parameters you need to set.</p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="step-2-apply-the-machineconfig-1" data-heading="Step 2: Apply the MachineConfig" data-level="3" data-permalink="/docs/openshift/ocp-tasks/" data-title="Openshift 4 Tasks" -->
+<h3 id="step-2-apply-the-machineconfig-1">Step 2: Apply the MachineConfig</h3><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>oc apply -f adjust-kernel-params.yaml
+</span></span></code></pre></div><!-- end-chunk -->
+<!-- begin-chunk data-anchor="step-3-verify-the-change-1" data-heading="Step 3: Verify the Change" data-level="3" data-permalink="/docs/openshift/ocp-tasks/" data-title="Openshift 4 Tasks" -->
+<h3 id="step-3-verify-the-change-1">Step 3: Verify the Change</h3><p>SSH into the node and check the current kernel parameters:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>ssh core@&lt;node-ip&gt;
+</span></span><span style="display:flex;"><span>sysctl -a | grep parameter1
+</span></span></code></pre></div><!-- end-chunk -->
+<!-- begin-chunk data-anchor="changing-the-default-container-runtime-settings" data-heading="Changing the Default Container Runtime Settings" data-level="2" data-permalink="/docs/openshift/ocp-tasks/" data-title="Openshift 4 Tasks" -->
+<h2 id="changing-the-default-container-runtime-settings">Changing the Default Container Runtime Settings</h2><!-- end-chunk -->
+<!-- begin-chunk data-anchor="step-1-create-a-machineconfig-for-container-runtime-settings" data-heading="Step 1: Create a MachineConfig for Container Runtime Settings" data-level="3" data-permalink="/docs/openshift/ocp-tasks/" data-title="Openshift 4 Tasks" -->
+<h3 id="step-1-create-a-machineconfig-for-container-runtime-settings">Step 1: Create a MachineConfig for Container Runtime Settings</h3><ol>
+<li><strong>Create a YAML file for the MachineConfig</strong>. For example, to change container runtime settings, create a file named <code>change-runtime-settings.yaml</code> with the following content:</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">apiVersion</span>: <span style="color:#ae81ff">machineconfiguration.openshift.io/v1</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">kind</span>: <span style="color:#ae81ff">MachineConfig</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">metadata</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">name</span>: <span style="color:#ae81ff">change-runtime-settings</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">labels</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">machineconfiguration.openshift.io/role</span>: <span style="color:#ae81ff">worker</span> <span style="color:#75715e"># or master</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">spec</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">config</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">ignition</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">version</span>: <span style="color:#ae81ff">3.2.0</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">storage</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">files</span>:
+</span></span><span style="display:flex;"><span>        - <span style="color:#f92672">path</span>: <span style="color:#ae81ff">/etc/crio/crio.conf</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">mode</span>: <span style="color:#ae81ff">0644</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">owner</span>: <span style="color:#ae81ff">root:root</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">contents</span>:
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">inline</span>: |<span style="color:#e6db74">
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">              [crio]
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">              default_runtime = &#34;my-runtime&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">              [runtime]
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">              runtime_type = &#34;my-runtime&#34;</span>              
+</span></span></code></pre></div><p>Replace <code>my-runtime</code> with your actual runtime settings.</p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="step-2-apply-the-machineconfig-2" data-heading="Step 2: Apply the MachineConfig" data-level="3" data-permalink="/docs/openshift/ocp-tasks/" data-title="Openshift 4 Tasks" -->
+<h3 id="step-2-apply-the-machineconfig-2">Step 2: Apply the MachineConfig</h3><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>oc apply -f change-runtime-settings.yaml
+</span></span></code></pre></div><!-- end-chunk -->
+<!-- begin-chunk data-anchor="step-3-verify-the-change-2" data-heading="Step 3: Verify the Change" data-level="3" data-permalink="/docs/openshift/ocp-tasks/" data-title="Openshift 4 Tasks" -->
+<h3 id="step-3-verify-the-change-2">Step 3: Verify the Change</h3><p>SSH into the node and check the runtime configuration:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>ssh core@&lt;node-ip&gt;
+</span></span><span style="display:flex;"><span>cat /etc/crio/crio.conf
+</span></span></code></pre></div><!-- end-chunk -->
+<!-- begin-chunk data-anchor="step-4-monitor-the-machine-config-pool" data-heading="Step 4: Monitor the Machine Config Pool" data-level="3" data-permalink="/docs/openshift/ocp-tasks/" data-title="Openshift 4 Tasks" -->
+<h3 id="step-4-monitor-the-machine-config-pool">Step 4: Monitor the Machine Config Pool</h3><p>After applying any of the MachineConfigs, monitor the Machine Config Pool:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>oc get machineconfigpool
+</span></span></code></pre></div><p>Wait until the <code>UPDATED</code> status is <code>True</code> for the respective Machine Config Pool (e.g., <code>worker</code> or <code>master</code>).</p>
+<hr>
+<p><strong>Important Notes</strong>:</p>
+<ul>
+<li><strong>Machine Config Operator</strong>: Be cautious when using the MCO, as incorrect configurations can lead to node failures.</li>
+<li><strong>Backup Existing Configurations</strong>: Always backup your existing configurations before making changes.</li>
+<li><strong>Node Role</strong>: Ensure to specify the correct node role (master or worker) in the labels of your MachineConfig.</li>
+<li><strong>Service Impact</strong>: Some changes may require restarting the affected services or pods for the changes to take effect.</li>
+</ul>
+<p>This guide provides clear instructions on modifying systemd services, adjusting kernel parameters, and changing container runtime settings in OpenShift nodes. If you have specific requirements or additional questions, feel free to ask!</p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="upgrading-openshift-cluster" data-heading="Upgrading OpenShift Cluster" data-level="2" data-permalink="/docs/openshift/ocp-tasks/" data-title="Openshift 4 Tasks" -->
+<h2 id="upgrading-openshift-cluster">Upgrading OpenShift Cluster</h2><p>Upgrading an OpenShift cluster requires careful planning and execution. This guide outlines the steps for upgrading an OpenShift cluster.</p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="prerequisites" data-heading="Prerequisites" data-level="3" data-permalink="/docs/openshift/ocp-tasks/" data-title="Openshift 4 Tasks" -->
+<h3 id="prerequisites">Prerequisites</h3><ol>
+<li>
+<p><strong>Backup Important Data</strong>:</p>
+<ul>
+<li>Backup your current cluster state, including etcd data and any custom resources.</li>
+</ul>
+</li>
+<li>
+<p><strong>Review Release Notes</strong>:</p>
+<ul>
+<li>Check the <a href="https://docs.openshift.com/" target="_blank" rel="noopener">OpenShift Release Notes</a> for any specific upgrade instructions and deprecated features.</li>
+</ul>
+</li>
+<li>
+<p><strong>Check Compatibility</strong>:</p>
+<ul>
+<li>Verify that your current version is compatible with the target version.</li>
+</ul>
+</li>
+<li>
+<p><strong>Update CLI Tools</strong>:</p>
+<ul>
+<li>Ensure you have the latest version of <code>oc</code> and <code>openshift-install</code> CLI tools that match the version you&rsquo;re upgrading to.</li>
+</ul>
+</li>
+</ol>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="step-1-prepare-for-the-upgrade" data-heading="Step 1: Prepare for the Upgrade" data-level="3" data-permalink="/docs/openshift/ocp-tasks/" data-title="Openshift 4 Tasks" -->
+<h3 id="step-1-prepare-for-the-upgrade">Step 1: Prepare for the Upgrade</h3><ol>
+<li>
+<p><strong>Check Cluster Health</strong>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>oc get nodes
+</span></span><span style="display:flex;"><span>oc get pods --all-namespaces
+</span></span><span style="display:flex;"><span>oc get clusteroperators
+</span></span></code></pre></div></li>
+<li>
+<p><strong>Drain Nodes</strong>:</p>
+<ul>
+<li>Start with the master nodes, draining them to prepare for the upgrade.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>oc adm drain &lt;master-node-name&gt; --ignore-daemonsets --force --delete-local-data
+</span></span></code></pre></div></li>
+<li>
+<p><strong>Update Machine Configurations</strong> (if needed):</p>
+<ul>
+<li>If there are any machine configurations that need updates before the upgrade, apply those changes now.</li>
+</ul>
+</li>
+</ol>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="step-2-upgrade-the-cluster" data-heading="Step 2: Upgrade the Cluster" data-level="3" data-permalink="/docs/openshift/ocp-tasks/" data-title="Openshift 4 Tasks" -->
+<h3 id="step-2-upgrade-the-cluster">Step 2: Upgrade the Cluster</h3><ol>
+<li>
+<p><strong>Start the Upgrade Process</strong>:</p>
+<ul>
+<li>Trigger the upgrade process using the OpenShift CLI.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>oc adm upgrade begin --to-image<span style="color:#f92672">=</span>&lt;new-openshift-image&gt;
+</span></span></code></pre></div></li>
+<li>
+<p><strong>Monitor the Upgrade</strong>:</p>
+<ul>
+<li>Check the status of the upgrade process.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>oc get clusterversion
+</span></span></code></pre></div></li>
+<li>
+<p><strong>Allow Upgrade to Complete</strong>:</p>
+<ul>
+<li>Wait for the upgrade process to complete. Ensure that all cluster operators are reporting as <code>Available</code>.</li>
+</ul>
+</li>
+</ol>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="step-3-post-upgrade-tasks" data-heading="Step 3: Post-Upgrade Tasks" data-level="3" data-permalink="/docs/openshift/ocp-tasks/" data-title="Openshift 4 Tasks" -->
+<h3 id="step-3-post-upgrade-tasks">Step 3: Post-Upgrade Tasks</h3><ol>
+<li>
+<p><strong>Uncordon Nodes</strong>:</p>
+<ul>
+<li>Once the upgrade is complete, uncordon the master nodes and worker nodes.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>oc adm uncordon &lt;master-node-name&gt;
+</span></span><span style="display:flex;"><span>oc adm uncordon &lt;worker-node-name&gt;
+</span></span></code></pre></div></li>
+<li>
+<p><strong>Check Cluster Health Again</strong>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>oc get nodes
+</span></span><span style="display:flex;"><span>oc get pods --all-namespaces
+</span></span><span style="display:flex;"><span>oc get clusteroperators
+</span></span></code></pre></div></li>
+<li>
+<p><strong>Update Machine Configurations (if necessary)</strong>:</p>
+<ul>
+<li>If there are additional machine configurations or settings required for the new version, apply those now.</li>
+</ul>
+</li>
+<li>
+<p><strong>Validate Application Functionality</strong>:</p>
+<ul>
+<li>Verify that all applications are functioning as expected after the upgrade.</li>
+</ul>
+</li>
+</ol>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="step-4-clean-up" data-heading="Step 4: Clean Up" data-level="3" data-permalink="/docs/openshift/ocp-tasks/" data-title="Openshift 4 Tasks" -->
+<h3 id="step-4-clean-up">Step 4: Clean Up</h3><ol>
+<li>
+<p><strong>Remove Old Images</strong>:</p>
+<ul>
+<li>Clean up unused images from the nodes to free up space.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>oc adm prune images
+</span></span></code></pre></div></li>
+<li>
+<p><strong>Monitor Cluster Performance</strong>:</p>
+<ul>
+<li>Keep an eye on the cluster performance after the upgrade to ensure everything is running smoothly.</li>
+</ul>
+</li>
+</ol>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="important-notes-1" data-heading="Important Notes" data-level="3" data-permalink="/docs/openshift/ocp-tasks/" data-title="Openshift 4 Tasks" -->
+<h3 id="important-notes-1">Important Notes</h3><ul>
+<li><strong>Upgrade Path</strong>: Always follow the recommended upgrade path (e.g., from 4.x to 4.y) as specified in the OpenShift documentation.</li>
+<li><strong>Test Upgrades</strong>: If possible, test the upgrade process in a staging environment before performing it in production.</li>
+<li><strong>Documentation</strong>: Refer to the official <a href="https://docs.openshift.com/" target="_blank" rel="noopener">OpenShift Upgrade Documentation</a> for detailed instructions specific to your version.</li>
+</ul>
+<p>This guide provides a structured approach to upgrading your OpenShift cluster. If you have specific requirements or encounter issues during the upgrade process, feel free to ask for assistance!</p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="upgrading-openshift-nodes-in-batches" data-heading="Upgrading OpenShift Nodes in Batches" data-level="2" data-permalink="/docs/openshift/ocp-tasks/" data-title="Openshift 4 Tasks" -->
+<h2 id="upgrading-openshift-nodes-in-batches">Upgrading OpenShift Nodes in Batches</h2><p>When upgrading an OpenShift cluster with multiple nodes, you can upgrade nodes in batches (e.g., three at a time) to minimize downtime and ensure a smooth transition.</p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="prerequisites-1" data-heading="Prerequisites" data-level="3" data-permalink="/docs/openshift/ocp-tasks/" data-title="Openshift 4 Tasks" -->
+<h3 id="prerequisites-1">Prerequisites</h3><ol>
+<li><strong>Backup Your Cluster</strong>: Before proceeding, back up your etcd and any critical application data.</li>
+<li><strong>Review Release Notes</strong>: Check the OpenShift release notes for any breaking changes or important notes about the upgrade.</li>
+<li><strong>Upgrade Plan</strong>: Decide on the upgrade order for your nodes (typically, master nodes are upgraded first, followed by worker nodes).</li>
+</ol>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="step-1-prepare-for-the-upgrade-1" data-heading="Step 1: Prepare for the Upgrade" data-level="3" data-permalink="/docs/openshift/ocp-tasks/" data-title="Openshift 4 Tasks" -->
+<h3 id="step-1-prepare-for-the-upgrade-1">Step 1: Prepare for the Upgrade</h3><ol>
+<li>
+<p><strong>Check Cluster Health</strong>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>oc get nodes
+</span></span><span style="display:flex;"><span>oc get pods --all-namespaces
+</span></span><span style="display:flex;"><span>oc get clusteroperators
+</span></span></code></pre></div></li>
+<li>
+<p><strong>Drain the Nodes</strong>:</p>
+<ul>
+<li>Start with the nodes you plan to upgrade. Drain three nodes at a time.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#66d9ef">for</span> node in node1 node2 node3; <span style="color:#66d9ef">do</span>
+</span></span><span style="display:flex;"><span>    oc adm drain $node --ignore-daemonsets --force --delete-local-data
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">done</span>
+</span></span></code></pre></div><p>Replace <code>node1</code>, <code>node2</code>, and <code>node3</code> with the actual node names.</p>
+</li>
+</ol>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="step-2-upgrade-the-nodes" data-heading="Step 2: Upgrade the Nodes" data-level="3" data-permalink="/docs/openshift/ocp-tasks/" data-title="Openshift 4 Tasks" -->
+<h3 id="step-2-upgrade-the-nodes">Step 2: Upgrade the Nodes</h3><ol>
+<li>
+<p><strong>Start the Upgrade Process</strong>:</p>
+<ul>
+<li>Begin the upgrade for the selected nodes.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#66d9ef">for</span> node in node1 node2 node3; <span style="color:#66d9ef">do</span>
+</span></span><span style="display:flex;"><span>    oc adm upgrade begin --to-image<span style="color:#f92672">=</span>&lt;new-openshift-image&gt; --node<span style="color:#f92672">=</span>$node
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">done</span>
+</span></span></code></pre></div><p>Replace <code>&lt;new-openshift-image&gt;</code> with the image for the target OpenShift version.</p>
+</li>
+<li>
+<p><strong>Monitor the Upgrade</strong>:</p>
+<ul>
+<li>Check the status of the upgrade process for each node.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>oc get clusterversion
+</span></span></code></pre></div><p>Wait until the upgrade process completes for all three nodes.</p>
+</li>
+</ol>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="step-3-uncordon-the-nodes" data-heading="Step 3: Uncordon the Nodes" data-level="3" data-permalink="/docs/openshift/ocp-tasks/" data-title="Openshift 4 Tasks" -->
+<h3 id="step-3-uncordon-the-nodes">Step 3: Uncordon the Nodes</h3><ol>
+<li><strong>Uncordon the Upgraded Nodes</strong>:
+<ul>
+<li>Once the upgrade is complete, uncordon the nodes to make them schedulable again.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#66d9ef">for</span> node in node1 node2 node3; <span style="color:#66d9ef">do</span>
+</span></span><span style="display:flex;"><span>    oc adm uncordon $node
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">done</span>
+</span></span></code></pre></div></li>
+</ol>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="step-4-repeat-for-remaining-nodes" data-heading="Step 4: Repeat for Remaining Nodes" data-level="3" data-permalink="/docs/openshift/ocp-tasks/" data-title="Openshift 4 Tasks" -->
+<h3 id="step-4-repeat-for-remaining-nodes">Step 4: Repeat for Remaining Nodes</h3><ol>
+<li><strong>Continue Upgrading</strong>:
+<ul>
+<li>Repeat the above steps for the next batch of three nodes until all nodes are upgraded.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Upgrade next batch</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> node in node4 node5 node6; <span style="color:#66d9ef">do</span>
+</span></span><span style="display:flex;"><span>    oc adm drain $node --ignore-daemonsets --force --delete-local-data
+</span></span><span style="display:flex;"><span>    oc adm upgrade begin --to-image<span style="color:#f92672">=</span>&lt;new-openshift-image&gt; --node<span style="color:#f92672">=</span>$node
+</span></span><span style="display:flex;"><span>    oc adm uncordon $node
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">done</span>
+</span></span></code></pre></div></li>
+</ol>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="step-5-post-upgrade-verification" data-heading="Step 5: Post-Upgrade Verification" data-level="3" data-permalink="/docs/openshift/ocp-tasks/" data-title="Openshift 4 Tasks" -->
+<h3 id="step-5-post-upgrade-verification">Step 5: Post-Upgrade Verification</h3><ol>
+<li>
+<p><strong>Check Cluster Health Again</strong>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>oc get nodes
+</span></span><span style="display:flex;"><span>oc get pods --all-namespaces
+</span></span><span style="display:flex;"><span>oc get clusteroperators
+</span></span></code></pre></div></li>
+<li>
+<p><strong>Validate Application Functionality</strong>:</p>
+<ul>
+<li>Ensure that all applications are functioning as expected after the upgrade.</li>
+</ul>
+</li>
+</ol>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="important-notes-2" data-heading="Important Notes" data-level="3" data-permalink="/docs/openshift/ocp-tasks/" data-title="Openshift 4 Tasks" -->
+<h3 id="important-notes-2">Important Notes</h3><ul>
+<li><strong>Plan for Downtime</strong>: Upgrading nodes in batches may cause temporary unavailability for applications running on those nodes. Ensure your applications are resilient and can handle node failures.</li>
+<li><strong>Monitor Performance</strong>: After upgrading, monitor cluster performance and health metrics to ensure everything is running smoothly.</li>
+<li><strong>Follow Upgrade Path</strong>: Always adhere to the recommended upgrade paths specified in the OpenShift documentation.</li>
+</ul>
+<p>By following this guide, you can effectively upgrade three nodes at a time in your OpenShift cluster. If you have any specific requirements or encounter issues during the upgrade process, feel free to ask for assistance!</p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="how-to-change-the-no-of-node-unavailable-while-upgrading" data-heading="How to change the no of node unavailable while upgrading" data-level="2" data-permalink="/docs/openshift/ocp-tasks/" data-title="Openshift 4 Tasks" -->
+<h2 id="how-to-change-the-no-of-node-unavailable-while-upgrading">How to change the no of node unavailable while upgrading</h2><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>oc patch mcp worker --type merge --patch <span style="color:#e6db74">&#39;{&#34;spec&#34;: {&#34;maxUnavailable&#34;: 2}}&#39;</span>
+</span></span></code></pre></div><!-- end-chunk -->
+<!-- begin-chunk data-anchor="verify-the-maxunavailable-value" data-heading="Verify the maxUnavailable value:" data-level="3" data-permalink="/docs/openshift/ocp-tasks/" data-title="Openshift 4 Tasks" -->
+<h3 id="verify-the-maxunavailable-value">Verify the maxUnavailable value:</h3><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#ae81ff">oc get mcp worker -o yaml | grep maxUnavailable</span>
+</span></span></code></pre></div><!-- end-chunk -->
+<!-- begin-chunk data-anchor="modifying-openshift-project-templates" data-heading="Modifying OpenShift Project Templates" data-level="2" data-permalink="/docs/openshift/ocp-tasks/" data-title="Openshift 4 Tasks" -->
+<h2 id="modifying-openshift-project-templates">Modifying OpenShift Project Templates</h2><p>OpenShift provides the ability to create and modify project templates, which define a standard set of resources and configurations that can be instantiated to create new projects or applications quickly. Modifying a project template allows you to customize default behaviors and settings for your applications.</p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="key-components-of-a-project-template" data-heading="Key Components of a Project Template" data-level="3" data-permalink="/docs/openshift/ocp-tasks/" data-title="Openshift 4 Tasks" -->
+<h3 id="key-components-of-a-project-template">Key Components of a Project Template</h3><ul>
+<li><strong>Parameters:</strong> Variables that can be customized when instantiating the template.</li>
+<li><strong>Objects:</strong> The resources that will be created when the template is applied (e.g., DeploymentConfigs, Services, Routes).</li>
+<li><strong>Labels and Annotations:</strong> Metadata for categorizing and describing resources.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="viewing-existing-templates" data-heading="Viewing Existing Templates" data-level="3" data-permalink="/docs/openshift/ocp-tasks/" data-title="Openshift 4 Tasks" -->
+<h3 id="viewing-existing-templates">Viewing Existing Templates</h3><p>To view the templates available in your OpenShift environment, use:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>oc get templates
+</span></span></code></pre></div><!-- end-chunk -->
+<!-- begin-chunk data-anchor="modifying-a-template" data-heading="Modifying a Template" data-level="3" data-permalink="/docs/openshift/ocp-tasks/" data-title="Openshift 4 Tasks" -->
+<h3 id="modifying-a-template">Modifying a Template</h3><p>You can modify an existing template by following these steps:</p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="1-export-the-template" data-heading="1. Export the Template" data-level="3" data-permalink="/docs/openshift/ocp-tasks/" data-title="Openshift 4 Tasks" -->
+<h3 id="1-export-the-template">1. Export the Template</h3><p>To export a template to a file for editing:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>oc get template &lt;template-name&gt; -o yaml &gt; template.yaml
+</span></span></code></pre></div><p>Replace <code>&lt;template-name&gt;</code> with the name of the template you want to modify.</p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="2-edit-the-template" data-heading="2. Edit the Template" data-level="3" data-permalink="/docs/openshift/ocp-tasks/" data-title="Openshift 4 Tasks" -->
+<h3 id="2-edit-the-template">2. Edit the Template</h3><p>Open the <code>template.yaml</code> file in your preferred text editor and make the necessary changes. Key areas to consider modifying:</p>
+<ul>
+<li><strong>Parameters:</strong> Add, remove, or change parameter definitions.</li>
+<li><strong>Objects:</strong> Modify or add resource specifications (e.g., change replicas in a DeploymentConfig).</li>
+<li><strong>Labels/Annotations:</strong> Update or add labels and annotations for better resource management.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="3-apply-the-modified-template" data-heading="3. Apply the Modified Template" data-level="3" data-permalink="/docs/openshift/ocp-tasks/" data-title="Openshift 4 Tasks" -->
+<h3 id="3-apply-the-modified-template">3. Apply the Modified Template</h3><p>Once you’ve made your modifications, you can apply the updated template back to OpenShift:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>oc apply -f template.yaml
+</span></span></code></pre></div><!-- end-chunk -->
+<!-- begin-chunk data-anchor="adding-resource-quotas" data-heading="Adding Resource Quotas" data-level="2" data-permalink="/docs/openshift/ocp-tasks/" data-title="Openshift 4 Tasks" -->
+<h2 id="adding-resource-quotas">Adding Resource Quotas</h2><p>Resource quotas are used to limit the amount of resources that can be consumed in a project. To add a resource quota to your template, include a <code>ResourceQuota</code> object in the <code>objects</code> section of the template:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">apiVersion</span>: <span style="color:#ae81ff">v1</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">kind</span>: <span style="color:#ae81ff">ResourceQuota</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">metadata</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">name</span>: <span style="color:#ae81ff">example-quota</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">spec</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">hard</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">requests.cpu</span>: <span style="color:#e6db74">&#34;4&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">requests.memory</span>: <span style="color:#e6db74">&#34;8Gi&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">limits.cpu</span>: <span style="color:#e6db74">&#34;4&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">limits.memory</span>: <span style="color:#e6db74">&#34;8Gi&#34;</span>
+</span></span></code></pre></div><!-- end-chunk -->
+<!-- begin-chunk data-anchor="adding-limitranges" data-heading="Adding LimitRanges" data-level="2" data-permalink="/docs/openshift/ocp-tasks/" data-title="Openshift 4 Tasks" -->
+<h2 id="adding-limitranges">Adding LimitRanges</h2><p>Limit ranges set default request and limit values for containers in a project. You can add a <code>LimitRange</code> object in the <code>objects</code> section of the template:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">apiVersion</span>: <span style="color:#ae81ff">v1</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">kind</span>: <span style="color:#ae81ff">LimitRange</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">metadata</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">name</span>: <span style="color:#ae81ff">example-limits</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">spec</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">limits</span>:
+</span></span><span style="display:flex;"><span>    - <span style="color:#f92672">default</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">cpu</span>: <span style="color:#e6db74">&#34;500m&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">memory</span>: <span style="color:#e6db74">&#34;1Gi&#34;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">defaultRequest</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">cpu</span>: <span style="color:#e6db74">&#34;250m&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">memory</span>: <span style="color:#e6db74">&#34;512Mi&#34;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">type</span>: <span style="color:#ae81ff">Container</span>
+</span></span></code></pre></div><!-- end-chunk -->
+<!-- begin-chunk data-anchor="creating-a-new-template" data-heading="Creating a New Template" data-level="3" data-permalink="/docs/openshift/ocp-tasks/" data-title="Openshift 4 Tasks" -->
+<h3 id="creating-a-new-template">Creating a New Template</h3><p>If you want to create a new project template from scratch, you can use:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>oc create -f &lt;template-file&gt;.yaml
+</span></span></code></pre></div><p>Make sure to define parameters, objects, and metadata in the YAML file.</p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="example-template-structure" data-heading="Example Template Structure" data-level="3" data-permalink="/docs/openshift/ocp-tasks/" data-title="Openshift 4 Tasks" -->
+<h3 id="example-template-structure">Example Template Structure</h3><p>Here’s a simple example structure of a project template in YAML, including resource quotas and limit ranges:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">apiVersion</span>: <span style="color:#ae81ff">template.openshift.io/v1</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">kind</span>: <span style="color:#ae81ff">Template</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">metadata</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">name</span>: <span style="color:#ae81ff">example-template</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">labels</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">app</span>: <span style="color:#ae81ff">example</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">parameters</span>:
+</span></span><span style="display:flex;"><span>  - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">APP_NAME</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">description</span>: <span style="color:#ae81ff">The name of the application</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">required</span>: <span style="color:#66d9ef">true</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">objects</span>:
+</span></span><span style="display:flex;"><span>  - <span style="color:#f92672">apiVersion</span>: <span style="color:#ae81ff">v1</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">kind</span>: <span style="color:#ae81ff">ResourceQuota</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">metadata</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">name</span>: <span style="color:#ae81ff">example-quota</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">spec</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">hard</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">requests.cpu</span>: <span style="color:#e6db74">&#34;4&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">requests.memory</span>: <span style="color:#e6db74">&#34;8Gi&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">limits.cpu</span>: <span style="color:#e6db74">&#34;4&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">limits.memory</span>: <span style="color:#e6db74">&#34;8Gi&#34;</span>
+</span></span><span style="display:flex;"><span>  - <span style="color:#f92672">apiVersion</span>: <span style="color:#ae81ff">v1</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">kind</span>: <span style="color:#ae81ff">LimitRange</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">metadata</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">name</span>: <span style="color:#ae81ff">example-limits</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">spec</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">limits</span>:
+</span></span><span style="display:flex;"><span>        - <span style="color:#f92672">default</span>:
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">cpu</span>: <span style="color:#e6db74">&#34;500m&#34;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">memory</span>: <span style="color:#e6db74">&#34;1Gi&#34;</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">defaultRequest</span>:
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">cpu</span>: <span style="color:#e6db74">&#34;250m&#34;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">memory</span>: <span style="color:#e6db74">&#34;512Mi&#34;</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">type</span>: <span style="color:#ae81ff">Container</span>
+</span></span><span style="display:flex;"><span>  - <span style="color:#f92672">apiVersion</span>: <span style="color:#ae81ff">apps/v1</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">kind</span>: <span style="color:#ae81ff">Deployment</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">metadata</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">name</span>: <span style="color:#ae81ff">${APP_NAME}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">spec</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">replicas</span>: <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">selector</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">matchLabels</span>:
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">app</span>: <span style="color:#ae81ff">${APP_NAME}</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">template</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">metadata</span>:
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">labels</span>:
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">app</span>: <span style="color:#ae81ff">${APP_NAME}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">spec</span>:
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">containers</span>:
+</span></span><span style="display:flex;"><span>            - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">${APP_NAME}</span>
+</span></span><span style="display:flex;"><span>              <span style="color:#f92672">image</span>: <span style="color:#ae81ff">nginx</span>
+</span></span><span style="display:flex;"><span>              <span style="color:#f92672">ports</span>:
+</span></span><span style="display:flex;"><span>                - <span style="color:#f92672">containerPort</span>: <span style="color:#ae81ff">80</span>
+</span></span></code></pre></div><!-- end-chunk -->
+<!-- begin-chunk data-anchor="conclusion" data-heading="Conclusion" data-level="3" data-permalink="/docs/openshift/ocp-tasks/" data-title="Openshift 4 Tasks" -->
+<h3 id="conclusion">Conclusion</h3><p>Modifying OpenShift project templates is a powerful way to standardize application deployments and ensure consistency across projects. By using parameters, object definitions, resource quotas, and limit ranges effectively, you can create flexible and reusable templates tailored to your organization’s needs.</p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="configuring-a-node-selector-for-a-project" data-heading="Configuring a Node Selector for a Project" data-level="3" data-permalink="/docs/openshift/ocp-tasks/" data-title="Openshift 4 Tasks" -->
+<h3 id="configuring-a-node-selector-for-a-project">Configuring a Node Selector for a Project</h3><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#ae81ff">oc adm new-project demo --node-selector &#34;tier=1&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">oc annotate namespace demo  openshift.io/node-selector=&#34;tier=2&#34; --overwrite</span>
+</span></span></code></pre></div><!-- end-chunk -->
+<!-- begin-chunk data-anchor="applying-quotas-to-multiple-projects" data-heading="Applying Quotas to Multiple Projects" data-level="3" data-permalink="/docs/openshift/ocp-tasks/" data-title="Openshift 4 Tasks" -->
+<h3 id="applying-quotas-to-multiple-projects">Applying Quotas to Multiple Projects</h3><ul>
+<li>The following is an example of creating a cluster resource quota for all projects owned by the qa
+user:</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#ae81ff">oc create clusterquota user-qa \</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">&gt; --project-annotation-selector openshift.io/requester=qa \</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">&gt; --hard pods=12,secrets=20</span>
+</span></span></code></pre></div><!-- end-chunk -->
+<!-- begin-chunk data-anchor="the-following-is-an-example-of-creating-a-cluster-resource-quota-for-all-projects-that-have-been-assigned-the-environmentqa-label" data-heading="The following is an example of creating a cluster resource quota for all projects that have been assigned the environment=qa label:" data-level="3" data-permalink="/docs/openshift/ocp-tasks/" data-title="Openshift 4 Tasks" -->
+<h3 id="the-following-is-an-example-of-creating-a-cluster-resource-quota-for-all-projects-that-have-been-assigned-the-environmentqa-label">The following is an example of creating a cluster resource quota for all projects that have been assigned the environment=qa label:</h3><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#ae81ff">oc create clusterquota env-qa \</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">&gt; --project-label-selector environment=qa \</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">&gt; --hard pods=10,services=5</span>
+</span></span></code></pre></div><!-- end-chunk -->
+<!-- begin-chunk data-anchor="exposing-the-internal-openshift-registry" data-heading="Exposing the Internal OpenShift Registry" data-level="2" data-permalink="/docs/openshift/ocp-tasks/" data-title="Openshift 4 Tasks" -->
+<h2 id="exposing-the-internal-openshift-registry">Exposing the Internal OpenShift Registry</h2><p>To expose the internal OpenShift registry externally:</p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="verify-registry-status" data-heading="Verify Registry Status" data-level="3" data-permalink="/docs/openshift/ocp-tasks/" data-title="Openshift 4 Tasks" -->
+<h3 id="verify-registry-status">Verify Registry Status</h3><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>oc get pods -n openshift-image-registry
+</span></span></code></pre></div><!-- end-chunk -->
+<!-- begin-chunk data-anchor="expose-the-registry-service" data-heading="Expose the Registry Service" data-level="3" data-permalink="/docs/openshift/ocp-tasks/" data-title="Openshift 4 Tasks" -->
+<h3 id="expose-the-registry-service">Expose the Registry Service</h3><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>oc expose service image-registry -n openshift-image-registry --name<span style="color:#f92672">=</span>external-registry-route
+</span></span></code></pre></div><!-- end-chunk -->
+<!-- begin-chunk data-anchor="retrieve-the-route-url" data-heading="Retrieve the Route URL" data-level="3" data-permalink="/docs/openshift/ocp-tasks/" data-title="Openshift 4 Tasks" -->
+<h3 id="retrieve-the-route-url">Retrieve the Route URL</h3><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#ae81ff">oc get route external-registry-route -n openshift-image-registry</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Output should be a URL like: https://external-registry-route.&lt;cluster-domain&gt;</span>
+</span></span></code></pre></div><!-- end-chunk -->
+<!-- begin-chunk data-anchor="log-in-to-the-registry-using-oc-cli" data-heading="Log in to the Registry using oc CLI" data-level="3" data-permalink="/docs/openshift/ocp-tasks/" data-title="Openshift 4 Tasks" -->
+<h3 id="log-in-to-the-registry-using-oc-cli">Log in to the Registry using oc CLI</h3><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#ae81ff">oc login -u &lt;username&gt; -p &lt;password&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">oc registry login</span>
+</span></span></code></pre></div><!-- end-chunk -->
+<!-- begin-chunk data-anchor="alternatively-log-in-using-docker-cli" data-heading="Alternatively, log in using Docker CLI" data-level="3" data-permalink="/docs/openshift/ocp-tasks/" data-title="Openshift 4 Tasks" -->
+<h3 id="alternatively-log-in-using-docker-cli">Alternatively, log in using Docker CLI</h3><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#ae81ff">oc whoami -t </span> <span style="color:#75715e"># Retrieve token</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">docker login -u &lt;username&gt; -p &lt;token&gt; https://external-registry-route.&lt;cluster-domain&gt;</span>
+</span></span></code></pre></div><!-- end-chunk -->
+<!-- begin-chunk data-anchor="push-and-pull-images" data-heading="Push and Pull Images" data-level="3" data-permalink="/docs/openshift/ocp-tasks/" data-title="Openshift 4 Tasks" -->
+<h3 id="push-and-pull-images">Push and Pull Images</h3><!-- end-chunk -->
+<!-- begin-chunk data-anchor="push" data-heading="Push" data-level="3" data-permalink="/docs/openshift/ocp-tasks/" data-title="Openshift 4 Tasks" -->
+<h3 id="push">Push</h3><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#ae81ff">docker tag &lt;image&gt; external-registry-route.&lt;cluster-domain&gt;/&lt;project&gt;/&lt;image&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">docker push external-registry-route.&lt;cluster-domain&gt;/&lt;project&gt;/&lt;image&gt;</span>
+</span></span></code></pre></div><!-- end-chunk -->
+<!-- begin-chunk data-anchor="pull" data-heading="Pull" data-level="3" data-permalink="/docs/openshift/ocp-tasks/" data-title="Openshift 4 Tasks" -->
+<h3 id="pull">Pull</h3><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>docker pull external-registry-route.&lt;cluster-domain&gt;/&lt;project&gt;/&lt;image&gt;
+</span></span></code></pre></div><!-- end-chunk -->
+<!-- begin-chunk data-anchor="overview-of-the-openshift-config-namespace-in-openshift" data-heading="Overview of the <code>openshift-config</code> Namespace in OpenShift" data-level="2" data-permalink="/docs/openshift/ocp-tasks/" data-title="Openshift 4 Tasks" -->
+<h2 id="overview-of-the-openshift-config-namespace-in-openshift">Overview of the <code>openshift-config</code> Namespace in OpenShift</h2><p>The <code>openshift-config</code> namespace in OpenShift is a critical system namespace that stores configuration resources essential for the cluster’s operation, including settings for authentication, networking, and security.</p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="key-resources-in-openshift-config" data-heading="Key Resources in <code>openshift-config</code>" data-level="3" data-permalink="/docs/openshift/ocp-tasks/" data-title="Openshift 4 Tasks" -->
+<h3 id="key-resources-in-openshift-config">Key Resources in <code>openshift-config</code></h3><!-- end-chunk -->
+<!-- begin-chunk data-anchor="1-authentication-and-oauth-configuration" data-heading="1. <strong>Authentication and OAuth Configuration</strong>" data-level="3" data-permalink="/docs/openshift/ocp-tasks/" data-title="Openshift 4 Tasks" -->
+<h3 id="1-authentication-and-oauth-configuration">1. <strong>Authentication and OAuth Configuration</strong></h3><ul>
+<li><strong>OAuth (<code>OAuth</code> CR)</strong>: Manages user authentication for the cluster.
+<ul>
+<li><strong>Identity Providers</strong>: Configuration for providers like LDAP, GitHub, Google, OpenID Connect, etc.</li>
+<li><strong>OAuth Tokens</strong>: Settings for tokens used by applications or users to authenticate with the API.</li>
+</ul>
+</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="2-ingress-and-proxy-configuration" data-heading="2. <strong>Ingress and Proxy Configuration</strong>" data-level="3" data-permalink="/docs/openshift/ocp-tasks/" data-title="Openshift 4 Tasks" -->
+<h3 id="2-ingress-and-proxy-configuration">2. <strong>Ingress and Proxy Configuration</strong></h3><ul>
+<li><strong>Cluster Proxy (<code>Proxy</code> CR)</strong>: Cluster-wide HTTP/HTTPS proxy settings for clusters behind firewalls or with limited internet access.</li>
+<li><strong>Cluster Ingress (<code>Ingress</code> CR)</strong>: Default settings for external application exposure and the default domain for routes.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="3-network-configuration" data-heading="3. <strong>Network Configuration</strong>" data-level="3" data-permalink="/docs/openshift/ocp-tasks/" data-title="Openshift 4 Tasks" -->
+<h3 id="3-network-configuration">3. <strong>Network Configuration</strong></h3><ul>
+<li><strong>DNS ConfigMap</strong>: Custom DNS configuration required by cluster applications.</li>
+<li><strong>Cluster-wide Network Settings</strong>: Configures network policies, network isolation, and other networking settings.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="4-certificate-and-secret-management" data-heading="4. <strong>Certificate and Secret Management</strong>" data-level="3" data-permalink="/docs/openshift/ocp-tasks/" data-title="Openshift 4 Tasks" -->
+<h3 id="4-certificate-and-secret-management">4. <strong>Certificate and Secret Management</strong></h3><ul>
+<li><strong>Certificates for Internal Services</strong>: TLS certificates for internal cluster services like the API server and internal registry.</li>
+<li><strong>Trusted CA Bundle</strong>: CA bundle configuration for trusting external/internal certificates.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="5-image-registry-configuration" data-heading="5. <strong>Image Registry Configuration</strong>" data-level="3" data-permalink="/docs/openshift/ocp-tasks/" data-title="Openshift 4 Tasks" -->
+<h3 id="5-image-registry-configuration">5. <strong>Image Registry Configuration</strong></h3><ul>
+<li><strong>Registry ConfigMap</strong>: Settings for the internal OpenShift image registry (e.g., storage backend and access control).</li>
+<li><strong>Image Content Source Policies</strong>: Policies controlling allowed registries for image pulling and storage.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="6-etcd-configuration" data-heading="6. <strong>Etcd Configuration</strong>" data-level="3" data-permalink="/docs/openshift/ocp-tasks/" data-title="Openshift 4 Tasks" -->
+<h3 id="6-etcd-configuration">6. <strong>Etcd Configuration</strong></h3><ul>
+<li><strong>Etcd Settings</strong>: Custom settings for the etcd data store, critical for OpenShift’s cluster state and configuration.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="7-cluster-operators-configuration" data-heading="7. <strong>Cluster Operators Configuration</strong>" data-level="3" data-permalink="/docs/openshift/ocp-tasks/" data-title="Openshift 4 Tasks" -->
+<h3 id="7-cluster-operators-configuration">7. <strong>Cluster Operators Configuration</strong></h3><ul>
+<li>Configuration for various cluster operators affecting core components like networking, ingress, and monitoring.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="8-custom-configurations-for-openshift-components" data-heading="8. <strong>Custom Configurations for OpenShift Components</strong>" data-level="3" data-permalink="/docs/openshift/ocp-tasks/" data-title="Openshift 4 Tasks" -->
+<h3 id="8-custom-configurations-for-openshift-components">8. <strong>Custom Configurations for OpenShift Components</strong></h3><ul>
+<li>Holds configurations for specific deployment needs, security hardening, or custom operational policies.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="summary-of-key-resource-types-in-openshift-config" data-heading="Summary of Key Resource Types in <code>openshift-config</code>" data-level="3" data-permalink="/docs/openshift/ocp-tasks/" data-title="Openshift 4 Tasks" -->
+<h3 id="summary-of-key-resource-types-in-openshift-config">Summary of Key Resource Types in <code>openshift-config</code></h3><ul>
+<li><strong>ConfigMaps</strong></li>
+<li><strong>Secrets</strong></li>
+<li><strong>Custom Resources</strong>: Like <code>OAuth</code>, <code>Ingress</code>, and <code>Proxy</code></li>
+</ul>
+<p>These configurations in <code>openshift-config</code> are essential for managing the functionality, security, and accessibility of the OpenShift cluster.</p>
+
+	
+	
+	
+</div>
+
+
+          </main>
+        </div>
+      </div>
+      
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+    integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+    crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js"
+    integrity="sha512-UR25UO94eTnCVwjbXozyeVd6ZqpaAE9naiEUBK/A+QDbfSTQFhPGj5lOR6d8tsgbBk84Ggb5A3EkjsOgPRPcKA=="
+    crossorigin="anonymous"></script>
+
+
+
+
+
+<script src='/js/tabpane-persist.js'></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="/js/main.min.223ab2fcc7d742c1b94772c0276851c497da4343cd2d21534199ced90681e207.js" integrity="sha256-Ijqy/MfXQsG5R3LAJ2hRxJfaQ0PNLSFTQZnO2QaB4gc=" crossorigin="anonymous"></script>
+
+
+
+<script src='/js/prism.js'></script>
+
+
+
+  </body>
+</html>

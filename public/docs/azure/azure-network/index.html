@@ -1,0 +1,1324 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="generator" content="Hugo 0.122.0">
+<meta name="robots" content="index, follow">
+
+<link rel="shortcut icon" href="/favicons/favicon.ico" >
+
+<title>Azure Cloud Networking | Documentation</title>
+<meta name="description" content="Azure Cloud">
+<meta property="og:title" content="Azure Cloud Networking" />
+<meta property="og:description" content="Azure Cloud" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/docs/azure/azure-network/" /><meta property="article:section" content="docs" />
+
+
+
+<meta itemprop="name" content="Azure Cloud Networking">
+<meta itemprop="description" content="Azure Cloud">
+
+<meta itemprop="wordCount" content="3437">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Azure Cloud Networking"/>
+<meta name="twitter:description" content="Azure Cloud"/>
+
+
+
+
+<link rel="preload" href="/scss/main.min.b5bfe2535b6f07595fd9cb7a4018024e52e136c3b43e03a17a1e47a950822d03.css" as="style">
+<link href="/scss/main.min.b5bfe2535b6f07595fd9cb7a4018024e52e136c3b43e03a17a1e47a950822d03.css" rel="stylesheet" integrity="">
+
+<script
+  src="https://code.jquery.com/jquery-3.6.0.min.js"
+  integrity="sha384-vtXRMe3mGCbOeY7l30aIg8H9p3GdeSe4IFlP6G8JMa7o7lXvnz3GFKzPxzJdPfGK"
+  crossorigin="anonymous"></script>
+<script
+  src="https://unpkg.com/lunr@2.3.9/lunr.min.js"
+  integrity="sha384-203J0SNzyqHby3iU6hzvzltrWi/M41wOP5Gu+BiJMz5nwKykbkUx8Kp7iti0Lpli"
+  crossorigin="anonymous"></script>
+<link rel="stylesheet" href="/css/prism.css"/>
+<script type="text/javascript"  src="/js/highlight-search.js"></script>
+<script type="text/javascript"  src="/js/manage-side-panels.js"></script>
+  </head>
+  <body class="td-page highlightable">
+    <header>
+      
+<nav class="js-navbar-scroll navbar navbar-expand navbar-dark flex-column flex-md-row td-navbar">
+        <a class="navbar-brand" href="/">
+		<span class="navbar-logo"><svg version="1.0" xmlns="http://www.w3.org/2000/svg" width="217pt" height="232pt" viewBox="0 0 217 232"><g transform="translate(0.000000,232.000000) scale(0.100000,-0.100000)" fill="#000" stroke="none"><path d="M1017 2250c-397-48-698-367-731-775-9-106-3-113 66-87l55 20 11-71c6-39 10-72 9-73s-58-22-127-47c-104-37-124-48-122-64 7-37 56-150 88-205l34-56 66 25 66 26 65-72c206-226 513-322 808-252 367 88 634 417 635 784 0 43-4 77-10 77-5 0-32-9-60-20s-55-20-59-20c-5 0-12 26-16 59-4 32-20 96-36 142s-30 88-31 92c-2 5 54 29 124 55l128 46-31 55c-17 31-33 58-34 59-2 2-31-6-64-19l-61-22-23 29c-81 104-172 178-292 235-140 68-309 97-458 79zm226-299c90-24 136-46 206-101l52-41 61 20 60 20 26-31c15-17 35-44 44-59l17-28-52-19c-29-11-86-32-128-47l-76-27 24-58c26-66 43-144 43-201 0-22 2-39 5-39 2 0 27 9 55 20s55 20 60 20c17 0 10-63-14-131-127-359-580-484-862-237l-35 31-70-24-71-24-30 35c-37 43-97 164-104 212l-6 34 123 46 124 45-3 64c-2 35-5 66-7 68-2 1-27-5-55-14s-53-15-55-14c-2 2 1 29 7 59 32 179 185 352 361 409 112 36 192 39 3e2 12z"/><path d="M134 321c-77-33-95-169-29-231 19-18 36-23 71-23 40 0 51 4 75 30 50 56 47 153-5 202-26 25-80 35-112 22zm82-62c26-29 26-99 0-128-24-26-47-27-77-2-19 15-24 29-24 64 0 76 58 114 101 66z"/><path d="M1172 320c-27-12-44-52-33-82 4-12 31-32 61-47 30-14 58-34 64-43 26-43-50-76-99-44-15 10-26 12-30 6-10-16 4-29 44-40 62-17 114 13 114 65 0 35-19 53-80 81-54 23-67 46-41 72 15 15 62 16 88 2 23-12 35 3 16 19-20 17-77 23-104 11z"/><path d="M350 195V70h25c23 0 25 4 25 45v45h40c76 0 115 40 103 104-8 42-38 56-120 56h-73V195zm134 69c18-18 18-17 10-38-4-11-19-16-50-16-44 0-44 0-44 35 0 33 2 35 34 35 19 0 42-7 50-16z"/><path d="M6e2 195V70h90c83 0 90 2 90 20 0 16-8 19-62 22-63 3-63 3-66 36-3 31-2 32 36 32 36 0 39 2 34 25-4 21-10 25-38 25-30 0-34 3-34 25 0 24 2 25 65 25 58 0 65 2 65 20 0 19-7 20-90 20h-90V195z"/><path d="M850 195c0-117 1-125 20-125 17 0 19 8 22 83l3 82 55-82c41-62 61-83 78-83 22 0 22 2 22 125 0 117-1 125-20 125-17 0-19-8-22-82l-3-82-54 82c-42 65-59 82-77 82-24 0-24 0-24-125z"/><path d="M1360 195c0-104 2-125 15-125 12 0 15 13 15 60v60h65 65v-60c0-47 3-60 15-60 13 0 15 21 15 125s-2 125-15 125c-12 0-15-13-15-55v-55h-65-65v55c0 42-3 55-15 55-13 0-15-21-15-125z"/><path d="M1620 195c0-104 2-125 15-125s15 21 15 125-2 125-15 125-15-21-15-125z"/><path d="M1730 195c0-77 4-125 10-125s10 27 10 60v60h35c19 0 35 5 35 10 0 6-16 10-35 10-35 0-35 0-35 45v45h60c33 0 60 4 60 10s-30 10-70 10h-70V195z"/><path d="M1930 310c0-5 18-10 40-10h40V185c0-70 4-115 10-115s10 45 10 115v115h40c22 0 40 5 40 10 0 6-37 10-90 10s-90-4-90-10z"/></g></svg></span><span class="font-weight-bold">Documentation</span>
+	</a>
+	<div class="td-navbar-nav-scroll ml-md-auto" id="main_navbar">
+		<ul class="navbar-nav mt-2 mt-lg-0">
+			
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/" ><i class='fa fa-home'></i><span>Home</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link active" href="/docs/azure/" ><i class='fab fa-azure'></i><span class="active">Azure Cloud Computing</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/docs/azure-devops/" ><i class='fab fa-azure'></i><span>Azure Devops</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/docs/gitlab/" ><i class='fab fa-gitlab'></i><span>Gitlab Tutorials</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/docs/openshift/" ><i class='fab fa-openshift'></i><span>OpenShift Administration</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/docs/kvm/" ><i class="fab fa-linux"></i><span>Redhat Ansible</span></a>
+			</li>
+			
+			
+			
+		</ul>
+	</div>
+	<div class="navbar-nav d-none d-lg-block">
+<form class="d-flex align-items-center">
+  <input type="search"
+  class="form-control td-search-input"
+  placeholder="&#xf002; Search this site…"
+  aria-label="Search this site…"
+  autocomplete="off"
+  
+  data-offline-search-index-json-src="/offline-search-index.d4ee35dfb31ed3b96d119091cf664ad4.json"
+  data-offline-search-base-href="/"
+  data-offline-search-max-results="20">
+</form>
+</div>
+</nav>
+
+      <div class="manage-panels">
+    <button type="button" class="button-left" id="left-panel-manager" title="Hide sidebar">""</button>
+    <button type="button" class="button-right" id="right-panel-manager" title="Hide sidebar">""</button>
+</div>
+    </header>
+    <div class="container-fluid td-outer">
+      <div class="td-main autonumbering">
+        <div class="row flex-xl-nowrap">
+          <aside class="col-12 col-md-3 col-xl-2 td-sidebar d-print-none">
+            
+<div id="td-sidebar-menu" class="td-sidebar__inner">
+  <div id="content-mobile">
+  <form class="td-sidebar__search d-flex align-items-center">
+    
+<form class="d-flex align-items-center">
+  <input type="search"
+  class="form-control td-search-input"
+  placeholder="&#xf002; Search this site…"
+  aria-label="Search this site…"
+  autocomplete="off"
+  
+  data-offline-search-index-json-src="/offline-search-index.d4ee35dfb31ed3b96d119091cf664ad4.json"
+  data-offline-search-base-href="/"
+  data-offline-search-max-results="20">
+</form>
+
+    <button class="btn btn-link td-sidebar__toggle d-md-none p-0 ml-3 fas fa-bars" type="button" data-toggle="collapse" data-target="#td-section-nav" aria-controls="td-docs-nav" aria-expanded="false" aria-label="Toggle section navigation">
+    </button>
+  </form>
+  </div>
+  <div id="content-desktop"></div>
+  <nav class="collapse td-sidebar-nav foldable-nav" id="td-section-nav">
+    <ul class="td-sidebar-nav__section pr-md-3 ul-0">
+      <li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id="m-docs-li">
+  <a href="/docs/" class="align-left pl-0 td-sidebar-link td-sidebar-link__section tree-root" id="m-docs"><span class="">Docs</span></a>
+  <ul class="ul-1">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id="m-docsazure-li">
+  <input type="checkbox" id="m-docsazure-check" checked/>
+  <label for="m-docsazure-check"><a href="/docs/azure/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-docsazure"><i class="fab fa-azure"></i><span class="">Azure Cloud Computing</span></a></label>
+  
+  <ul class="ul-2 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazurelinux-basics-li">
+  <input type="checkbox" id="m-docsazurelinux-basics-check"/>
+  <label for="m-docsazurelinux-basics-check"><a href="/docs/azure/linux-basics/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazurelinux-basics"><i class="fab fa-azure"></i><span class="">Linux Basics</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazureazure-vm-li">
+  <input type="checkbox" id="m-docsazureazure-vm-check"/>
+  <label for="m-docsazureazure-vm-check"><a href="/docs/azure/azure-vm/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazureazure-vm"><i class="fab fa-azure"></i><span class="">Azure Cloud Virtual Machine (01)</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazureazuredevops-li">
+  <input type="checkbox" id="m-docsazureazuredevops-check"/>
+  <label for="m-docsazureazuredevops-check"><a href="/docs/azure/azuredevops/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazureazuredevops"><i class="fab fa-azure"></i><span class="">Azure Devops</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazureazure-network-li">
+  <input type="checkbox" id="m-docsazureazure-network-check"/>
+  <label for="m-docsazureazure-network-check"><a href="/docs/azure/azure-network/" class="align-left pl-0  active td-sidebar-link td-sidebar-link__page" id="m-docsazureazure-network"><i class="fab fa-azure"></i><span class="td-sidebar-nav-active-item">Azure Cloud Networking</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazureazure-storage-li">
+  <input type="checkbox" id="m-docsazureazure-storage-check"/>
+  <label for="m-docsazureazure-storage-check"><a href="/docs/azure/azure-storage/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazureazure-storage"><i class="fab fa-azure"></i><span class="">Azure Cloud Storage</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazureazure-cli-li">
+  <input type="checkbox" id="m-docsazureazure-cli-check"/>
+  <label for="m-docsazureazure-cli-check"><a href="/docs/azure/azure-cli/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazureazure-cli"><i class="fab fa-azure"></i><span class="">Azure Cli</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazureazure-vmss-li">
+  <input type="checkbox" id="m-docsazureazure-vmss-check"/>
+  <label for="m-docsazureazure-vmss-check"><a href="/docs/azure/azure-vmss/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazureazure-vmss"><i class="fab fa-azure"></i><span class="">Azure Cloud Virtual Machine Scale Set</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazureazure-lb-li">
+  <input type="checkbox" id="m-docsazureazure-lb-check"/>
+  <label for="m-docsazureazure-lb-check"><a href="/docs/azure/azure-lb/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazureazure-lb"><i class="fab fa-azure"></i><span class="">Azure Cloud LoadBalancers</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazureazure-monitor-li">
+  <input type="checkbox" id="m-docsazureazure-monitor-check"/>
+  <label for="m-docsazureazure-monitor-check"><a href="/docs/azure/azure-monitor/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazureazure-monitor"><i class="fab fa-azure"></i><span class="">Azure Monitoring</span></a></label>
+  
+</li>
+  </ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-docsazure-devops-li">
+  <input type="checkbox" id="m-docsazure-devops-check"/>
+  <label for="m-docsazure-devops-check"><a href="/docs/azure-devops/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-docsazure-devops"><i class="fab fa-azure"></i><span class="">Azure Devops</span></a></label>
+  
+  <ul class="ul-2 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazure-devopsazure-board-li">
+  <input type="checkbox" id="m-docsazure-devopsazure-board-check"/>
+  <label for="m-docsazure-devopsazure-board-check"><a href="/docs/azure-devops/azure-board/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazure-devopsazure-board"><i class="fab fa-azure"></i><span class="">Azure Board</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazure-devopsazuredevops-01-li">
+  <input type="checkbox" id="m-docsazure-devopsazuredevops-01-check"/>
+  <label for="m-docsazure-devopsazuredevops-01-check"><a href="/docs/azure-devops/azuredevops-01/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazure-devopsazuredevops-01"><i class="fab fa-azure"></i><span class="">Part 1</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazure-devopsazuredevops-li">
+  <input type="checkbox" id="m-docsazure-devopsazuredevops-check"/>
+  <label for="m-docsazure-devopsazuredevops-check"><a href="/docs/azure-devops/azuredevops/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazure-devopsazuredevops"><i class="fab fa-azure"></i><span class="">Azure Devops</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazure-devopsazuredevops-02-li">
+  <input type="checkbox" id="m-docsazure-devopsazuredevops-02-check"/>
+  <label for="m-docsazure-devopsazuredevops-02-check"><a href="/docs/azure-devops/azuredevops-02/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazure-devopsazuredevops-02"><i class="fab fa-azure"></i><span class="">Part 2</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazure-devopsazuredevops-03-li">
+  <input type="checkbox" id="m-docsazure-devopsazuredevops-03-check"/>
+  <label for="m-docsazure-devopsazuredevops-03-check"><a href="/docs/azure-devops/azuredevops-03/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazure-devopsazuredevops-03"><i class="fab fa-azure"></i><span class="">Part 3</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazure-devopsazuredevops-04-li">
+  <input type="checkbox" id="m-docsazure-devopsazuredevops-04-check"/>
+  <label for="m-docsazure-devopsazuredevops-04-check"><a href="/docs/azure-devops/azuredevops-04/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazure-devopsazuredevops-04"><i class="fab fa-azure"></i><span class="">part 4</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazure-devopsazuredevops-05-li">
+  <input type="checkbox" id="m-docsazure-devopsazuredevops-05-check"/>
+  <label for="m-docsazure-devopsazuredevops-05-check"><a href="/docs/azure-devops/azuredevops-05/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazure-devopsazuredevops-05"><i class="fab fa-azure"></i><span class="">Part 5</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazure-devopsazuredevops-06-li">
+  <input type="checkbox" id="m-docsazure-devopsazuredevops-06-check"/>
+  <label for="m-docsazure-devopsazuredevops-06-check"><a href="/docs/azure-devops/azuredevops-06/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazure-devopsazuredevops-06"><i class="fab fa-azure"></i><span class="">Part 6</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazure-devopsaks-li">
+  <input type="checkbox" id="m-docsazure-devopsaks-check"/>
+  <label for="m-docsazure-devopsaks-check"><a href="/docs/azure-devops/aks/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazure-devopsaks"><i class="fab fa-azure"></i><span class="">AKS</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazure-devopstest-li">
+  <input type="checkbox" id="m-docsazure-devopstest-check"/>
+  <label for="m-docsazure-devopstest-check"><a href="/docs/azure-devops/test/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazure-devopstest"><i class="fab fa-azure"></i><span class="">Azure Devops Test Plans</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazure-devopsdocker-li">
+  <input type="checkbox" id="m-docsazure-devopsdocker-check"/>
+  <label for="m-docsazure-devopsdocker-check"><a href="/docs/azure-devops/docker/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazure-devopsdocker"><i class="fab fa-azure"></i><span class="">Docker</span></a></label>
+  
+</li>
+  </ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-docsgitlab-li">
+  <input type="checkbox" id="m-docsgitlab-check"/>
+  <label for="m-docsgitlab-check"><a href="/docs/gitlab/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-docsgitlab"><i class="fab fa-gitlab"></i><span class="">Gitlab Tutorials</span></a></label>
+  
+  <ul class="ul-2 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsgitlabgitlab01-li">
+  <input type="checkbox" id="m-docsgitlabgitlab01-check"/>
+  <label for="m-docsgitlabgitlab01-check"><a href="/docs/gitlab/gitlab01/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsgitlabgitlab01"><i class="fab fa-gitlab"></i><span class="">GitLab Installation</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsgitlabgitlab-with-ldap-li">
+  <input type="checkbox" id="m-docsgitlabgitlab-with-ldap-check"/>
+  <label for="m-docsgitlabgitlab-with-ldap-check"><a href="/docs/gitlab/gitlab-with-ldap/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsgitlabgitlab-with-ldap"><i class="fas fa-server"></i><span class="">Gitlab Authentication with LDAP</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsgitlabgitlab-container-registry-li">
+  <input type="checkbox" id="m-docsgitlabgitlab-container-registry-check"/>
+  <label for="m-docsgitlabgitlab-container-registry-check"><a href="/docs/gitlab/gitlab-container-registry/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsgitlabgitlab-container-registry"><i class="fab fa-docker"></i><span class="">GitLab Container Registry</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsgitlabgitlab-logs-troubleshooting-li">
+  <input type="checkbox" id="m-docsgitlabgitlab-logs-troubleshooting-check"/>
+  <label for="m-docsgitlabgitlab-logs-troubleshooting-check"><a href="/docs/gitlab/gitlab-logs-troubleshooting/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsgitlabgitlab-logs-troubleshooting"><i class="fas fa-file-alt"></i><span class="">Logs and Troubleshooting</span></a></label>
+  
+</li>
+  </ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-docsopenshift-li">
+  <input type="checkbox" id="m-docsopenshift-check"/>
+  <label for="m-docsopenshift-check"><a href="/docs/openshift/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-docsopenshift"><i class="fab fa-openshift"></i><span class="">OpenShift Administration</span></a></label>
+  
+  <ul class="ul-2 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsopenshiftocp-onvmware-copy-li">
+  <input type="checkbox" id="m-docsopenshiftocp-onvmware-copy-check"/>
+  <label for="m-docsopenshiftocp-onvmware-copy-check"><a href="/docs/openshift/ocp-onvmware-copy/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsopenshiftocp-onvmware-copy"><i class="fab fa-openshift"></i><span class="">Openshift Installation on Vmware</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsopenshiftocp-sno-li">
+  <input type="checkbox" id="m-docsopenshiftocp-sno-check"/>
+  <label for="m-docsopenshiftocp-sno-check"><a href="/docs/openshift/ocp-sno/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsopenshiftocp-sno"><i class="fab fa-openshift"></i><span class="">Openshift Single node Cluster</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsopenshiftocp-tasks-li">
+  <input type="checkbox" id="m-docsopenshiftocp-tasks-check"/>
+  <label for="m-docsopenshiftocp-tasks-check"><a href="/docs/openshift/ocp-tasks/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsopenshiftocp-tasks"><span class="">Openshift 4 Tasks</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsopenshiftocp-tekton-li">
+  <input type="checkbox" id="m-docsopenshiftocp-tekton-check"/>
+  <label for="m-docsopenshiftocp-tekton-check"><a href="/docs/openshift/ocp-tekton/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsopenshiftocp-tekton"><span class="">Openshift Tekton Pipeline</span></a></label>
+  
+</li>
+  </ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-docskvm-li">
+  <input type="checkbox" id="m-docskvm-check"/>
+  <label for="m-docskvm-check"><a href="/docs/kvm/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-docskvm"><i class="fab fa-linux"></i><span class="">Redhat Ansible</span></a></label>
+  
+  <ul class="ul-2 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docskvmkvm-li">
+  <input type="checkbox" id="m-docskvmkvm-check"/>
+  <label for="m-docskvmkvm-check"><a href="/docs/kvm/kvm/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docskvmkvm"><i class="fab fa-kvm"></i><span class="">KVM</span></a></label>
+  
+</li>
+  </ul>
+</li>
+  </ul>
+</li>
+    </ul>
+  </nav>
+</div>
+
+          </aside>
+          <aside class="d-none d-xl-block col-xl-2 td-sidebar-toc d-print-none">
+            
+
+    <div class="td-page-meta ml-2 pb-1 pt-2 mb-0">
+        <div class="toc-title">Actions</div>
+        <a href="/edit/master/content/docs/Azure/Azure-network.md" target="_blank" rel="noopener"><i class="fa fa-edit fa-fw"></i> Contribute to this page</a>
+        <a href="/issues/new?issue%5Btitle=%f0%9f%93%83%20docs:%20update%20page%20docs/Azure/Azure-network.md" target="_blank" rel="noopener"><i class="fab fa-gitlab fa-fw"></i> Create a documentation issue</a>
+       
+    </div>
+
+            
+<div class="td-page-meta ml-2 pb-1 pt-2 mb-0 right-menu-toc">
+
+    
+        
+            <div class="toc-title">Table of content</div>
+            <div class="td-toc"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#1-virtual-network-vnet">1. Virtual Network (VNet)</a>
+      <ul>
+        <li><a href="#key-features">Key Features:</a></li>
+      </ul>
+    </li>
+    <li><a href="#2-subnets">2. Subnets</a></li>
+    <li><a href="#3-network-security-group-nsg">3. Network Security Group (NSG)</a>
+      <ul>
+        <li><a href="#rules">Rules:</a></li>
+      </ul>
+    </li>
+    <li><a href="#4-virtual-private-network-vpn">4. Virtual Private Network (VPN)</a></li>
+    <li><a href="#5-expressroute">5. ExpressRoute</a></li>
+    <li><a href="#6-azure-load-balancer">6. Azure Load Balancer</a></li>
+    <li><a href="#7-azure-application-gateway">7. Azure Application Gateway</a></li>
+    <li><a href="#8-azure-traffic-manager">8. Azure Traffic Manager</a></li>
+    <li><a href="#9-azure-firewall">9. Azure Firewall</a></li>
+    <li><a href="#10-azure-dns">10. Azure DNS</a></li>
+    <li><a href="#11-virtual-network-peering">11. Virtual Network Peering</a></li>
+    <li><a href="#12-azure-bastion">12. Azure Bastion</a></li>
+    <li><a href="#13-network-watcher">13. Network Watcher</a>
+      <ul>
+        <li><a href="#networking-diagram-example">Networking Diagram Example</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li><a href="#step-1-sign-in-to-the-azure-portal">Step 1: Sign in to the Azure Portal</a></li>
+    <li><a href="#step-2-create-a-virtual-network">Step 2: Create a Virtual Network</a>
+      <ul>
+        <li><a href="#configure-virtual-network">Configure Virtual Network</a></li>
+      </ul>
+    </li>
+    <li><a href="#step-3-configure-address-space">Step 3: Configure Address Space</a></li>
+    <li><a href="#step-4-add-subnets">Step 4: Add Subnets</a></li>
+    <li><a href="#step-5-configure-security-optional">Step 5: Configure Security (Optional)</a></li>
+    <li><a href="#step-6-review-and-create">Step 6: Review and Create</a></li>
+    <li><a href="#step-7-verify-the-virtual-network">Step 7: Verify the Virtual Network</a></li>
+    <li><a href="#additional-configurations">Additional Configurations</a>
+      <ul>
+        <li><a href="#step-8-add-network-security-groups-nsgs">Step 8: Add Network Security Groups (NSGs)</a></li>
+        <li><a href="#step-9-enable-vnet-peering-optional">Step 9: Enable VNet Peering (Optional)</a></li>
+      </ul>
+    </li>
+    <li><a href="#example-vnet-configuration">Example VNet Configuration</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#example-1-peering-between-two-vnets-in-the-same-region">Example 1: Peering Between Two VNets in the Same Region</a>
+      <ul>
+        <li><a href="#overview">Overview</a></li>
+        <li><a href="#prerequisites">Prerequisites</a></li>
+        <li><a href="#steps-to-peer-vnet1-with-vnet2">Steps to Peer VNet1 with VNet2</a></li>
+      </ul>
+    </li>
+    <li><a href="#example-2-peering-between-two-vnets-in-different-regions-global-vnet-peering">Example 2: Peering Between Two VNets in Different Regions (Global VNet Peering)</a>
+      <ul>
+        <li><a href="#overview-1">Overview</a></li>
+        <li><a href="#prerequisites-1">Prerequisites</a></li>
+        <li><a href="#steps-to-peer-vnet1-east-us-with-vnet2-west-europe">Steps to Peer VNet1 (East US) with VNet2 (West Europe)</a></li>
+      </ul>
+    </li>
+    <li><a href="#example-3-vnet-peering-with-different-subscriptions">Example 3: VNet Peering with Different Subscriptions</a>
+      <ul>
+        <li><a href="#overview-2">Overview</a></li>
+        <li><a href="#prerequisites-2">Prerequisites</a></li>
+        <li><a href="#steps-to-peer-vnet1-with-vnet2-across-subscriptions">Steps to Peer VNet1 with VNet2 Across Subscriptions</a></li>
+      </ul>
+    </li>
+    <li><a href="#vnet-peering-considerations">VNet Peering Considerations:</a>
+      <ul>
+        <li><a href="#reference-links">Reference Links:</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li><a href="#overview-3">Overview</a></li>
+    <li><a href="#key-features-of-azure-network-watcher">Key Features of Azure Network Watcher</a></li>
+    <li><a href="#how-to-enable-azure-network-watcher">How to Enable Azure Network Watcher</a>
+      <ul>
+        <li><a href="#step-1-enable-network-watcher">Step 1: Enable Network Watcher</a></li>
+        <li><a href="#step-2-verify-network-watcher-is-enabled">Step 2: Verify Network Watcher is Enabled</a></li>
+      </ul>
+    </li>
+    <li><a href="#network-watcher-tools">Network Watcher Tools</a>
+      <ul>
+        <li><a href="#1-connection-monitor">1. <strong>Connection Monitor</strong></a></li>
+        <li><a href="#2-ip-flow-verify">2. <strong>IP Flow Verify</strong></a></li>
+        <li><a href="#3-topology">3. <strong>Topology</strong></a></li>
+        <li><a href="#4-next-hop">4. <strong>Next Hop</strong></a></li>
+        <li><a href="#5-packet-capture">5. <strong>Packet Capture</strong></a></li>
+        <li><a href="#6-connection-troubleshoot">6. <strong>Connection Troubleshoot</strong></a></li>
+      </ul>
+    </li>
+    <li><a href="#example-verify-ip-flow">Example: Verify IP Flow</a>
+      <ul>
+        <li><a href="#scenario">Scenario</a></li>
+        <li><a href="#steps">Steps</a></li>
+      </ul>
+    </li>
+    <li><a href="#pricing">Pricing</a>
+      <ul>
+        <li><a href="#reference-pricing">Reference Pricing:</a></li>
+      </ul>
+    </li>
+    <li><a href="#reference-links-1">Reference Links</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#1-virtual-networks-vnet">1. Virtual Networks (VNet)</a>
+      <ul>
+        <li><a href="#common-interview-questions">Common Interview Questions:</a></li>
+      </ul>
+    </li>
+    <li><a href="#2-network-security-groups-nsgs">2. Network Security Groups (NSGs)</a>
+      <ul>
+        <li><a href="#common-interview-questions-1">Common Interview Questions:</a></li>
+      </ul>
+    </li>
+    <li><a href="#3-public-and-private-ip-addressing">3. Public and Private IP Addressing</a>
+      <ul>
+        <li><a href="#common-interview-questions-2">Common Interview Questions:</a></li>
+      </ul>
+    </li>
+    <li><a href="#4-azure-load-balancer">4. Azure Load Balancer</a>
+      <ul>
+        <li><a href="#common-interview-questions-3">Common Interview Questions:</a></li>
+      </ul>
+    </li>
+    <li><a href="#5-azure-application-gateway-layer-7-load-balancing">5. Azure Application Gateway (Layer 7 Load Balancing)</a>
+      <ul>
+        <li><a href="#common-interview-questions-4">Common Interview Questions:</a></li>
+      </ul>
+    </li>
+    <li><a href="#6-virtual-network-peering">6. Virtual Network Peering</a>
+      <ul>
+        <li><a href="#common-interview-questions-5">Common Interview Questions:</a></li>
+      </ul>
+    </li>
+    <li><a href="#7-azure-vpn-gateway">7. Azure VPN Gateway</a>
+      <ul>
+        <li><a href="#common-interview-questions-6">Common Interview Questions:</a></li>
+      </ul>
+    </li>
+    <li><a href="#8-azure-dns-and-custom-dns">8. Azure DNS and Custom DNS</a>
+      <ul>
+        <li><a href="#common-interview-questions-7">Common Interview Questions:</a></li>
+      </ul>
+    </li>
+    <li><a href="#9-traffic-manager">9. Traffic Manager</a>
+      <ul>
+        <li><a href="#common-interview-questions-8">Common Interview Questions:</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+        
+    
+
+</div>
+          </aside>
+          <main class="col-12 col-md-9 col-xl-8 pl-md-5" role="main">
+            
+  
+
+            <nav aria-label="breadcrumb" class="td-breadcrumbs">
+  <ol class="breadcrumb">
+  <li class="breadcrumb-item">
+    <a href="/docs/">Docs</a>
+  </li>
+  <li class="breadcrumb-item">
+    <a href="/docs/azure/">Azure Cloud Computing</a>
+  </li>
+  <li class="breadcrumb-item active" aria-current="page">
+    <a href="/docs/azure/azure-network/">Azure Cloud Networking</a>
+  </li>
+  </ol>
+</nav>
+            
+<div class="td-content">
+	<h1>Azure Cloud Networking</h1>
+	<div class="lead">Azure Cloud</div>
+	<header class="article-meta">
+		
+
+  
+    
+
+
+  
+    
+
+
+  
+
+		
+	</header>    
+	<!-- end-chunk -->
+<!-- begin-chunk data-anchor="1-virtual-network-vnet" data-heading="1. Virtual Network (VNet)" data-level="2" data-permalink="/docs/azure/azure-network/" data-title="Azure Cloud Networking" -->
+<h2 id="1-virtual-network-vnet">1. Virtual Network (VNet)</h2><ul>
+<li><strong>Azure Virtual Network (VNet)</strong> is the fundamental building block for private networks in Azure.</li>
+<li>VNets enable Azure resources, like Virtual Machines (VMs), to securely communicate with each other, the internet, and on-premises networks.</li>
+<li>VNets can be segmented into <strong>subnets</strong> for better management and security.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="key-features" data-heading="Key Features:" data-level="3" data-permalink="/docs/azure/azure-network/" data-title="Azure Cloud Networking" -->
+<h3 id="key-features">Key Features:</h3><ul>
+<li><strong>Isolation and segmentation</strong>: You can isolate VNets from each other.</li>
+<li><strong>Subnets</strong>: Allow partitioning of a VNet into smaller network segments.</li>
+<li><strong>Network Security Groups (NSGs)</strong>: Control inbound and outbound traffic rules.</li>
+<li><strong>Route Tables</strong>: Direct network traffic.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="2-subnets" data-heading="2. Subnets" data-level="2" data-permalink="/docs/azure/azure-network/" data-title="Azure Cloud Networking" -->
+<h2 id="2-subnets">2. Subnets</h2><ul>
+<li><strong>Subnets</strong> allow you to divide your VNet into smaller, isolated sections.</li>
+<li>Each subnet can have its own Network Security Group (NSG) to control traffic.</li>
+<li>Subnets also allow for organizing resources into distinct groups based on service types.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="3-network-security-group-nsg" data-heading="3. Network Security Group (NSG)" data-level="2" data-permalink="/docs/azure/azure-network/" data-title="Azure Cloud Networking" -->
+<h2 id="3-network-security-group-nsg">3. Network Security Group (NSG)</h2><ul>
+<li>NSGs are a set of firewall rules that control traffic to and from VMs.</li>
+<li>NSGs can be applied at the subnet level or directly to the VM&rsquo;s network interface.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="rules" data-heading="Rules:" data-level="3" data-permalink="/docs/azure/azure-network/" data-title="Azure Cloud Networking" -->
+<h3 id="rules">Rules:</h3><ul>
+<li><strong>Inbound rules</strong>: Define the traffic allowed to the VM.</li>
+<li><strong>Outbound rules</strong>: Define the traffic allowed from the VM.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="4-virtual-private-network-vpn" data-heading="4. Virtual Private Network (VPN)" data-level="2" data-permalink="/docs/azure/azure-network/" data-title="Azure Cloud Networking" -->
+<h2 id="4-virtual-private-network-vpn">4. Virtual Private Network (VPN)</h2><ul>
+<li>Azure provides <strong>VPN Gateway</strong> for establishing secure connections between Azure and on-premises networks, or other Azure VNets.</li>
+<li><strong>Site-to-Site VPN</strong>: Connect on-premises networks to Azure VNets.</li>
+<li><strong>Point-to-Site VPN</strong>: Enable individual clients to connect to the Azure VNet.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="5-expressroute" data-heading="5. ExpressRoute" data-level="2" data-permalink="/docs/azure/azure-network/" data-title="Azure Cloud Networking" -->
+<h2 id="5-expressroute">5. ExpressRoute</h2><ul>
+<li><strong>ExpressRoute</strong> allows for private, dedicated, high-throughput connections between on-premises networks and Azure data centers.</li>
+<li>Avoids using the public internet, offering greater reliability, faster speeds, and lower latencies.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="6-azure-load-balancer" data-heading="6. Azure Load Balancer" data-level="2" data-permalink="/docs/azure/azure-network/" data-title="Azure Cloud Networking" -->
+<h2 id="6-azure-load-balancer">6. Azure Load Balancer</h2><ul>
+<li>Distributes inbound traffic across multiple VMs, ensuring high availability.</li>
+<li>Supports both <strong>public</strong> and <strong>internal</strong> load balancers.</li>
+<li>Can be used for balancing traffic in multi-tier applications.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="7-azure-application-gateway" data-heading="7. Azure Application Gateway" data-level="2" data-permalink="/docs/azure/azure-network/" data-title="Azure Cloud Networking" -->
+<h2 id="7-azure-application-gateway">7. Azure Application Gateway</h2><ul>
+<li>A layer-7 load balancer that provides application-level routing decisions.</li>
+<li>Supports features like <strong>SSL termination</strong>, <strong>cookie-based session affinity</strong>, and <strong>Web Application Firewall (WAF)</strong>.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="8-azure-traffic-manager" data-heading="8. Azure Traffic Manager" data-level="2" data-permalink="/docs/azure/azure-network/" data-title="Azure Cloud Networking" -->
+<h2 id="8-azure-traffic-manager">8. Azure Traffic Manager</h2><ul>
+<li>DNS-based traffic load balancer.</li>
+<li>Directs incoming traffic to the most appropriate endpoint (based on performance, priority, or geographic location).</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="9-azure-firewall" data-heading="9. Azure Firewall" data-level="2" data-permalink="/docs/azure/azure-network/" data-title="Azure Cloud Networking" -->
+<h2 id="9-azure-firewall">9. Azure Firewall</h2><ul>
+<li>Managed, cloud-based network security service.</li>
+<li>Protects Azure resources with high availability and scalability.</li>
+<li>Offers features like <strong>application rules</strong>, <strong>network rules</strong>, and <strong>threat intelligence</strong>.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="10-azure-dns" data-heading="10. Azure DNS" data-level="2" data-permalink="/docs/azure/azure-network/" data-title="Azure Cloud Networking" -->
+<h2 id="10-azure-dns">10. Azure DNS</h2><ul>
+<li><strong>Azure DNS</strong> hosts your DNS domains and manages your DNS records.</li>
+<li>Allows for easy management of your domain names and supports both public and private DNS zones.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="11-virtual-network-peering" data-heading="11. Virtual Network Peering" data-level="2" data-permalink="/docs/azure/azure-network/" data-title="Azure Cloud Networking" -->
+<h2 id="11-virtual-network-peering">11. Virtual Network Peering</h2><ul>
+<li>Allows linking VNets within the same region or across regions, enabling resources in different VNets to communicate with each other.</li>
+<li>Provides low-latency and high-bandwidth connections between VNets.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="12-azure-bastion" data-heading="12. Azure Bastion" data-level="2" data-permalink="/docs/azure/azure-network/" data-title="Azure Cloud Networking" -->
+<h2 id="12-azure-bastion">12. Azure Bastion</h2><ul>
+<li>Provides secure and seamless RDP/SSH access to your VMs without exposing them to the public internet.</li>
+<li><strong>Azure Bastion</strong> is deployed inside your VNet.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="13-network-watcher" data-heading="13. Network Watcher" data-level="2" data-permalink="/docs/azure/azure-network/" data-title="Azure Cloud Networking" -->
+<h2 id="13-network-watcher">13. Network Watcher</h2><ul>
+<li><strong>Network Watcher</strong> is a tool for monitoring, diagnosing, and gaining insights into your Azure network.</li>
+<li>It provides various capabilities like <strong>packet capture</strong>, <strong>connection troubleshooting</strong>, and <strong>VPN diagnostics</strong>.</li>
+</ul>
+<hr>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="networking-diagram-example" data-heading="Networking Diagram Example" data-level="3" data-permalink="/docs/azure/azure-network/" data-title="Azure Cloud Networking" -->
+<h3 id="networking-diagram-example">Networking Diagram Example</h3><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-plaintext" data-lang="plaintext"><span style="display:flex;"><span> +------------+       +-----------+      +-------------------+
+</span></span><span style="display:flex;"><span> |            |       |           |      |                   |
+</span></span><span style="display:flex;"><span> |  On-prem   |&lt;-----&gt;|  VPN GW    |&lt;----&gt;|  Azure VNet       |
+</span></span><span style="display:flex;"><span> |  Network   |       |           |      |                   |
+</span></span><span style="display:flex;"><span> +------------+       +-----------+      +-------------------+
+</span></span></code></pre></div><!-- end-chunk -->
+<!-- begin-chunk data-anchor="steps-to-create-an-azure-virtual-network-vnet" data-heading="Steps to Create an Azure Virtual Network (VNet)" data-level="1" data-permalink="/docs/azure/azure-network/" data-title="Azure Cloud Networking" -->
+<h1 id="steps-to-create-an-azure-virtual-network-vnet">Steps to Create an Azure Virtual Network (VNet)</h1><!-- end-chunk -->
+<!-- begin-chunk data-anchor="step-1-sign-in-to-the-azure-portal" data-heading="Step 1: Sign in to the Azure Portal" data-level="2" data-permalink="/docs/azure/azure-network/" data-title="Azure Cloud Networking" -->
+<h2 id="step-1-sign-in-to-the-azure-portal">Step 1: Sign in to the Azure Portal</h2><ol>
+<li>Open your web browser and go to the <a href="https://portal.azure.com" target="_blank" rel="noopener">Azure Portal</a>.</li>
+<li>Sign in with your Azure account credentials.</li>
+</ol>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="step-2-create-a-virtual-network" data-heading="Step 2: Create a Virtual Network" data-level="2" data-permalink="/docs/azure/azure-network/" data-title="Azure Cloud Networking" -->
+<h2 id="step-2-create-a-virtual-network">Step 2: Create a Virtual Network</h2><ol>
+<li>In the Azure Portal, on the left-hand menu, select <strong>Create a resource</strong>.</li>
+<li>In the search bar, type <strong>Virtual Network</strong> and select it from the results.</li>
+<li>Click <strong>Create</strong>.</li>
+</ol>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="configure-virtual-network" data-heading="Configure Virtual Network" data-level="3" data-permalink="/docs/azure/azure-network/" data-title="Azure Cloud Networking" -->
+<h3 id="configure-virtual-network">Configure Virtual Network</h3><ul>
+<li><strong>Subscription</strong>: Select the Azure subscription to create the VNet.</li>
+<li><strong>Resource Group</strong>: Choose an existing resource group or create a new one.</li>
+<li><strong>Name</strong>: Enter a name for your Virtual Network (e.g., <code>MyVNet</code>).</li>
+<li><strong>Region</strong>: Select the Azure region where you want to deploy the VNet.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="step-3-configure-address-space" data-heading="Step 3: Configure Address Space" data-level="2" data-permalink="/docs/azure/azure-network/" data-title="Azure Cloud Networking" -->
+<h2 id="step-3-configure-address-space">Step 3: Configure Address Space</h2><ol>
+<li>Under the <strong>IP Addresses</strong> tab, you need to configure the address space for the VNet.</li>
+<li>Enter an address space in <strong>CIDR</strong> notation (e.g., <code>10.0.0.0/16</code>).
+<ul>
+<li>This range must be unique within the network and large enough to contain all your subnets.</li>
+</ul>
+</li>
+</ol>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="step-4-add-subnets" data-heading="Step 4: Add Subnets" data-level="2" data-permalink="/docs/azure/azure-network/" data-title="Azure Cloud Networking" -->
+<h2 id="step-4-add-subnets">Step 4: Add Subnets</h2><ol>
+<li>
+<p>In the same <strong>IP Addresses</strong> section, scroll down to the <strong>Subnets</strong>.</p>
+</li>
+<li>
+<p>Click <strong>Add Subnet</strong>.</p>
+<ul>
+<li><strong>Name</strong>: Give a name to your subnet (e.g., <code>FrontEndSubnet</code>).</li>
+<li><strong>Subnet Address Range</strong>: Enter a subnet address range (e.g., <code>10.0.1.0/24</code>).</li>
+</ul>
+</li>
+<li>
+<p>Click <strong>Add</strong> to add the subnet.</p>
+<p><em>(Repeat this step if you want to add more subnets.)</em></p>
+</li>
+</ol>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="step-5-configure-security-optional" data-heading="Step 5: Configure Security (Optional)" data-level="2" data-permalink="/docs/azure/azure-network/" data-title="Azure Cloud Networking" -->
+<h2 id="step-5-configure-security-optional">Step 5: Configure Security (Optional)</h2><ol>
+<li>
+<p>In the <strong>Security</strong> tab, you can enable security features:</p>
+<ul>
+<li><strong>BastionHost</strong>: Secure RDP/SSH access to VMs without public IP.</li>
+<li><strong>Firewall</strong>: Add Azure Firewall to control traffic to/from the VNet.</li>
+<li><strong>DDoS protection</strong>: Enable Standard DDoS protection for better security.</li>
+</ul>
+</li>
+<li>
+<p>Configure these options as required and proceed to the next step.</p>
+</li>
+</ol>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="step-6-review-and-create" data-heading="Step 6: Review and Create" data-level="2" data-permalink="/docs/azure/azure-network/" data-title="Azure Cloud Networking" -->
+<h2 id="step-6-review-and-create">Step 6: Review and Create</h2><ol>
+<li>Review all the settings and ensure that everything is configured correctly.</li>
+<li>Click <strong>Review + Create</strong>.</li>
+<li>Once validation is passed, click <strong>Create</strong> to deploy the VNet.</li>
+</ol>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="step-7-verify-the-virtual-network" data-heading="Step 7: Verify the Virtual Network" data-level="2" data-permalink="/docs/azure/azure-network/" data-title="Azure Cloud Networking" -->
+<h2 id="step-7-verify-the-virtual-network">Step 7: Verify the Virtual Network</h2><ol>
+<li>After the deployment is complete, navigate to <strong>Resource Groups</strong> and select the resource group where the VNet was created.</li>
+<li>Click on the <strong>Virtual Network</strong> to see the details of the newly created VNet.</li>
+<li>Verify the <strong>Address Space</strong>, <strong>Subnets</strong>, and other settings to ensure they are correctly configured.</li>
+</ol>
+<hr>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="additional-configurations" data-heading="Additional Configurations" data-level="2" data-permalink="/docs/azure/azure-network/" data-title="Azure Cloud Networking" -->
+<h2 id="additional-configurations">Additional Configurations</h2><!-- end-chunk -->
+<!-- begin-chunk data-anchor="step-8-add-network-security-groups-nsgs" data-heading="Step 8: Add Network Security Groups (NSGs)" data-level="3" data-permalink="/docs/azure/azure-network/" data-title="Azure Cloud Networking" -->
+<h3 id="step-8-add-network-security-groups-nsgs">Step 8: Add Network Security Groups (NSGs)</h3><ol>
+<li>In the VNet page, select <strong>Subnets</strong>.</li>
+<li>Click on the desired subnet to attach a <strong>Network Security Group (NSG)</strong>.</li>
+<li>Select an existing NSG or create a new one to define inbound/outbound rules.</li>
+</ol>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="step-9-enable-vnet-peering-optional" data-heading="Step 9: Enable VNet Peering (Optional)" data-level="3" data-permalink="/docs/azure/azure-network/" data-title="Azure Cloud Networking" -->
+<h3 id="step-9-enable-vnet-peering-optional">Step 9: Enable VNet Peering (Optional)</h3><ol>
+<li>If you want to connect this VNet to another VNet, go to the <strong>Peerings</strong> section.</li>
+<li>Click <strong>Add Peering</strong>.
+<ul>
+<li><strong>Name</strong>: Enter a name for the peering connection.</li>
+<li><strong>Virtual Network Deployment Model</strong>: Select the deployment model (usually Resource Manager).</li>
+<li><strong>Peering Status</strong>: Choose the desired configuration (Allow/Block traffic).</li>
+</ul>
+</li>
+<li>Click <strong>Add</strong> to establish peering.</li>
+</ol>
+<hr>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="example-vnet-configuration" data-heading="Example VNet Configuration" data-level="2" data-permalink="/docs/azure/azure-network/" data-title="Azure Cloud Networking" -->
+<h2 id="example-vnet-configuration">Example VNet Configuration</h2><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-plaintext" data-lang="plaintext"><span style="display:flex;"><span>VNet: MyVNet
+</span></span><span style="display:flex;"><span>Address Space: 10.0.0.0/16
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Subnets:
+</span></span><span style="display:flex;"><span>  - FrontEndSubnet: 10.0.1.0/24
+</span></span><span style="display:flex;"><span>  - BackEndSubnet: 10.0.2.0/24
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>NSGs:
+</span></span><span style="display:flex;"><span>  - FrontEndNSG: Applied to FrontEndSubnet
+</span></span><span style="display:flex;"><span>  - BackEndNSG: Applied to BackEndSubnet
+</span></span></code></pre></div><!-- end-chunk -->
+<!-- begin-chunk data-anchor="azure-vnet-peering-examples" data-heading="Azure VNet Peering Examples" data-level="1" data-permalink="/docs/azure/azure-network/" data-title="Azure Cloud Networking" -->
+<h1 id="azure-vnet-peering-examples">Azure VNet Peering Examples</h1><!-- end-chunk -->
+<!-- begin-chunk data-anchor="example-1-peering-between-two-vnets-in-the-same-region" data-heading="Example 1: Peering Between Two VNets in the Same Region" data-level="2" data-permalink="/docs/azure/azure-network/" data-title="Azure Cloud Networking" -->
+<h2 id="example-1-peering-between-two-vnets-in-the-same-region">Example 1: Peering Between Two VNets in the Same Region</h2><!-- end-chunk -->
+<!-- begin-chunk data-anchor="overview" data-heading="Overview" data-level="3" data-permalink="/docs/azure/azure-network/" data-title="Azure Cloud Networking" -->
+<h3 id="overview">Overview</h3><ul>
+<li><strong>VNet1</strong> and <strong>VNet2</strong> are located in the same region.</li>
+<li>The goal is to enable communication between resources in both VNets via VNet peering.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="prerequisites" data-heading="Prerequisites" data-level="3" data-permalink="/docs/azure/azure-network/" data-title="Azure Cloud Networking" -->
+<h3 id="prerequisites">Prerequisites</h3><ul>
+<li><strong>VNet1</strong> Address Space: <code>10.0.0.0/16</code></li>
+<li><strong>VNet2</strong> Address Space: <code>10.1.0.0/16</code></li>
+<li>Both VNets should not have overlapping address ranges.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="steps-to-peer-vnet1-with-vnet2" data-heading="Steps to Peer VNet1 with VNet2" data-level="3" data-permalink="/docs/azure/azure-network/" data-title="Azure Cloud Networking" -->
+<h3 id="steps-to-peer-vnet1-with-vnet2">Steps to Peer VNet1 with VNet2</h3><ol>
+<li>
+<p><strong>Go to VNet1</strong>:</p>
+<ul>
+<li>In the Azure Portal, navigate to <strong>Virtual Networks</strong> and select <strong>VNet1</strong>.</li>
+<li>In the left-hand menu, select <strong>Peerings</strong>.</li>
+<li>Click <strong>Add Peering</strong>.</li>
+</ul>
+</li>
+<li>
+<p><strong>Configure Peering from VNet1 to VNet2</strong>:</p>
+<ul>
+<li><strong>Name</strong>: <code>VNet1-to-VNet2</code></li>
+<li><strong>Peering Remote Virtual Network</strong>: Select <strong>VNet2</strong>.</li>
+<li><strong>Traffic to Remote Network</strong>: Select <strong>Allow traffic</strong> from VNet1 to VNet2.</li>
+<li><strong>Traffic Forwarding</strong>: Enable <strong>Allow Gateway Transit</strong> (if using one VNet’s gateway to access the internet).</li>
+<li><strong>Allow Virtual Network Access</strong>: Yes.</li>
+<li>Click <strong>Add</strong>.</li>
+</ul>
+</li>
+<li>
+<p><strong>Go to VNet2</strong>:</p>
+<ul>
+<li>In the Azure Portal, navigate to <strong>Virtual Networks</strong> and select <strong>VNet2</strong>.</li>
+<li>In the left-hand menu, select <strong>Peerings</strong>.</li>
+<li>Click <strong>Add Peering</strong>.</li>
+</ul>
+</li>
+<li>
+<p><strong>Configure Peering from VNet2 to VNet1</strong>:</p>
+<ul>
+<li><strong>Name</strong>: <code>VNet2-to-VNet1</code></li>
+<li><strong>Peering Remote Virtual Network</strong>: Select <strong>VNet1</strong>.</li>
+<li><strong>Traffic to Remote Network</strong>: Select <strong>Allow traffic</strong> from VNet2 to VNet1.</li>
+<li><strong>Allow Virtual Network Access</strong>: Yes.</li>
+<li>Click <strong>Add</strong>.</li>
+</ul>
+</li>
+</ol>
+<hr>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="example-2-peering-between-two-vnets-in-different-regions-global-vnet-peering" data-heading="Example 2: Peering Between Two VNets in Different Regions (Global VNet Peering)" data-level="2" data-permalink="/docs/azure/azure-network/" data-title="Azure Cloud Networking" -->
+<h2 id="example-2-peering-between-two-vnets-in-different-regions-global-vnet-peering">Example 2: Peering Between Two VNets in Different Regions (Global VNet Peering)</h2><!-- end-chunk -->
+<!-- begin-chunk data-anchor="overview-1" data-heading="Overview" data-level="3" data-permalink="/docs/azure/azure-network/" data-title="Azure Cloud Networking" -->
+<h3 id="overview-1">Overview</h3><ul>
+<li><strong>VNet1</strong> is in the East US region.</li>
+<li><strong>VNet2</strong> is in the West Europe region.</li>
+<li>We will establish <strong>Global VNet Peering</strong> between these two VNets.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="prerequisites-1" data-heading="Prerequisites" data-level="3" data-permalink="/docs/azure/azure-network/" data-title="Azure Cloud Networking" -->
+<h3 id="prerequisites-1">Prerequisites</h3><ul>
+<li><strong>VNet1</strong> Address Space: <code>10.0.0.0/16</code> (East US)</li>
+<li><strong>VNet2</strong> Address Space: <code>10.2.0.0/16</code> (West Europe)</li>
+<li>Both VNets must not have overlapping IP address ranges.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="steps-to-peer-vnet1-east-us-with-vnet2-west-europe" data-heading="Steps to Peer VNet1 (East US) with VNet2 (West Europe)" data-level="3" data-permalink="/docs/azure/azure-network/" data-title="Azure Cloud Networking" -->
+<h3 id="steps-to-peer-vnet1-east-us-with-vnet2-west-europe">Steps to Peer VNet1 (East US) with VNet2 (West Europe)</h3><ol>
+<li>
+<p><strong>Go to VNet1 (East US)</strong>:</p>
+<ul>
+<li>In the Azure Portal, navigate to <strong>Virtual Networks</strong> and select <strong>VNet1</strong> (in the East US region).</li>
+<li>In the left-hand menu, select <strong>Peerings</strong>.</li>
+<li>Click <strong>Add Peering</strong>.</li>
+</ul>
+</li>
+<li>
+<p><strong>Configure Peering from VNet1 to VNet2</strong>:</p>
+<ul>
+<li><strong>Name</strong>: <code>VNet1-to-VNet2</code></li>
+<li><strong>Peering Remote Virtual Network</strong>: Select <strong>VNet2</strong> (in the West Europe region).</li>
+<li><strong>Traffic to Remote Network</strong>: Allow traffic from VNet1 to VNet2.</li>
+<li><strong>Allow Gateway Transit</strong>: Enable this if needed (for shared VPN gateways).</li>
+<li>Click <strong>Add</strong>.</li>
+</ul>
+</li>
+<li>
+<p><strong>Go to VNet2 (West Europe)</strong>:</p>
+<ul>
+<li>In the Azure Portal, navigate to <strong>Virtual Networks</strong> and select <strong>VNet2</strong> (in the West Europe region).</li>
+<li>In the left-hand menu, select <strong>Peerings</strong>.</li>
+<li>Click <strong>Add Peering</strong>.</li>
+</ul>
+</li>
+<li>
+<p><strong>Configure Peering from VNet2 to VNet1</strong>:</p>
+<ul>
+<li><strong>Name</strong>: <code>VNet2-to-VNet1</code></li>
+<li><strong>Peering Remote Virtual Network</strong>: Select <strong>VNet1</strong> (in the East US region).</li>
+<li><strong>Traffic to Remote Network</strong>: Allow traffic from VNet2 to VNet1.</li>
+<li><strong>Allow Gateway Transit</strong>: Enable this if needed.</li>
+<li>Click <strong>Add</strong>.</li>
+</ul>
+</li>
+</ol>
+<hr>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="example-3-vnet-peering-with-different-subscriptions" data-heading="Example 3: VNet Peering with Different Subscriptions" data-level="2" data-permalink="/docs/azure/azure-network/" data-title="Azure Cloud Networking" -->
+<h2 id="example-3-vnet-peering-with-different-subscriptions">Example 3: VNet Peering with Different Subscriptions</h2><!-- end-chunk -->
+<!-- begin-chunk data-anchor="overview-2" data-heading="Overview" data-level="3" data-permalink="/docs/azure/azure-network/" data-title="Azure Cloud Networking" -->
+<h3 id="overview-2">Overview</h3><ul>
+<li><strong>VNet1</strong> and <strong>VNet2</strong> are located in different subscriptions.</li>
+<li>The goal is to peer these VNets for communication.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="prerequisites-2" data-heading="Prerequisites" data-level="3" data-permalink="/docs/azure/azure-network/" data-title="Azure Cloud Networking" -->
+<h3 id="prerequisites-2">Prerequisites</h3><ul>
+<li><strong>VNet1</strong> Address Space: <code>10.0.0.0/16</code></li>
+<li><strong>VNet2</strong> Address Space: <code>10.3.0.0/16</code></li>
+<li>Both VNets must belong to separate Azure subscriptions, but they must not have overlapping address ranges.</li>
+<li>Ensure the <strong>subscriptions</strong> are associated with the same Azure Active Directory (AAD) tenant.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="steps-to-peer-vnet1-with-vnet2-across-subscriptions" data-heading="Steps to Peer VNet1 with VNet2 Across Subscriptions" data-level="3" data-permalink="/docs/azure/azure-network/" data-title="Azure Cloud Networking" -->
+<h3 id="steps-to-peer-vnet1-with-vnet2-across-subscriptions">Steps to Peer VNet1 with VNet2 Across Subscriptions</h3><ol>
+<li>
+<p><strong>Go to VNet1 (Subscription A)</strong>:</p>
+<ul>
+<li>Navigate to <strong>Virtual Networks</strong> and select <strong>VNet1</strong>.</li>
+<li>In the left-hand menu, select <strong>Peerings</strong>.</li>
+<li>Click <strong>Add Peering</strong>.</li>
+</ul>
+</li>
+<li>
+<p><strong>Configure Peering from VNet1 to VNet2 (in a different subscription)</strong>:</p>
+<ul>
+<li><strong>Name</strong>: <code>VNet1-to-VNet2</code></li>
+<li><strong>Remote Virtual Network</strong>: Use the <strong>Resource ID</strong> of VNet2.
+<ul>
+<li>To get the resource ID of VNet2, go to VNet2 in <strong>Subscription B</strong>, click on <strong>Properties</strong>, and copy the <strong>Resource ID</strong>.</li>
+</ul>
+</li>
+<li><strong>Allow Virtual Network Access</strong>: Yes.</li>
+<li><strong>Traffic to Remote Network</strong>: Allow traffic from VNet1 to VNet2.</li>
+<li>Click <strong>Add</strong>.</li>
+</ul>
+</li>
+<li>
+<p><strong>Go to VNet2 (Subscription B)</strong>:</p>
+<ul>
+<li>Navigate to <strong>Virtual Networks</strong> and select <strong>VNet2</strong>.</li>
+<li>In the left-hand menu, select <strong>Peerings</strong>.</li>
+<li>Click <strong>Add Peering</strong>.</li>
+</ul>
+</li>
+<li>
+<p><strong>Configure Peering from VNet2 to VNet1 (in a different subscription)</strong>:</p>
+<ul>
+<li><strong>Name</strong>: <code>VNet2-to-VNet1</code></li>
+<li><strong>Remote Virtual Network</strong>: Use the <strong>Resource ID</strong> of VNet1 (from Subscription A).</li>
+<li><strong>Allow Virtual Network Access</strong>: Yes.</li>
+<li><strong>Traffic to Remote Network</strong>: Allow traffic from VNet2 to VNet1.</li>
+<li>Click <strong>Add</strong>.</li>
+</ul>
+</li>
+</ol>
+<hr>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="vnet-peering-considerations" data-heading="VNet Peering Considerations:" data-level="2" data-permalink="/docs/azure/azure-network/" data-title="Azure Cloud Networking" -->
+<h2 id="vnet-peering-considerations">VNet Peering Considerations:</h2><ul>
+<li><strong>No Overlapping IP Address Ranges</strong>: VNets being peered cannot have overlapping address spaces.</li>
+<li><strong>Data Transfer Costs</strong>: Data transferred between peered VNets is charged, especially across regions (Global Peering).</li>
+<li><strong>Gateway Transit</strong>: If you want one VNet to use another VNet’s VPN gateway, enable <strong>Gateway Transit</strong> during peering setup.</li>
+<li><strong>Security</strong>: Use <strong>Network Security Groups (NSGs)</strong> to control traffic between peered VNets.</li>
+</ul>
+<hr>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="reference-links" data-heading="Reference Links:" data-level="3" data-permalink="/docs/azure/azure-network/" data-title="Azure Cloud Networking" -->
+<h3 id="reference-links">Reference Links:</h3><ul>
+<li><a href="https://learn.microsoft.com/en-us/azure/virtual-network/virtual-network-peering-overview" target="_blank" rel="noopener">Azure VNet Peering</a></li>
+<li><a href="https://learn.microsoft.com/en-us/azure/virtual-network/global-vnet-peering" target="_blank" rel="noopener">Global VNet Peering</a></li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="azure-network-watcher" data-heading="Azure Network Watcher" data-level="1" data-permalink="/docs/azure/azure-network/" data-title="Azure Cloud Networking" -->
+<h1 id="azure-network-watcher">Azure Network Watcher</h1><!-- end-chunk -->
+<!-- begin-chunk data-anchor="overview-3" data-heading="Overview" data-level="2" data-permalink="/docs/azure/azure-network/" data-title="Azure Cloud Networking" -->
+<h2 id="overview-3">Overview</h2><p><strong>Azure Network Watcher</strong> is a regional service that provides tools to monitor, diagnose, and gain insights into your Azure Virtual Network (VNet). It helps troubleshoot network connectivity issues, analyze network performance, and understand network traffic in Azure.</p>
+<hr>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="key-features-of-azure-network-watcher" data-heading="Key Features of Azure Network Watcher" data-level="2" data-permalink="/docs/azure/azure-network/" data-title="Azure Cloud Networking" -->
+<h2 id="key-features-of-azure-network-watcher">Key Features of Azure Network Watcher</h2><ol>
+<li><strong>Connection Monitor</strong>: Monitor the connectivity status between an Azure virtual machine and an endpoint.</li>
+<li><strong>IP Flow Verify</strong>: Check if traffic is allowed or denied to or from a virtual machine, based on the security group rules.</li>
+<li><strong>Network Performance Monitor</strong>: Measure the performance between VNets, regions, or the on-premises environment.</li>
+<li><strong>Topology</strong>: Visualize the network topology of resources within a VNet.</li>
+<li><strong>Next Hop</strong>: Analyze the next hop for network traffic from a virtual machine.</li>
+<li><strong>Security Group View</strong>: List the network security group (NSG) rules associated with a virtual machine.</li>
+<li><strong>Packet Capture</strong>: Capture packets to and from a virtual machine for analysis.</li>
+<li><strong>Diagnostic Logs</strong>: View diagnostic logs for network resources like NSGs, Load Balancers, and Gateways.</li>
+<li><strong>Connection Troubleshoot</strong>: Test the connection between a source and destination to identify any bottlenecks.</li>
+</ol>
+<hr>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="how-to-enable-azure-network-watcher" data-heading="How to Enable Azure Network Watcher" data-level="2" data-permalink="/docs/azure/azure-network/" data-title="Azure Cloud Networking" -->
+<h2 id="how-to-enable-azure-network-watcher">How to Enable Azure Network Watcher</h2><!-- end-chunk -->
+<!-- begin-chunk data-anchor="step-1-enable-network-watcher" data-heading="Step 1: Enable Network Watcher" data-level="3" data-permalink="/docs/azure/azure-network/" data-title="Azure Cloud Networking" -->
+<h3 id="step-1-enable-network-watcher">Step 1: Enable Network Watcher</h3><ol>
+<li>In the <a href="https://portal.azure.com" target="_blank" rel="noopener">Azure Portal</a>, search for <strong>Network Watcher</strong>.</li>
+<li>Select <strong>Network Watcher</strong> from the list.</li>
+<li>Choose the <strong>Subscription</strong> and <strong>Region</strong> where your resources are located.</li>
+<li>If Network Watcher is not enabled in your region, click on <strong>Enable</strong> to enable it for that region.</li>
+</ol>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="step-2-verify-network-watcher-is-enabled" data-heading="Step 2: Verify Network Watcher is Enabled" data-level="3" data-permalink="/docs/azure/azure-network/" data-title="Azure Cloud Networking" -->
+<h3 id="step-2-verify-network-watcher-is-enabled">Step 2: Verify Network Watcher is Enabled</h3><ol>
+<li>After enabling, go to the <strong>Network Watcher</strong> resource in your selected region.</li>
+<li>In the left-hand menu, you will see a list of tools like <strong>Connection Monitor</strong>, <strong>IP Flow Verify</strong>, <strong>Topology</strong>, etc.</li>
+</ol>
+<hr>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="network-watcher-tools" data-heading="Network Watcher Tools" data-level="2" data-permalink="/docs/azure/azure-network/" data-title="Azure Cloud Networking" -->
+<h2 id="network-watcher-tools">Network Watcher Tools</h2><!-- end-chunk -->
+<!-- begin-chunk data-anchor="1-connection-monitor" data-heading="1. <strong>Connection Monitor</strong>" data-level="3" data-permalink="/docs/azure/azure-network/" data-title="Azure Cloud Networking" -->
+<h3 id="1-connection-monitor">1. <strong>Connection Monitor</strong></h3><ul>
+<li><strong>Purpose</strong>: Monitor the connectivity between a virtual machine and a given destination (another VM, an on-premises network, or a public endpoint).</li>
+<li><strong>Steps</strong>:
+<ol>
+<li>Go to <strong>Connection Monitor</strong> under Network Watcher.</li>
+<li>Click <strong>+ Add</strong> to create a new monitor.</li>
+<li>Provide the source (VM) and destination (IP address, FQDN, etc.).</li>
+<li>Configure monitoring parameters like frequency and protocol.</li>
+<li>Click <strong>Create</strong> to start monitoring.</li>
+</ol>
+</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="2-ip-flow-verify" data-heading="2. <strong>IP Flow Verify</strong>" data-level="3" data-permalink="/docs/azure/azure-network/" data-title="Azure Cloud Networking" -->
+<h3 id="2-ip-flow-verify">2. <strong>IP Flow Verify</strong></h3><ul>
+<li><strong>Purpose</strong>: Check if a specific packet is allowed or denied based on the Network Security Group (NSG) rules.</li>
+<li><strong>Steps</strong>:
+<ol>
+<li>Go to <strong>IP Flow Verify</strong>.</li>
+<li>Select the <strong>Subscription</strong> and <strong>VM</strong>.</li>
+<li>Enter the <strong>Direction</strong> (inbound or outbound), <strong>Local IP</strong>, <strong>Remote IP</strong>, <strong>Port</strong>, and <strong>Protocol</strong>.</li>
+<li>Click <strong>Check</strong> to determine if the traffic is allowed or denied.</li>
+</ol>
+</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="3-topology" data-heading="3. <strong>Topology</strong>" data-level="3" data-permalink="/docs/azure/azure-network/" data-title="Azure Cloud Networking" -->
+<h3 id="3-topology">3. <strong>Topology</strong></h3><ul>
+<li><strong>Purpose</strong>: Generate a visual map of your VNet, including subnets, virtual machines, NICs, and NSGs.</li>
+<li><strong>Steps</strong>:
+<ol>
+<li>Go to <strong>Topology</strong>.</li>
+<li>Select the <strong>Subscription</strong> and <strong>Resource Group</strong>.</li>
+<li>A visual representation of your network resources will be generated.</li>
+<li>You can export the topology as a JSON file.</li>
+</ol>
+</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="4-next-hop" data-heading="4. <strong>Next Hop</strong>" data-level="3" data-permalink="/docs/azure/azure-network/" data-title="Azure Cloud Networking" -->
+<h3 id="4-next-hop">4. <strong>Next Hop</strong></h3><ul>
+<li><strong>Purpose</strong>: Analyze the route that outbound traffic from a virtual machine will take, based on the routing table.</li>
+<li><strong>Steps</strong>:
+<ol>
+<li>Go to <strong>Next Hop</strong>.</li>
+<li>Select the <strong>Subscription</strong>, <strong>Virtual Machine</strong>, <strong>Network Interface</strong>, and <strong>Source IP</strong>.</li>
+<li>Click <strong>Next Hop</strong> to see the routing information.</li>
+</ol>
+</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="5-packet-capture" data-heading="5. <strong>Packet Capture</strong>" data-level="3" data-permalink="/docs/azure/azure-network/" data-title="Azure Cloud Networking" -->
+<h3 id="5-packet-capture">5. <strong>Packet Capture</strong></h3><ul>
+<li><strong>Purpose</strong>: Capture inbound and outbound traffic from a virtual machine’s network interface.</li>
+<li><strong>Steps</strong>:
+<ol>
+<li>Go to <strong>Packet Capture</strong>.</li>
+<li>Select the <strong>Virtual Machine</strong> you want to capture traffic from.</li>
+<li>Configure the capture settings such as <strong>filter</strong>, <strong>storage location</strong> (Storage Account or local VM disk), and <strong>time duration</strong>.</li>
+<li>Start the capture and analyze the results.</li>
+</ol>
+</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="6-connection-troubleshoot" data-heading="6. <strong>Connection Troubleshoot</strong>" data-level="3" data-permalink="/docs/azure/azure-network/" data-title="Azure Cloud Networking" -->
+<h3 id="6-connection-troubleshoot">6. <strong>Connection Troubleshoot</strong></h3><ul>
+<li><strong>Purpose</strong>: Troubleshoot the connection between a source and a destination to identify potential issues.</li>
+<li><strong>Steps</strong>:
+<ol>
+<li>Go to <strong>Connection Troubleshoot</strong>.</li>
+<li>Select the <strong>Subscription</strong>, <strong>Source</strong> (VM), and <strong>Destination</strong> (IP address or FQDN).</li>
+<li>Specify the <strong>Protocol</strong> (TCP/UDP) and <strong>Port</strong>.</li>
+<li>Click <strong>Check</strong> to troubleshoot the connection.</li>
+</ol>
+</li>
+</ul>
+<hr>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="example-verify-ip-flow" data-heading="Example: Verify IP Flow" data-level="2" data-permalink="/docs/azure/azure-network/" data-title="Azure Cloud Networking" -->
+<h2 id="example-verify-ip-flow">Example: Verify IP Flow</h2><!-- end-chunk -->
+<!-- begin-chunk data-anchor="scenario" data-heading="Scenario" data-level="3" data-permalink="/docs/azure/azure-network/" data-title="Azure Cloud Networking" -->
+<h3 id="scenario">Scenario</h3><p>You have a virtual machine that cannot reach a specific endpoint. You want to verify if the NSG rules are blocking the traffic.</p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="steps" data-heading="Steps" data-level="3" data-permalink="/docs/azure/azure-network/" data-title="Azure Cloud Networking" -->
+<h3 id="steps">Steps</h3><ol>
+<li>Navigate to <strong>Network Watcher</strong> in the Azure Portal.</li>
+<li>Under <strong>IP Flow Verify</strong>, select the virtual machine having issues.</li>
+<li>Input the following details:
+<ul>
+<li><strong>Direction</strong>: Inbound (or Outbound)</li>
+<li><strong>Local IP</strong>: The IP of the virtual machine.</li>
+<li><strong>Remote IP</strong>: The IP of the endpoint.</li>
+<li><strong>Local Port</strong>: The port you are trying to access on the VM.</li>
+<li><strong>Remote Port</strong>: The port being accessed from the remote endpoint.</li>
+<li><strong>Protocol</strong>: TCP or UDP.</li>
+</ul>
+</li>
+<li>Click <strong>Check</strong> to see if the traffic is allowed or denied based on the current NSG rules.</li>
+</ol>
+<hr>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="pricing" data-heading="Pricing" data-level="2" data-permalink="/docs/azure/azure-network/" data-title="Azure Cloud Networking" -->
+<h2 id="pricing">Pricing</h2><p>Network Watcher comes with a set of free limits and paid tiers. Most features, like topology and NSG diagnostics, are free. However, features like <strong>Packet Capture</strong> and <strong>Connection Monitor</strong> may have associated costs.</p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="reference-pricing" data-heading="Reference Pricing:" data-level="3" data-permalink="/docs/azure/azure-network/" data-title="Azure Cloud Networking" -->
+<h3 id="reference-pricing">Reference Pricing:</h3><ul>
+<li><strong>Packet Capture</strong>: Based on the amount of data captured and stored.</li>
+<li><strong>Connection Monitor</strong>: Based on the number of checks and monitoring frequency.</li>
+</ul>
+<p>For more information, check the official <a href="https://azure.microsoft.com/en-us/pricing/calculator/" target="_blank" rel="noopener">Azure Pricing Calculator</a>.</p>
+<hr>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="reference-links-1" data-heading="Reference Links" data-level="2" data-permalink="/docs/azure/azure-network/" data-title="Azure Cloud Networking" -->
+<h2 id="reference-links-1">Reference Links</h2><ul>
+<li><a href="https://learn.microsoft.com/en-us/azure/network-watcher/network-watcher-monitoring-overview" target="_blank" rel="noopener">Azure Network Watcher Documentation</a></li>
+<li><a href="https://learn.microsoft.com/en-us/azure/network-watcher/network-watcher-troubleshoot-manage" target="_blank" rel="noopener">Troubleshoot with Network Watcher</a></li>
+<li><a href="https://azure.microsoft.com/en-us/pricing/details/network-watcher/" target="_blank" rel="noopener">Pricing for Network Watcher</a></li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="azure-networking-tasks--common-interview-topics" data-heading="Azure Networking Tasks &amp; Common Interview Topics" data-level="1" data-permalink="/docs/azure/azure-network/" data-title="Azure Cloud Networking" -->
+<h1 id="azure-networking-tasks--common-interview-topics">Azure Networking Tasks &amp; Common Interview Topics</h1><!-- end-chunk -->
+<!-- begin-chunk data-anchor="1-virtual-networks-vnet" data-heading="1. Virtual Networks (VNet)" data-level="2" data-permalink="/docs/azure/azure-network/" data-title="Azure Cloud Networking" -->
+<h2 id="1-virtual-networks-vnet">1. Virtual Networks (VNet)</h2><ul>
+<li><strong>Creating and Configuring VNets</strong>: Understanding how to create, manage, and assign VNets. Knowing how to break up address spaces into subnets and how to allocate CIDR blocks.</li>
+<li><strong>Subnets</strong>: Creating multiple subnets, routing traffic between subnets, and configuring subnet delegation to specific Azure services (e.g., Virtual Machines, App Services).</li>
+<li><strong>Service Endpoints and Private Endpoints</strong>: Configuring service endpoints for services like Azure SQL, and creating private endpoints to secure Azure resources.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="common-interview-questions" data-heading="Common Interview Questions:" data-level="3" data-permalink="/docs/azure/azure-network/" data-title="Azure Cloud Networking" -->
+<h3 id="common-interview-questions">Common Interview Questions:</h3><ol>
+<li><strong>What is a VNet in Azure, and how does it differ from a traditional network?</strong></li>
+<li><strong>How do you configure subnets within a VNet, and what considerations do you need to make for CIDR block assignment?</strong></li>
+<li><strong>What are service endpoints and private endpoints in Azure? When would you use each?</strong></li>
+<li><strong>How would you peer two VNets, and what are the security implications?</strong></li>
+</ol>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="2-network-security-groups-nsgs" data-heading="2. Network Security Groups (NSGs)" data-level="2" data-permalink="/docs/azure/azure-network/" data-title="Azure Cloud Networking" -->
+<h2 id="2-network-security-groups-nsgs">2. Network Security Groups (NSGs)</h2><ul>
+<li><strong>Configuring NSG Rules</strong>: Creating and managing inbound and outbound security rules. Understanding how to configure port, IP, and protocol-based access control.</li>
+<li><strong>Application Security Groups (ASGs)</strong>: Grouping VMs into logical ASGs to simplify security rule management.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="common-interview-questions-1" data-heading="Common Interview Questions:" data-level="3" data-permalink="/docs/azure/azure-network/" data-title="Azure Cloud Networking" -->
+<h3 id="common-interview-questions-1">Common Interview Questions:</h3><ol>
+<li><strong>What are Network Security Groups, and how do they control traffic?</strong></li>
+<li><strong>How do you set up an NSG rule to block all traffic except SSH (port 22) for a specific VM?</strong></li>
+<li><strong>Explain the difference between an NSG and an ASG. How are they used together?</strong></li>
+<li><strong>How would you troubleshoot if a VM is unable to connect due to NSG rules?</strong></li>
+</ol>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="3-public-and-private-ip-addressing" data-heading="3. Public and Private IP Addressing" data-level="2" data-permalink="/docs/azure/azure-network/" data-title="Azure Cloud Networking" -->
+<h2 id="3-public-and-private-ip-addressing">3. Public and Private IP Addressing</h2><ul>
+<li><strong>Configuring Public and Private IPs</strong>: Assigning static or dynamic public IPs and private IPs to resources like Virtual Machines or Load Balancers.</li>
+<li><strong>Elastic IPs and IP Allocation</strong>: Understanding IP address allocation for scaling resources and avoiding IP exhaustion.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="common-interview-questions-2" data-heading="Common Interview Questions:" data-level="3" data-permalink="/docs/azure/azure-network/" data-title="Azure Cloud Networking" -->
+<h3 id="common-interview-questions-2">Common Interview Questions:</h3><ol>
+<li><strong>What’s the difference between a public and private IP in Azure, and how are they used?</strong></li>
+<li><strong>How would you assign a static IP to a VM, and when would this be necessary?</strong></li>
+<li><strong>How do you ensure high availability when using public IP addresses with Azure services?</strong></li>
+</ol>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="4-azure-load-balancer" data-heading="4. Azure Load Balancer" data-level="2" data-permalink="/docs/azure/azure-network/" data-title="Azure Cloud Networking" -->
+<h2 id="4-azure-load-balancer">4. Azure Load Balancer</h2><ul>
+<li><strong>Setting up Load Balancers</strong>: Configuring an Azure Load Balancer for distributing traffic across multiple VMs.</li>
+<li><strong>Health Probes</strong>: Configuring health probes for monitoring VM availability.</li>
+<li><strong>Internal vs. External Load Balancers</strong>: Understanding when to use an internal load balancer (for private resources) vs. external.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="common-interview-questions-3" data-heading="Common Interview Questions:" data-level="3" data-permalink="/docs/azure/azure-network/" data-title="Azure Cloud Networking" -->
+<h3 id="common-interview-questions-3">Common Interview Questions:</h3><ol>
+<li><strong>Explain how Azure Load Balancers work, and what types are available?</strong></li>
+<li><strong>How would you configure a health probe for an Azure Load Balancer?</strong></li>
+<li><strong>What is the difference between an internal and external load balancer, and in which scenarios would you use each?</strong></li>
+</ol>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="5-azure-application-gateway-layer-7-load-balancing" data-heading="5. Azure Application Gateway (Layer 7 Load Balancing)" data-level="2" data-permalink="/docs/azure/azure-network/" data-title="Azure Cloud Networking" -->
+<h2 id="5-azure-application-gateway-layer-7-load-balancing">5. Azure Application Gateway (Layer 7 Load Balancing)</h2><ul>
+<li><strong>Application Gateway Setup</strong>: Configuring Azure Application Gateway for Layer 7 load balancing with SSL termination and URL-based routing.</li>
+<li><strong>WAF (Web Application Firewall)</strong>: Configuring WAF to protect applications against common web exploits.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="common-interview-questions-4" data-heading="Common Interview Questions:" data-level="3" data-permalink="/docs/azure/azure-network/" data-title="Azure Cloud Networking" -->
+<h3 id="common-interview-questions-4">Common Interview Questions:</h3><ol>
+<li><strong>What’s the difference between an Azure Load Balancer and Azure Application Gateway?</strong></li>
+<li><strong>How does SSL termination work on Application Gateway, and why is it important?</strong></li>
+<li><strong>When would you use WAF in conjunction with Application Gateway?</strong></li>
+</ol>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="6-virtual-network-peering" data-heading="6. Virtual Network Peering" data-level="2" data-permalink="/docs/azure/azure-network/" data-title="Azure Cloud Networking" -->
+<h2 id="6-virtual-network-peering">6. Virtual Network Peering</h2><ul>
+<li><strong>VNet Peering</strong>: Setting up VNet peering to connect two virtual networks, allowing resources in both networks to communicate.</li>
+<li><strong>Global VNet Peering</strong>: Connecting VNets across different regions.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="common-interview-questions-5" data-heading="Common Interview Questions:" data-level="3" data-permalink="/docs/azure/azure-network/" data-title="Azure Cloud Networking" -->
+<h3 id="common-interview-questions-5">Common Interview Questions:</h3><ol>
+<li><strong>What is VNet peering, and how does it work in Azure?</strong></li>
+<li><strong>How would you set up peering between two VNets in different regions (global VNet peering)?</strong></li>
+<li><strong>How is routing between peered VNets managed, and what are the cost implications?</strong></li>
+</ol>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="7-azure-vpn-gateway" data-heading="7. Azure VPN Gateway" data-level="2" data-permalink="/docs/azure/azure-network/" data-title="Azure Cloud Networking" -->
+<h2 id="7-azure-vpn-gateway">7. Azure VPN Gateway</h2><ul>
+<li><strong>Configuring Site-to-Site VPN</strong>: Setting up a VPN Gateway for a secure connection between on-premises networks and Azure VNets.</li>
+<li><strong>Point-to-Site VPN</strong>: Setting up a point-to-site VPN for secure remote access from individual devices to Azure VNets.</li>
+<li><strong>ExpressRoute</strong>: Understanding the differences between VPN Gateway and ExpressRoute for hybrid network connectivity.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="common-interview-questions-6" data-heading="Common Interview Questions:" data-level="3" data-permalink="/docs/azure/azure-network/" data-title="Azure Cloud Networking" -->
+<h3 id="common-interview-questions-6">Common Interview Questions:</h3><ol>
+<li><strong>What is the difference between Site-to-Site VPN and Point-to-Site VPN in Azure?</strong></li>
+<li><strong>How does Azure VPN Gateway differ from ExpressRoute, and when would you choose one over the other?</strong></li>
+<li><strong>What are the steps to configure a Site-to-Site VPN connection between an on-premises network and Azure?</strong></li>
+</ol>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="8-azure-dns-and-custom-dns" data-heading="8. Azure DNS and Custom DNS" data-level="2" data-permalink="/docs/azure/azure-network/" data-title="Azure Cloud Networking" -->
+<h2 id="8-azure-dns-and-custom-dns">8. Azure DNS and Custom DNS</h2><ul>
+<li><strong>Configuring DNS</strong>: Understanding how to set up DNS zones and records for your resources in Azure.</li>
+<li><strong>Custom DNS</strong>: How to configure custom DNS servers for VNets and enforce DNS name resolution for resources in your network.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="common-interview-questions-7" data-heading="Common Interview Questions:" data-level="3" data-permalink="/docs/azure/azure-network/" data-title="Azure Cloud Networking" -->
+<h3 id="common-interview-questions-7">Common Interview Questions:</h3><ol>
+<li><strong>What is Azure DNS, and how is it used to manage domain names in the cloud?</strong></li>
+<li><strong>How would you configure custom DNS servers for your Azure resources?</strong></li>
+<li><strong>What is the difference between Azure DNS and an external DNS provider?</strong></li>
+</ol>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="9-traffic-manager" data-heading="9. Traffic Manager" data-level="2" data-permalink="/docs/azure/azure-network/" data-title="Azure Cloud Networking" -->
+<h2 id="9-traffic-manager">9. Traffic Manager</h2><ul>
+<li><strong>Traffic Manager Profiles</strong>: Configuring Azure Traffic Manager for global DNS-based traffic routing across multiple regions.</li>
+<li><strong>Routing Methods</strong>: Understanding different routing methods (e.g., priority, performance, geographic) for distributing traffic.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="common-interview-questions-8" data-heading="Common Interview Questions:" data-level="3" data-permalink="/docs/azure/azure-network/" data-title="Azure Cloud Networking" -->
+<h3 id="common-interview-questions-8">Common Interview Questions:</h3><ol>
+<li><strong>What is Azure Traffic Manager, and how does it work?</strong></li>
+<li><strong>What are the different traffic routing methods available in Traffic Manager, and when would you use them?</strong></li>
+<li><strong>How do you ensure high availability across multiple regions using Azure Traffic Manager?</strong></li>
+</ol>
+<hr>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="common-networking-interview-questions" data-heading="Common Networking Interview Questions" data-level="1" data-permalink="/docs/azure/azure-network/" data-title="Azure Cloud Networking" -->
+<h1 id="common-networking-interview-questions">Common Networking Interview Questions</h1><ol>
+<li><strong>What is the difference between a VNet and a subnet in Azure?</strong></li>
+<li><strong>Explain how NSGs work and how they control traffic within a VNet.</strong></li>
+<li><strong>How do you assign a public IP to a VM, and when would you use a static vs. dynamic IP?</strong></li>
+<li><strong>What is VNet peering, and how is it different from using a VPN Gateway?</strong></li>
+<li><strong>Describe the process of setting up a load balancer for a group of VMs in Azure.</strong></li>
+<li><strong>How would you configure DNS for an Azure VNet? Can you use custom DNS servers?</strong></li>
+<li><strong>What are service endpoints, and how do they help secure access to Azure resources?</strong></li>
+<li><strong>How do you monitor network traffic and performance in Azure?</strong></li>
+<li><strong>How does Azure handle hybrid network connectivity, and what are the differences between VPN Gateway and ExpressRoute?</strong></li>
+<li><strong>What is the role of Azure Traffic Manager, and how does it differ from Azure Load Balancer?</strong></li>
+</ol>
+<hr>
+<p>This list covers the most commonly used tasks and scenarios in <strong>Azure Networking</strong> and some of the key questions asked in interviews. Understanding these concepts will help you demonstrate your knowledge and problem-solving abilities during interviews.</p>
+
+	
+	
+	
+</div>
+
+
+          </main>
+        </div>
+      </div>
+      
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+    integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+    crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js"
+    integrity="sha512-UR25UO94eTnCVwjbXozyeVd6ZqpaAE9naiEUBK/A+QDbfSTQFhPGj5lOR6d8tsgbBk84Ggb5A3EkjsOgPRPcKA=="
+    crossorigin="anonymous"></script>
+
+
+
+
+
+<script src='/js/tabpane-persist.js'></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="/js/main.min.223ab2fcc7d742c1b94772c0276851c497da4343cd2d21534199ced90681e207.js" integrity="sha256-Ijqy/MfXQsG5R3LAJ2hRxJfaQ0PNLSFTQZnO2QaB4gc=" crossorigin="anonymous"></script>
+
+
+
+<script src='/js/prism.js'></script>
+
+
+
+  </body>
+</html>

@@ -1,0 +1,1875 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="generator" content="Hugo 0.122.0">
+<meta name="robots" content="index, follow">
+
+<link rel="shortcut icon" href="/favicons/favicon.ico" >
+
+<title>Part 4 | Documentation</title>
+<meta name="description" content="
+
+Topics
+Kubernetes Probes (Container Health check)
+
+Startup Probe
+Liveness probe
+Readiness Probe
+
+
+Kubernetes Storage
+
+Secret
+ConfigMap
+emptyDIr …&lt;/!--&gt;&lt;/!--&gt;">
+<meta property="og:title" content="Part 4" />
+<meta property="og:description" content="Topics Kubernetes Probes (Container Health check) Startup Probe Liveness probe Readiness Probe Kubernetes Storage Secret ConfigMap emptyDIr hostPath StatefulSet Kubernetes IngressController Kubectl Set Kubectl Patch ProbesThe kubelet uses liveness probes to know when to restart a container.
+Liveness probes can be a powerful way to recover from application failures, but they should be used with caution.
+Liveness Probe It checks whether the application running inside the container is still alive and functioning properly." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/docs/kubernetes/part04/" /><meta property="article:section" content="docs" />
+
+<meta property="article:modified_time" content="2024-06-01T18:32:23+05:30" />
+
+<meta itemprop="name" content="Part 4">
+<meta itemprop="description" content="Topics Kubernetes Probes (Container Health check) Startup Probe Liveness probe Readiness Probe Kubernetes Storage Secret ConfigMap emptyDIr hostPath StatefulSet Kubernetes IngressController Kubectl Set Kubectl Patch ProbesThe kubelet uses liveness probes to know when to restart a container.
+Liveness probes can be a powerful way to recover from application failures, but they should be used with caution.
+Liveness Probe It checks whether the application running inside the container is still alive and functioning properly.">
+<meta itemprop="dateModified" content="2024-06-01T18:32:23+05:30" />
+<meta itemprop="wordCount" content="4395">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Part 4"/>
+<meta name="twitter:description" content="Topics Kubernetes Probes (Container Health check) Startup Probe Liveness probe Readiness Probe Kubernetes Storage Secret ConfigMap emptyDIr hostPath StatefulSet Kubernetes IngressController Kubectl Set Kubectl Patch ProbesThe kubelet uses liveness probes to know when to restart a container.
+Liveness probes can be a powerful way to recover from application failures, but they should be used with caution.
+Liveness Probe It checks whether the application running inside the container is still alive and functioning properly."/>
+
+
+
+
+<link rel="preload" href="/scss/main.min.723d31f72c8542b0efd4dc916a8b429bb3241885d5c0984bf341c1aad66aed50.css" as="style">
+<link href="/scss/main.min.723d31f72c8542b0efd4dc916a8b429bb3241885d5c0984bf341c1aad66aed50.css" rel="stylesheet" integrity="">
+
+<script
+  src="https://code.jquery.com/jquery-3.6.0.min.js"
+  integrity="sha384-vtXRMe3mGCbOeY7l30aIg8H9p3GdeSe4IFlP6G8JMa7o7lXvnz3GFKzPxzJdPfGK"
+  crossorigin="anonymous"></script>
+<script
+  src="https://unpkg.com/lunr@2.3.9/lunr.min.js"
+  integrity="sha384-203J0SNzyqHby3iU6hzvzltrWi/M41wOP5Gu+BiJMz5nwKykbkUx8Kp7iti0Lpli"
+  crossorigin="anonymous"></script>
+<link rel="stylesheet" href="/css/prism.css"/>
+<script type="text/javascript"  src="/js/highlight-search.js"></script>
+<script type="text/javascript"  src="/js/manage-side-panels.js"></script>
+  </head>
+  <body class="td-page highlightable">
+    <header>
+      
+<nav class="js-navbar-scroll navbar navbar-expand navbar-dark flex-column flex-md-row td-navbar">
+        <a class="navbar-brand" href="/">
+		<span class="navbar-logo"><svg version="1.0" xmlns="http://www.w3.org/2000/svg" width="217pt" height="232pt" viewBox="0 0 217 232"><g transform="translate(0.000000,232.000000) scale(0.100000,-0.100000)" fill="#000" stroke="none"><path d="M1017 2250c-397-48-698-367-731-775-9-106-3-113 66-87l55 20 11-71c6-39 10-72 9-73s-58-22-127-47c-104-37-124-48-122-64 7-37 56-150 88-205l34-56 66 25 66 26 65-72c206-226 513-322 808-252 367 88 634 417 635 784 0 43-4 77-10 77-5 0-32-9-60-20s-55-20-59-20c-5 0-12 26-16 59-4 32-20 96-36 142s-30 88-31 92c-2 5 54 29 124 55l128 46-31 55c-17 31-33 58-34 59-2 2-31-6-64-19l-61-22-23 29c-81 104-172 178-292 235-140 68-309 97-458 79zm226-299c90-24 136-46 206-101l52-41 61 20 60 20 26-31c15-17 35-44 44-59l17-28-52-19c-29-11-86-32-128-47l-76-27 24-58c26-66 43-144 43-201 0-22 2-39 5-39 2 0 27 9 55 20s55 20 60 20c17 0 10-63-14-131-127-359-580-484-862-237l-35 31-70-24-71-24-30 35c-37 43-97 164-104 212l-6 34 123 46 124 45-3 64c-2 35-5 66-7 68-2 1-27-5-55-14s-53-15-55-14c-2 2 1 29 7 59 32 179 185 352 361 409 112 36 192 39 3e2 12z"/><path d="M134 321c-77-33-95-169-29-231 19-18 36-23 71-23 40 0 51 4 75 30 50 56 47 153-5 202-26 25-80 35-112 22zm82-62c26-29 26-99 0-128-24-26-47-27-77-2-19 15-24 29-24 64 0 76 58 114 101 66z"/><path d="M1172 320c-27-12-44-52-33-82 4-12 31-32 61-47 30-14 58-34 64-43 26-43-50-76-99-44-15 10-26 12-30 6-10-16 4-29 44-40 62-17 114 13 114 65 0 35-19 53-80 81-54 23-67 46-41 72 15 15 62 16 88 2 23-12 35 3 16 19-20 17-77 23-104 11z"/><path d="M350 195V70h25c23 0 25 4 25 45v45h40c76 0 115 40 103 104-8 42-38 56-120 56h-73V195zm134 69c18-18 18-17 10-38-4-11-19-16-50-16-44 0-44 0-44 35 0 33 2 35 34 35 19 0 42-7 50-16z"/><path d="M6e2 195V70h90c83 0 90 2 90 20 0 16-8 19-62 22-63 3-63 3-66 36-3 31-2 32 36 32 36 0 39 2 34 25-4 21-10 25-38 25-30 0-34 3-34 25 0 24 2 25 65 25 58 0 65 2 65 20 0 19-7 20-90 20h-90V195z"/><path d="M850 195c0-117 1-125 20-125 17 0 19 8 22 83l3 82 55-82c41-62 61-83 78-83 22 0 22 2 22 125 0 117-1 125-20 125-17 0-19-8-22-82l-3-82-54 82c-42 65-59 82-77 82-24 0-24 0-24-125z"/><path d="M1360 195c0-104 2-125 15-125 12 0 15 13 15 60v60h65 65v-60c0-47 3-60 15-60 13 0 15 21 15 125s-2 125-15 125c-12 0-15-13-15-55v-55h-65-65v55c0 42-3 55-15 55-13 0-15-21-15-125z"/><path d="M1620 195c0-104 2-125 15-125s15 21 15 125-2 125-15 125-15-21-15-125z"/><path d="M1730 195c0-77 4-125 10-125s10 27 10 60v60h35c19 0 35 5 35 10 0 6-16 10-35 10-35 0-35 0-35 45v45h60c33 0 60 4 60 10s-30 10-70 10h-70V195z"/><path d="M1930 310c0-5 18-10 40-10h40V185c0-70 4-115 10-115s10 45 10 115v115h40c22 0 40 5 40 10 0 6-37 10-90 10s-90-4-90-10z"/></g></svg></span><span class="font-weight-bold">Documentation</span>
+	</a>
+	<div class="td-navbar-nav-scroll ml-md-auto" id="main_navbar">
+		<ul class="navbar-nav mt-2 mt-lg-0">
+			
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link active" href="/docs/kubernetes/" ><i class='fas fa-binoculars'></i><span class="active">KUBERNETES DOCUMENTS</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/docs/ansible/" ><i class='fas fa-user-check'></i><span>Ansible</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/docs/azure-devops/" ><i class='fas fa-user-check'></i><span>Azure Devops</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/docs/devops/" ><i class='fas fa-user-check'></i><span>Devops </span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/docs/gitlab/" ><i class='fas fa-user-check'></i><span>Gitlab</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/docs/openshift/" ><i class='fas fa-user-check'></i><span>Openshift</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/docs/terraform/" ><i class='fas fa-user-check'></i><span>Terraform</span></a>
+			</li>
+			
+			
+			
+		</ul>
+	</div>
+	<div class="navbar-nav d-none d-lg-block">
+<form class="d-flex align-items-center">
+  <input type="search"
+  class="form-control td-search-input"
+  placeholder="&#xf002; Search this site…"
+  aria-label="Search this site…"
+  autocomplete="off"
+  
+  data-offline-search-index-json-src="/offline-search-index.0ed667a4b4a9987d8089ce9f3a22f2d2.json"
+  data-offline-search-base-href="/"
+  data-offline-search-max-results="20">
+</form>
+</div>
+</nav>
+
+      <div class="manage-panels">
+    <button type="button" class="button-left" id="left-panel-manager" title="Hide sidebar">""</button>
+    <button type="button" class="button-right" id="right-panel-manager" title="Hide sidebar">""</button>
+</div>
+    </header>
+    <div class="container-fluid td-outer">
+      <div class="td-main autonumbering">
+        <div class="row flex-xl-nowrap">
+          <aside class="col-12 col-md-3 col-xl-2 td-sidebar d-print-none">
+            
+<div id="td-sidebar-menu" class="td-sidebar__inner">
+  <div id="content-mobile">
+  <form class="td-sidebar__search d-flex align-items-center">
+    
+<form class="d-flex align-items-center">
+  <input type="search"
+  class="form-control td-search-input"
+  placeholder="&#xf002; Search this site…"
+  aria-label="Search this site…"
+  autocomplete="off"
+  
+  data-offline-search-index-json-src="/offline-search-index.0ed667a4b4a9987d8089ce9f3a22f2d2.json"
+  data-offline-search-base-href="/"
+  data-offline-search-max-results="20">
+</form>
+
+    <button class="btn btn-link td-sidebar__toggle d-md-none p-0 ml-3 fas fa-bars" type="button" data-toggle="collapse" data-target="#td-section-nav" aria-controls="td-docs-nav" aria-expanded="false" aria-label="Toggle section navigation">
+    </button>
+  </form>
+  </div>
+  <div id="content-desktop"></div>
+  <nav class="collapse td-sidebar-nav foldable-nav" id="td-section-nav">
+    <ul class="td-sidebar-nav__section pr-md-3 ul-0">
+      <li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id="m-docs-li">
+  <a href="/docs/" title="DEVOPS Documents hub" class="align-left pl-0 td-sidebar-link td-sidebar-link__section tree-root" id="m-docs"><span class="">Docs</span></a>
+  <ul class="ul-1">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id="m-docskubernetes-li">
+  <input type="checkbox" id="m-docskubernetes-check" checked/>
+  <label for="m-docskubernetes-check"><a href="/docs/kubernetes/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-docskubernetes"><i class="fas fa-compass"></i><span class="">KUBERNETES DOCUMENTS</span></a></label>
+  
+  <ul class="ul-2 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docskubernetespart01-li">
+  <input type="checkbox" id="m-docskubernetespart01-check"/>
+  <label for="m-docskubernetespart01-check"><a href="/docs/kubernetes/part01/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docskubernetespart01"><span class="">Part 1</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docskubernetespart02-li">
+  <input type="checkbox" id="m-docskubernetespart02-check"/>
+  <label for="m-docskubernetespart02-check"><a href="/docs/kubernetes/part02/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docskubernetespart02"><span class="">Part 2</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docskubernetespart03-li">
+  <input type="checkbox" id="m-docskubernetespart03-check"/>
+  <label for="m-docskubernetespart03-check"><a href="/docs/kubernetes/part03/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docskubernetespart03"><span class="">Part 3</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docskubernetespart04-li">
+  <input type="checkbox" id="m-docskubernetespart04-check"/>
+  <label for="m-docskubernetespart04-check"><a href="/docs/kubernetes/part04/" class="align-left pl-0  active td-sidebar-link td-sidebar-link__page" id="m-docskubernetespart04"><span class="td-sidebar-nav-active-item">Part 4</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docskubernetespart05-li">
+  <input type="checkbox" id="m-docskubernetespart05-check"/>
+  <label for="m-docskubernetespart05-check"><a href="/docs/kubernetes/part05/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docskubernetespart05"><span class="">Part 5</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docskubernetesdocsmiscellaneouscontainerbasics-li">
+  <input type="checkbox" id="m-docskubernetesdocsmiscellaneouscontainerbasics-check"/>
+  <label for="m-docskubernetesdocsmiscellaneouscontainerbasics-check"><a href="/docs/kubernetes/docs/miscellaneous/containerbasics/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docskubernetesdocsmiscellaneouscontainerbasics"><span class="">Container Basics</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docskubernetesdocsmiscellaneoushelm-overview-li">
+  <input type="checkbox" id="m-docskubernetesdocsmiscellaneoushelm-overview-check"/>
+  <label for="m-docskubernetesdocsmiscellaneoushelm-overview-check"><a href="/docs/kubernetes/docs/miscellaneous/helm-overview/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docskubernetesdocsmiscellaneoushelm-overview"><span class="">Helm Overview</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docskubernetesdocsmiscellaneousimp-li">
+  <input type="checkbox" id="m-docskubernetesdocsmiscellaneousimp-check"/>
+  <label for="m-docskubernetesdocsmiscellaneousimp-check"><a href="/docs/kubernetes/docs/miscellaneous/imp/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docskubernetesdocsmiscellaneousimp"><span class="">Imp Commands </span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docskubernetesdocsmiscellaneousexternal-etcd-li">
+  <input type="checkbox" id="m-docskubernetesdocsmiscellaneousexternal-etcd-check"/>
+  <label for="m-docskubernetesdocsmiscellaneousexternal-etcd-check"><a href="/docs/kubernetes/docs/miscellaneous/external-etcd/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docskubernetesdocsmiscellaneousexternal-etcd"><span class="">kubeadm-external-etcd</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docskubernetesdocsmiscellaneouskubernetes-rbac-li">
+  <input type="checkbox" id="m-docskubernetesdocsmiscellaneouskubernetes-rbac-check"/>
+  <label for="m-docskubernetesdocsmiscellaneouskubernetes-rbac-check"><a href="/docs/kubernetes/docs/miscellaneous/kubernetes-rbac/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docskubernetesdocsmiscellaneouskubernetes-rbac"><span class="">Kubernetes RBAC</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docskubernetesdocsmiscellaneouskubernetes-on-centos-li">
+  <input type="checkbox" id="m-docskubernetesdocsmiscellaneouskubernetes-on-centos-check"/>
+  <label for="m-docskubernetesdocsmiscellaneouskubernetes-on-centos-check"><a href="/docs/kubernetes/docs/miscellaneous/kubernetes-on-centos/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docskubernetesdocsmiscellaneouskubernetes-on-centos"><span class="">Kubernetes-on-Centos</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docskubernetesdocsmiscellaneouskuberneteshardway-li">
+  <input type="checkbox" id="m-docskubernetesdocsmiscellaneouskuberneteshardway-check"/>
+  <label for="m-docskubernetesdocsmiscellaneouskuberneteshardway-check"><a href="/docs/kubernetes/docs/miscellaneous/kuberneteshardway/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docskubernetesdocsmiscellaneouskuberneteshardway"><span class="">Kubernets Installation From Scatch on rocky 9</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docskubernetesdocsmiscellaneousmultimaster-li">
+  <input type="checkbox" id="m-docskubernetesdocsmiscellaneousmultimaster-check"/>
+  <label for="m-docskubernetesdocsmiscellaneousmultimaster-check"><a href="/docs/kubernetes/docs/miscellaneous/multimaster/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docskubernetesdocsmiscellaneousmultimaster"><span class="">Multi Master kubernetes</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docskubernetesdocsmiscellaneousminio-li">
+  <input type="checkbox" id="m-docskubernetesdocsmiscellaneousminio-check"/>
+  <label for="m-docskubernetesdocsmiscellaneousminio-check"><a href="/docs/kubernetes/docs/miscellaneous/minio/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docskubernetesdocsmiscellaneousminio"><span class="">The Object Store for AI Data Infrastructure</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docskubernetesdocsmiscellaneousaks-li">
+  <input type="checkbox" id="m-docskubernetesdocsmiscellaneousaks-check"/>
+  <label for="m-docskubernetesdocsmiscellaneousaks-check"><a href="/docs/kubernetes/docs/miscellaneous/aks/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docskubernetesdocsmiscellaneousaks"><span class="">AKS</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docskubernetesdocsmiscellaneouscks-li">
+  <input type="checkbox" id="m-docskubernetesdocsmiscellaneouscks-check"/>
+  <label for="m-docskubernetesdocsmiscellaneouscks-check"><a href="/docs/kubernetes/docs/miscellaneous/cks/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docskubernetesdocsmiscellaneouscks"><span class="">CKS</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docskubernetesdocsmiscellaneouskuberntes-backup-li">
+  <input type="checkbox" id="m-docskubernetesdocsmiscellaneouskuberntes-backup-check"/>
+  <label for="m-docskubernetesdocsmiscellaneouskuberntes-backup-check"><a href="/docs/kubernetes/docs/miscellaneous/kuberntes-backup/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docskubernetesdocsmiscellaneouskuberntes-backup"><span class="">CKS</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docskubernetesdocsmiscellaneousneuvector-li">
+  <input type="checkbox" id="m-docskubernetesdocsmiscellaneousneuvector-check"/>
+  <label for="m-docskubernetesdocsmiscellaneousneuvector-check"><a href="/docs/kubernetes/docs/miscellaneous/neuvector/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docskubernetesdocsmiscellaneousneuvector"><span class="">CKS</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docskubernetesdocsmiscellaneouseks-li">
+  <input type="checkbox" id="m-docskubernetesdocsmiscellaneouseks-check"/>
+  <label for="m-docskubernetesdocsmiscellaneouseks-check"><a href="/docs/kubernetes/docs/miscellaneous/eks/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docskubernetesdocsmiscellaneouseks"><span class="">EKS</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docskubernetesdocsmiscellaneousgke-li">
+  <input type="checkbox" id="m-docskubernetesdocsmiscellaneousgke-check"/>
+  <label for="m-docskubernetesdocsmiscellaneousgke-check"><a href="/docs/kubernetes/docs/miscellaneous/gke/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docskubernetesdocsmiscellaneousgke"><span class="">GKE</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docskubernetesdocsmiscellaneouskubernetesloggin-monitoring-li">
+  <input type="checkbox" id="m-docskubernetesdocsmiscellaneouskubernetesloggin-monitoring-check"/>
+  <label for="m-docskubernetesdocsmiscellaneouskubernetesloggin-monitoring-check"><a href="/docs/kubernetes/docs/miscellaneous/kubernetesloggin-monitoring/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docskubernetesdocsmiscellaneouskubernetesloggin-monitoring"><span class="">KUBERNETES LOGGING AND MONITORING</span></a></label>
+  
+</li>
+  </ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsansible-li">
+  <input type="checkbox" id="m-docsansible-check"/>
+  <label for="m-docsansible-check"><a href="/docs/ansible/" title="Configuration Management Tool" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-docsansible"><i class="fas fa-user-check"></i><span class="">Ansible</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-docsazure-devops-li">
+  <input type="checkbox" id="m-docsazure-devops-check"/>
+  <label for="m-docsazure-devops-check"><a href="/docs/azure-devops/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-docsazure-devops"><i class="fas fa-user-check"></i><span class="">Azure Devops</span></a></label>
+  
+  <ul class="ul-2 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazure-devopsaks-deployment-li">
+  <input type="checkbox" id="m-docsazure-devopsaks-deployment-check"/>
+  <label for="m-docsazure-devopsaks-deployment-check"><a href="/docs/azure-devops/aks-deployment/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazure-devopsaks-deployment"><span class="">AKS Deployment</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazure-devopsazure-container-registry-li">
+  <input type="checkbox" id="m-docsazure-devopsazure-container-registry-check"/>
+  <label for="m-docsazure-devopsazure-container-registry-check"><a href="/docs/azure-devops/azure-container-registry/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazure-devopsazure-container-registry"><span class="">Azure Container Registry</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazure-devopsazure-devopsagent-li">
+  <input type="checkbox" id="m-docsazure-devopsazure-devopsagent-check"/>
+  <label for="m-docsazure-devopsazure-devopsagent-check"><a href="/docs/azure-devops/azure-devopsagent/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazure-devopsazure-devopsagent"><span class="">Azure Devops Pipeline Agent</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazure-devopsazure-devops-pipeline-li">
+  <input type="checkbox" id="m-docsazure-devopsazure-devops-pipeline-check"/>
+  <label for="m-docsazure-devopsazure-devops-pipeline-check"><a href="/docs/azure-devops/azure-devops-pipeline/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazure-devopsazure-devops-pipeline"><span class="">Azure Devops Pipeline Basics</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazure-devopsazure-dns-li">
+  <input type="checkbox" id="m-docsazure-devopsazure-dns-check"/>
+  <label for="m-docsazure-devopsazure-dns-check"><a href="/docs/azure-devops/azure-dns/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazure-devopsazure-dns"><span class="">Azure DNS</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazure-devopscertmanager-li">
+  <input type="checkbox" id="m-docsazure-devopscertmanager-check"/>
+  <label for="m-docsazure-devopscertmanager-check"><a href="/docs/azure-devops/certmanager/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazure-devopscertmanager"><span class="">Cert Manager</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazure-devopsingresscontroller-li">
+  <input type="checkbox" id="m-docsazure-devopsingresscontroller-check"/>
+  <label for="m-docsazure-devopsingresscontroller-check"><a href="/docs/azure-devops/ingresscontroller/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazure-devopsingresscontroller"><span class="">IngressController</span></a></label>
+  
+</li>
+  </ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-docsdevops-li">
+  <input type="checkbox" id="m-docsdevops-check"/>
+  <label for="m-docsdevops-check"><a href="/docs/devops/" title="Devops" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-docsdevops"><i class="fas fa-user-check"></i><span class="">Devops </span></a></label>
+  
+  <ul class="ul-2 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsdevopsdevops-advance-li">
+  <input type="checkbox" id="m-docsdevopsdevops-advance-check"/>
+  <label for="m-docsdevopsdevops-advance-check"><a href="/docs/devops/devops-advance/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsdevopsdevops-advance"><span class="">Devops for Advance Level</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsdevopsdevopsl1-li">
+  <input type="checkbox" id="m-docsdevopsdevopsl1-check"/>
+  <label for="m-docsdevopsdevopsl1-check"><a href="/docs/devops/devopsl1/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsdevopsdevopsl1"><span class="">Devops for Begineers</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsdevopselk-stack-li">
+  <input type="checkbox" id="m-docsdevopselk-stack-check"/>
+  <label for="m-docsdevopselk-stack-check"><a href="/docs/devops/elk-stack/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsdevopselk-stack"><span class="">ELK statck </span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsdevopsaws-networking-li">
+  <input type="checkbox" id="m-docsdevopsaws-networking-check"/>
+  <label for="m-docsdevopsaws-networking-check"><a href="/docs/devops/aws-networking/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsdevopsaws-networking"><span class="">Networking Basics</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsdevopspostgresql-li">
+  <input type="checkbox" id="m-docsdevopspostgresql-check"/>
+  <label for="m-docsdevopspostgresql-check"><a href="/docs/devops/postgresql/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsdevopspostgresql"><span class="">Postgres Installation </span></a></label>
+  
+</li>
+  </ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsgitlab-li">
+  <input type="checkbox" id="m-docsgitlab-check"/>
+  <label for="m-docsgitlab-check"><a href="/docs/gitlab/" title="Project Management Tool" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-docsgitlab"><i class="fas fa-user-check"></i><span class="">Gitlab</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-docsterraform-li">
+  <input type="checkbox" id="m-docsterraform-check"/>
+  <label for="m-docsterraform-check"><a href="/docs/terraform/" title="Infrastracture as a Code" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-docsterraform"><i class="fas fa-user-check"></i><span class="">Terraform</span></a></label>
+  
+  <ul class="ul-2 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsterraformdiscussions-li">
+  <input type="checkbox" id="m-docsterraformdiscussions-check"/>
+  <label for="m-docsterraformdiscussions-check"><a href="/docs/terraform/discussions/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-docsterraformdiscussions"><span class="">Discussions</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsterraformterraform-with-aws-li">
+  <input type="checkbox" id="m-docsterraformterraform-with-aws-check"/>
+  <label for="m-docsterraformterraform-with-aws-check"><a href="/docs/terraform/terraform-with-aws/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-docsterraformterraform-with-aws"><span class="">Terraform with AWS</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsterraformterraform-with-azure-li">
+  <input type="checkbox" id="m-docsterraformterraform-with-azure-check"/>
+  <label for="m-docsterraformterraform-with-azure-check"><a href="/docs/terraform/terraform-with-azure/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-docsterraformterraform-with-azure"><span class="">Terraform with Azure</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsterraformterraform-with-gcp-li">
+  <input type="checkbox" id="m-docsterraformterraform-with-gcp-check"/>
+  <label for="m-docsterraformterraform-with-gcp-check"><a href="/docs/terraform/terraform-with-gcp/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-docsterraformterraform-with-gcp"><span class="">Terraform with Google Cloud</span></a></label>
+  
+</li>
+  </ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-docsopenshift-li">
+  <input type="checkbox" id="m-docsopenshift-check"/>
+  <label for="m-docsopenshift-check"><a href="/docs/openshift/" title="Redhat Container Platform" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-docsopenshift"><i class="fas fa-user-check"></i><span class="">Openshift</span></a></label>
+  
+  <ul class="ul-2 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsopenshiftopenshift-baremetalmd-li">
+  <input type="checkbox" id="m-docsopenshiftopenshift-baremetalmd-check"/>
+  <label for="m-docsopenshiftopenshift-baremetalmd-check"><a href="/docs/openshift/openshift-baremetal.md/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsopenshiftopenshift-baremetalmd"><span class="">Openshift Baremetal</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsopenshiftopenshift-developer-li">
+  <input type="checkbox" id="m-docsopenshiftopenshift-developer-check"/>
+  <label for="m-docsopenshiftopenshift-developer-check"><a href="/docs/openshift/openshift-developer/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsopenshiftopenshift-developer"><span class="">OpenShift for Developers</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsopenshiftocpsetup-li">
+  <input type="checkbox" id="m-docsopenshiftocpsetup-check"/>
+  <label for="m-docsopenshiftocpsetup-check"><a href="/docs/openshift/ocpsetup/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsopenshiftocpsetup"><span class="">Openshift Installation and Upgradation</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsopenshiftopenshift-on-single-node-li">
+  <input type="checkbox" id="m-docsopenshiftopenshift-on-single-node-check"/>
+  <label for="m-docsopenshiftopenshift-on-single-node-check"><a href="/docs/openshift/openshift-on-single-node/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsopenshiftopenshift-on-single-node"><span class="">OpenShift on VMware Workstation</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsopenshiftprerequisites-li">
+  <input type="checkbox" id="m-docsopenshiftprerequisites-check"/>
+  <label for="m-docsopenshiftprerequisites-check"><a href="/docs/openshift/prerequisites./" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsopenshiftprerequisites"><span class="">OpenShift Prerequisites</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsopenshiftopenshifttasks-li">
+  <input type="checkbox" id="m-docsopenshiftopenshifttasks-check"/>
+  <label for="m-docsopenshiftopenshifttasks-check"><a href="/docs/openshift/openshifttasks/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsopenshiftopenshifttasks"><span class="">OpenShift Tasks</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsopenshifttoc-li">
+  <input type="checkbox" id="m-docsopenshifttoc-check"/>
+  <label for="m-docsopenshifttoc-check"><a href="/docs/openshift/toc/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsopenshifttoc"><span class="">Openshift TOC</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsopenshiftpart-1-li">
+  <input type="checkbox" id="m-docsopenshiftpart-1-check"/>
+  <label for="m-docsopenshiftpart-1-check"><a href="/docs/openshift/part-1/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsopenshiftpart-1"><span class="">Part 1</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsopenshiftpart-2-li">
+  <input type="checkbox" id="m-docsopenshiftpart-2-check"/>
+  <label for="m-docsopenshiftpart-2-check"><a href="/docs/openshift/part-2/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsopenshiftpart-2"><span class="">Part 2</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsopenshiftopenid-azuread-li">
+  <input type="checkbox" id="m-docsopenshiftopenid-azuread-check"/>
+  <label for="m-docsopenshiftopenid-azuread-check"><a href="/docs/openshift/openid-azuread/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsopenshiftopenid-azuread"><span class="">Use and configure OpenID connect with Azure AD</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsopenshiftvirtualbox-li">
+  <input type="checkbox" id="m-docsopenshiftvirtualbox-check"/>
+  <label for="m-docsopenshiftvirtualbox-check"><a href="/docs/openshift/virtualbox/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsopenshiftvirtualbox"><span class="">Virtual Box</span></a></label>
+  
+</li>
+  </ul>
+</li>
+  </ul>
+</li>
+    </ul>
+  </nav>
+</div>
+
+          </aside>
+          <aside class="d-none d-xl-block col-xl-2 td-sidebar-toc d-print-none">
+            
+
+    <div class="td-page-meta ml-2 pb-1 pt-2 mb-0">
+        <div class="toc-title">Actions</div>
+        <a href="/edit/master/content/docs/kubernetes/Part04.md" target="_blank" rel="noopener"><i class="fa fa-edit fa-fw"></i> Contribute to this page</a>
+        <a href="/issues/new?issue%5Btitle=%f0%9f%93%83%20docs:%20update%20page%20docs/kubernetes/Part04.md" target="_blank" rel="noopener"><i class="fab fa-gitlab fa-fw"></i> Create a documentation issue</a>
+       
+    </div>
+
+            
+<div class="td-page-meta ml-2 pb-1 pt-2 mb-0 right-menu-toc">
+
+    
+        
+            <div class="toc-title">Table of content</div>
+            <div class="td-toc"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#topics">Topics</a></li>
+    <li><a href="#probes">Probes</a>
+      <ul>
+        <li><a href="#liveness-probe">Liveness Probe</a></li>
+        <li><a href="#readiness-probe">Readiness Probe:</a></li>
+        <li><a href="#startup-probe-introduced-in-kubernetes-116">Startup Probe (introduced in Kubernetes 1.16):</a></li>
+        <li><a href="#probe-can-be-defined-in-multiple-ways">probe can be defined in multiple ways</a></li>
+        <li><a href="#a-pod-with--startup-probe">A pod with  Startup Probe</a></li>
+        <li><a href="#a-pod-with-liveness-probe">A Pod with Liveness probe</a></li>
+        <li><a href="#a-pod-with-readiness-probe">A Pod with Readiness probe</a></li>
+        <li><a href="#key-points-about-kubernetes-probes">Key Points about kubernetes Probes</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li><a href="#kubernetes-storage">Kubernetes Storage</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#what-is-csi">What is CSI?</a></li>
+    <li><a href="#key-components-of-csi-drivers">Key Components of CSI Drivers</a>
+      <ul>
+        <li><a href="#1-csi-controller-service">1. CSI Controller Service</a></li>
+        <li><a href="#2-csi-node-service">2. CSI Node Service</a></li>
+        <li><a href="#3-csi-driver-daemonset-or-deployment">3. CSI Driver DaemonSet (or Deployment)</a></li>
+        <li><a href="#4-csi-controller-pod">4. CSI Controller Pod</a></li>
+        <li><a href="#5-csi-plugin">5. CSI Plugin</a></li>
+        <li><a href="#6-csi-provisioner">6. CSI Provisioner</a></li>
+        <li><a href="#7-csi-snapshot-controller">7. CSI Snapshot Controller</a></li>
+        <li><a href="#8-csi-node-plugin">8. CSI Node Plugin</a></li>
+        <li><a href="#9-csi-volume-driver">9. CSI Volume Driver</a></li>
+        <li><a href="#10-kubernetes-resource-definitions">10. Kubernetes Resource Definitions</a></li>
+      </ul>
+    </li>
+    <li><a href="#what-happens-without-a-csi-driver">What Happens Without a CSI Driver?</a>
+      <ul>
+        <li><a href="#1-inability-to-provision-dynamic-volumes">1. <strong>Inability to Provision Dynamic Volumes</strong></a></li>
+        <li><a href="#2-no-support-for-advanced-storage-features">2. <strong>No Support for Advanced Storage Features</strong></a></li>
+        <li><a href="#3-manual-storage-management">3. <strong>Manual Storage Management</strong></a></li>
+        <li><a href="#4-limited-integration-with-storage-backends">4. <strong>Limited Integration with Storage Backends</strong></a></li>
+        <li><a href="#5-incompatibility-with-storage-classes">5. <strong>Incompatibility with Storage Classes</strong></a></li>
+      </ul>
+    </li>
+    <li><a href="#csi-driver-examples">CSI Driver Examples</a>
+      <ul>
+        <li><a href="#1-netapp-ontap-csi-driver">1. NetApp ONTAP CSI Driver</a></li>
+        <li><a href="#2-netapp-solidfire-csi-driver">2. NetApp SolidFire CSI Driver</a></li>
+        <li><a href="#3-vmware-vsphere-csi-driver">3. VMware vSphere CSI Driver</a></li>
+      </ul>
+    </li>
+    <li><a href="#installation-and-configuration">Installation and Configuration</a>
+      <ul>
+        <li><a href="#steps-to-install-a-csi-driver">Steps to Install a CSI Driver</a></li>
+      </ul>
+    </li>
+    <li><a href="#summary">Summary</a>
+      <ul>
+        <li>
+          <ul>
+            <li><a href="#storage-classes">Storage Classes</a></li>
+            <li><a href="#a-persistentvolume">A PersistentVolume</a></li>
+            <li><a href="#a-persistentvolumeclaim-pvc">A PersistentVolumeClaim (PVC)</a></li>
+            <li><a href="#lifecycle-of-a-volume-and-claim">Lifecycle of a volume and claim</a></li>
+            <li><a href="#provisioning">Provisioning</a>
+              <ul>
+                <li><a href="#static">Static</a></li>
+                <li><a href="#dynamic">Dynamic</a></li>
+              </ul>
+            </li>
+            <li><a href="#access-modes">Access Modes</a>
+              <ul>
+                <li><a href="#the-access-modes-are">The access modes are:</a></li>
+                <li><a href="#readwriteonce">ReadWriteOnce</a></li>
+                <li><a href="#readonlymany">ReadOnlyMany</a></li>
+                <li><a href="#readwritemany">ReadWriteMany</a></li>
+                <li><a href="#readwriteoncepod">ReadWriteOncePod</a></li>
+              </ul>
+            </li>
+            <li><a href="#in-the-cli-the-access-modes-are-abbreviated-to">In the CLI, the access modes are abbreviated to:</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#emptydir">emptyDir</a></li>
+        <li><a href="#hostpath">hostPath:</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li><a href="#kubernetes-secrets">Kubernetes Secrets</a></li>
+    <li><a href="#key-concepts"><strong>Key Concepts</strong></a>
+      <ul>
+        <li><a href="#1-what-is-a-secret"><strong>1. What is a Secret?</strong></a></li>
+        <li><a href="#2-key-features-of-secrets"><strong>2. Key Features of Secrets</strong></a></li>
+      </ul>
+    </li>
+    <li><a href="#3-secret-manifest"><strong>3. Secret Manifest</strong></a>
+      <ul>
+        <li><a href="#1-basic-secret"><strong>1. Basic Secret</strong></a>
+          <ul>
+            <li><a href="#secret">Secret</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#kubernetes-configmap">Kubernetes ConfigMap</a></li>
+    <li><a href="#key-concepts-1"><strong>Key Concepts</strong></a>
+      <ul>
+        <li><a href="#1-what-is-a-configmap"><strong>1. What is a ConfigMap?</strong></a></li>
+        <li><a href="#2-key-features-of-configmaps"><strong>2. Key Features of ConfigMaps</strong></a></li>
+      </ul>
+    </li>
+    <li><a href="#3-configmap-manifest"><strong>3. ConfigMap Manifest</strong></a>
+      <ul>
+        <li><a href="#1-basic-configmap"><strong>1. Basic ConfigMap</strong></a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li><a href="#ingresscontroller">IngressController</a>
+      <ul>
+        <li><a href="#documentation-referred">Documentation Referred:</a></li>
+        <li><a href="#ingress-controller">Ingress Controller</a></li>
+        <li><a href="#what-is-an-ingress-controller">What is an Ingress Controller?</a></li>
+        <li><a href="#key-concepts-2">Key Concepts</a></li>
+        <li><a href="#benefits">Benefits</a></li>
+        <li><a href="#common-ingress-controllers">Common Ingress Controllers</a></li>
+        <li><a href="#basic-usage">Basic Usage</a></li>
+        <li><a href="#pathtype-in-kubernetes-ingress"><code>pathType</code> in Kubernetes Ingress</a>
+          <ul>
+            <li><a href="#1-prefix-prefix">1. Prefix (<code>Prefix</code>)</a></li>
+            <li><a href="#2-exact-exact">2. Exact (<code>Exact</code>)</a></li>
+            <li><a href="#3-implementationspecific-implementationspecific">3. ImplementationSpecific (<code>ImplementationSpecific</code>)</a></li>
+            <li><a href="#documentation-referred-1">Documentation Referred:</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li><a href="#kubernetes-patch-command">Kubernetes Patch command</a>
+      <ul>
+        <li><a href="#description">Description</a></li>
+        <li><a href="#examples-using-kubectl-patch">Examples using <code>kubectl patch</code></a></li>
+        <li><a href="#statefulsets">StatefulSets</a>
+          <ul>
+            <li><a href="#using-statefulsets">Using StatefulSets</a>
+              <ul>
+                <li><a href="#statefulsets-are-valuable-for-applications-that-require-one-or-more-of-the-following">StatefulSets are valuable for applications that require one or more of the following.</a></li>
+              </ul>
+            </li>
+            <li><a href="#example-of-statefulset">Example of statefulset</a></li>
+          </ul>
+        </li>
+        <li><a href="#how-to-access-statefulset-pods">How to Access StatefulSet Pods</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+        
+    
+
+</div>
+          </aside>
+          <main class="col-12 col-md-9 col-xl-8 pl-md-5" role="main">
+            
+  
+
+            <nav aria-label="breadcrumb" class="td-breadcrumbs">
+  <ol class="breadcrumb">
+  <li class="breadcrumb-item">
+    <a href="/docs/">Docs</a>
+  </li>
+  <li class="breadcrumb-item">
+    <a href="/docs/kubernetes/">KUBERNETES DOCUMENTS</a>
+  </li>
+  <li class="breadcrumb-item active" aria-current="page">
+    <a href="/docs/kubernetes/part04/">Part 4</a>
+  </li>
+  </ol>
+</nav>
+            
+<div class="td-content">
+	<h1>Part 4</h1>
+	
+	<header class="article-meta">
+		
+
+  
+    
+
+
+  
+    
+
+
+  
+
+		
+	</header>    
+	<!-- end-chunk -->
+<!-- begin-chunk data-anchor="topics" data-heading="Topics" data-level="2" data-permalink="/docs/kubernetes/part04/" data-title="Part 4" -->
+<h2 id="topics">Topics</h2><ul>
+<li>Kubernetes Probes (Container Health check)
+<ul>
+<li>Startup Probe</li>
+<li>Liveness probe</li>
+<li>Readiness Probe</li>
+</ul>
+</li>
+<li>Kubernetes Storage
+<ul>
+<li>Secret</li>
+<li>ConfigMap</li>
+<li>emptyDIr</li>
+<li>hostPath</li>
+</ul>
+</li>
+<li>StatefulSet</li>
+<li>Kubernetes IngressController</li>
+<li>Kubectl Set</li>
+<li>Kubectl Patch</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="probes" data-heading="Probes" data-level="2" data-permalink="/docs/kubernetes/part04/" data-title="Part 4" -->
+<h2 id="probes">Probes</h2><p>The kubelet uses liveness probes to know when to restart a container.<br>
+Liveness probes can be a powerful way to recover from application failures, but they should be used with caution.</p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="liveness-probe" data-heading="Liveness Probe" data-level="3" data-permalink="/docs/kubernetes/part04/" data-title="Part 4" -->
+<h3 id="liveness-probe">Liveness Probe</h3><ul>
+<li>It checks whether the application running inside the container is still alive and functioning properly.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="readiness-probe" data-heading="Readiness Probe:" data-level="3" data-permalink="/docs/kubernetes/part04/" data-title="Part 4" -->
+<h3 id="readiness-probe">Readiness Probe:</h3><p>It determines whether the application inside the container is ready to accept traffic or requests. When a readiness probe fails, Kubernetes stops sending traffic to the container until it passes the probe. This is useful during application startup or when the application needs some time to initialize before serving traffic.</p>
+<ul>
+<li>Readiness probe removes the defected pod from service endpoint.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="startup-probe-introduced-in-kubernetes-116" data-heading="Startup Probe (introduced in Kubernetes 1.16):" data-level="3" data-permalink="/docs/kubernetes/part04/" data-title="Part 4" -->
+<h3 id="startup-probe-introduced-in-kubernetes-116">Startup Probe (introduced in Kubernetes 1.16):</h3><p>It is similar to a readiness probe, but it only runs during the initial startup of a container. The purpose of the startup probe is to differentiate between a container that&rsquo;s starting up and one that&rsquo;s in a crashed state. Once the startup probe succeeds, it is disabled, and the readiness probe takes over.</p>
+<ul>
+<li>Create a pod with startup probe</li>
+<li>Make a test and monitor the pods and logs as well</li>
+<li>Create a pod with liveness prode</li>
+<li>Create a pod with readiness probe</li>
+</ul>
+<p>Probes have a number of fields that you can use to more precisely control the behavior of startup, liveness and readiness checks:</p>
+<ul>
+<li><strong>initialDelaySeconds:</strong> Number of seconds after the container has started before startup, liveness or readiness probes are initiated. Defaults to 0 seconds. Minimum value is 0.</li>
+<li><strong>periodSeconds:</strong> How often (in seconds) to perform the probe. Default to 10 seconds. The minimum value is 1.</li>
+<li><strong>timeoutSeconds:</strong> Number of seconds after which the probe times out. Defaults to 1 second. Minimum value is 1.</li>
+<li><strong>successThreshold:</strong> Minimum consecutive successes for the probe to be considered successful after having failed. Defaults to 1. Must be 1 for liveness and startup Probes. Minimum value is 1.</li>
+<li><strong>failureThreshold:</strong> After a probe fails failureThreshold times in a row,</li>
+<li><strong>terminationGracePeriodSeconds:</strong> configure a grace period for the kubelet to wait between triggering a shut down of the failed container, and then forcing the container runtime to stop that container. The default is to inherit the Pod-level value for terminationGracePeriodSeconds (30 seconds if not specified), and the minimum value is 1. See probe-level terminationGracePeriodSeconds for more detail.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="probe-can-be-defined-in-multiple-ways" data-heading="probe can be defined in multiple ways" data-level="3" data-permalink="/docs/kubernetes/part04/" data-title="Part 4" -->
+<h3 id="probe-can-be-defined-in-multiple-ways">probe can be defined in multiple ways</h3><ul>
+<li>TCP</li>
+<li>gRPC</li>
+<li>httpGet</li>
+<li>exec</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="a-pod-with--startup-probe" data-heading="A pod with  Startup Probe" data-level="3" data-permalink="/docs/kubernetes/part04/" data-title="Part 4" -->
+<h3 id="a-pod-with--startup-probe">A pod with  Startup Probe</h3><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>kubectl apply -f - <span style="color:#e6db74">&lt;&lt;EOF
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">apiVersion: apps/v1
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">kind: Deployment
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">metadata:
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  name: myapp-deployment
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">spec:
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  replicas: 2
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  selector:
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    matchLabels:
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      app: myapp
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  template:
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    metadata:
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      labels:
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        app: myapp
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    spec:
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      containers:
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      - name: mycontainer
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        image: nginx
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        ports:
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        - containerPort: 80
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        startupProbe:
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">          exec:
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">            command:
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">            - /bin/sh
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">            - -c
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">            - &#34;ls -l /usr/share/nginx/html&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">          initialDelaySeconds: 15
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">          periodSeconds: 10
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">          failureThreshold: 30
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">          timeoutSeconds: 5
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        readinessProbe:
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">          exec:
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">            command:
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">            - /bin/sh
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">            - -c
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">            - &#34;ls -l /usr/share/nginx/html&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">          initialDelaySeconds: 20
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">          periodSeconds: 5
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        livenessProbe:
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">          exec:
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">            command:
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">            - /bin/sh
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">            - -c
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">            - &#34;ls -l /usr/share/nginx/html&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">          initialDelaySeconds: 30
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">          periodSeconds: 10
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">EOF</span>
+</span></span></code></pre></div><ul>
+<li>Example with command exec</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-t" data-lang="t"><span style="display:flex;"><span>startupProbe:
+</span></span><span style="display:flex;"><span>  exec:
+</span></span><span style="display:flex;"><span>    command:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">-</span> <span style="color:#e6db74">/bin/s</span>h
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">-</span> <span style="color:#f92672">-</span>c
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">-</span> cat <span style="color:#e6db74">/tmp/</span>healthy
+</span></span><span style="display:flex;"><span>  initialDelaySeconds: <span style="color:#ae81ff">10</span>
+</span></span><span style="display:flex;"><span>  periodSeconds: <span style="color:#ae81ff">5</span>
+</span></span><span style="display:flex;"><span>  failureThreshold: <span style="color:#ae81ff">6</span>
+</span></span><span style="display:flex;"><span>  timeoutSeconds: <span style="color:#ae81ff">1</span>
+</span></span></code></pre></div><ul>
+<li>create Deployment in place of pod with 3 replicas</li>
+<li>Create a svc</li>
+<li>delete the index.html file or modify this \</li>
+<li>Now try to access the app</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="a-pod-with-liveness-probe" data-heading="A Pod with Liveness probe" data-level="3" data-permalink="/docs/kubernetes/part04/" data-title="Part 4" -->
+<h3 id="a-pod-with-liveness-probe">A Pod with Liveness probe</h3><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>kubectl apply -f - <span style="color:#e6db74">&lt;&lt;EOF
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">apiVersion: v1
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">kind: Pod
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">metadata:
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  name: pod-with-liveness-probe
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">spec:
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  containers:
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  - name: nginx-container
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    image: nginx:latest
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    livenessProbe:
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      httpGet:
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        path: /
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        port: 80
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      initialDelaySeconds: 10
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      periodSeconds: 5
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">EOF</span>
+</span></span></code></pre></div><!-- end-chunk -->
+<!-- begin-chunk data-anchor="a-pod-with-readiness-probe" data-heading="A Pod with Readiness probe" data-level="3" data-permalink="/docs/kubernetes/part04/" data-title="Part 4" -->
+<h3 id="a-pod-with-readiness-probe">A Pod with Readiness probe</h3><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>kubectl apply -f - <span style="color:#e6db74">&lt;&lt;EOF
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">apiVersion: v1
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">kind: Pod
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">metadata:
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  name: pod-with-readiness-probe
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">spec:
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  containers:
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  - name: nginx-container
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    image: nginx:latest
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    readinessProbe:
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      httpGet:
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        path: /
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        port: 80
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      initialDelaySeconds: 15
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      periodSeconds: 5
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">EOF</span>
+</span></span></code></pre></div><!-- end-chunk -->
+<!-- begin-chunk data-anchor="key-points-about-kubernetes-probes" data-heading="Key Points about kubernetes Probes" data-level="3" data-permalink="/docs/kubernetes/part04/" data-title="Part 4" -->
+<h3 id="key-points-about-kubernetes-probes">Key Points about kubernetes Probes</h3><ul>
+<li>initialDelaySeconds 60 seconds specifies the delay before the probe starts executing after the container starts.</li>
+<li>periodSeconds 10 seconds means that the probe will be executed every 10 seconds.</li>
+<li>failureThreshold 3 indicates that the container will be marked as unhealthy after three consecutive failed probes.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="lab-1" data-heading="LAB 1" data-level="1" data-permalink="/docs/kubernetes/part04/" data-title="Part 4" -->
+<h1 id="lab-1">LAB 1</h1><ul>
+<li>Create pod with type of probes and see how it behaves</li>
+<li>Check what happens if the statup probe fails</li>
+<li>check what happend if Livenss probe fails</li>
+<li>Try different option of probes</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="kubernetes-storage" data-heading="Kubernetes Storage" data-level="2" data-permalink="/docs/kubernetes/part04/" data-title="Part 4" -->
+<h2 id="kubernetes-storage">Kubernetes Storage</h2><!-- end-chunk -->
+<!-- begin-chunk data-anchor="container-storage-interface-csi-overview" data-heading="Container Storage Interface (CSI) Overview" data-level="1" data-permalink="/docs/kubernetes/part04/" data-title="Part 4" -->
+<h1 id="container-storage-interface-csi-overview">Container Storage Interface (CSI) Overview</h1><!-- end-chunk -->
+<!-- begin-chunk data-anchor="what-is-csi" data-heading="What is CSI?" data-level="2" data-permalink="/docs/kubernetes/part04/" data-title="Part 4" -->
+<h2 id="what-is-csi">What is CSI?</h2><p>The Container Storage Interface (CSI) is a standard interface developed to allow container orchestration systems to manage storage. It provides a unified API for interacting with various storage systems, enabling consistent storage management across different platforms and storage backends.</p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="key-components-of-csi-drivers" data-heading="Key Components of CSI Drivers" data-level="2" data-permalink="/docs/kubernetes/part04/" data-title="Part 4" -->
+<h2 id="key-components-of-csi-drivers">Key Components of CSI Drivers</h2><!-- end-chunk -->
+<!-- begin-chunk data-anchor="1-csi-controller-service" data-heading="1. CSI Controller Service" data-level="3" data-permalink="/docs/kubernetes/part04/" data-title="Part 4" -->
+<h3 id="1-csi-controller-service">1. CSI Controller Service</h3><ul>
+<li><strong>Role:</strong> Manages the lifecycle of volumes, including creation, deletion, and listing.</li>
+<li><strong>Functions:</strong>
+<ul>
+<li><strong>Volume Provisioning:</strong> Handles dynamic volume provisioning and ensures volumes are created and deleted as requested.</li>
+<li><strong>Volume Snapshots:</strong> Manages volume snapshots and clones if supported.</li>
+<li><strong>Volume Attachment:</strong> Manages the attachment of volumes to nodes.</li>
+</ul>
+</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="2-csi-node-service" data-heading="2. CSI Node Service" data-level="3" data-permalink="/docs/kubernetes/part04/" data-title="Part 4" -->
+<h3 id="2-csi-node-service">2. CSI Node Service</h3><ul>
+<li><strong>Role:</strong> Runs on each node and handles mounting and unmounting volumes to/from containers.</li>
+<li><strong>Functions:</strong>
+<ul>
+<li><strong>Volume Mounting:</strong> Mounts volumes on the node where the pod is scheduled.</li>
+<li><strong>Volume Unmounting:</strong> Handles clean-up and unmounting of volumes.</li>
+<li><strong>Volume Attach/Detach:</strong> Manages attachment and detachment of volumes.</li>
+</ul>
+</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="3-csi-driver-daemonset-or-deployment" data-heading="3. CSI Driver DaemonSet (or Deployment)" data-level="3" data-permalink="/docs/kubernetes/part04/" data-title="Part 4" -->
+<h3 id="3-csi-driver-daemonset-or-deployment">3. CSI Driver DaemonSet (or Deployment)</h3><ul>
+<li><strong>Role:</strong> Deploys the CSI Node Service across the Kubernetes cluster.</li>
+<li><strong>Functions:</strong>
+<ul>
+<li><strong>Deployment:</strong> Ensures the CSI Node Service is running on all nodes.</li>
+<li><strong>Configuration:</strong> Configures the driver with access credentials and storage backend details.</li>
+</ul>
+</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="4-csi-controller-pod" data-heading="4. CSI Controller Pod" data-level="3" data-permalink="/docs/kubernetes/part04/" data-title="Part 4" -->
+<h3 id="4-csi-controller-pod">4. CSI Controller Pod</h3><ul>
+<li><strong>Role:</strong> Runs the CSI Controller Service.</li>
+<li><strong>Functions:</strong>
+<ul>
+<li><strong>Provisioning Requests:</strong> Handles provisioning requests and interacts with the storage backend.</li>
+<li><strong>Management Operations:</strong> Manages volume-related operations such as resizing, snapshotting, and cloning.</li>
+</ul>
+</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="5-csi-plugin" data-heading="5. CSI Plugin" data-level="3" data-permalink="/docs/kubernetes/part04/" data-title="Part 4" -->
+<h3 id="5-csi-plugin">5. CSI Plugin</h3><ul>
+<li><strong>Role:</strong> Contains the core logic for interacting with the storage backend.</li>
+<li><strong>Functions:</strong>
+<ul>
+<li><strong>Driver Code:</strong> Interfaces with the storage backend’s API.</li>
+<li><strong>Configuration Files:</strong> Configures the driver with details like endpoints and credentials.</li>
+</ul>
+</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="6-csi-provisioner" data-heading="6. CSI Provisioner" data-level="3" data-permalink="/docs/kubernetes/part04/" data-title="Part 4" -->
+<h3 id="6-csi-provisioner">6. CSI Provisioner</h3><ul>
+<li><strong>Role:</strong> Listens for PVCs and handles volume provisioning according to StorageClass configuration.</li>
+<li><strong>Functions:</strong>
+<ul>
+<li><strong>Dynamic Provisioning:</strong> Automatically provisions storage volumes.</li>
+</ul>
+</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="7-csi-snapshot-controller" data-heading="7. CSI Snapshot Controller" data-level="3" data-permalink="/docs/kubernetes/part04/" data-title="Part 4" -->
+<h3 id="7-csi-snapshot-controller">7. CSI Snapshot Controller</h3><ul>
+<li><strong>Role:</strong> Manages volume snapshots and is often part of the CSI Controller Service.</li>
+<li><strong>Functions:</strong>
+<ul>
+<li><strong>Snapshot Operations:</strong> Handles creation, deletion, and listing of volume snapshots.</li>
+</ul>
+</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="8-csi-node-plugin" data-heading="8. CSI Node Plugin" data-level="3" data-permalink="/docs/kubernetes/part04/" data-title="Part 4" -->
+<h3 id="8-csi-node-plugin">8. CSI Node Plugin</h3><ul>
+<li><strong>Role:</strong> Provides the interface between the Kubernetes Node Service and the CSI driver.</li>
+<li><strong>Functions:</strong>
+<ul>
+<li><strong>Node Communication:</strong> Ensures communication between the Node Service and the CSI driver.</li>
+</ul>
+</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="9-csi-volume-driver" data-heading="9. CSI Volume Driver" data-level="3" data-permalink="/docs/kubernetes/part04/" data-title="Part 4" -->
+<h3 id="9-csi-volume-driver">9. CSI Volume Driver</h3><ul>
+<li><strong>Role:</strong> The actual driver interacting directly with the storage backend’s API.</li>
+<li><strong>Functions:</strong>
+<ul>
+<li><strong>Storage Operations:</strong> Handles volume creation, deletion, attachment, and mounting.</li>
+</ul>
+</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="10-kubernetes-resource-definitions" data-heading="10. Kubernetes Resource Definitions" data-level="3" data-permalink="/docs/kubernetes/part04/" data-title="Part 4" -->
+<h3 id="10-kubernetes-resource-definitions">10. Kubernetes Resource Definitions</h3><ul>
+<li><strong>StorageClass:</strong> Defines parameters for volume provisioning, including which CSI driver to use.</li>
+<li><strong>PersistentVolume (PV):</strong> Represents a storage resource and is created by the CSI Controller Service.</li>
+<li><strong>PersistentVolumeClaim (PVC):</strong> Requests storage from a StorageClass and uses the CSI driver to provision it.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="what-happens-without-a-csi-driver" data-heading="What Happens Without a CSI Driver?" data-level="2" data-permalink="/docs/kubernetes/part04/" data-title="Part 4" -->
+<h2 id="what-happens-without-a-csi-driver">What Happens Without a CSI Driver?</h2><p>If Kubernetes does not have a CSI driver installed or configured, the following issues will arise:</p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="1-inability-to-provision-dynamic-volumes" data-heading="1. <strong>Inability to Provision Dynamic Volumes</strong>" data-level="3" data-permalink="/docs/kubernetes/part04/" data-title="Part 4" -->
+<h3 id="1-inability-to-provision-dynamic-volumes">1. <strong>Inability to Provision Dynamic Volumes</strong></h3><ul>
+<li><strong>Issue:</strong> Kubernetes will not be able to dynamically provision storage volumes as specified by <code>PersistentVolumeClaims</code> (PVCs).</li>
+<li><strong>Consequence:</strong> Users will need to manually create <code>PersistentVolumes</code> (PVs) and bind them to <code>PVCs,</code> which is less flexible and scalable.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="2-no-support-for-advanced-storage-features" data-heading="2. <strong>No Support for Advanced Storage Features</strong>" data-level="3" data-permalink="/docs/kubernetes/part04/" data-title="Part 4" -->
+<h3 id="2-no-support-for-advanced-storage-features">2. <strong>No Support for Advanced Storage Features</strong></h3><ul>
+<li><strong>Issue:</strong> Features like volume snapshots, cloning, and resizing require CSI support.</li>
+<li><strong>Consequence:</strong> Advanced storage functionalities will not be available, limiting the storage capabilities within the cluster.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="3-manual-storage-management" data-heading="3. <strong>Manual Storage Management</strong>" data-level="3" data-permalink="/docs/kubernetes/part04/" data-title="Part 4" -->
+<h3 id="3-manual-storage-management">3. <strong>Manual Storage Management</strong></h3><ul>
+<li><strong>Issue:</strong> Without a CSI driver, storage management becomes more manual and error-prone.</li>
+<li><strong>Consequence:</strong> Increased operational overhead and potential for misconfiguration or inconsistencies.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="4-limited-integration-with-storage-backends" data-heading="4. <strong>Limited Integration with Storage Backends</strong>" data-level="3" data-permalink="/docs/kubernetes/part04/" data-title="Part 4" -->
+<h3 id="4-limited-integration-with-storage-backends">4. <strong>Limited Integration with Storage Backends</strong></h3><ul>
+<li><strong>Issue:</strong> Kubernetes will not be able to integrate with various storage backends that rely on CSI.</li>
+<li><strong>Consequence:</strong> You may be restricted to using only static storage configurations or outdated integrations that are less feature-rich.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="5-incompatibility-with-storage-classes" data-heading="5. <strong>Incompatibility with Storage Classes</strong>" data-level="3" data-permalink="/docs/kubernetes/part04/" data-title="Part 4" -->
+<h3 id="5-incompatibility-with-storage-classes">5. <strong>Incompatibility with Storage Classes</strong></h3><ul>
+<li><strong>Issue:</strong> <code>StorageClass</code> resources, which are used to define storage policies and configurations, depend on CSI drivers to be effective.</li>
+<li><strong>Consequence:</strong> Dynamic provisioning based on <code>StorageClass</code> configurations will fail, and pods requiring specific storage classes will not receive the appropriate storage.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="csi-driver-examples" data-heading="CSI Driver Examples" data-level="2" data-permalink="/docs/kubernetes/part04/" data-title="Part 4" -->
+<h2 id="csi-driver-examples">CSI Driver Examples</h2><!-- end-chunk -->
+<!-- begin-chunk data-anchor="1-netapp-ontap-csi-driver" data-heading="1. NetApp ONTAP CSI Driver" data-level="3" data-permalink="/docs/kubernetes/part04/" data-title="Part 4" -->
+<h3 id="1-netapp-ontap-csi-driver">1. NetApp ONTAP CSI Driver</h3><ul>
+<li><strong>Driver Name:</strong> <code>ontap.csi.netapp.com</code></li>
+<li><strong>Features:</strong>
+<ul>
+<li>Dynamic provisioning of NFS and iSCSI volumes.</li>
+<li>Snapshots and clones.</li>
+<li>Volume resizing.</li>
+</ul>
+</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="2-netapp-solidfire-csi-driver" data-heading="2. NetApp SolidFire CSI Driver" data-level="3" data-permalink="/docs/kubernetes/part04/" data-title="Part 4" -->
+<h3 id="2-netapp-solidfire-csi-driver">2. NetApp SolidFire CSI Driver</h3><ul>
+<li><strong>Driver Name:</strong> <code>solidfire.csi.netapp.com</code></li>
+<li><strong>Features:</strong>
+<ul>
+<li>Dynamic provisioning for SolidFire arrays.</li>
+<li>Block storage with QoS features.</li>
+</ul>
+</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="3-vmware-vsphere-csi-driver" data-heading="3. VMware vSphere CSI Driver" data-level="3" data-permalink="/docs/kubernetes/part04/" data-title="Part 4" -->
+<h3 id="3-vmware-vsphere-csi-driver">3. VMware vSphere CSI Driver</h3><ul>
+<li><strong>Driver Name:</strong> <code>csi.vsphere.vmware.com</code></li>
+<li><strong>Features:</strong>
+<ul>
+<li>Dynamic provisioning for vSAN and VMFS/NFS datastores.</li>
+<li>Persistent volume management.</li>
+</ul>
+</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="installation-and-configuration" data-heading="Installation and Configuration" data-level="2" data-permalink="/docs/kubernetes/part04/" data-title="Part 4" -->
+<h2 id="installation-and-configuration">Installation and Configuration</h2><!-- end-chunk -->
+<!-- begin-chunk data-anchor="steps-to-install-a-csi-driver" data-heading="Steps to Install a CSI Driver" data-level="3" data-permalink="/docs/kubernetes/part04/" data-title="Part 4" -->
+<h3 id="steps-to-install-a-csi-driver">Steps to Install a CSI Driver</h3><ol>
+<li><strong>Choose a CSI Driver:</strong>
+<ul>
+<li>Select a CSI driver suitable for your storage solution.</li>
+</ul>
+</li>
+<li><strong>Install the Driver:</strong>
+<ul>
+<li>Deploy the CSI driver using Helm charts or Kubernetes manifests.</li>
+</ul>
+</li>
+<li><strong>Configure the Driver:</strong>
+<ul>
+<li>Provide necessary credentials and storage backend details.</li>
+</ul>
+</li>
+<li><strong>Create StorageClasses:</strong>
+<ul>
+<li>Define <code>StorageClass</code> resources that use the CSI driver.</li>
+</ul>
+</li>
+<li><strong>Create PersistentVolumeClaims (PVCs):</strong>
+<ul>
+<li>Define PVCs that request storage from the <code>StorageClass</code>.</li>
+</ul>
+</li>
+<li><strong>Use PVCs in Pods:</strong>
+<ul>
+<li>Mount PVCs in your Pods to use the allocated storage.</li>
+</ul>
+</li>
+</ol>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="summary" data-heading="Summary" data-level="2" data-permalink="/docs/kubernetes/part04/" data-title="Part 4" -->
+<h2 id="summary">Summary</h2><p>The Container Storage Interface (CSI) provides a standardized way for Kubernetes to interact with various storage systems, allowing for flexible, consistent, and scalable storage management. Without a CSI driver, Kubernetes will face limitations in dynamic volume provisioning, advanced storage features, and integration with modern storage backends.</p>
+<ul>
+<li>Set up NFS storage</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-t" data-lang="t"><span style="display:flex;"><span>git clone https:<span style="color:#e6db74">//gi</span>tlab<span style="color:#f92672">.</span>com<span style="color:#e6db74">/container-and-kubernetes/</span>kubernetes<span style="color:#f92672">-</span><span style="color:#ae81ff">2024</span><span style="color:#f92672">.</span>git
+</span></span><span style="display:flex;"><span>cd kubernetes<span style="color:#f92672">-</span><span style="color:#ae81ff">2024</span><span style="color:#f92672">/</span>nfs<span style="color:#f92672">-</span>subdir<span style="color:#f92672">-</span>external<span style="color:#f92672">-</span>provisioner
+</span></span></code></pre></div><ul>
+<li>Run the script on all nodes</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e">#!/usr/bin/env bash
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>export DEBIAN_FRONTEND<span style="color:#f92672">=</span>noninteractive
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>readonly NFS_SHARE<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/srv/nfs/kubedata&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34;[TASK 1] apt update&#34;</span>
+</span></span><span style="display:flex;"><span>sudo apt-get update -qq &gt;/dev/null
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> <span style="color:#f92672">[[</span> $HOSTNAME <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;kmaster&#34;</span> <span style="color:#f92672">]]</span>; <span style="color:#66d9ef">then</span>
+</span></span><span style="display:flex;"><span>  echo <span style="color:#e6db74">&#34;[TASK 2] install nfs server&#34;</span>
+</span></span><span style="display:flex;"><span>  sudo -E apt-get install -y -qq nfs-kernel-server &gt;/dev/null
+</span></span><span style="display:flex;"><span>  echo <span style="color:#e6db74">&#34;[TASK 3] creating nfs exports&#34;</span>
+</span></span><span style="display:flex;"><span>  sudo mkdir -p $NFS_SHARE
+</span></span><span style="display:flex;"><span>  sudo chown nobody:nogroup $NFS_SHARE
+</span></span><span style="display:flex;"><span>  echo <span style="color:#e6db74">&#34;</span>$NFS_SHARE<span style="color:#e6db74"> *(rw,sync,no_subtree_check)&#34;</span> | sudo tee /etc/exports &gt;/dev/null
+</span></span><span style="display:flex;"><span>  sudo systemctl restart nfs-kernel-server
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">else</span>
+</span></span><span style="display:flex;"><span>  echo <span style="color:#e6db74">&#34;[TASK 2] install nfs common&#34;</span>
+</span></span><span style="display:flex;"><span>  sudo -E apt-get install -y -qq nfs-common &gt;/dev/null
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">fi</span>
+</span></span></code></pre></div><ul>
+<li>Now apply nfs on kubernetes</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-t" data-lang="t"><span style="display:flex;"><span>kubectl apply <span style="color:#f92672">-</span>f <span style="color:#ae81ff">01</span><span style="color:#f92672">-</span>setup<span style="color:#f92672">-</span>nfs<span style="color:#f92672">-</span>provisioner<span style="color:#f92672">.</span>yaml
+</span></span></code></pre></div><ul>
+<li>Create a pvc using 02-test-claim.yaml</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-t" data-lang="t"><span style="display:flex;"><span>kubectl apply <span style="color:#f92672">-</span>f <span style="color:#ae81ff">02</span><span style="color:#f92672">-</span>test<span style="color:#f92672">-</span>claim<span style="color:#f92672">.</span>yaml
+</span></span></code></pre></div><ul>
+<li>Check newly created pvc</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-t" data-lang="t"><span style="display:flex;"><span>kubectl get pvc
+</span></span></code></pre></div><!-- end-chunk -->
+<!-- begin-chunk data-anchor="storage-classes" data-heading="Storage Classes" data-level="4" data-permalink="/docs/kubernetes/part04/" data-title="Part 4" -->
+<h4 id="storage-classes">Storage Classes</h4><ul>
+<li>A StorageClass provides a way for administrators to describe the classes of storage they offer.</li>
+<li>Different classes might map to quality-of-service levels, or to backup policies, or to arbitrary policies determined by the cluster administrators.</li>
+<li>You can define default storageclass</li>
+<li>You can also decide whether the pvc can be expanded.</li>
+</ul>
+<p>Example of storage class</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-t" data-lang="t"><span style="display:flex;"><span>apiVersion: storage<span style="color:#f92672">.</span>k8s<span style="color:#f92672">.</span>io<span style="color:#f92672">/</span>v1
+</span></span><span style="display:flex;"><span>kind: StorageClass
+</span></span><span style="display:flex;"><span>metadata:
+</span></span><span style="display:flex;"><span>  name: managed<span style="color:#f92672">-</span>nfs<span style="color:#f92672">-</span>storage
+</span></span><span style="display:flex;"><span>  annotations:
+</span></span><span style="display:flex;"><span>    storageclass<span style="color:#f92672">.</span>kubernetes<span style="color:#f92672">.</span>io<span style="color:#f92672">/</span>is<span style="color:#f92672">-</span>default<span style="color:#f92672">-</span>class: <span style="color:#e6db74">&#34;true&#34;</span>
+</span></span><span style="display:flex;"><span>provisioner: k8s<span style="color:#f92672">-</span>sigs<span style="color:#f92672">.</span>io<span style="color:#f92672">/</span>nfs<span style="color:#f92672">-</span>subdir<span style="color:#f92672">-</span>external<span style="color:#f92672">-</span>provisioner
+</span></span><span style="display:flex;"><span>parameters:
+</span></span><span style="display:flex;"><span>  archiveOnDelete: <span style="color:#e6db74">&#34;false&#34;</span>
+</span></span></code></pre></div><ul>
+<li>Check available storageClass</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-t" data-lang="t"><span style="display:flex;"><span> kubectl get sc
+</span></span></code></pre></div><ul>
+<li>Enable Expansion of pvc</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-t" data-lang="t"><span style="display:flex;"><span>query<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;{.items[?(@.metadata.annotations.storageclass\.kubernetes\.io/is-default-class==&#34;true&#34;)].metadata.name}&#39;</span>
+</span></span><span style="display:flex;"><span>default_sc<span style="color:#f92672">=</span>$<span style="color:#960050;background-color:#1e0010">(</span>kubectl get sc <span style="color:#f92672">-</span>o<span style="color:#f92672">=</span>jsonpath<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;$query&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>echo patching storage class <span style="color:#e6db74">&#34;[$default_sc]&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>kubectl patch storageclass $default_sc <span style="color:#f92672">-</span>p <span style="color:#e6db74">&#39;{&#34;allowVolumeExpansion&#34;: true}&#39;</span>
+</span></span></code></pre></div><!-- end-chunk -->
+<!-- begin-chunk data-anchor="a-persistentvolume" data-heading="A PersistentVolume" data-level="4" data-permalink="/docs/kubernetes/part04/" data-title="Part 4" -->
+<h4 id="a-persistentvolume">A PersistentVolume</h4><ul>
+<li>A PersistentVolume (PV) is a piece of storage in the cluster that has been provisioned by an administrator or dynamically provisioned using Storage Classes.</li>
+<li>It is a resource in the cluster just like a node is a cluster resource.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="a-persistentvolumeclaim-pvc" data-heading="A PersistentVolumeClaim (PVC)" data-level="4" data-permalink="/docs/kubernetes/part04/" data-title="Part 4" -->
+<h4 id="a-persistentvolumeclaim-pvc">A PersistentVolumeClaim (PVC)</h4><ul>
+<li>A PersistentVolumeClaim (PVC) is a request for storage by a user.</li>
+<li>It is similar to a Pod. Pods consume node resources and PVCs consume PV resources.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="lifecycle-of-a-volume-and-claim" data-heading="Lifecycle of a volume and claim" data-level="4" data-permalink="/docs/kubernetes/part04/" data-title="Part 4" -->
+<h4 id="lifecycle-of-a-volume-and-claim">Lifecycle of a volume and claim</h4><ul>
+<li>PVs are resources in the cluster.</li>
+<li>PVCs are requests for those resources and also act as claim checks to the resource. The interaction between PVs and PVCs follows this lifecycle:</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="provisioning" data-heading="Provisioning" data-level="4" data-permalink="/docs/kubernetes/part04/" data-title="Part 4" -->
+<h4 id="provisioning">Provisioning</h4><p>There are two ways PVs may be provisioned: statically or dynamically.</p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="static" data-heading="Static" data-level="5" data-permalink="/docs/kubernetes/part04/" data-title="Part 4" -->
+<h5 id="static">Static</h5><p>A cluster administrator creates a number of PVs. They carry the details of the real storage, which is available for use by cluster users. They exist in the Kubernetes API and are available for consumption.</p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="dynamic" data-heading="Dynamic" data-level="5" data-permalink="/docs/kubernetes/part04/" data-title="Part 4" -->
+<h5 id="dynamic">Dynamic</h5><ul>
+<li>When none of the static PVs the administrator created match a user&rsquo;s PersistentVolumeClaim, the cluster may try to dynamically provision a volume specially for the PVC.</li>
+<li>This provisioning is based on StorageClasses: the PVC must request a storage class</li>
+<li>The administrator must have created and configured that class for dynamic provisioning to occur</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="access-modes" data-heading="Access Modes" data-level="4" data-permalink="/docs/kubernetes/part04/" data-title="Part 4" -->
+<h4 id="access-modes">Access Modes</h4><!-- end-chunk -->
+<!-- begin-chunk data-anchor="the-access-modes-are" data-heading="The access modes are:" data-level="5" data-permalink="/docs/kubernetes/part04/" data-title="Part 4" -->
+<h5 id="the-access-modes-are">The access modes are:</h5><!-- end-chunk -->
+<!-- begin-chunk data-anchor="readwriteonce" data-heading="ReadWriteOnce" data-level="5" data-permalink="/docs/kubernetes/part04/" data-title="Part 4" -->
+<h5 id="readwriteonce">ReadWriteOnce</h5><p>the volume can be mounted as read-write by a single node. ReadWriteOnce access mode still can allow multiple pods to access the volume when the pods are running on the same node. For single pod access, please see ReadWriteOncePod.</p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="readonlymany" data-heading="ReadOnlyMany" data-level="5" data-permalink="/docs/kubernetes/part04/" data-title="Part 4" -->
+<h5 id="readonlymany">ReadOnlyMany</h5><p>the volume can be mounted as read-only by many nodes.</p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="readwritemany" data-heading="ReadWriteMany" data-level="5" data-permalink="/docs/kubernetes/part04/" data-title="Part 4" -->
+<h5 id="readwritemany">ReadWriteMany</h5><p>the volume can be mounted as read-write by many nodes.</p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="readwriteoncepod" data-heading="ReadWriteOncePod" data-level="5" data-permalink="/docs/kubernetes/part04/" data-title="Part 4" -->
+<h5 id="readwriteoncepod">ReadWriteOncePod</h5><p>the volume can be mounted as read-write by a single Pod. Use ReadWriteOncePod access mode if you want to ensure that only one pod across the whole cluster can read that PVC or write to it.</p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="in-the-cli-the-access-modes-are-abbreviated-to" data-heading="In the CLI, the access modes are abbreviated to:" data-level="4" data-permalink="/docs/kubernetes/part04/" data-title="Part 4" -->
+<h4 id="in-the-cli-the-access-modes-are-abbreviated-to">In the CLI, the access modes are abbreviated to:</h4><ul>
+<li>
+<p>RWO - ReadWriteOnce</p>
+</li>
+<li>
+<p>ROX - ReadOnlyMany</p>
+</li>
+<li>
+<p>RWX - ReadWriteMany</p>
+</li>
+<li>
+<p>RWOP - ReadWriteOncePod</p>
+</li>
+<li>
+<p><strong>Example of a pvc</strong></p>
+</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>kubectl apply -f - <span style="color:#e6db74">&lt;&lt;EOF
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">apiVersion: v1
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">kind: PersistentVolumeClaim
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">metadata:
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  name: task-pv-claim
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">spec:
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  storageClassName: managed-nfs-storage
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  accessModes:
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    - ReadWriteOnce
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  resources:
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    requests:
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      storage: 3Gi
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">EOF</span>
+</span></span></code></pre></div><ul>
+<li>Create a pod and use the pvc there</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">apiVersion</span>: <span style="color:#ae81ff">v1</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">kind</span>: <span style="color:#ae81ff">Pod</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">metadata</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">name</span>: <span style="color:#ae81ff">task-pv-pod</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">spec</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">volumes</span>:
+</span></span><span style="display:flex;"><span>    - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">task-pv-storage</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">persistentVolumeClaim</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">claimName</span>: <span style="color:#ae81ff">task-pv-claim</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">containers</span>:
+</span></span><span style="display:flex;"><span>    - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">task-pv-container</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">image</span>: <span style="color:#ae81ff">nginx</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">ports</span>:
+</span></span><span style="display:flex;"><span>        - <span style="color:#f92672">containerPort</span>: <span style="color:#ae81ff">80</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">name</span>: <span style="color:#e6db74">&#34;http-server&#34;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">volumeMounts</span>:
+</span></span><span style="display:flex;"><span>        - <span style="color:#f92672">mountPath</span>: <span style="color:#e6db74">&#34;/usr/share/nginx/html&#34;</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">name</span>: <span style="color:#ae81ff">task-pv-storage</span>
+</span></span></code></pre></div><ul>
+<li>Test pod and pvc</li>
+<li>Also check the storage class</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-t" data-lang="t"><span style="display:flex;"><span>kubectl get sc
+</span></span></code></pre></div><!-- end-chunk -->
+<!-- begin-chunk data-anchor="lab-2" data-heading="LAB 2" data-level="1" data-permalink="/docs/kubernetes/part04/" data-title="Part 4" -->
+<h1 id="lab-2">LAB 2</h1><ul>
+<li>Install nfs on master node and nfs clients on worker node</li>
+<li>Create a storageclass</li>
+<li>Create a pvc</li>
+<li>Check if the pv is also created</li>
+<li>create a pod with newly created pvc.</li>
+<li>See if the same pvc can be attach to some other pod also .</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="emptydir" data-heading="emptyDir" data-level="3" data-permalink="/docs/kubernetes/part04/" data-title="Part 4" -->
+<h3 id="emptydir">emptyDir</h3><ul>
+<li>emptyDir are volumes that get created empty when a Pod is created.</li>
+<li>While a Pod is running its emptyDir exists. If a container in a Pod crashes the emptyDir content is unaffected. Deleting a Pod deletes all its emptyDirs.
+An emptyDir volume is first created when a Pod is assigned to a Node and initially its empty</li>
+<li>A Volume of type emptyDir that lasts for the life of the Pod, even if the Container terminates and restarts.</li>
+<li>If a container in a Pod crashes the emptyDir content is unaffected.</li>
+<li>All containers in a Pod share use of the emptyDir volume .</li>
+<li>Each container can independently mount the emptyDir at the same / or different path.</li>
+<li>Using emptyDir, The Kubelet will create the directory in the container, but not mount any storage.</li>
+<li>Containers in the Pod can all read/write the same files in the emptyDir volume, though that volume can be mounted at the same or different paths in each Container.</li>
+<li>When a Pod is removed from a node for any reason, the data in the emptyDir is deleted forever along with the container.</li>
+<li>A Container crashing does NOT remove a Pod from a node, so the data in an emptyDir volume is safe across Container crashes.</li>
+<li>By default, emptyDir volumes are stored on whatever medium is backing the node – that might be disk or SSD or network storage.</li>
+<li>You can set the emptyDir.medium field to “Memory” to tell Kubernetes to mount a tmpfs (RAM-backed filesystem) for you instead.</li>
+<li>The location should of emptyDir should be in /var/lib/kubelet/pods/{podid}/volumes/kubernetes.io~empty-dir/ on the given node where your pod is running.</li>
+<li>Example:</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-t" data-lang="t"><span style="display:flex;"><span>apiVersion: v1
+</span></span><span style="display:flex;"><span>kind: Pod
+</span></span><span style="display:flex;"><span>metadata:
+</span></span><span style="display:flex;"><span>  name: test<span style="color:#f92672">-</span>pd
+</span></span><span style="display:flex;"><span>spec:
+</span></span><span style="display:flex;"><span>  containers:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">-</span> image: nginx
+</span></span><span style="display:flex;"><span>    name: test<span style="color:#f92672">-</span>container
+</span></span><span style="display:flex;"><span>    volumeMounts:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">-</span> mountPath: <span style="color:#f92672">/</span>cache
+</span></span><span style="display:flex;"><span>      name: cache<span style="color:#f92672">-</span>volume
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">-</span> image: redis
+</span></span><span style="display:flex;"><span>    name: redis
+</span></span><span style="display:flex;"><span>    volumeMounts:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">-</span> mountPath: <span style="color:#f92672">/</span>data
+</span></span><span style="display:flex;"><span>      name: cache<span style="color:#f92672">-</span>volume
+</span></span><span style="display:flex;"><span>  volumes:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">-</span> name: cache<span style="color:#f92672">-</span>volume
+</span></span><span style="display:flex;"><span>    emptyDir: {}
+</span></span></code></pre></div><!-- end-chunk -->
+<!-- begin-chunk data-anchor="hostpath" data-heading="hostPath:" data-level="3" data-permalink="/docs/kubernetes/part04/" data-title="Part 4" -->
+<h3 id="hostpath">hostPath:</h3><ul>
+<li>The hostPath volume mounts a resource from the host node filesystem. the resources could be directory, file socket, character, or block device. These resources mu</li>
+<li>A hostPath volume mounts a file or directory from the host node’s filesystem into your pod.</li>
+<li>A hostPath PersistentVolume must be used only in a single-node cluster. Kubernetes does not support hostPath on a multi-node cluster currently.</li>
+<li>The directories created on the underlying hosts are only writable by root. You either need to run your process as root in a privileged container or modify the file permissions on the host to be able to write to a hostPath volume</li>
+<li>Example:</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-t" data-lang="t"><span style="display:flex;"><span>apiVersion: v1
+</span></span><span style="display:flex;"><span>kind: Pod
+</span></span><span style="display:flex;"><span>metadata:
+</span></span><span style="display:flex;"><span>  name: test<span style="color:#f92672">-</span>pd
+</span></span><span style="display:flex;"><span>spec:
+</span></span><span style="display:flex;"><span>  containers:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">-</span> image: k8s<span style="color:#f92672">.</span>gcr<span style="color:#f92672">.</span>io<span style="color:#f92672">/</span>test<span style="color:#f92672">-</span>webserver
+</span></span><span style="display:flex;"><span>    name: test<span style="color:#f92672">-</span>container
+</span></span><span style="display:flex;"><span>    volumeMounts:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">-</span> mountPath: <span style="color:#f92672">/</span>test<span style="color:#f92672">-</span>pd
+</span></span><span style="display:flex;"><span>      name: test<span style="color:#f92672">-</span>volume
+</span></span><span style="display:flex;"><span>  volumes:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">-</span> name: test<span style="color:#f92672">-</span>volume
+</span></span><span style="display:flex;"><span>    hostPath:
+</span></span><span style="display:flex;"><span>      <span style="color:#75715e"># directory location on host</span>
+</span></span><span style="display:flex;"><span>      path: <span style="color:#f92672">/</span>data
+</span></span><span style="display:flex;"><span>      <span style="color:#75715e"># this field is optional</span>
+</span></span><span style="display:flex;"><span>      type: DirectoryOrCreate
+</span></span></code></pre></div><!-- end-chunk -->
+<!-- begin-chunk data-anchor="lab-3" data-heading="LAB 3" data-level="1" data-permalink="/docs/kubernetes/part04/" data-title="Part 4" -->
+<h1 id="lab-3">LAB 3</h1><ul>
+<li>Create a pod with emptyDir volume</li>
+<li>create a pod with hostPath</li>
+<li>check if the data persistent after the pod is deleted.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="kubernetes-secrets" data-heading="Kubernetes Secrets" data-level="2" data-permalink="/docs/kubernetes/part04/" data-title="Part 4" -->
+<h2 id="kubernetes-secrets">Kubernetes Secrets</h2><p>Kubernetes Secrets are used to manage sensitive information, such as passwords, OAuth tokens, SSH keys, and other confidential data. Secrets are intended to hold sensitive data securely and to make it available to applications in a controlled manner.</p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="key-concepts" data-heading="<strong>Key Concepts</strong>" data-level="2" data-permalink="/docs/kubernetes/part04/" data-title="Part 4" -->
+<h2 id="key-concepts"><strong>Key Concepts</strong></h2><!-- end-chunk -->
+<!-- begin-chunk data-anchor="1-what-is-a-secret" data-heading="<strong>1. What is a Secret?</strong>" data-level="3" data-permalink="/docs/kubernetes/part04/" data-title="Part 4" -->
+<h3 id="1-what-is-a-secret"><strong>1. What is a Secret?</strong></h3><p>A Secret is a Kubernetes resource that stores sensitive information. Secrets are encoded in Base64 and can be used to provide confidential data to Pods and other Kubernetes resources in a secure manner.</p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="2-key-features-of-secrets" data-heading="<strong>2. Key Features of Secrets</strong>" data-level="3" data-permalink="/docs/kubernetes/part04/" data-title="Part 4" -->
+<h3 id="2-key-features-of-secrets"><strong>2. Key Features of Secrets</strong></h3><ul>
+<li><strong>Secure Storage</strong>: Secrets are stored in etcd in an encoded form.</li>
+<li><strong>Controlled Access</strong>: Access to Secrets is controlled through Kubernetes RBAC (Role-Based Access Control).</li>
+<li><strong>Environment Variables</strong>: Secrets can be injected into Pods as environment variables.</li>
+<li><strong>Volume Mounts</strong>: Secrets can be mounted as files inside Pods.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="3-secret-manifest" data-heading="<strong>3. Secret Manifest</strong>" data-level="2" data-permalink="/docs/kubernetes/part04/" data-title="Part 4" -->
+<h2 id="3-secret-manifest"><strong>3. Secret Manifest</strong></h2><p>A Secret is defined using a YAML manifest. Here’s a basic example of a Secret configuration:</p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="1-basic-secret" data-heading="<strong>1. Basic Secret</strong>" data-level="3" data-permalink="/docs/kubernetes/part04/" data-title="Part 4" -->
+<h3 id="1-basic-secret"><strong>1. Basic Secret</strong></h3><p>This example demonstrates creating a Secret with username and password:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">apiVersion</span>: <span style="color:#ae81ff">v1</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">kind</span>: <span style="color:#ae81ff">Secret</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">metadata</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">name</span>: <span style="color:#ae81ff">my-secret</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">type</span>: <span style="color:#ae81ff">Opaque</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">data</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">username</span>: <span style="color:#ae81ff">dXNlcg==  </span> <span style="color:#75715e"># Base64 encoded value of &#34;user&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">password</span>: <span style="color:#ae81ff">cGFzc3dvcmQ=</span> <span style="color:#75715e"># Base64 encoded value of &#34;password&#34;</span>
+</span></span></code></pre></div><!-- end-chunk -->
+<!-- begin-chunk data-anchor="secret" data-heading="Secret" data-level="4" data-permalink="/docs/kubernetes/part04/" data-title="Part 4" -->
+<h4 id="secret">Secret</h4><ul>
+<li>To create a secret, you can use the <code>kubectl create secret</code> command.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>kubectl create secret generic my-secret --from-literal<span style="color:#f92672">=</span>MYSQL_ROOT_PASSWORD<span style="color:#f92672">=</span>root 
+</span></span></code></pre></div><ul>
+<li>To create secret of type TLS</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span> kubectl create secret tls my-tls-secret --cert<span style="color:#f92672">=</span>path/to/tls.crt --key<span style="color:#f92672">=</span>path/to/tls.key
+</span></span></code></pre></div><ul>
+<li>Check secret</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>kubectl get secrets
+</span></span></code></pre></div><ul>
+<li>use the secret with pod as an environment variable</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>apiVersion: v1
+</span></span><span style="display:flex;"><span>kind: Pod
+</span></span><span style="display:flex;"><span>metadata:
+</span></span><span style="display:flex;"><span> name: mypod
+</span></span><span style="display:flex;"><span>spec:
+</span></span><span style="display:flex;"><span> containers:
+</span></span><span style="display:flex;"><span> - name: mycontainer
+</span></span><span style="display:flex;"><span>   image: mysql
+</span></span><span style="display:flex;"><span>   env:
+</span></span><span style="display:flex;"><span>   - name: MYSQL_ROOT_PASSWORD
+</span></span><span style="display:flex;"><span>     valueFrom:
+</span></span><span style="display:flex;"><span>      secretKeyRef:
+</span></span><span style="display:flex;"><span>        name: my-secret
+</span></span><span style="display:flex;"><span>        key: MYSQL_ROOT_PASSWORD   
+</span></span></code></pre></div><ul>
+<li>Use secret as a file</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>apiVersion: v1
+</span></span><span style="display:flex;"><span>kind: Pod
+</span></span><span style="display:flex;"><span>metadata:
+</span></span><span style="display:flex;"><span>  name: mypod
+</span></span><span style="display:flex;"><span>spec:
+</span></span><span style="display:flex;"><span>  containers:
+</span></span><span style="display:flex;"><span>  - name: mycontainer
+</span></span><span style="display:flex;"><span>    image: myimage
+</span></span><span style="display:flex;"><span>    volumeMounts:
+</span></span><span style="display:flex;"><span>    - name: secret-volume
+</span></span><span style="display:flex;"><span>      mountPath: /etc/secrets
+</span></span><span style="display:flex;"><span>  volumes:
+</span></span><span style="display:flex;"><span>  - name: secret-volume
+</span></span><span style="display:flex;"><span>    secret:
+</span></span><span style="display:flex;"><span>      secretName: my-secret
+</span></span></code></pre></div><ul>
+<li>How to extract the value from a secret</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>kubectl get secret my-secret -o jsonpath<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;{.data.username}&#39;</span> | base64 --decode &gt; username.txt
+</span></span><span style="display:flex;"><span>kubectl get secret my-secret -o jsonpath<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;{.data.password}&#39;</span> | base64 --decode &gt; password.txt
+</span></span></code></pre></div><!-- end-chunk -->
+<!-- begin-chunk data-anchor="kubernetes-configmap" data-heading="Kubernetes ConfigMap" data-level="2" data-permalink="/docs/kubernetes/part04/" data-title="Part 4" -->
+<h2 id="kubernetes-configmap">Kubernetes ConfigMap</h2><p>A Kubernetes ConfigMap is a resource used to store non-sensitive configuration data in key-value pairs. ConfigMaps are intended to provide configuration settings to applications running in Kubernetes Pods. They help decouple configuration from application code, making applications easier to manage and deploy.</p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="key-concepts-1" data-heading="<strong>Key Concepts</strong>" data-level="2" data-permalink="/docs/kubernetes/part04/" data-title="Part 4" -->
+<h2 id="key-concepts-1"><strong>Key Concepts</strong></h2><!-- end-chunk -->
+<!-- begin-chunk data-anchor="1-what-is-a-configmap" data-heading="<strong>1. What is a ConfigMap?</strong>" data-level="3" data-permalink="/docs/kubernetes/part04/" data-title="Part 4" -->
+<h3 id="1-what-is-a-configmap"><strong>1. What is a ConfigMap?</strong></h3><p>A ConfigMap is a Kubernetes resource that allows you to store configuration data separately from application code. This data can be injected into Pods as environment variables, command-line arguments, or mounted as files.</p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="2-key-features-of-configmaps" data-heading="<strong>2. Key Features of ConfigMaps</strong>" data-level="3" data-permalink="/docs/kubernetes/part04/" data-title="Part 4" -->
+<h3 id="2-key-features-of-configmaps"><strong>2. Key Features of ConfigMaps</strong></h3><ul>
+<li><strong>Decoupling Configuration</strong>: Separates configuration from application code.</li>
+<li><strong>Flexible Usage</strong>: Provides configuration data as environment variables, command-line arguments, or file mounts.</li>
+<li><strong>Dynamic Updates</strong>: Can be updated independently of the application.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="3-configmap-manifest" data-heading="<strong>3. ConfigMap Manifest</strong>" data-level="2" data-permalink="/docs/kubernetes/part04/" data-title="Part 4" -->
+<h2 id="3-configmap-manifest"><strong>3. ConfigMap Manifest</strong></h2><p>A ConfigMap is defined using a YAML manifest. Here’s a basic example of a ConfigMap configuration:</p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="1-basic-configmap" data-heading="<strong>1. Basic ConfigMap</strong>" data-level="3" data-permalink="/docs/kubernetes/part04/" data-title="Part 4" -->
+<h3 id="1-basic-configmap"><strong>1. Basic ConfigMap</strong></h3><p>This example demonstrates creating a ConfigMap with a few key-value pairs:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">apiVersion</span>: <span style="color:#ae81ff">v1</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">kind</span>: <span style="color:#ae81ff">ConfigMap</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">metadata</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">name</span>: <span style="color:#ae81ff">my-configmap</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">data</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">APP_MODE</span>: <span style="color:#ae81ff">production</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">LOG_LEVEL</span>: <span style="color:#ae81ff">debug</span>
+</span></span></code></pre></div><ul>
+<li>Create a configmap</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-t" data-lang="t"><span style="display:flex;"><span>kubectl create configmap <span style="color:#66d9ef">my</span><span style="color:#f92672">-</span>configmap <span style="color:#f92672">--</span>from<span style="color:#f92672">-</span>literal<span style="color:#f92672">=</span>key1<span style="color:#f92672">=</span>value1
+</span></span></code></pre></div><ul>
+<li>Create cm with yaml</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>apiVersion: v1
+</span></span><span style="display:flex;"><span>kind: ConfigMap
+</span></span><span style="display:flex;"><span>metadata:
+</span></span><span style="display:flex;"><span>  name: my-configmap
+</span></span><span style="display:flex;"><span>data:
+</span></span><span style="display:flex;"><span>  key1: value1
+</span></span><span style="display:flex;"><span>  key2: value2
+</span></span></code></pre></div><ul>
+<li>Configmap for a config file</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-t" data-lang="t"><span style="display:flex;"><span>kubectl create configmap <span style="color:#66d9ef">my</span><span style="color:#f92672">-</span>configmap <span style="color:#f92672">--</span>from<span style="color:#f92672">-</span>file<span style="color:#f92672">=</span>config<span style="color:#f92672">-</span>file<span style="color:#f92672">.</span>txt
+</span></span></code></pre></div><ul>
+<li>use configmap as a file in a pod</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>apiVersion: v1
+</span></span><span style="display:flex;"><span>kind: Pod
+</span></span><span style="display:flex;"><span>metadata:
+</span></span><span style="display:flex;"><span>  name: mypod
+</span></span><span style="display:flex;"><span>spec:
+</span></span><span style="display:flex;"><span>  containers:
+</span></span><span style="display:flex;"><span>  - name: mycontainer
+</span></span><span style="display:flex;"><span>    image: myimage
+</span></span><span style="display:flex;"><span>    envFrom:
+</span></span><span style="display:flex;"><span>    - configMapRef:
+</span></span><span style="display:flex;"><span>        name: my-configmap
+</span></span><span style="display:flex;"><span>---
+</span></span><span style="display:flex;"><span>apiVersion: v1
+</span></span><span style="display:flex;"><span>kind: Pod
+</span></span><span style="display:flex;"><span>metadata:
+</span></span><span style="display:flex;"><span>  name: mypod
+</span></span><span style="display:flex;"><span>spec:
+</span></span><span style="display:flex;"><span>  containers:
+</span></span><span style="display:flex;"><span>  - name: mycontainer
+</span></span><span style="display:flex;"><span>    image: myimage
+</span></span><span style="display:flex;"><span>    volumeMounts:
+</span></span><span style="display:flex;"><span>    - name: config-volume
+</span></span><span style="display:flex;"><span>      mountPath: /etc/config
+</span></span><span style="display:flex;"><span>  volumes:
+</span></span><span style="display:flex;"><span>  - name: config-volume
+</span></span><span style="display:flex;"><span>    configMap:
+</span></span><span style="display:flex;"><span>      name: my-configmap
+</span></span></code></pre></div><!-- end-chunk -->
+<!-- begin-chunk data-anchor="lab-4" data-heading="LAB 4" data-level="1" data-permalink="/docs/kubernetes/part04/" data-title="Part 4" -->
+<h1 id="lab-4">LAB 4</h1><ul>
+<li>Creating a secret</li>
+<li>Checking the value of a secret</li>
+<li>Use jsonpath to fetch the value</li>
+<li>Use secret in pod an environment value</li>
+<li>Use secret as a file in pod</li>
+<li>Creating a secret of type tls</li>
+<li>Create a config map</li>
+<li>use cm as a file in pod</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="ingresscontroller" data-heading="IngressController" data-level="2" data-permalink="/docs/kubernetes/part04/" data-title="Part 4" -->
+<h2 id="ingresscontroller">IngressController</h2><!-- end-chunk -->
+<!-- begin-chunk data-anchor="documentation-referred" data-heading="Documentation Referred:" data-level="3" data-permalink="/docs/kubernetes/part04/" data-title="Part 4" -->
+<h3 id="documentation-referred">Documentation Referred:</h3><p><a href="https://kubernetes.io/docs/concepts/services-networking/ingress-controllers/" target="_blank" rel="noopener">https://kubernetes.io/docs/concepts/services-networking/ingress-controllers/</a></p>
+<p><a href="https://kubernetes.github.io/ingress-nginx/deploy/" target="_blank" rel="noopener">https://kubernetes.github.io/ingress-nginx/deploy/</a></p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="ingress-controller" data-heading="Ingress Controller" data-level="3" data-permalink="/docs/kubernetes/part04/" data-title="Part 4" -->
+<h3 id="ingress-controller">Ingress Controller</h3><!-- end-chunk -->
+<!-- begin-chunk data-anchor="what-is-an-ingress-controller" data-heading="What is an Ingress Controller?" data-level="3" data-permalink="/docs/kubernetes/part04/" data-title="Part 4" -->
+<h3 id="what-is-an-ingress-controller">What is an Ingress Controller?</h3><p>An <strong>Ingress Controller</strong> is a Kubernetes resource that manages access to services in a Kubernetes cluster from outside the cluster. It acts as a bridge between external traffic and the services running within the cluster, often providing features like load balancing, SSL termination, and name-based virtual hosting.</p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="key-concepts-2" data-heading="Key Concepts" data-level="3" data-permalink="/docs/kubernetes/part04/" data-title="Part 4" -->
+<h3 id="key-concepts-2">Key Concepts</h3><ul>
+<li><strong>Ingress Resource</strong>: A Kubernetes API object that defines rules for accessing services. It specifies how to route external requests to different services based on the request&rsquo;s host and path.</li>
+<li><strong>Ingress Controller</strong>: A controller that watches Ingress Resources and implements their rules. It typically runs as a pod within the cluster and configures a reverse proxy or load balancer based on the Ingress rules.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="benefits" data-heading="Benefits" data-level="3" data-permalink="/docs/kubernetes/part04/" data-title="Part 4" -->
+<h3 id="benefits">Benefits</h3><ul>
+<li><strong>Centralized Management</strong>: Manage access rules for multiple services from a single point.</li>
+<li><strong>Load Balancing</strong>: Distribute incoming traffic across multiple instances of a service.</li>
+<li><strong>SSL Termination</strong>: Handle SSL/TLS encryption and decryption at the edge, offloading this task from your application services.</li>
+<li><strong>Path-Based Routing</strong>: Route traffic to different services based on the request URL path.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="common-ingress-controllers" data-heading="Common Ingress Controllers" data-level="3" data-permalink="/docs/kubernetes/part04/" data-title="Part 4" -->
+<h3 id="common-ingress-controllers">Common Ingress Controllers</h3><ol>
+<li><strong>NGINX Ingress Controller</strong>: Widely used, supports many features and is highly configurable.</li>
+<li><strong>Traefik</strong>: Provides a dynamic and modern approach with automatic configuration and integration with other components.</li>
+<li><strong>HAProxy</strong>: Known for high performance and advanced routing capabilities.</li>
+<li><strong>Istio IngressGateway</strong>: Part of the Istio service mesh, offering advanced traffic management and observability features.</li>
+</ol>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="basic-usage" data-heading="Basic Usage" data-level="3" data-permalink="/docs/kubernetes/part04/" data-title="Part 4" -->
+<h3 id="basic-usage">Basic Usage</h3><ol>
+<li><strong>Install an Ingress Controller</strong>: You need to deploy an Ingress Controller in your cluster. For example, to install the NGINX Ingress Controller,</li>
+</ol>
+<ul>
+<li>Step 1: Install Nginx Ingress Controller:</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>helm upgrade --install ingress-nginx ingress-nginx --repo https://kubernetes.github.io/ingress-nginx --namespace ingress-nginx --create-namespace
+</span></span></code></pre></div><ul>
+<li>Step 2: Verify the Ingress Controller Resource</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>helm list --all-namespaces
+</span></span><span style="display:flex;"><span>kubectl get ingressclass
+</span></span><span style="display:flex;"><span>kubectl get service -n ingress-nginx
+</span></span></code></pre></div><ul>
+<li>check if the IngressClass is available</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-t" data-lang="t"><span style="display:flex;"><span>kubectl get ingressClassName
+</span></span></code></pre></div><ul>
+<li>Add the Application dns to your hosts in case you are not using DNS service</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>nano /etc/hosts   <span style="color:#66d9ef">for</span> windows it is under C:<span style="color:#ae81ff">\W</span>indows<span style="color:#ae81ff">\S</span>ystem32<span style="color:#ae81ff">\d</span>rivers<span style="color:#ae81ff">\e</span>tc
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>&lt;ADD-LOAD-BALANCER-IP&gt; website01.example.internal website02.example.internal
+</span></span></code></pre></div><ul>
+<li>Step 1: Create two Pods</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>kubectl run service-pod-1 --image<span style="color:#f92672">=</span>nginx
+</span></span><span style="display:flex;"><span>kubectl run service-pod-2 --image<span style="color:#f92672">=</span>nginx
+</span></span></code></pre></div><ul>
+<li>Step 2: Create Service for above created pods</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>kubectl expose pod service-pod-1 --name service1 --port<span style="color:#f92672">=</span><span style="color:#ae81ff">80</span> --target-port<span style="color:#f92672">=</span><span style="color:#ae81ff">80</span>
+</span></span><span style="display:flex;"><span>kubectl expose pod service-pod-2 --name service2 --port<span style="color:#f92672">=</span><span style="color:#ae81ff">80</span> --target-port<span style="color:#f92672">=</span><span style="color:#ae81ff">80</span>
+</span></span><span style="display:flex;"><span>kubectl get services
+</span></span></code></pre></div><ul>
+<li>Step 3: Verify Service to POD connectivity</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>kubectl run frontend-pod --image<span style="color:#f92672">=</span>ubuntu --command -- sleep <span style="color:#ae81ff">36000</span>
+</span></span><span style="display:flex;"><span>kubectl exec -it frontend-pod -- bash
+</span></span><span style="display:flex;"><span>apt-get update <span style="color:#f92672">&amp;&amp;</span> apt-get -y install curl nano
+</span></span><span style="display:flex;"><span>curl &lt;SERVER-1-IP&gt;
+</span></span><span style="display:flex;"><span>curl &lt;SERVER-1-IP&gt;
+</span></span></code></pre></div><ul>
+<li>Check if the application is reachable</li>
+<li>Step 5: Change the Default Nginx Page for Each Service</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>kubectl exec -it service-pod-1 -- bash
+</span></span><span style="display:flex;"><span>cd /usr/share/nginx/html
+</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34;This is Website 1&#34;</span> &gt; index.html
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>kubectl exec -it service-pod-2 -- bash
+</span></span><span style="display:flex;"><span>cd /usr/share/nginx/html
+</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34;This is Website 2&#34;</span> &gt; index.html
+</span></span></code></pre></div><ul>
+<li>Step 6: Verification</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>kubectl exec -it frontend-pod -- bash
+</span></span><span style="display:flex;"><span>curl service1
+</span></span><span style="display:flex;"><span>curl service2
+</span></span></code></pre></div><!-- end-chunk -->
+<!-- begin-chunk data-anchor="pathtype-in-kubernetes-ingress" data-heading="<code>pathType</code> in Kubernetes Ingress" data-level="3" data-permalink="/docs/kubernetes/part04/" data-title="Part 4" -->
+<h3 id="pathtype-in-kubernetes-ingress"><code>pathType</code> in Kubernetes Ingress</h3><p>In Kubernetes, the <code>pathType</code> field in an <code>Ingress</code> resource determines how the path specified in the ingress rules is matched. The <code>pathType</code> can have the following values:</p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="1-prefix-prefix" data-heading="1. Prefix (<code>Prefix</code>)" data-level="4" data-permalink="/docs/kubernetes/part04/" data-title="Part 4" -->
+<h4 id="1-prefix-prefix">1. Prefix (<code>Prefix</code>)</h4><ul>
+<li><strong>Description</strong>: Matches paths based on a prefix. For example, if the path is <code>/foo</code>, then <code>/foo</code>, <code>/foo/bar</code>, <code>/foo/baz</code>, etc., will be matched.</li>
+<li><strong>Use Case</strong>: Suitable for routing traffic for a base path and all its subpaths to a backend service.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="2-exact-exact" data-heading="2. Exact (<code>Exact</code>)" data-level="4" data-permalink="/docs/kubernetes/part04/" data-title="Part 4" -->
+<h4 id="2-exact-exact">2. Exact (<code>Exact</code>)</h4><ul>
+<li><strong>Description</strong>: The path must match the request path exactly. For instance, if the path is <code>/foo</code>, only <code>/foo</code> will be matched, not <code>/foo/anything</code> or <code>/bar/foo</code>.</li>
+<li><strong>Use Case</strong>: Ideal when you need an exact match for routing.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="3-implementationspecific-implementationspecific" data-heading="3. ImplementationSpecific (<code>ImplementationSpecific</code>)" data-level="4" data-permalink="/docs/kubernetes/part04/" data-title="Part 4" -->
+<h4 id="3-implementationspecific-implementationspecific">3. ImplementationSpecific (<code>ImplementationSpecific</code>)</h4><ul>
+<li><strong>Description</strong>: The interpretation of the path is dependent on the ingress controller. Different ingress controllers might handle this path type in various ways.</li>
+<li><strong>Use Case</strong>: Useful when the specific behavior is determined by the ingress controller being used.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="documentation-referred-1" data-heading="Documentation Referred:" data-level="4" data-permalink="/docs/kubernetes/part04/" data-title="Part 4" -->
+<h4 id="documentation-referred-1">Documentation Referred:</h4><p><a href="https://kubernetes.io/docs/concepts/services-networking/ingress/#name-based-virtual-hosting" target="_blank" rel="noopener"> Lean About name based virtual Hosting</a></p>
+<ul>
+<li>
+<p>Step 7: Create Ingress Resource</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>kubectl apply -f - <span style="color:#e6db74">&lt;&lt;EOF
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">apiVersion: networking.k8s.io/v1
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">kind: Ingress
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">metadata:
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  name: name-virtual-host-ingress
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">spec:
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  ingressClassName: nginx
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  rules:
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  - host: website01.example.internal
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    http:
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      paths:
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      - pathType: Prefix
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        path: &#34;/&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        backend:
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">          service:
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">            name: service1
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">            port:
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">              number: 80
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  - host: website02.example.internal
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    http:
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      paths:
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      - pathType: Prefix
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        path: &#34;/&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        backend:
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">          service:
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">            name: service2
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">            port:
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">              number: 80
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">EOF</span>
+</span></span></code></pre></div></li>
+<li>
+<p>Check newlly created ingress rules</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-t" data-lang="t"><span style="display:flex;"><span>kubectl get ingress
+</span></span></code></pre></div></li>
+<li>
+<p>Check more information for ingress</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-t" data-lang="t"><span style="display:flex;"><span>kubectl describe ingress name<span style="color:#f92672">-</span>virtual<span style="color:#f92672">-</span>host<span style="color:#f92672">-</span>ingress
+</span></span></code></pre></div></li>
+<li>
+<p>Now check if the application is opening in browser</p>
+</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="lab-5" data-heading="LAB 5" data-level="1" data-permalink="/docs/kubernetes/part04/" data-title="Part 4" -->
+<h1 id="lab-5">LAB 5</h1><ul>
+<li>Install helm command</li>
+<li>Install ingressController using helm</li>
+<li>Create two pods and two svc associate to this</li>
+<li>Create ingress rule for these 2 services</li>
+<li>map the name with hosts file</li>
+<li>Acces your application with ingressController</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="kubernetes-patch-command" data-heading="Kubernetes Patch command" data-level="2" data-permalink="/docs/kubernetes/part04/" data-title="Part 4" -->
+<h2 id="kubernetes-patch-command">Kubernetes Patch command</h2><!-- end-chunk -->
+<!-- begin-chunk data-anchor="description" data-heading="Description" data-level="3" data-permalink="/docs/kubernetes/part04/" data-title="Part 4" -->
+<h3 id="description">Description</h3><p>Briefly describe the purpose of the issue.</p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="examples-using-kubectl-patch" data-heading="Examples using <code>kubectl patch</code>" data-level="3" data-permalink="/docs/kubernetes/part04/" data-title="Part 4" -->
+<h3 id="examples-using-kubectl-patch">Examples using <code>kubectl patch</code></h3><ul>
+<li>Patch a Deployment (Update Replicas)</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>  kubectl patch deployment &lt;deployment-name&gt; -p <span style="color:#e6db74">&#39;{&#34;spec&#34;: {&#34;replicas&#34;: 3}}&#39;</span>
+</span></span></code></pre></div><ul>
+<li>Patch a Pod (Update Container Image)</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-t" data-lang="t"><span style="display:flex;"><span>kubectl patch pod <span style="color:#e6db74">&lt;pod-name&gt;</span> <span style="color:#f92672">-</span>p <span style="color:#e6db74">&#39;{&#34;spec&#34;: {&#34;containers&#34;: [{&#34;name&#34;: &#34;container-name&#34;, &#34;image&#34;: &#34;new-image:tag&#34;}]}}&#39;</span>
+</span></span></code></pre></div><ul>
+<li>Update configmap</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>kubectl patch configmap &lt;configmap-name&gt; -p <span style="color:#e6db74">&#39;{&#34;data&#34;: {&#34;new-key&#34;: &#34;new-value&#34;}}&#39;</span>
+</span></span></code></pre></div><ul>
+<li>Patch a Service (Update Service Type)</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>kubectl patch service &lt;service-name&gt; -p <span style="color:#e6db74">&#39;{&#34;spec&#34;: {&#34;type&#34;: &#34;LoadBalancer&#34;}}&#39;</span>
+</span></span></code></pre></div><ul>
+<li>Patch a PVC (Update Storage Size)</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-t" data-lang="t"><span style="display:flex;"><span>kubectl patch pvc <span style="color:#e6db74">&lt;pvc-name&gt;</span> <span style="color:#f92672">-</span>p <span style="color:#e6db74">&#39;{&#34;spec&#34;: {&#34;resources&#34;: {&#34;requests&#34;: {&#34;storage&#34;: &#34;5Gi&#34;}}}}&#39;</span>
+</span></span></code></pre></div><!-- end-chunk -->
+<!-- begin-chunk data-anchor="statefulsets" data-heading="StatefulSets" data-level="3" data-permalink="/docs/kubernetes/part04/" data-title="Part 4" -->
+<h3 id="statefulsets">StatefulSets</h3><ul>
+<li>StatefulSet is the workload API object used to manage stateful applications.</li>
+<li>Like a Deployment, a StatefulSet manages Pods that are based on an identical container spec.</li>
+<li>Unlike a Deployment, a StatefulSet maintains a sticky identity for each of its Pods.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="using-statefulsets" data-heading="Using StatefulSets" data-level="4" data-permalink="/docs/kubernetes/part04/" data-title="Part 4" -->
+<h4 id="using-statefulsets">Using StatefulSets</h4><!-- end-chunk -->
+<!-- begin-chunk data-anchor="statefulsets-are-valuable-for-applications-that-require-one-or-more-of-the-following" data-heading="StatefulSets are valuable for applications that require one or more of the following." data-level="5" data-permalink="/docs/kubernetes/part04/" data-title="Part 4" -->
+<h5 id="statefulsets-are-valuable-for-applications-that-require-one-or-more-of-the-following">StatefulSets are valuable for applications that require one or more of the following.</h5><ul>
+<li>Stable, unique network identifiers.</li>
+<li>Stable, persistent storage.</li>
+<li>Ordered, graceful deployment and scaling.</li>
+<li>Ordered, automated rolling updates.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="example-of-statefulset" data-heading="Example of statefulset" data-level="4" data-permalink="/docs/kubernetes/part04/" data-title="Part 4" -->
+<h4 id="example-of-statefulset">Example of statefulset</h4><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>kubectl apply -f - <span style="color:#e6db74">&lt;&lt;EOF
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">apiVersion: v1
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">kind: Service
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">metadata:
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  name: nginx
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  labels:
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    app: nginx
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">spec:
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  ports:
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  - port: 80
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    name: web
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  clusterIP: None
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  selector:
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    app: nginx
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  ---
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">apiVersion: apps/v1
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">kind: StatefulSet
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">metadata:
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  name: web
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">spec:
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  selector:
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    matchLabels:
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      app: nginx # has to match .spec.template.metadata.labels
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  serviceName: &#34;nginx&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  replicas: 3 # by default is 1
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  minReadySeconds: 10 # by default is 0
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  template:
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    metadata:
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      labels:
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        app: nginx # has to match .spec.selector.matchLabels
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    spec:
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      terminationGracePeriodSeconds: 10
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      containers:
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      - name: nginx
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        image: registry.k8s.io/nginx-slim:0.8
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        ports:
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        - containerPort: 80
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">          name: web
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        volumeMounts:
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        - name: www
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">          mountPath: /usr/share/nginx/html
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  volumeClaimTemplates:
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  - metadata:
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      name: www
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    spec:
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      accessModes: [ &#34;ReadWriteOnce&#34; ]
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      storageClassName: &#34;my-storage-class&#34; &lt;Change this as per your sc&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      resources:
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        requests:
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">          storage: 1Gi
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  EOF</span>
+</span></span></code></pre></div><ul>
+<li>check statefulset</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-t" data-lang="t"><span style="display:flex;"><span>kubectl  get sts
+</span></span></code></pre></div><ul>
+<li>Also check for service type</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-t" data-lang="t"><span style="display:flex;"><span>kubectl get svc
+</span></span></code></pre></div><ul>
+<li>Check for pvc</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-t" data-lang="t"><span style="display:flex;"><span>kubectl get pvc
+</span></span></code></pre></div><ul>
+<li>Check pods</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-t" data-lang="t"><span style="display:flex;"><span>kubectl get pods
+</span></span></code></pre></div><ul>
+<li>Test after deleting a pod if the pod is taking the same name again</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="how-to-access-statefulset-pods" data-heading="How to Access StatefulSet Pods" data-level="3" data-permalink="/docs/kubernetes/part04/" data-title="Part 4" -->
+<h3 id="how-to-access-statefulset-pods">How to Access StatefulSet Pods</h3><p>DNS Names: Each Pod in the StatefulSet can be accessed via a DNS name. For a StatefulSet named my-statefulset with 3 replicas, the Pods would be accessible using DNS names like:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-t" data-lang="t"><span style="display:flex;"><span>web<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span><span style="color:#f92672">.</span>nginx<span style="color:#f92672">.</span>default<span style="color:#f92672">.</span>svc<span style="color:#f92672">.</span>cluster<span style="color:#f92672">.</span>local
+</span></span><span style="display:flex;"><span>web<span style="color:#f92672">-</span><span style="color:#ae81ff">2</span><span style="color:#f92672">.</span>nginx<span style="color:#f92672">.</span>default<span style="color:#f92672">.</span>svc<span style="color:#f92672">.</span>cluster<span style="color:#f92672">.</span>local
+</span></span><span style="display:flex;"><span>web<span style="color:#f92672">-</span><span style="color:#ae81ff">3</span><span style="color:#f92672">.</span>nginx<span style="color:#f92672">.</span>default<span style="color:#f92672">.</span>svc<span style="color:#f92672">.</span>cluster<span style="color:#f92672">.</span>local
+</span></span></code></pre></div><p><strong>Direct Pod Access:</strong> You can also access Pods directly via their DNS names without using the Service. This is useful for applications where Pods need to communicate with each other directly and rely on their stable network identity.</p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="lab-6" data-heading="LAB 6" data-level="1" data-permalink="/docs/kubernetes/part04/" data-title="Part 4" -->
+<h1 id="lab-6">LAB 6</h1><ul>
+<li>Create a statefulset</li>
+<li>Check if they are creating parallely or sequentially</li>
+<li>create  a svc  for sts (type none)</li>
+</ul>
+
+	
+	
+	
+</div>
+
+
+          </main>
+        </div>
+      </div>
+      
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+    integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+    crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js"
+    integrity="sha512-UR25UO94eTnCVwjbXozyeVd6ZqpaAE9naiEUBK/A+QDbfSTQFhPGj5lOR6d8tsgbBk84Ggb5A3EkjsOgPRPcKA=="
+    crossorigin="anonymous"></script>
+
+
+
+
+
+<script src='/js/tabpane-persist.js'></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="/js/main.min.223ab2fcc7d742c1b94772c0276851c497da4343cd2d21534199ced90681e207.js" integrity="sha256-Ijqy/MfXQsG5R3LAJ2hRxJfaQ0PNLSFTQZnO2QaB4gc=" crossorigin="anonymous"></script>
+
+
+
+<script src='/js/prism.js'></script>
+
+
+
+  </body>
+</html>

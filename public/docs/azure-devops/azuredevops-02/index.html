@@ -1,0 +1,2027 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="generator" content="Hugo 0.122.0">
+<meta name="robots" content="index, follow">
+
+<link rel="shortcut icon" href="/favicons/favicon.ico" >
+
+<title>Part 2 | Documentation</title>
+<meta name="description" content="Azure Devops">
+<meta property="og:title" content="Part 2" />
+<meta property="og:description" content="Azure Devops" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/docs/azure-devops/azuredevops-02/" /><meta property="article:section" content="docs" />
+
+
+
+<meta itemprop="name" content="Part 2">
+<meta itemprop="description" content="Azure Devops">
+
+<meta itemprop="wordCount" content="4416">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Part 2"/>
+<meta name="twitter:description" content="Azure Devops"/>
+
+
+
+
+<link rel="preload" href="/scss/main.min.b5bfe2535b6f07595fd9cb7a4018024e52e136c3b43e03a17a1e47a950822d03.css" as="style">
+<link href="/scss/main.min.b5bfe2535b6f07595fd9cb7a4018024e52e136c3b43e03a17a1e47a950822d03.css" rel="stylesheet" integrity="">
+
+<script
+  src="https://code.jquery.com/jquery-3.6.0.min.js"
+  integrity="sha384-vtXRMe3mGCbOeY7l30aIg8H9p3GdeSe4IFlP6G8JMa7o7lXvnz3GFKzPxzJdPfGK"
+  crossorigin="anonymous"></script>
+<script
+  src="https://unpkg.com/lunr@2.3.9/lunr.min.js"
+  integrity="sha384-203J0SNzyqHby3iU6hzvzltrWi/M41wOP5Gu+BiJMz5nwKykbkUx8Kp7iti0Lpli"
+  crossorigin="anonymous"></script>
+<link rel="stylesheet" href="/css/prism.css"/>
+<script type="text/javascript"  src="/js/highlight-search.js"></script>
+<script type="text/javascript"  src="/js/manage-side-panels.js"></script>
+  </head>
+  <body class="td-page highlightable">
+    <header>
+      
+<nav class="js-navbar-scroll navbar navbar-expand navbar-dark flex-column flex-md-row td-navbar">
+        <a class="navbar-brand" href="/">
+		<span class="navbar-logo"><svg version="1.0" xmlns="http://www.w3.org/2000/svg" width="217pt" height="232pt" viewBox="0 0 217 232"><g transform="translate(0.000000,232.000000) scale(0.100000,-0.100000)" fill="#000" stroke="none"><path d="M1017 2250c-397-48-698-367-731-775-9-106-3-113 66-87l55 20 11-71c6-39 10-72 9-73s-58-22-127-47c-104-37-124-48-122-64 7-37 56-150 88-205l34-56 66 25 66 26 65-72c206-226 513-322 808-252 367 88 634 417 635 784 0 43-4 77-10 77-5 0-32-9-60-20s-55-20-59-20c-5 0-12 26-16 59-4 32-20 96-36 142s-30 88-31 92c-2 5 54 29 124 55l128 46-31 55c-17 31-33 58-34 59-2 2-31-6-64-19l-61-22-23 29c-81 104-172 178-292 235-140 68-309 97-458 79zm226-299c90-24 136-46 206-101l52-41 61 20 60 20 26-31c15-17 35-44 44-59l17-28-52-19c-29-11-86-32-128-47l-76-27 24-58c26-66 43-144 43-201 0-22 2-39 5-39 2 0 27 9 55 20s55 20 60 20c17 0 10-63-14-131-127-359-580-484-862-237l-35 31-70-24-71-24-30 35c-37 43-97 164-104 212l-6 34 123 46 124 45-3 64c-2 35-5 66-7 68-2 1-27-5-55-14s-53-15-55-14c-2 2 1 29 7 59 32 179 185 352 361 409 112 36 192 39 3e2 12z"/><path d="M134 321c-77-33-95-169-29-231 19-18 36-23 71-23 40 0 51 4 75 30 50 56 47 153-5 202-26 25-80 35-112 22zm82-62c26-29 26-99 0-128-24-26-47-27-77-2-19 15-24 29-24 64 0 76 58 114 101 66z"/><path d="M1172 320c-27-12-44-52-33-82 4-12 31-32 61-47 30-14 58-34 64-43 26-43-50-76-99-44-15 10-26 12-30 6-10-16 4-29 44-40 62-17 114 13 114 65 0 35-19 53-80 81-54 23-67 46-41 72 15 15 62 16 88 2 23-12 35 3 16 19-20 17-77 23-104 11z"/><path d="M350 195V70h25c23 0 25 4 25 45v45h40c76 0 115 40 103 104-8 42-38 56-120 56h-73V195zm134 69c18-18 18-17 10-38-4-11-19-16-50-16-44 0-44 0-44 35 0 33 2 35 34 35 19 0 42-7 50-16z"/><path d="M6e2 195V70h90c83 0 90 2 90 20 0 16-8 19-62 22-63 3-63 3-66 36-3 31-2 32 36 32 36 0 39 2 34 25-4 21-10 25-38 25-30 0-34 3-34 25 0 24 2 25 65 25 58 0 65 2 65 20 0 19-7 20-90 20h-90V195z"/><path d="M850 195c0-117 1-125 20-125 17 0 19 8 22 83l3 82 55-82c41-62 61-83 78-83 22 0 22 2 22 125 0 117-1 125-20 125-17 0-19-8-22-82l-3-82-54 82c-42 65-59 82-77 82-24 0-24 0-24-125z"/><path d="M1360 195c0-104 2-125 15-125 12 0 15 13 15 60v60h65 65v-60c0-47 3-60 15-60 13 0 15 21 15 125s-2 125-15 125c-12 0-15-13-15-55v-55h-65-65v55c0 42-3 55-15 55-13 0-15-21-15-125z"/><path d="M1620 195c0-104 2-125 15-125s15 21 15 125-2 125-15 125-15-21-15-125z"/><path d="M1730 195c0-77 4-125 10-125s10 27 10 60v60h35c19 0 35 5 35 10 0 6-16 10-35 10-35 0-35 0-35 45v45h60c33 0 60 4 60 10s-30 10-70 10h-70V195z"/><path d="M1930 310c0-5 18-10 40-10h40V185c0-70 4-115 10-115s10 45 10 115v115h40c22 0 40 5 40 10 0 6-37 10-90 10s-90-4-90-10z"/></g></svg></span><span class="font-weight-bold">Documentation</span>
+	</a>
+	<div class="td-navbar-nav-scroll ml-md-auto" id="main_navbar">
+		<ul class="navbar-nav mt-2 mt-lg-0">
+			
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/" ><i class='fa fa-home'></i><span>Home</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/docs/azure/" ><i class='fab fa-azure'></i><span>Azure Cloud Computing</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link active" href="/docs/azure-devops/" ><i class='fab fa-azure'></i><span class="active">Azure Devops</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/docs/gitlab/" ><i class='fab fa-gitlab'></i><span>Gitlab Tutorials</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/docs/openshift/" ><i class='fab fa-openshift'></i><span>OpenShift Administration</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/docs/kvm/" ><i class="fab fa-linux"></i><span>Redhat Ansible</span></a>
+			</li>
+			
+			
+			
+		</ul>
+	</div>
+	<div class="navbar-nav d-none d-lg-block">
+<form class="d-flex align-items-center">
+  <input type="search"
+  class="form-control td-search-input"
+  placeholder="&#xf002; Search this site…"
+  aria-label="Search this site…"
+  autocomplete="off"
+  
+  data-offline-search-index-json-src="/offline-search-index.d4ee35dfb31ed3b96d119091cf664ad4.json"
+  data-offline-search-base-href="/"
+  data-offline-search-max-results="20">
+</form>
+</div>
+</nav>
+
+      <div class="manage-panels">
+    <button type="button" class="button-left" id="left-panel-manager" title="Hide sidebar">""</button>
+    <button type="button" class="button-right" id="right-panel-manager" title="Hide sidebar">""</button>
+</div>
+    </header>
+    <div class="container-fluid td-outer">
+      <div class="td-main autonumbering">
+        <div class="row flex-xl-nowrap">
+          <aside class="col-12 col-md-3 col-xl-2 td-sidebar d-print-none">
+            
+<div id="td-sidebar-menu" class="td-sidebar__inner">
+  <div id="content-mobile">
+  <form class="td-sidebar__search d-flex align-items-center">
+    
+<form class="d-flex align-items-center">
+  <input type="search"
+  class="form-control td-search-input"
+  placeholder="&#xf002; Search this site…"
+  aria-label="Search this site…"
+  autocomplete="off"
+  
+  data-offline-search-index-json-src="/offline-search-index.d4ee35dfb31ed3b96d119091cf664ad4.json"
+  data-offline-search-base-href="/"
+  data-offline-search-max-results="20">
+</form>
+
+    <button class="btn btn-link td-sidebar__toggle d-md-none p-0 ml-3 fas fa-bars" type="button" data-toggle="collapse" data-target="#td-section-nav" aria-controls="td-docs-nav" aria-expanded="false" aria-label="Toggle section navigation">
+    </button>
+  </form>
+  </div>
+  <div id="content-desktop"></div>
+  <nav class="collapse td-sidebar-nav foldable-nav" id="td-section-nav">
+    <ul class="td-sidebar-nav__section pr-md-3 ul-0">
+      <li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id="m-docs-li">
+  <a href="/docs/" class="align-left pl-0 td-sidebar-link td-sidebar-link__section tree-root" id="m-docs"><span class="">Docs</span></a>
+  <ul class="ul-1">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-docsazure-li">
+  <input type="checkbox" id="m-docsazure-check"/>
+  <label for="m-docsazure-check"><a href="/docs/azure/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-docsazure"><i class="fab fa-azure"></i><span class="">Azure Cloud Computing</span></a></label>
+  
+  <ul class="ul-2 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazurelinux-basics-li">
+  <input type="checkbox" id="m-docsazurelinux-basics-check"/>
+  <label for="m-docsazurelinux-basics-check"><a href="/docs/azure/linux-basics/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazurelinux-basics"><i class="fab fa-azure"></i><span class="">Linux Basics</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazureazure-vm-li">
+  <input type="checkbox" id="m-docsazureazure-vm-check"/>
+  <label for="m-docsazureazure-vm-check"><a href="/docs/azure/azure-vm/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazureazure-vm"><i class="fab fa-azure"></i><span class="">Azure Cloud Virtual Machine (01)</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazureazuredevops-li">
+  <input type="checkbox" id="m-docsazureazuredevops-check"/>
+  <label for="m-docsazureazuredevops-check"><a href="/docs/azure/azuredevops/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazureazuredevops"><i class="fab fa-azure"></i><span class="">Azure Devops</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazureazure-network-li">
+  <input type="checkbox" id="m-docsazureazure-network-check"/>
+  <label for="m-docsazureazure-network-check"><a href="/docs/azure/azure-network/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazureazure-network"><i class="fab fa-azure"></i><span class="">Azure Cloud Networking</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazureazure-storage-li">
+  <input type="checkbox" id="m-docsazureazure-storage-check"/>
+  <label for="m-docsazureazure-storage-check"><a href="/docs/azure/azure-storage/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazureazure-storage"><i class="fab fa-azure"></i><span class="">Azure Cloud Storage</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazureazure-cli-li">
+  <input type="checkbox" id="m-docsazureazure-cli-check"/>
+  <label for="m-docsazureazure-cli-check"><a href="/docs/azure/azure-cli/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazureazure-cli"><i class="fab fa-azure"></i><span class="">Azure Cli</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazureazure-vmss-li">
+  <input type="checkbox" id="m-docsazureazure-vmss-check"/>
+  <label for="m-docsazureazure-vmss-check"><a href="/docs/azure/azure-vmss/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazureazure-vmss"><i class="fab fa-azure"></i><span class="">Azure Cloud Virtual Machine Scale Set</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazureazure-lb-li">
+  <input type="checkbox" id="m-docsazureazure-lb-check"/>
+  <label for="m-docsazureazure-lb-check"><a href="/docs/azure/azure-lb/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazureazure-lb"><i class="fab fa-azure"></i><span class="">Azure Cloud LoadBalancers</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazureazure-monitor-li">
+  <input type="checkbox" id="m-docsazureazure-monitor-check"/>
+  <label for="m-docsazureazure-monitor-check"><a href="/docs/azure/azure-monitor/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazureazure-monitor"><i class="fab fa-azure"></i><span class="">Azure Monitoring</span></a></label>
+  
+</li>
+  </ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id="m-docsazure-devops-li">
+  <input type="checkbox" id="m-docsazure-devops-check" checked/>
+  <label for="m-docsazure-devops-check"><a href="/docs/azure-devops/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-docsazure-devops"><i class="fab fa-azure"></i><span class="">Azure Devops</span></a></label>
+  
+  <ul class="ul-2 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazure-devopsazure-board-li">
+  <input type="checkbox" id="m-docsazure-devopsazure-board-check"/>
+  <label for="m-docsazure-devopsazure-board-check"><a href="/docs/azure-devops/azure-board/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazure-devopsazure-board"><i class="fab fa-azure"></i><span class="">Azure Board</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazure-devopsazuredevops-01-li">
+  <input type="checkbox" id="m-docsazure-devopsazuredevops-01-check"/>
+  <label for="m-docsazure-devopsazuredevops-01-check"><a href="/docs/azure-devops/azuredevops-01/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazure-devopsazuredevops-01"><i class="fab fa-azure"></i><span class="">Part 1</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazure-devopsazuredevops-li">
+  <input type="checkbox" id="m-docsazure-devopsazuredevops-check"/>
+  <label for="m-docsazure-devopsazuredevops-check"><a href="/docs/azure-devops/azuredevops/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazure-devopsazuredevops"><i class="fab fa-azure"></i><span class="">Azure Devops</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazure-devopsazuredevops-02-li">
+  <input type="checkbox" id="m-docsazure-devopsazuredevops-02-check"/>
+  <label for="m-docsazure-devopsazuredevops-02-check"><a href="/docs/azure-devops/azuredevops-02/" class="align-left pl-0  active td-sidebar-link td-sidebar-link__page" id="m-docsazure-devopsazuredevops-02"><i class="fab fa-azure"></i><span class="td-sidebar-nav-active-item">Part 2</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazure-devopsazuredevops-03-li">
+  <input type="checkbox" id="m-docsazure-devopsazuredevops-03-check"/>
+  <label for="m-docsazure-devopsazuredevops-03-check"><a href="/docs/azure-devops/azuredevops-03/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazure-devopsazuredevops-03"><i class="fab fa-azure"></i><span class="">Part 3</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazure-devopsazuredevops-04-li">
+  <input type="checkbox" id="m-docsazure-devopsazuredevops-04-check"/>
+  <label for="m-docsazure-devopsazuredevops-04-check"><a href="/docs/azure-devops/azuredevops-04/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazure-devopsazuredevops-04"><i class="fab fa-azure"></i><span class="">part 4</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazure-devopsazuredevops-05-li">
+  <input type="checkbox" id="m-docsazure-devopsazuredevops-05-check"/>
+  <label for="m-docsazure-devopsazuredevops-05-check"><a href="/docs/azure-devops/azuredevops-05/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazure-devopsazuredevops-05"><i class="fab fa-azure"></i><span class="">Part 5</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazure-devopsazuredevops-06-li">
+  <input type="checkbox" id="m-docsazure-devopsazuredevops-06-check"/>
+  <label for="m-docsazure-devopsazuredevops-06-check"><a href="/docs/azure-devops/azuredevops-06/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazure-devopsazuredevops-06"><i class="fab fa-azure"></i><span class="">Part 6</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazure-devopsaks-li">
+  <input type="checkbox" id="m-docsazure-devopsaks-check"/>
+  <label for="m-docsazure-devopsaks-check"><a href="/docs/azure-devops/aks/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazure-devopsaks"><i class="fab fa-azure"></i><span class="">AKS</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazure-devopstest-li">
+  <input type="checkbox" id="m-docsazure-devopstest-check"/>
+  <label for="m-docsazure-devopstest-check"><a href="/docs/azure-devops/test/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazure-devopstest"><i class="fab fa-azure"></i><span class="">Azure Devops Test Plans</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazure-devopsdocker-li">
+  <input type="checkbox" id="m-docsazure-devopsdocker-check"/>
+  <label for="m-docsazure-devopsdocker-check"><a href="/docs/azure-devops/docker/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazure-devopsdocker"><i class="fab fa-azure"></i><span class="">Docker</span></a></label>
+  
+</li>
+  </ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-docsgitlab-li">
+  <input type="checkbox" id="m-docsgitlab-check"/>
+  <label for="m-docsgitlab-check"><a href="/docs/gitlab/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-docsgitlab"><i class="fab fa-gitlab"></i><span class="">Gitlab Tutorials</span></a></label>
+  
+  <ul class="ul-2 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsgitlabgitlab01-li">
+  <input type="checkbox" id="m-docsgitlabgitlab01-check"/>
+  <label for="m-docsgitlabgitlab01-check"><a href="/docs/gitlab/gitlab01/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsgitlabgitlab01"><i class="fab fa-gitlab"></i><span class="">GitLab Installation</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsgitlabgitlab-with-ldap-li">
+  <input type="checkbox" id="m-docsgitlabgitlab-with-ldap-check"/>
+  <label for="m-docsgitlabgitlab-with-ldap-check"><a href="/docs/gitlab/gitlab-with-ldap/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsgitlabgitlab-with-ldap"><i class="fas fa-server"></i><span class="">Gitlab Authentication with LDAP</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsgitlabgitlab-container-registry-li">
+  <input type="checkbox" id="m-docsgitlabgitlab-container-registry-check"/>
+  <label for="m-docsgitlabgitlab-container-registry-check"><a href="/docs/gitlab/gitlab-container-registry/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsgitlabgitlab-container-registry"><i class="fab fa-docker"></i><span class="">GitLab Container Registry</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsgitlabgitlab-logs-troubleshooting-li">
+  <input type="checkbox" id="m-docsgitlabgitlab-logs-troubleshooting-check"/>
+  <label for="m-docsgitlabgitlab-logs-troubleshooting-check"><a href="/docs/gitlab/gitlab-logs-troubleshooting/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsgitlabgitlab-logs-troubleshooting"><i class="fas fa-file-alt"></i><span class="">Logs and Troubleshooting</span></a></label>
+  
+</li>
+  </ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-docsopenshift-li">
+  <input type="checkbox" id="m-docsopenshift-check"/>
+  <label for="m-docsopenshift-check"><a href="/docs/openshift/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-docsopenshift"><i class="fab fa-openshift"></i><span class="">OpenShift Administration</span></a></label>
+  
+  <ul class="ul-2 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsopenshiftocp-onvmware-copy-li">
+  <input type="checkbox" id="m-docsopenshiftocp-onvmware-copy-check"/>
+  <label for="m-docsopenshiftocp-onvmware-copy-check"><a href="/docs/openshift/ocp-onvmware-copy/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsopenshiftocp-onvmware-copy"><i class="fab fa-openshift"></i><span class="">Openshift Installation on Vmware</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsopenshiftocp-sno-li">
+  <input type="checkbox" id="m-docsopenshiftocp-sno-check"/>
+  <label for="m-docsopenshiftocp-sno-check"><a href="/docs/openshift/ocp-sno/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsopenshiftocp-sno"><i class="fab fa-openshift"></i><span class="">Openshift Single node Cluster</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsopenshiftocp-tasks-li">
+  <input type="checkbox" id="m-docsopenshiftocp-tasks-check"/>
+  <label for="m-docsopenshiftocp-tasks-check"><a href="/docs/openshift/ocp-tasks/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsopenshiftocp-tasks"><span class="">Openshift 4 Tasks</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsopenshiftocp-tekton-li">
+  <input type="checkbox" id="m-docsopenshiftocp-tekton-check"/>
+  <label for="m-docsopenshiftocp-tekton-check"><a href="/docs/openshift/ocp-tekton/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsopenshiftocp-tekton"><span class="">Openshift Tekton Pipeline</span></a></label>
+  
+</li>
+  </ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-docskvm-li">
+  <input type="checkbox" id="m-docskvm-check"/>
+  <label for="m-docskvm-check"><a href="/docs/kvm/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-docskvm"><i class="fab fa-linux"></i><span class="">Redhat Ansible</span></a></label>
+  
+  <ul class="ul-2 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docskvmkvm-li">
+  <input type="checkbox" id="m-docskvmkvm-check"/>
+  <label for="m-docskvmkvm-check"><a href="/docs/kvm/kvm/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docskvmkvm"><i class="fab fa-kvm"></i><span class="">KVM</span></a></label>
+  
+</li>
+  </ul>
+</li>
+  </ul>
+</li>
+    </ul>
+  </nav>
+</div>
+
+          </aside>
+          <aside class="d-none d-xl-block col-xl-2 td-sidebar-toc d-print-none">
+            
+
+    <div class="td-page-meta ml-2 pb-1 pt-2 mb-0">
+        <div class="toc-title">Actions</div>
+        <a href="/edit/master/content/docs/Azure%20%20Devops/Azuredevops-02.md" target="_blank" rel="noopener"><i class="fa fa-edit fa-fw"></i> Contribute to this page</a>
+        <a href="/issues/new?issue%5Btitle=%f0%9f%93%83%20docs:%20update%20page%20docs/Azure%20%20Devops/Azuredevops-02.md" target="_blank" rel="noopener"><i class="fab fa-gitlab fa-fw"></i> Create a documentation issue</a>
+       
+    </div>
+
+            
+<div class="td-page-meta ml-2 pb-1 pt-2 mb-0 right-menu-toc">
+
+    
+        
+            <div class="toc-title">Table of content</div>
+            <div class="td-toc"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#agenda">Agenda</a>
+      <ul>
+        <li><a href="#version-control">Version Control</a></li>
+        <li><a href="#benefits-of-version-control-systems-vcs">Benefits of Version Control Systems (VCS)</a></li>
+      </ul>
+    </li>
+    <li><a href="#type-of-vcs">Type of VCS</a>
+      <ul>
+        <li><a href="#centralized-version-control">Centralized Version Control</a></li>
+        <li><a href="#actions-to-perform-to-make-changes-visible">Actions to Perform to Make Changes Visible:</a></li>
+        <li><a href="#distributed-version-control">Distributed Version Control</a></li>
+        <li><a href="#actions-to-perform-to-make-changes-visible-1">Actions to Perform to Make Changes Visible:</a></li>
+      </ul>
+    </li>
+    <li><a href="#git-overview">GIT Overview</a>
+      <ul>
+        <li><a href="#key-features">Key Features:</a></li>
+        <li><a href="#common-commands">Common Commands:</a></li>
+        <li><a href="#use-cases">Use Cases:</a></li>
+        <li><a href="#git-stages">GIT Stages</a></li>
+      </ul>
+    </li>
+    <li><a href="#lab-01">LAB 01</a></li>
+    <li><a href="#branching-and-merging-in-git">Branching and Merging in Git</a>
+      <ul>
+        <li><a href="#branching">Branching</a>
+          <ul>
+            <li><a href="#key-features-1">Key Features:</a></li>
+            <li><a href="#common-commands-1">Common Commands:</a></li>
+          </ul>
+        </li>
+        <li><a href="#merging">Merging</a>
+          <ul>
+            <li><a href="#key-features-2">Key Features:</a></li>
+            <li><a href="#common-commands-2">Common Commands:</a></li>
+          </ul>
+        </li>
+        <li><a href="#best-practices">Best Practices</a></li>
+      </ul>
+    </li>
+    <li><a href="#azure-repos">Azure Repos</a></li>
+    <li><a href="#merge-types-in-azure-devops-repo">Merge Types in Azure Devops Repo</a>
+      <ul>
+        <li><a href="#merge-no-fast-forward">Merge (no fast-forward)</a></li>
+      </ul>
+    </li>
+    <li><a href="#squash-commit">Squash Commit</a></li>
+    <li><a href="#rebase">Rebase</a></li>
+    <li><a href="#semi-linear-merge">Semi-linear Merge</a></li>
+    <li><a href="#semantic-versioning">Semantic Versioning</a>
+      <ul>
+        <li><a href="#cherry-picking-concept">Cherry-Picking Concept</a></li>
+      </ul>
+    </li>
+    <li><a href="#repository-policies">Repository Policies</a>
+      <ul>
+        <li><a href="#commit-author-email-validation">Commit Author Email Validation</a></li>
+        <li><a href="#file-path-validation">File Path Validation</a></li>
+        <li><a href="#case-enforcement">Case Enforcement</a></li>
+        <li><a href="#reserved-names">Reserved Names</a></li>
+        <li><a href="#maximum-path-length">Maximum Path Length</a></li>
+        <li><a href="#maximum-file-size">Maximum File Size</a></li>
+      </ul>
+    </li>
+    <li><a href="#strict-vote-mode-in-azure-devops">Strict Vote Mode in Azure DevOps</a>
+      <ul>
+        <li><a href="#what-is-strict-vote-mode">What is <strong>Strict Vote Mode</strong>?</a></li>
+        <li><a href="#enabling-strict-vote-mode">Enabling <strong>Strict Vote Mode</strong></a>
+          <ul>
+            <li><a href="#benefits-of-strict-vote-mode">Benefits of <strong>Strict Vote Mode</strong></a></li>
+          </ul>
+        </li>
+        <li><a href="#suggested-actions">Suggested Actions</a></li>
+      </ul>
+    </li>
+    <li><a href="#branch-policies">Branch Policies</a>
+      <ul>
+        <li><a href="#current-policies">Current Policies</a></li>
+        <li><a href="#automatically-included-reviewers">Automatically Included Reviewers</a></li>
+      </ul>
+    </li>
+    <li><a href="#branch-security">Branch Security</a></li>
+    <li><a href="#tag">Tag</a>
+      <ul>
+        <li><a href="#git-configuration-related-commands">GIT Configuration related commands</a></li>
+      </ul>
+    </li>
+    <li><a href="#git-reset">Git Reset</a>
+      <ul>
+        <li><a href="#key-features-3">Key Features</a></li>
+        <li><a href="#common-modes-of-git-reset">Common Modes of Git Reset</a></li>
+        <li><a href="#important-considerations">Important Considerations</a></li>
+        <li><a href="#example-commands">Example Commands</a></li>
+      </ul>
+    </li>
+    <li><a href="#azure-repos-tasks-with-solutions">Azure Repos Tasks with Solutions</a>
+      <ul>
+        <li><a href="#create-a-new-repository">Create a New Repository</a></li>
+        <li><a href="#clone-a-repository">Clone a Repository</a></li>
+        <li><a href="#commit-changes">Commit Changes</a></li>
+        <li><a href="#push-changes-to-remote">Push Changes to Remote</a></li>
+        <li><a href="#create-a-branch">Create a Branch</a></li>
+        <li><a href="#merge-a-branch">Merge a Branch</a></li>
+        <li><a href="#resolve-merge-conflicts">Resolve Merge Conflicts</a></li>
+        <li><a href="#delete-a-local-branch">Delete a Local Branch</a></li>
+        <li><a href="#delete-a-remote-branch">Delete a Remote Branch</a></li>
+        <li><a href="#1-view-commit-history">1 View Commit History</a></li>
+        <li><a href="#view-a-specific-commit">View a Specific Commit</a></li>
+        <li><a href="#set-up-branch-policies">Set Up Branch Policies</a></li>
+        <li><a href="#create-a-pull-request">Create a Pull Request</a></li>
+        <li><a href="#review-a-pull-request">Review a Pull Request</a></li>
+        <li><a href="#revert-a-commit">Revert a Commit</a></li>
+        <li><a href="#pull-remote-changes">Pull Remote Changes</a></li>
+        <li><a href="#add-a-remote-repository">Add a Remote Repository</a></li>
+        <li><a href="#rename-a-branch">Rename a Branch</a></li>
+        <li><a href="#check-out-a-specific-commit">Check Out a Specific Commit</a></li>
+        <li><a href="#tag-a-commit">Tag a Commit</a></li>
+        <li><a href="#delete-a-tag">Delete a Tag</a></li>
+        <li><a href="#create-a-fork-of-a-repository">Create a Fork of a Repository</a></li>
+        <li><a href="#show-differences-between-commits">Show Differences Between Commits</a></li>
+        <li><a href="#show-changes-in-staged-files">Show Changes in Staged Files</a></li>
+        <li><a href="#configure-git-user-information">Configure Git User Information</a></li>
+        <li><a href="#set-up-ssh-for-authentication">Set Up SSH for Authentication</a></li>
+        <li><a href="#view-branch-list">View Branch List</a></li>
+        <li><a href="#stash-changes">Stash Changes</a></li>
+        <li><a href="#create-a-gitignore-file">Create a .gitignore File</a></li>
+        <li><a href="#check-the-status-of-your-repository">Check the Status of Your Repository</a></li>
+        <li><a href="#amend-the-last-commit">Amend the Last Commit</a></li>
+        <li><a href="#compare-branches">Compare Branches</a></li>
+        <li><a href="#set-default-branch">Set Default Branch</a></li>
+        <li><a href="#create-a-code-review-template">Create a Code Review Template</a></li>
+        <li><a href="#link-work-items-to-commits">Link Work Items to Commits</a></li>
+        <li><a href="#create-a-release-branch">Create a Release Branch</a></li>
+        <li><a href="#cherry-pick-a-commit">Cherry-Pick a Commit</a></li>
+        <li><a href="#set-up-pull-request-approvers">Set Up Pull Request Approvers</a></li>
+        <li><a href="#set-up-pull-request-reviewers">Set Up Pull Request Reviewers</a></li>
+        <li><a href="#configure-cicd-pipeline-with-repos">Configure CI/CD Pipeline with Repos</a></li>
+        <li><a href="#monitor-repository-insights">Monitor Repository Insights</a></li>
+        <li><a href="#import-a-repository">Import a Repository</a></li>
+        <li><a href="#create-multiple-pull-requests">Create Multiple Pull Requests</a></li>
+        <li><a href="#use-squash-merges">Use Squash Merges</a></li>
+        <li><a href="#enable-git-lfs-large-file-storage">Enable Git LFS (Large File Storage)</a></li>
+        <li><a href="#set-up-pull-request-merge-strategies">Set Up Pull Request Merge Strategies</a></li>
+        <li><a href="#configure-repository-settings">Configure Repository Settings</a></li>
+      </ul>
+    </li>
+    <li><a href="#git-config-commands">Git Config Commands</a>
+      <ul>
+        <li><a href="#set-global-username">Set Global Username</a></li>
+        <li><a href="#set-global-email">Set Global Email</a></li>
+        <li><a href="#set-default-text-editor">Set Default Text Editor</a></li>
+        <li><a href="#view-configuration">View Configuration</a></li>
+        <li><a href="#set-color-output">Set Color Output</a></li>
+        <li><a href="#set-default-branch-name">Set Default Branch Name</a></li>
+        <li><a href="#set-up-aliases">Set Up Aliases</a></li>
+        <li><a href="#configure-credential-helper">Configure Credential Helper</a></li>
+        <li><a href="#enable-git-lfs-large-file-storage-1">Enable Git LFS (Large File Storage)</a></li>
+        <li><a href="#set-push-default-behavior">Set Push Default Behavior</a></li>
+        <li><a href="#set-ignore-file-globally">Set Ignore File Globally</a></li>
+        <li><a href="#set-fetch-and-push-behavior">Set Fetch and Push Behavior</a></li>
+        <li><a href="#change-local-repository-config">Change Local Repository Config</a></li>
+        <li><a href="#view-specific-configuration">View Specific Configuration</a></li>
+        <li><a href="#remove-a-configuration">Remove a Configuration</a></li>
+        <li><a href="#get-help">Get Help</a></li>
+      </ul>
+    </li>
+    <li><a href="#git-log-commands">Git Log Commands</a>
+      <ul>
+        <li><a href="#view-commit-history">View Commit History</a></li>
+        <li><a href="#view-a-specific-number-of-commits">View a Specific Number of Commits</a></li>
+        <li><a href="#view-one-line-per-commit">View One Line Per Commit</a></li>
+        <li><a href="#view-commit-history-with-graph">View Commit History with Graph</a></li>
+        <li><a href="#view-commit-history-with-specific-file">View Commit History with Specific File</a></li>
+        <li><a href="#view-commits-by-author">View Commits by Author</a></li>
+        <li><a href="#view-commits-within-a-date-range">View Commits Within a Date Range</a></li>
+        <li><a href="#view-commits-with-detailed-information">View Commits with Detailed Information</a></li>
+        <li><a href="#view-commits-with-statistics">View Commits with Statistics</a></li>
+        <li><a href="#search-commit-messages">Search Commit Messages</a></li>
+        <li><a href="#view-commits-for-a-specific-branch">View Commits for a Specific Branch</a></li>
+        <li><a href="#show-commit-information-for-a-specific-commit">Show Commit Information for a Specific Commit</a></li>
+        <li><a href="#view-commit-history-in-reverse-order">View Commit History in Reverse Order</a></li>
+        <li><a href="#limit-output-by-committer">Limit Output by Committer</a></li>
+        <li><a href="#format-output-of-git-log">Format Output of Git Log</a></li>
+        <li><a href="#view-logs-with-relative-dates">View Logs with Relative Dates</a></li>
+        <li><a href="#view-logs-with-a-specific-path">View Logs with a Specific Path</a></li>
+        <li><a href="#combine-options">Combine Options</a></li>
+      </ul>
+    </li>
+    <li><a href="#git-reset-commands">Git Reset Commands</a>
+      <ul>
+        <li><a href="#soft-reset">Soft Reset</a></li>
+        <li><a href="#mixed-reset-default">Mixed Reset (Default)</a></li>
+        <li><a href="#hard-reset">Hard Reset</a></li>
+        <li><a href="#reset-to-head">Reset to HEAD</a></li>
+        <li><a href="#reset-to-specific-file">Reset to Specific File</a></li>
+        <li><a href="#reset-to-previous-commit">Reset to Previous Commit</a></li>
+        <li><a href="#reset-to-a-specific-commit-with-hard-option">Reset to a Specific Commit with Hard Option</a></li>
+        <li><a href="#reset-with-a-message">Reset with a Message</a></li>
+        <li><a href="#undo-last-commit-keep-changes">Undo Last Commit (Keep Changes)</a></li>
+        <li><a href="#undo-last-commit-discard-changes">Undo Last Commit (Discard Changes)</a></li>
+        <li><a href="#reset-to-remote-state">Reset to Remote State</a></li>
+        <li><a href="#check-status-after-reset">Check Status After Reset</a></li>
+      </ul>
+    </li>
+    <li><a href="#git-revert-commands">Git Revert Commands</a>
+      <ul>
+        <li><a href="#revert-a-commit-1">Revert a Commit</a></li>
+        <li><a href="#revert-multiple-commits">Revert Multiple Commits</a></li>
+        <li><a href="#revert-to-head">Revert to HEAD</a></li>
+      </ul>
+    </li>
+    <li><a href="#git-merge-commands">Git Merge Commands</a>
+      <ul>
+        <li><a href="#merge-a-branch-1">Merge a Branch</a></li>
+        <li><a href="#fast-forward-merge">Fast-Forward Merge</a></li>
+        <li><a href="#no-fast-forward-merge">No Fast-Forward Merge</a></li>
+        <li><a href="#merge-with-a-commit-message">Merge with a Commit Message</a></li>
+        <li><a href="#abort-a-merge">Abort a Merge</a></li>
+        <li><a href="#view-merge-conflicts">View Merge Conflicts</a></li>
+      </ul>
+    </li>
+    <li><a href="#git-tag-commands">Git Tag Commands</a>
+      <ul>
+        <li><a href="#create-a-tag">Create a Tag</a></li>
+        <li><a href="#create-an-annotated-tag">Create an Annotated Tag</a></li>
+        <li><a href="#list-tags">List Tags</a></li>
+        <li><a href="#show-tag-details">Show Tag Details</a></li>
+        <li><a href="#push-tags-to-remote">Push Tags to Remote</a></li>
+        <li><a href="#push-all-tags-to-remote">Push All Tags to Remote</a></li>
+        <li><a href="#delete-a-tag-1">Delete a Tag</a></li>
+        <li><a href="#delete-a-remote-tag">Delete a Remote Tag</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+        
+    
+
+</div>
+          </aside>
+          <main class="col-12 col-md-9 col-xl-8 pl-md-5" role="main">
+            
+  
+
+            <nav aria-label="breadcrumb" class="td-breadcrumbs">
+  <ol class="breadcrumb">
+  <li class="breadcrumb-item">
+    <a href="/docs/">Docs</a>
+  </li>
+  <li class="breadcrumb-item">
+    <a href="/docs/azure-devops/">Azure Devops</a>
+  </li>
+  <li class="breadcrumb-item active" aria-current="page">
+    <a href="/docs/azure-devops/azuredevops-02/">Part 2</a>
+  </li>
+  </ol>
+</nav>
+            
+<div class="td-content">
+	<h1>Part 2</h1>
+	<div class="lead">Azure Devops</div>
+	<header class="article-meta">
+		
+
+  
+    
+
+
+  
+    
+
+
+  
+
+		
+	</header>    
+	<!-- end-chunk -->
+<!-- begin-chunk data-anchor="agenda" data-heading="Agenda" data-level="2" data-permalink="/docs/azure-devops/azuredevops-02/" data-title="Part 2" -->
+<h2 id="agenda">Agenda</h2><ul>
+<li><a href="#version-control">Introduction to Version Control</a></li>
+<li><a href="#benefits-of-version-control-systems-vcs">Benefits of Version Control</a></li>
+<li><a href="#type-of-version-control">Types of Version Control</a>
+<ul>
+<li><a href="#centralized-version-control"><strong>Centralized</strong></a></li>
+<li><a href="#distributed-version-control"><strong>Distributed</strong></a></li>
+</ul>
+</li>
+<li><a href="#git-overview">Introduction to GIT</a></li>
+<li><a href="#git-stages">Understanding GIT Stages</a></li>
+<li><a href="#branching-and-merging-in-git">Branches and Merging</a></li>
+<li><a href="#azure-repos">Introduction to Azure Repos</a></li>
+<li><a href="#merge-types">Different Merge Types in Azure Repos</a></li>
+<li><a href="#branch-policies">Branch Policies</a></li>
+<li><a href="#branch-security">Branch Security</a></li>
+<li><a href="#tag">Tag</a></li>
+<li><a href="#git-configuration-related-commands">GIT Configuration related commands</a></li>
+<li><a href="#git-reset">Git Reset</a>
+<ul>
+<li><a href="#common-modes-of-git-reset">Common Modes of Git Reset</a></li>
+</ul>
+</li>
+<li><a href="#git-log-commands">Git log</a></li>
+<li><a href="#git-revert-commands">Git Revert</a></li>
+<li><a href="#azure-repos-tasks-with-solutions">Azure Repos Tasks with Solutions</a></li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="version-control" data-heading="Version Control" data-level="3" data-permalink="/docs/azure-devops/azuredevops-02/" data-title="Part 2" -->
+<h3 id="version-control">Version Control</h3><ul>
+<li><strong>Version control</strong>, also known as source control, is the practice of tracking and managing changes to software code.</li>
+<li>Version control software keeps track of every modification to the code in a special kind of database.</li>
+<li>Version control tracks every developer change and helps prevent concurrent work from conflicting.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="benefits-of-version-control-systems-vcs" data-heading="Benefits of Version Control Systems (VCS)" data-level="3" data-permalink="/docs/azure-devops/azuredevops-02/" data-title="Part 2" -->
+<h3 id="benefits-of-version-control-systems-vcs">Benefits of Version Control Systems (VCS)</h3><ul>
+<li>
+<p><strong>Efficient Collaboration</strong>: Enables multiple developers to work on the same project simultaneously without overwriting each other’s changes.</p>
+</li>
+<li>
+<p><strong>Audit Trail</strong>: Provides detailed information about all changes, including <strong>Who</strong>, <strong>What</strong>, and <strong>When</strong> modifications were made.</p>
+</li>
+<li>
+<p><strong>Disaster Recovery</strong>: Facilitates easy recovery of previous versions of code in case of data loss or corruption.</p>
+</li>
+<li>
+<p><strong>Multiple Versions</strong>: Allows the management of multiple versions of a project, making it easier to maintain and develop parallel features.</p>
+</li>
+<li>
+<p><strong>Reduce Errors &amp; Conflicts</strong>: Minimizes errors and conflicts that can arise from concurrent development efforts.</p>
+</li>
+<li>
+<p><strong>Global Contribution</strong>: Supports contributions from developers around the world, enhancing the project&rsquo;s growth and innovation.</p>
+</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="type-of-vcs" data-heading="Type of VCS" data-level="2" data-permalink="/docs/azure-devops/azuredevops-02/" data-title="Part 2" -->
+<h2 id="type-of-vcs">Type of VCS</h2><!-- end-chunk -->
+<!-- begin-chunk data-anchor="centralized-version-control" data-heading="Centralized Version Control" data-level="3" data-permalink="/docs/azure-devops/azuredevops-02/" data-title="Part 2" -->
+<h3 id="centralized-version-control">Centralized Version Control</h3><ul>
+<li>A <strong>centralized version control</strong> system offers software development teams a way to collaborate using a central server.</li>
+<li>Some common centralized version control systems include <strong>SVN</strong>, <strong>TFVC</strong>, etc.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="actions-to-perform-to-make-changes-visible" data-heading="Actions to Perform to Make Changes Visible:" data-level="3" data-permalink="/docs/azure-devops/azuredevops-02/" data-title="Part 2" -->
+<h3 id="actions-to-perform-to-make-changes-visible">Actions to Perform to Make Changes Visible:</h3><ul>
+<li><strong>You Commit</strong>: Save your changes to the central server.</li>
+<li><strong>They Update</strong>: Retrieve the latest changes from the central server to stay synchronized.</li>
+</ul>
+<p><img src="/images/git.png" alt="Git"></p>
+<p><img src="/images/git01.png" alt="Git01"></p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="distributed-version-control" data-heading="Distributed Version Control" data-level="3" data-permalink="/docs/azure-devops/azuredevops-02/" data-title="Part 2" -->
+<h3 id="distributed-version-control">Distributed Version Control</h3><ul>
+<li><strong>Distributed version control</strong> systems contain multiple repositories, allowing for more flexible workflows.</li>
+<li>Each user has their own repository and working copy. Users need to pull to fetch the latest changes, while developers need to push their changes to update the remote repository.</li>
+<li>Some common distributed version control systems include <strong>GIT</strong>.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="actions-to-perform-to-make-changes-visible-1" data-heading="Actions to Perform to Make Changes Visible:" data-level="3" data-permalink="/docs/azure-devops/azuredevops-02/" data-title="Part 2" -->
+<h3 id="actions-to-perform-to-make-changes-visible-1">Actions to Perform to Make Changes Visible:</h3><ul>
+<li><strong>You Commit</strong>: Save your changes to your local repository.</li>
+<li><strong>You Push</strong>: Upload your committed changes to the remote repository.</li>
+<li><strong>They Pull</strong>: Fetch the latest changes from the remote repository to their local repository.</li>
+<li><strong>They Update</strong>: Synchronize their working copy with the latest changes from the remote repository.</li>
+</ul>
+<p><img src="/images/git02.png" alt="Git"></p>
+<p><img src="/images/git03.png" alt="git"></p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="git-overview" data-heading="GIT Overview" data-level="2" data-permalink="/docs/azure-devops/azuredevops-02/" data-title="Part 2" -->
+<h2 id="git-overview">GIT Overview</h2><ul>
+<li><strong>Git</strong> is a distributed version control system used to track changes in source code during software development.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="key-features" data-heading="Key Features:" data-level="3" data-permalink="/docs/azure-devops/azuredevops-02/" data-title="Part 2" -->
+<h3 id="key-features">Key Features:</h3><ul>
+<li><strong>Distributed</strong>: Every developer has a full copy of the repository, allowing for offline work and greater redundancy.</li>
+<li><strong>Branching and Merging</strong>: Git makes it easy to create, manage, and merge branches, facilitating parallel development and experimentation.</li>
+<li><strong>Speed</strong>: Git is designed for performance, enabling quick operations for version control tasks.</li>
+<li><strong>Data Integrity</strong>: Git uses cryptographic hashing (SHA-1) to ensure the integrity of the code and its history.</li>
+<li><strong>Staging Area</strong>: Git includes a staging area (index) where changes can be reviewed before committing, allowing for greater control over what is included in a commit.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="common-commands" data-heading="Common Commands:" data-level="3" data-permalink="/docs/azure-devops/azuredevops-02/" data-title="Part 2" -->
+<h3 id="common-commands">Common Commands:</h3><ul>
+<li><code>git init</code>: Initialize a new Git repository.</li>
+<li><code>git clone [url]</code>: Create a copy of a remote repository.</li>
+<li><code>git add [file]</code>: Stage changes for the next commit.</li>
+<li><code>git commit -m &quot;[message]&quot;</code>: Commit staged changes with a descriptive message.</li>
+<li><code>git push</code>: Upload local commits to a remote repository.</li>
+<li><code>git pull</code>: Fetch and integrate changes from a remote repository.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="use-cases" data-heading="Use Cases:" data-level="3" data-permalink="/docs/azure-devops/azuredevops-02/" data-title="Part 2" -->
+<h3 id="use-cases">Use Cases:</h3><ul>
+<li><strong>Collaboration</strong>: Git enables multiple developers to work on the same project simultaneously, reducing conflicts.</li>
+<li><strong>Version Control</strong>: Track changes over time, allowing for easy rollback and history exploration.</li>
+<li><strong>Open Source Projects</strong>: Widely used in the open-source community to manage contributions and collaborations.</li>
+</ul>
+<hr>
+<p>Git is an essential tool for modern software development, providing powerful features for managing code and facilitating collaboration among teams.</p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="git-stages" data-heading="GIT Stages" data-level="3" data-permalink="/docs/azure-devops/azuredevops-02/" data-title="Part 2" -->
+<h3 id="git-stages">GIT Stages</h3><p><img src="/images/git04.png" alt="git"></p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="lab-01" data-heading="LAB 01" data-level="2" data-permalink="/docs/azure-devops/azuredevops-02/" data-title="Part 2" -->
+<h2 id="lab-01">LAB 01</h2><ul>
+<li>Create Local Git repo</li>
+<li>Set git configuration
+<ul>
+<li>user name</li>
+<li>Password</li>
+</ul>
+</li>
+<li>Git Operations
+<ul>
+<li>Git add</li>
+<li>Git commit</li>
+<li>Git status</li>
+</ul>
+</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="branching-and-merging-in-git" data-heading="Branching and Merging in Git" data-level="2" data-permalink="/docs/azure-devops/azuredevops-02/" data-title="Part 2" -->
+<h2 id="branching-and-merging-in-git">Branching and Merging in Git</h2><!-- end-chunk -->
+<!-- begin-chunk data-anchor="branching" data-heading="Branching" data-level="3" data-permalink="/docs/azure-devops/azuredevops-02/" data-title="Part 2" -->
+<h3 id="branching">Branching</h3><ul>
+<li><strong>Definition</strong>: Branching in Git allows you to create separate lines of development within the same repository. This enables you to work on features, fixes, or experiments in isolation from the main codebase.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="key-features-1" data-heading="Key Features:" data-level="4" data-permalink="/docs/azure-devops/azuredevops-02/" data-title="Part 2" -->
+<h4 id="key-features-1">Key Features:</h4><ul>
+<li><strong>Isolation</strong>: Each branch can have its own commits, enabling parallel development without affecting the main codebase.</li>
+<li><strong>Easy Switching</strong>: You can switch between branches with a simple command, allowing you to move between features or fixes easily.</li>
+<li><strong>Naming</strong>: Branches can be named according to the feature, bug fix, or task, improving organization and clarity.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="common-commands-1" data-heading="Common Commands:" data-level="4" data-permalink="/docs/azure-devops/azuredevops-02/" data-title="Part 2" -->
+<h4 id="common-commands-1">Common Commands:</h4><ul>
+<li><code>git branch [branch-name]</code>: Creates a new branch.</li>
+<li><code>git checkout [branch-name]</code>: Switches to the specified branch.</li>
+<li><code>git checkout -b [branch-name]</code>: Creates and switches to a new branch in one command.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="merging" data-heading="Merging" data-level="3" data-permalink="/docs/azure-devops/azuredevops-02/" data-title="Part 2" -->
+<h3 id="merging">Merging</h3><ul>
+<li><strong>Definition</strong>: Merging is the process of integrating changes from one branch into another. This typically involves combining the feature branch back into the main branch (often <code>main</code> or <code>master</code>).</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="key-features-2" data-heading="Key Features:" data-level="4" data-permalink="/docs/azure-devops/azuredevops-02/" data-title="Part 2" -->
+<h4 id="key-features-2">Key Features:</h4><ul>
+<li><strong>Combine Work</strong>: Merging allows you to bring together changes made in different branches, consolidating efforts from multiple developers.</li>
+<li><strong>Conflict Resolution</strong>: If there are conflicting changes in the branches being merged, Git will prompt you to resolve these conflicts manually.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="common-commands-2" data-heading="Common Commands:" data-level="4" data-permalink="/docs/azure-devops/azuredevops-02/" data-title="Part 2" -->
+<h4 id="common-commands-2">Common Commands:</h4><ul>
+<li><code>git merge [branch-name]</code>: Merges the specified branch into the current branch.</li>
+<li><code>git merge --no-ff [branch-name]</code>: Performs a merge that preserves the history of the merged branch.</li>
+<li><code>git rebase [branch-name]</code>: Moves or combines a sequence of commits to a new base commit, providing a linear history.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="best-practices" data-heading="Best Practices" data-level="3" data-permalink="/docs/azure-devops/azuredevops-02/" data-title="Part 2" -->
+<h3 id="best-practices">Best Practices</h3><ul>
+<li><strong>Feature Branching</strong>: Use branches for new features or bug fixes to keep the main branch stable.</li>
+<li><strong>Regular Merging</strong>: Merge changes from the main branch into your feature branch regularly to minimize conflicts.</li>
+<li><strong>Clear Commit Messages</strong>: Use descriptive commit messages to explain the purpose of the branch and the changes made.</li>
+</ul>
+<hr>
+<p>Branching and merging are essential features of Git that facilitate collaboration and efficient code management, allowing teams to work simultaneously on different aspects of a project.</p>
+<p><img src="/images/git05.png" alt="git"></p>
+<p><img src="/images/git06.png" alt="git"></p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="azure-repos" data-heading="Azure Repos" data-level="2" data-permalink="/docs/azure-devops/azuredevops-02/" data-title="Part 2" -->
+<h2 id="azure-repos">Azure Repos</h2><ul>
+<li><strong>Azure Repos</strong> is a set of version control tools that you can use to manage your code.</li>
+<li>Azure Repos provides two types of version control:
+<ul>
+<li><strong>GIT</strong></li>
+<li><strong>TFVC (Team Foundation Version Control)</strong></li>
+</ul>
+</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="merge-types-in-azure-devops-repo" data-heading="Merge Types in Azure Devops Repo" data-level="2" data-permalink="/docs/azure-devops/azuredevops-02/" data-title="Part 2" -->
+<h2 id="merge-types-in-azure-devops-repo">Merge Types in Azure Devops Repo</h2><!-- end-chunk -->
+<!-- begin-chunk data-anchor="merge-no-fast-forward" data-heading="Merge (no fast-forward)" data-level="3" data-permalink="/docs/azure-devops/azuredevops-02/" data-title="Part 2" -->
+<h3 id="merge-no-fast-forward">Merge (no fast-forward)</h3><ul>
+<li>It is the default integration strategy in Azure Repos, GitHub, and most other Git providers.</li>
+<li>All individual commits are preserved as-is, and a new merge commit is created.</li>
+<li>This strategy is helpful because it illustrates exactly how a developer (or developers) worked on a pull request, including each individual commit along the way.</li>
+</ul>
+<p><img src="/images/git07.png" alt="git07"></p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="squash-commit" data-heading="Squash Commit" data-level="2" data-permalink="/docs/azure-devops/azuredevops-02/" data-title="Part 2" -->
+<h2 id="squash-commit">Squash Commit</h2><ul>
+<li>In <strong>Squash</strong>, each pull request becomes a single commit in the master, resulting in no merges, just a simple, straight, linear history.</li>
+<li>Individual commits are lost, which is best for teams that use &ldquo;fix-up&rdquo; commits or do not carefully craft individual commits for review before pushing them.</li>
+</ul>
+<p><img src="/images/git08.png" alt="git08"></p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="rebase" data-heading="Rebase" data-level="2" data-permalink="/docs/azure-devops/azuredevops-02/" data-title="Part 2" -->
+<h2 id="rebase">Rebase</h2><ul>
+<li><strong>Rebase</strong> will take each commit in the pull request and cherry-pick them onto the destination branch.</li>
+<li>When this strategy is used, history is straight and linear, similar to the &ldquo;squash&rdquo; option, but each commit is retained.</li>
+</ul>
+<p><img src="/images/git09.png" alt="git09"></p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="semi-linear-merge" data-heading="Semi-linear Merge" data-level="2" data-permalink="/docs/azure-devops/azuredevops-02/" data-title="Part 2" -->
+<h2 id="semi-linear-merge">Semi-linear Merge</h2><ul>
+<li>It’s a mix of rebasing and merging.</li>
+<li>First, the commits in the pull request are rebased on top of the master branch. Then those rebased pull requests are merged into the destination branch.</li>
+<li>This strategy is best used for retaining individual commits and for viewing how the work evolved. Instead of just being rebased, a “merge bubble” is shown, allowing you to immediately see the work in each pull request.</li>
+</ul>
+<p><img src="/images/git10.png" alt="git10"></p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="semantic-versioning" data-heading="Semantic Versioning" data-level="2" data-permalink="/docs/azure-devops/azuredevops-02/" data-title="Part 2" -->
+<h2 id="semantic-versioning">Semantic Versioning</h2><ul>
+<li><strong>Semver</strong> is short for <strong>semantic versioning</strong>.</li>
+<li>Semantic Versioning is a standardized way to give meaning to your software releases.</li>
+<li>It provides a universal way of versioning software development projects and tracking the variations.</li>
+<li><strong>SemVer</strong> is in the form of <strong>Major.Minor.Patch</strong>.
+<img src="/images/git11.png" alt="git11"></li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="cherry-picking-concept" data-heading="Cherry-Picking Concept" data-level="3" data-permalink="/docs/azure-devops/azuredevops-02/" data-title="Part 2" -->
+<h3 id="cherry-picking-concept">Cherry-Picking Concept</h3><ul>
+<li><strong>Cherry-picking</strong> allows you to select specific commits from one branch and apply them to another branch. This is useful for applying bug fixes or features without merging the entire branch.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="repository-policies" data-heading="Repository Policies" data-level="2" data-permalink="/docs/azure-devops/azuredevops-02/" data-title="Part 2" -->
+<h2 id="repository-policies">Repository Policies</h2><p><img src="/images/repo.png" alt="polic"></p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="commit-author-email-validation" data-heading="Commit Author Email Validation" data-level="3" data-permalink="/docs/azure-devops/azuredevops-02/" data-title="Part 2" -->
+<h3 id="commit-author-email-validation">Commit Author Email Validation</h3><ul>
+<li><strong>Description</strong>: Blocks commits from authors whose email addresses don&rsquo;t match specified patterns.</li>
+<li><strong>Recommendation</strong>: Enable this to ensure all commits come from authorized users, maintaining accountability.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="file-path-validation" data-heading="File Path Validation" data-level="3" data-permalink="/docs/azure-devops/azuredevops-02/" data-title="Part 2" -->
+<h3 id="file-path-validation">File Path Validation</h3><ul>
+<li><strong>Description</strong>: Blocks pushes that introduce certain file paths.</li>
+<li><strong>Recommendation</strong>: Enable this to prevent unwanted file types or directory structures from being added, helping to maintain a clean repository.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="case-enforcement" data-heading="Case Enforcement" data-level="3" data-permalink="/docs/azure-devops/azuredevops-02/" data-title="Part 2" -->
+<h3 id="case-enforcement">Case Enforcement</h3><ul>
+<li><strong>Description</strong>: Prevents changes that only modify the case of file or folder names to avoid case sensitivity issues.</li>
+<li><strong>Recommendation</strong>: Enable this to avoid conflicts in repositories used by developers on different operating systems.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="reserved-names" data-heading="Reserved Names" data-level="3" data-permalink="/docs/azure-devops/azuredevops-02/" data-title="Part 2" -->
+<h3 id="reserved-names">Reserved Names</h3><ul>
+<li><strong>Description</strong>: Blocks pushes that introduce names reserved by the platform or that contain incompatible characters.</li>
+<li><strong>Recommendation</strong>: Enable this to prevent naming conflicts and ensure compliance with platform restrictions.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="maximum-path-length" data-heading="Maximum Path Length" data-level="3" data-permalink="/docs/azure-devops/azuredevops-02/" data-title="Part 2" -->
+<h3 id="maximum-path-length">Maximum Path Length</h3><ul>
+<li><strong>Description</strong>: Prevents the introduction of paths that exceed a specified length.</li>
+<li><strong>Recommendation</strong>: Enable this to avoid issues with file systems that have path length limitations, particularly on Windows.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="maximum-file-size" data-heading="Maximum File Size" data-level="3" data-permalink="/docs/azure-devops/azuredevops-02/" data-title="Part 2" -->
+<h3 id="maximum-file-size">Maximum File Size</h3><ul>
+<li><strong>Description</strong>: Blocks files that exceed a certain size limit.</li>
+<li><strong>Recommendation</strong>: Enable this to prevent large files from being committed, which can bloat the repository and slow down operations.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="strict-vote-mode-in-azure-devops" data-heading="Strict Vote Mode in Azure DevOps" data-level="2" data-permalink="/docs/azure-devops/azuredevops-02/" data-title="Part 2" -->
+<h2 id="strict-vote-mode-in-azure-devops">Strict Vote Mode in Azure DevOps</h2><p><strong>Strict Vote Mode</strong> is a feature in Azure DevOps pull requests (PRs) that enforces stricter rules for code review approval. It requires all reviewers to approve the PR and blocks the merge if any reviewer rejects the PR until the issues are resolved.</p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="what-is-strict-vote-mode" data-heading="What is <strong>Strict Vote Mode</strong>?" data-level="3" data-permalink="/docs/azure-devops/azuredevops-02/" data-title="Part 2" -->
+<h3 id="what-is-strict-vote-mode">What is <strong>Strict Vote Mode</strong>?</h3><ul>
+<li>
+<p><strong>All reviewers must approve</strong> the PR before it can be completed.</p>
+</li>
+<li>
+<p><strong>Any rejecting vote</strong> (e.g., &ldquo;Rejected&rdquo; or &ldquo;Waiting for Author&rdquo;) must be resolved before the PR can be merged.</p>
+<p>This ensures that code cannot be merged until all concerns are addressed and all reviewers approve the changes.</p>
+</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="enabling-strict-vote-mode" data-heading="Enabling <strong>Strict Vote Mode</strong>" data-level="3" data-permalink="/docs/azure-devops/azuredevops-02/" data-title="Part 2" -->
+<h3 id="enabling-strict-vote-mode">Enabling <strong>Strict Vote Mode</strong></h3><ol>
+<li>
+<p><strong>Navigate to the repository:</strong></p>
+<ul>
+<li>Go to the Azure DevOps project.</li>
+<li>Click on <strong>Repos</strong> to access the repository settings.</li>
+</ul>
+</li>
+<li>
+<p><strong>Access Pull Request Policies:</strong></p>
+<ul>
+<li>Go to <strong>Project Settings</strong> (bottom left).</li>
+<li>Select <strong>Repositories</strong>, then choose the repository you want to configure.</li>
+<li>Select <strong>Branch Policies</strong> for the branch you want to enforce (e.g., <code>main</code>, <code>develop</code>).</li>
+</ul>
+</li>
+<li>
+<p><strong>Configure Required Reviewers:</strong></p>
+<ul>
+<li>Enable <strong>Required Reviewers</strong> in the branch policies.</li>
+<li>Add the reviewers and set the number of required approvals.</li>
+</ul>
+</li>
+<li>
+<p><strong>Enable Strict Vote Mode:</strong></p>
+<ul>
+<li>In the branch policy settings, enable <strong>Check for linked work items</strong> and/or <strong>Check for comment resolution</strong> to ensure all conditions are met before merging.</li>
+<li>Optionally, enable <strong>Reset code reviewer votes</strong> if additional commits are pushed to the PR. This will require fresh reviews for new changes.</li>
+</ul>
+</li>
+</ol>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="benefits-of-strict-vote-mode" data-heading="Benefits of <strong>Strict Vote Mode</strong>" data-level="4" data-permalink="/docs/azure-devops/azuredevops-02/" data-title="Part 2" -->
+<h4 id="benefits-of-strict-vote-mode">Benefits of <strong>Strict Vote Mode</strong></h4><ul>
+<li><strong>Ensures full code review</strong>: PRs cannot be merged without the approval of all reviewers.</li>
+<li><strong>Prevents premature merges</strong>: A rejecting vote blocks the merge until issues are resolved.</li>
+<li><strong>Promotes collaboration</strong>: All team members involved in the review process must approve the changes.</li>
+</ul>
+<p>Strict Vote Mode helps maintain high code quality by enforcing a thorough revie</p>
+<hr>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="suggested-actions" data-heading="Suggested Actions" data-level="3" data-permalink="/docs/azure-devops/azuredevops-02/" data-title="Part 2" -->
+<h3 id="suggested-actions">Suggested Actions</h3><ul>
+<li>Review the implications of enabling each policy for your team&rsquo;s workflow.</li>
+<li>Customize the patterns or limits according to your project requirements.</li>
+<li>Communicate any changes to these policies with your team, as they may impact their workflow.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="branch-policies" data-heading="Branch Policies" data-level="2" data-permalink="/docs/azure-devops/azuredevops-02/" data-title="Part 2" -->
+<h2 id="branch-policies">Branch Policies</h2><ul>
+<li><strong>Branch policies</strong> are rules that enforce certain practices for branches. They can include requirements for code reviews, successful builds, and more, ensuring that the code meets specific quality standards before being merged.</li>
+</ul>
+<blockquote>
+<p><strong>Note</strong>: If any required policy is enabled, this branch cannot be deleted and changes must be made via pull request.</p>
+</blockquote>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="current-policies" data-heading="Current Policies" data-level="3" data-permalink="/docs/azure-devops/azuredevops-02/" data-title="Part 2" -->
+<h3 id="current-policies">Current Policies</h3><ul>
+<li>
+<p><strong>Require a Minimum Number of Reviewers</strong>:</p>
+<ul>
+<li><strong>Status</strong>: Off</li>
+<li><strong>Description</strong>: Require approval from a specified number of reviewers on pull requests.</li>
+</ul>
+</li>
+<li>
+<p><strong>Check for Linked Work Items</strong>:</p>
+<ul>
+<li><strong>Status</strong>: Off</li>
+<li><strong>Description</strong>: Encourage traceability by checking for linked work items on pull requests.</li>
+</ul>
+</li>
+<li>
+<p><strong>Check for Comment Resolution</strong>:</p>
+<ul>
+<li><strong>Status</strong>: Off</li>
+<li><strong>Description</strong>: Check to see that all comments have been resolved on pull requests.</li>
+</ul>
+</li>
+<li>
+<p><strong>Limit Merge Types</strong>:</p>
+<ul>
+<li><strong>Description</strong>: Control branch history by limiting the available types of merge when pull requests are completed.</li>
+</ul>
+</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="automatically-included-reviewers" data-heading="Automatically Included Reviewers" data-level="3" data-permalink="/docs/azure-devops/azuredevops-02/" data-title="Part 2" -->
+<h3 id="automatically-included-reviewers">Automatically Included Reviewers</h3><ul>
+<li><strong>Current Status</strong>: 0</li>
+<li><strong>Description</strong>: Designate code reviewers to automatically include when pull requests change certain areas of code.</li>
+<li><strong>Filter</strong>: No automatic reviewer policies found, but you can use the add button to create one!</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="branch-security" data-heading="Branch Security" data-level="2" data-permalink="/docs/azure-devops/azuredevops-02/" data-title="Part 2" -->
+<h2 id="branch-security">Branch Security</h2><ul>
+<li><strong>Branch security</strong> involves setting permissions to control who can access and modify specific branches. This helps protect important branches from unauthorized changes and enforces collaboration practices.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="tag" data-heading="Tag" data-level="2" data-permalink="/docs/azure-devops/azuredevops-02/" data-title="Part 2" -->
+<h2 id="tag">Tag</h2><ul>
+<li>A <strong>tag</strong> is a reference to a specific point in the repository&rsquo;s history. Tags are typically used to mark release points (e.g., v1.0, v2.0) and help track significant versions of the software.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="git-configuration-related-commands" data-heading="GIT Configuration related commands" data-level="3" data-permalink="/docs/azure-devops/azuredevops-02/" data-title="Part 2" -->
+<h3 id="git-configuration-related-commands">GIT Configuration related commands</h3><ul>
+<li>[Check the current configuration</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>git config -l
+</span></span></code></pre></div><ul>
+<li>configure user name for git</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>git config --global user.name <span style="color:#e6db74">&#34;Sarah Smith&#34;</span>
+</span></span></code></pre></div><ul>
+<li>configure Email for git</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>git config --global user.email <span style="color:#e6db74">&#34;email&#34;</span>
+</span></span></code></pre></div><ul>
+<li>configure default editor git</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>git config --global core.editor <span style="color:#e6db74">&#34;nano&#34;</span>
+</span></span></code></pre></div><ul>
+<li>configure Alias for git</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>git config --global alias.co commit
+</span></span></code></pre></div><!-- end-chunk -->
+<!-- begin-chunk data-anchor="git-reset" data-heading="Git Reset" data-level="2" data-permalink="/docs/azure-devops/azuredevops-02/" data-title="Part 2" -->
+<h2 id="git-reset">Git Reset</h2><p><strong>Git Reset</strong> is a command that allows you to undo changes in your Git repository. It can be used to reset the current HEAD to a specified state, affecting the staging area and the working directory based on the chosen options.</p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="key-features-3" data-heading="Key Features" data-level="3" data-permalink="/docs/azure-devops/azuredevops-02/" data-title="Part 2" -->
+<h3 id="key-features-3">Key Features</h3><ul>
+<li><strong>Modify Commit History</strong>: Resetting can change the commit history by moving the HEAD pointer to a previous commit.</li>
+<li><strong>Unstage Files</strong>: It can unstage files from the staging area, reverting them to the working directory.</li>
+<li><strong>Discard Changes</strong>: Depending on the mode used, it can discard changes in the working directory.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="common-modes-of-git-reset" data-heading="Common Modes of Git Reset" data-level="3" data-permalink="/docs/azure-devops/azuredevops-02/" data-title="Part 2" -->
+<h3 id="common-modes-of-git-reset">Common Modes of Git Reset</h3><ol>
+<li>
+<p><strong>Soft Reset (<code>--soft</code>)</strong></p>
+<ul>
+<li>Moves the HEAD to a specified commit but leaves the changes staged.</li>
+<li><strong>Command</strong>: <code>git reset --soft [commit]</code></li>
+<li><strong>Use Case</strong>: Useful for undoing a commit while keeping the changes for further editing or recommitting.</li>
+</ul>
+</li>
+<li>
+<p><strong>Mixed Reset (<code>--mixed</code>)</strong> (default)</p>
+<ul>
+<li>Moves the HEAD to a specified commit and unstages the changes, leaving them in the working directory.</li>
+<li><strong>Command</strong>: <code>git reset --mixed [commit]</code> or simply <code>git reset [commit]</code></li>
+<li><strong>Use Case</strong>: Useful for uncommitting changes while keeping them for further modifications.</li>
+</ul>
+</li>
+<li>
+<p><strong>Hard Reset (<code>--hard</code>)</strong></p>
+<ul>
+<li>Moves the HEAD to a specified commit and discards all changes in the working directory and staging area.</li>
+<li><strong>Command</strong>: <code>git reset --hard [commit]</code></li>
+<li><strong>Use Case</strong>: Useful for completely discarding changes and resetting to a clean state.</li>
+</ul>
+</li>
+</ol>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="important-considerations" data-heading="Important Considerations" data-level="3" data-permalink="/docs/azure-devops/azuredevops-02/" data-title="Part 2" -->
+<h3 id="important-considerations">Important Considerations</h3><ul>
+<li><strong>Data Loss</strong>: Using <code>--hard</code> will permanently delete uncommitted changes. Use with caution.</li>
+<li><strong>Shared Branches</strong>: Avoid resetting commits that have been shared with others, as it can cause discrepancies in the repository.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="example-commands" data-heading="Example Commands" data-level="3" data-permalink="/docs/azure-devops/azuredevops-02/" data-title="Part 2" -->
+<h3 id="example-commands">Example Commands</h3><ul>
+<li>Reset to a specific commit (soft):
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git reset --soft HEAD~1
+</span></span></code></pre></div></li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="azure-repos-tasks-with-solutions" data-heading="Azure Repos Tasks with Solutions" data-level="2" data-permalink="/docs/azure-devops/azuredevops-02/" data-title="Part 2" -->
+<h2 id="azure-repos-tasks-with-solutions">Azure Repos Tasks with Solutions</h2><!-- end-chunk -->
+<!-- begin-chunk data-anchor="create-a-new-repository" data-heading="Create a New Repository" data-level="3" data-permalink="/docs/azure-devops/azuredevops-02/" data-title="Part 2" -->
+<h3 id="create-a-new-repository">Create a New Repository</h3><ul>
+<li><strong>Steps</strong>:
+<ol>
+<li>Go to your Azure DevOps organization.</li>
+<li>Select the project.</li>
+<li>Click on &ldquo;Repos&rdquo; in the left menu.</li>
+<li>Click on &ldquo;New Repository.&rdquo;</li>
+<li>Enter the repository name and type (Git or TFVC).</li>
+<li>Click &ldquo;Create.&rdquo;</li>
+</ol>
+</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="clone-a-repository" data-heading="Clone a Repository" data-level="3" data-permalink="/docs/azure-devops/azuredevops-02/" data-title="Part 2" -->
+<h3 id="clone-a-repository">Clone a Repository</h3><ul>
+<li><strong>Steps</strong>:
+<ol>
+<li>Navigate to the repository.</li>
+<li>Click on &ldquo;Clone.&rdquo;</li>
+<li>Copy the URL.</li>
+<li>Open terminal and run <code>git clone &lt;repository-url&gt;</code>.</li>
+</ol>
+</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="commit-changes" data-heading="Commit Changes" data-level="3" data-permalink="/docs/azure-devops/azuredevops-02/" data-title="Part 2" -->
+<h3 id="commit-changes">Commit Changes</h3><ul>
+<li><strong>Steps</strong>:
+<ol>
+<li>Modify files in your local repo.</li>
+<li>Run <code>git add .</code> to stage changes.</li>
+<li>Run <code>git commit -m &quot;Your message&quot;</code>.</li>
+</ol>
+</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="push-changes-to-remote" data-heading="Push Changes to Remote" data-level="3" data-permalink="/docs/azure-devops/azuredevops-02/" data-title="Part 2" -->
+<h3 id="push-changes-to-remote">Push Changes to Remote</h3><ul>
+<li><strong>Steps</strong>:
+<ol>
+<li>Run <code>git push origin &lt;branch-name&gt;</code>.</li>
+</ol>
+</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="create-a-branch" data-heading="Create a Branch" data-level="3" data-permalink="/docs/azure-devops/azuredevops-02/" data-title="Part 2" -->
+<h3 id="create-a-branch">Create a Branch</h3><ul>
+<li><strong>Steps</strong>:
+<ol>
+<li>Run <code>git checkout -b &lt;new-branch-name&gt;</code>.</li>
+</ol>
+</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="merge-a-branch" data-heading="Merge a Branch" data-level="3" data-permalink="/docs/azure-devops/azuredevops-02/" data-title="Part 2" -->
+<h3 id="merge-a-branch">Merge a Branch</h3><ul>
+<li><strong>Steps</strong>:
+<ol>
+<li>Switch to the target branch: <code>git checkout main</code>.</li>
+<li>Run <code>git merge &lt;branch-name&gt;</code>.</li>
+</ol>
+</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="resolve-merge-conflicts" data-heading="Resolve Merge Conflicts" data-level="3" data-permalink="/docs/azure-devops/azuredevops-02/" data-title="Part 2" -->
+<h3 id="resolve-merge-conflicts">Resolve Merge Conflicts</h3><ul>
+<li><strong>Steps</strong>:
+<ol>
+<li>Open conflicting files, resolve conflicts.</li>
+<li>Stage resolved files: <code>git add &lt;file-name&gt;</code>.</li>
+<li>Commit: <code>git commit</code>.</li>
+</ol>
+</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="delete-a-local-branch" data-heading="Delete a Local Branch" data-level="3" data-permalink="/docs/azure-devops/azuredevops-02/" data-title="Part 2" -->
+<h3 id="delete-a-local-branch">Delete a Local Branch</h3><ul>
+<li><strong>Steps</strong>:
+<ol>
+<li>Run <code>git branch -d &lt;branch-name&gt;</code>.</li>
+</ol>
+</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="delete-a-remote-branch" data-heading="Delete a Remote Branch" data-level="3" data-permalink="/docs/azure-devops/azuredevops-02/" data-title="Part 2" -->
+<h3 id="delete-a-remote-branch">Delete a Remote Branch</h3><ul>
+<li><strong>Steps</strong>:
+<ol>
+<li>Run <code>git push origin --delete &lt;branch-name&gt;</code>.</li>
+</ol>
+</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="1-view-commit-history" data-heading="1 View Commit History" data-level="3" data-permalink="/docs/azure-devops/azuredevops-02/" data-title="Part 2" -->
+<h3 id="1-view-commit-history">1 View Commit History</h3><ul>
+<li><strong>Steps</strong>:
+<ol>
+<li>Run <code>git log</code>.</li>
+</ol>
+</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="view-a-specific-commit" data-heading="View a Specific Commit" data-level="3" data-permalink="/docs/azure-devops/azuredevops-02/" data-title="Part 2" -->
+<h3 id="view-a-specific-commit">View a Specific Commit</h3><ul>
+<li><strong>Steps</strong>:
+<ol>
+<li>Run <code>git show &lt;commit-hash&gt;</code>.</li>
+</ol>
+</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="set-up-branch-policies" data-heading="Set Up Branch Policies" data-level="3" data-permalink="/docs/azure-devops/azuredevops-02/" data-title="Part 2" -->
+<h3 id="set-up-branch-policies">Set Up Branch Policies</h3><ul>
+<li><strong>Steps</strong>:
+<ol>
+<li>Go to &ldquo;Project settings.&rdquo;</li>
+<li>Under &ldquo;Repos,&rdquo; select &ldquo;Branches.&rdquo;</li>
+<li>Click on the branch and select &ldquo;Branch policies.&rdquo;</li>
+<li>Configure as needed.</li>
+</ol>
+</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="create-a-pull-request" data-heading="Create a Pull Request" data-level="3" data-permalink="/docs/azure-devops/azuredevops-02/" data-title="Part 2" -->
+<h3 id="create-a-pull-request">Create a Pull Request</h3><ul>
+<li><strong>Steps</strong>:
+<ol>
+<li>Go to &ldquo;Pull Requests.&rdquo;</li>
+<li>Click &ldquo;New Pull Request.&rdquo;</li>
+<li>Select branches, add title and description, then click &ldquo;Create.&rdquo;</li>
+</ol>
+</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="review-a-pull-request" data-heading="Review a Pull Request" data-level="3" data-permalink="/docs/azure-devops/azuredevops-02/" data-title="Part 2" -->
+<h3 id="review-a-pull-request">Review a Pull Request</h3><ul>
+<li><strong>Steps</strong>:
+<ol>
+<li>Go to &ldquo;Pull Requests.&rdquo;</li>
+<li>Click on the PR.</li>
+<li>Review changes and approve or request changes.</li>
+</ol>
+</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="revert-a-commit" data-heading="Revert a Commit" data-level="3" data-permalink="/docs/azure-devops/azuredevops-02/" data-title="Part 2" -->
+<h3 id="revert-a-commit">Revert a Commit</h3><ul>
+<li><strong>Steps</strong>:
+<ol>
+<li>Find the commit hash with <code>git log</code>.</li>
+<li>Run <code>git revert &lt;commit-hash&gt;</code>.</li>
+</ol>
+</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="pull-remote-changes" data-heading="Pull Remote Changes" data-level="3" data-permalink="/docs/azure-devops/azuredevops-02/" data-title="Part 2" -->
+<h3 id="pull-remote-changes">Pull Remote Changes</h3><ul>
+<li><strong>Steps</strong>:
+<ol>
+<li>Run <code>git pull origin &lt;branch-name&gt;</code>.</li>
+</ol>
+</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="add-a-remote-repository" data-heading="Add a Remote Repository" data-level="3" data-permalink="/docs/azure-devops/azuredevops-02/" data-title="Part 2" -->
+<h3 id="add-a-remote-repository">Add a Remote Repository</h3><ul>
+<li><strong>Steps</strong>:
+<ol>
+<li>Run <code>git remote add &lt;remote-name&gt; &lt;repository-url&gt;</code>.</li>
+</ol>
+</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="rename-a-branch" data-heading="Rename a Branch" data-level="3" data-permalink="/docs/azure-devops/azuredevops-02/" data-title="Part 2" -->
+<h3 id="rename-a-branch">Rename a Branch</h3><ul>
+<li><strong>Steps</strong>:
+<ol>
+<li>Run <code>git branch -m &lt;old-branch-name&gt; &lt;new-branch-name&gt;</code>.</li>
+</ol>
+</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="check-out-a-specific-commit" data-heading="Check Out a Specific Commit" data-level="3" data-permalink="/docs/azure-devops/azuredevops-02/" data-title="Part 2" -->
+<h3 id="check-out-a-specific-commit">Check Out a Specific Commit</h3><ul>
+<li><strong>Steps</strong>:
+<ol>
+<li>Run <code>git checkout &lt;commit-hash&gt;</code>.</li>
+</ol>
+</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="tag-a-commit" data-heading="Tag a Commit" data-level="3" data-permalink="/docs/azure-devops/azuredevops-02/" data-title="Part 2" -->
+<h3 id="tag-a-commit">Tag a Commit</h3><ul>
+<li><strong>Steps</strong>:
+<ol>
+<li>Run <code>git tag -a &lt;tag-name&gt; -m &quot;Tag message&quot;</code>.</li>
+<li>Push tags: <code>git push origin --tags</code>.</li>
+</ol>
+</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="delete-a-tag" data-heading="Delete a Tag" data-level="3" data-permalink="/docs/azure-devops/azuredevops-02/" data-title="Part 2" -->
+<h3 id="delete-a-tag">Delete a Tag</h3><ul>
+<li><strong>Steps</strong>:
+<ol>
+<li>Run <code>git tag -d &lt;tag-name&gt;</code>.</li>
+<li>Delete from remote: <code>git push origin --delete &lt;tag-name&gt;</code>.</li>
+</ol>
+</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="create-a-fork-of-a-repository" data-heading="Create a Fork of a Repository" data-level="3" data-permalink="/docs/azure-devops/azuredevops-02/" data-title="Part 2" -->
+<h3 id="create-a-fork-of-a-repository">Create a Fork of a Repository</h3><ul>
+<li><strong>Steps</strong>:
+<ol>
+<li>Navigate to the repository.</li>
+<li>Click on &ldquo;Fork&rdquo; to create your copy.</li>
+</ol>
+</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="show-differences-between-commits" data-heading="Show Differences Between Commits" data-level="3" data-permalink="/docs/azure-devops/azuredevops-02/" data-title="Part 2" -->
+<h3 id="show-differences-between-commits">Show Differences Between Commits</h3><ul>
+<li><strong>Steps</strong>:
+<ol>
+<li>Run <code>git diff &lt;commit1&gt; &lt;commit2&gt;</code>.</li>
+</ol>
+</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="show-changes-in-staged-files" data-heading="Show Changes in Staged Files" data-level="3" data-permalink="/docs/azure-devops/azuredevops-02/" data-title="Part 2" -->
+<h3 id="show-changes-in-staged-files">Show Changes in Staged Files</h3><ul>
+<li><strong>Steps</strong>:
+<ol>
+<li>Run <code>git diff --cached</code>.</li>
+</ol>
+</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="configure-git-user-information" data-heading="Configure Git User Information" data-level="3" data-permalink="/docs/azure-devops/azuredevops-02/" data-title="Part 2" -->
+<h3 id="configure-git-user-information">Configure Git User Information</h3><ul>
+<li><strong>Steps</strong>:
+<ol>
+<li>Run <code>git config --global user.name &quot;Your Name&quot;</code>.</li>
+<li>Run <code>git config --global user.email &quot;your.email@example.com&quot;</code>.</li>
+</ol>
+</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="set-up-ssh-for-authentication" data-heading="Set Up SSH for Authentication" data-level="3" data-permalink="/docs/azure-devops/azuredevops-02/" data-title="Part 2" -->
+<h3 id="set-up-ssh-for-authentication">Set Up SSH for Authentication</h3><ul>
+<li><strong>Steps</strong>:
+<ol>
+<li>Generate an SSH key: <code>ssh-keygen</code>.</li>
+<li>Add the public key to your Azure DevOps account under &ldquo;SSH public keys.&rdquo;</li>
+</ol>
+</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="view-branch-list" data-heading="View Branch List" data-level="3" data-permalink="/docs/azure-devops/azuredevops-02/" data-title="Part 2" -->
+<h3 id="view-branch-list">View Branch List</h3><ul>
+<li><strong>Steps</strong>:
+<ol>
+<li>Run <code>git branch</code> for local branches.</li>
+<li>Run <code>git branch -r</code> for remote branches.</li>
+</ol>
+</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="stash-changes" data-heading="Stash Changes" data-level="3" data-permalink="/docs/azure-devops/azuredevops-02/" data-title="Part 2" -->
+<h3 id="stash-changes">Stash Changes</h3><ul>
+<li><strong>Steps</strong>:
+<ol>
+<li>Run <code>git stash</code> to save changes temporarily.</li>
+<li>Run <code>git stash apply</code> to reapply stashed changes.</li>
+</ol>
+</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="create-a-gitignore-file" data-heading="Create a .gitignore File" data-level="3" data-permalink="/docs/azure-devops/azuredevops-02/" data-title="Part 2" -->
+<h3 id="create-a-gitignore-file">Create a .gitignore File</h3><ul>
+<li><strong>Steps</strong>:
+<ol>
+<li>Create a file named <code>.gitignore</code> in your repository.</li>
+<li>Add file patterns to ignore (e.g., <code>*.log</code>).</li>
+</ol>
+</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="check-the-status-of-your-repository" data-heading="Check the Status of Your Repository" data-level="3" data-permalink="/docs/azure-devops/azuredevops-02/" data-title="Part 2" -->
+<h3 id="check-the-status-of-your-repository">Check the Status of Your Repository</h3><ul>
+<li><strong>Steps</strong>:
+<ol>
+<li>Run <code>git status</code> to view changes.</li>
+</ol>
+</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="amend-the-last-commit" data-heading="Amend the Last Commit" data-level="3" data-permalink="/docs/azure-devops/azuredevops-02/" data-title="Part 2" -->
+<h3 id="amend-the-last-commit">Amend the Last Commit</h3><ul>
+<li><strong>Steps</strong>:
+<ol>
+<li>Make changes to your files.</li>
+<li>Run <code>git add .</code>.</li>
+<li>Run <code>git commit --amend</code>.</li>
+</ol>
+</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="compare-branches" data-heading="Compare Branches" data-level="3" data-permalink="/docs/azure-devops/azuredevops-02/" data-title="Part 2" -->
+<h3 id="compare-branches">Compare Branches</h3><ul>
+<li><strong>Steps</strong>:
+<ol>
+<li>Run <code>git diff &lt;branch1&gt;..&lt;branch2&gt;</code>.</li>
+</ol>
+</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="set-default-branch" data-heading="Set Default Branch" data-level="3" data-permalink="/docs/azure-devops/azuredevops-02/" data-title="Part 2" -->
+<h3 id="set-default-branch">Set Default Branch</h3><ul>
+<li><strong>Steps</strong>:
+<ol>
+<li>Go to &ldquo;Project settings.&rdquo;</li>
+<li>Under &ldquo;Repos,&rdquo; select &ldquo;Branches.&rdquo;</li>
+<li>Set the default branch for your project.</li>
+</ol>
+</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="create-a-code-review-template" data-heading="Create a Code Review Template" data-level="3" data-permalink="/docs/azure-devops/azuredevops-02/" data-title="Part 2" -->
+<h3 id="create-a-code-review-template">Create a Code Review Template</h3><ul>
+<li><strong>Steps</strong>:
+<ol>
+<li>Go to &ldquo;Project settings&rdquo; &gt; &ldquo;Repositories.&rdquo;</li>
+<li>Set up policies or guidelines for code reviews.</li>
+</ol>
+</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="link-work-items-to-commits" data-heading="Link Work Items to Commits" data-level="3" data-permalink="/docs/azure-devops/azuredevops-02/" data-title="Part 2" -->
+<h3 id="link-work-items-to-commits">Link Work Items to Commits</h3><ul>
+<li><strong>Steps</strong>:
+<ol>
+<li>Include the work item ID in your commit message (e.g., &ldquo;Fixes #123&rdquo;).</li>
+</ol>
+</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="create-a-release-branch" data-heading="Create a Release Branch" data-level="3" data-permalink="/docs/azure-devops/azuredevops-02/" data-title="Part 2" -->
+<h3 id="create-a-release-branch">Create a Release Branch</h3><ul>
+<li><strong>Steps</strong>:
+<ol>
+<li>Run <code>git checkout -b release/&lt;version-number&gt;</code>.</li>
+</ol>
+</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="cherry-pick-a-commit" data-heading="Cherry-Pick a Commit" data-level="3" data-permalink="/docs/azure-devops/azuredevops-02/" data-title="Part 2" -->
+<h3 id="cherry-pick-a-commit">Cherry-Pick a Commit</h3><ul>
+<li><strong>Steps</strong>:
+<ol>
+<li>Run <code>git cherry-pick &lt;commit-hash&gt;</code>.</li>
+</ol>
+</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="set-up-pull-request-approvers" data-heading="Set Up Pull Request Approvers" data-level="3" data-permalink="/docs/azure-devops/azuredevops-02/" data-title="Part 2" -->
+<h3 id="set-up-pull-request-approvers">Set Up Pull Request Approvers</h3><ul>
+<li><strong>Steps</strong>:
+<ol>
+<li>Go to &ldquo;Branch policies&rdquo; for the desired branch.</li>
+<li>Under &ldquo;Required reviewers,&rdquo; add users who must approve PRs.</li>
+</ol>
+</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="set-up-pull-request-reviewers" data-heading="Set Up Pull Request Reviewers" data-level="3" data-permalink="/docs/azure-devops/azuredevops-02/" data-title="Part 2" -->
+<h3 id="set-up-pull-request-reviewers">Set Up Pull Request Reviewers</h3><ul>
+<li><strong>Steps</strong>:
+<ol>
+<li>In the same &ldquo;Branch policies&rdquo; section, add users to the &ldquo;Reviewer&rdquo; list.</li>
+</ol>
+</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="configure-cicd-pipeline-with-repos" data-heading="Configure CI/CD Pipeline with Repos" data-level="3" data-permalink="/docs/azure-devops/azuredevops-02/" data-title="Part 2" -->
+<h3 id="configure-cicd-pipeline-with-repos">Configure CI/CD Pipeline with Repos</h3><ul>
+<li><strong>Steps</strong>:
+<ol>
+<li>Go to &ldquo;Pipelines&rdquo; and create a new pipeline.</li>
+<li>Link it to your Azure Repo.</li>
+</ol>
+</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="monitor-repository-insights" data-heading="Monitor Repository Insights" data-level="3" data-permalink="/docs/azure-devops/azuredevops-02/" data-title="Part 2" -->
+<h3 id="monitor-repository-insights">Monitor Repository Insights</h3><ul>
+<li><strong>Steps</strong>:
+<ol>
+<li>Go to &ldquo;Insights&rdquo; in your repository to view activity.</li>
+</ol>
+</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="import-a-repository" data-heading="Import a Repository" data-level="3" data-permalink="/docs/azure-devops/azuredevops-02/" data-title="Part 2" -->
+<h3 id="import-a-repository">Import a Repository</h3><ul>
+<li><strong>Steps</strong>:
+<ol>
+<li>Go to &ldquo;Repos&rdquo; and click &ldquo;Import repository.&rdquo;</li>
+<li>Provide the source repository URL.</li>
+</ol>
+</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="create-multiple-pull-requests" data-heading="Create Multiple Pull Requests" data-level="3" data-permalink="/docs/azure-devops/azuredevops-02/" data-title="Part 2" -->
+<h3 id="create-multiple-pull-requests">Create Multiple Pull Requests</h3><ul>
+<li><strong>Steps</strong>:
+<ol>
+<li>Create branches for different features.</li>
+<li>Open pull requests for each branch.</li>
+</ol>
+</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="use-squash-merges" data-heading="Use Squash Merges" data-level="3" data-permalink="/docs/azure-devops/azuredevops-02/" data-title="Part 2" -->
+<h3 id="use-squash-merges">Use Squash Merges</h3><ul>
+<li><strong>Steps</strong>:
+<ol>
+<li>In the pull request, select &ldquo;Squash merge&rdquo; before completing the PR.</li>
+</ol>
+</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="enable-git-lfs-large-file-storage" data-heading="Enable Git LFS (Large File Storage)" data-level="3" data-permalink="/docs/azure-devops/azuredevops-02/" data-title="Part 2" -->
+<h3 id="enable-git-lfs-large-file-storage">Enable Git LFS (Large File Storage)</h3><ul>
+<li><strong>Steps</strong>:
+<ol>
+<li>Install Git LFS on your machine.</li>
+<li>Run <code>git lfs install</code> and track large files using <code>git lfs track &quot;*.largefile&quot;</code>.</li>
+</ol>
+</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="set-up-pull-request-merge-strategies" data-heading="Set Up Pull Request Merge Strategies" data-level="3" data-permalink="/docs/azure-devops/azuredevops-02/" data-title="Part 2" -->
+<h3 id="set-up-pull-request-merge-strategies">Set Up Pull Request Merge Strategies</h3><ul>
+<li><strong>Steps</strong>:
+<ol>
+<li>Go to &ldquo;Branch policies.&rdquo;</li>
+<li>Choose merge strategies (e.g., rebase, merge commit, squash) as per your workflow.</li>
+</ol>
+</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="configure-repository-settings" data-heading="Configure Repository Settings" data-level="3" data-permalink="/docs/azure-devops/azuredevops-02/" data-title="Part 2" -->
+<h3 id="configure-repository-settings">Configure Repository Settings</h3><ul>
+<li><strong>Steps</strong>:
+<ol>
+<li>Go to &ldquo;Project settings.&rdquo;</li>
+<li>Under &ldquo;Repos,&rdquo; configure settings like permissions, security, and policies.</li>
+</ol>
+</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="git-config-commands" data-heading="Git Config Commands" data-level="2" data-permalink="/docs/azure-devops/azuredevops-02/" data-title="Part 2" -->
+<h2 id="git-config-commands">Git Config Commands</h2><!-- end-chunk -->
+<!-- begin-chunk data-anchor="set-global-username" data-heading="Set Global Username" data-level="3" data-permalink="/docs/azure-devops/azuredevops-02/" data-title="Part 2" -->
+<h3 id="set-global-username">Set Global Username</h3><ul>
+<li><strong>Command</strong>: <code>git config --global user.name &quot;Your Name&quot;</code></li>
+<li><strong>Description</strong>: Sets the username that will be associated with your commits.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="set-global-email" data-heading="Set Global Email" data-level="3" data-permalink="/docs/azure-devops/azuredevops-02/" data-title="Part 2" -->
+<h3 id="set-global-email">Set Global Email</h3><ul>
+<li><strong>Command</strong>: <code>git config --global user.email &quot;your.email@example.com&quot;</code></li>
+<li><strong>Description</strong>: Sets the email that will be associated with your commits.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="set-default-text-editor" data-heading="Set Default Text Editor" data-level="3" data-permalink="/docs/azure-devops/azuredevops-02/" data-title="Part 2" -->
+<h3 id="set-default-text-editor">Set Default Text Editor</h3><ul>
+<li><strong>Command</strong>: <code>git config --global core.editor &quot;your-editor&quot;</code></li>
+<li><strong>Description</strong>: Specifies the default text editor for Git commit messages (e.g., <code>nano</code>, <code>vim</code>, <code>code</code>).</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="view-configuration" data-heading="View Configuration" data-level="3" data-permalink="/docs/azure-devops/azuredevops-02/" data-title="Part 2" -->
+<h3 id="view-configuration">View Configuration</h3><ul>
+<li><strong>Command</strong>: <code>git config --list</code></li>
+<li><strong>Description</strong>: Displays a list of all Git configuration settings.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="set-color-output" data-heading="Set Color Output" data-level="3" data-permalink="/docs/azure-devops/azuredevops-02/" data-title="Part 2" -->
+<h3 id="set-color-output">Set Color Output</h3><ul>
+<li><strong>Command</strong>: <code>git config --global color.ui auto</code></li>
+<li><strong>Description</strong>: Enables color output for Git commands.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="set-default-branch-name" data-heading="Set Default Branch Name" data-level="3" data-permalink="/docs/azure-devops/azuredevops-02/" data-title="Part 2" -->
+<h3 id="set-default-branch-name">Set Default Branch Name</h3><ul>
+<li><strong>Command</strong>: <code>git config --global init.defaultBranch main</code></li>
+<li><strong>Description</strong>: Sets the default branch name for new repositories (e.g., <code>main</code> instead of <code>master</code>).</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="set-up-aliases" data-heading="Set Up Aliases" data-level="3" data-permalink="/docs/azure-devops/azuredevops-02/" data-title="Part 2" -->
+<h3 id="set-up-aliases">Set Up Aliases</h3><ul>
+<li><strong>Command</strong>: <code>git config --global alias.co checkout</code></li>
+<li><strong>Description</strong>: Creates an alias for commonly used commands (e.g., <code>git co</code> for <code>git checkout</code>).</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="configure-credential-helper" data-heading="Configure Credential Helper" data-level="3" data-permalink="/docs/azure-devops/azuredevops-02/" data-title="Part 2" -->
+<h3 id="configure-credential-helper">Configure Credential Helper</h3><ul>
+<li><strong>Command</strong>: <code>git config --global credential.helper cache</code></li>
+<li><strong>Description</strong>: Caches your credentials in memory for use by future Git commands.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="enable-git-lfs-large-file-storage-1" data-heading="Enable Git LFS (Large File Storage)" data-level="3" data-permalink="/docs/azure-devops/azuredevops-02/" data-title="Part 2" -->
+<h3 id="enable-git-lfs-large-file-storage-1">Enable Git LFS (Large File Storage)</h3><ul>
+<li><strong>Command</strong>: <code>git lfs install</code></li>
+<li><strong>Description</strong>: Initializes Git LFS in your repository.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="set-push-default-behavior" data-heading="Set Push Default Behavior" data-level="3" data-permalink="/docs/azure-devops/azuredevops-02/" data-title="Part 2" -->
+<h3 id="set-push-default-behavior">Set Push Default Behavior</h3><ul>
+<li><strong>Command</strong>: <code>git config --global push.default simple</code></li>
+<li><strong>Description</strong>: Configures how <code>git push</code> behaves (e.g., <code>simple</code>, <code>matching</code>, <code>current</code>).</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="set-ignore-file-globally" data-heading="Set Ignore File Globally" data-level="3" data-permalink="/docs/azure-devops/azuredevops-02/" data-title="Part 2" -->
+<h3 id="set-ignore-file-globally">Set Ignore File Globally</h3><ul>
+<li><strong>Command</strong>: <code>git config --global core.excludesfile ~/.gitignore_global</code></li>
+<li><strong>Description</strong>: Specifies a global ignore file for untracked files.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="set-fetch-and-push-behavior" data-heading="Set Fetch and Push Behavior" data-level="3" data-permalink="/docs/azure-devops/azuredevops-02/" data-title="Part 2" -->
+<h3 id="set-fetch-and-push-behavior">Set Fetch and Push Behavior</h3><ul>
+<li><strong>Command</strong>: <code>git config --global fetch.prune true</code></li>
+<li><strong>Description</strong>: Automatically prunes deleted branches during fetch.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="change-local-repository-config" data-heading="Change Local Repository Config" data-level="3" data-permalink="/docs/azure-devops/azuredevops-02/" data-title="Part 2" -->
+<h3 id="change-local-repository-config">Change Local Repository Config</h3><ul>
+<li><strong>Command</strong>: <code>git config user.name &quot;Local Name&quot;</code></li>
+<li><strong>Description</strong>: Sets the username for the current repository only (without <code>--global</code>).</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="view-specific-configuration" data-heading="View Specific Configuration" data-level="3" data-permalink="/docs/azure-devops/azuredevops-02/" data-title="Part 2" -->
+<h3 id="view-specific-configuration">View Specific Configuration</h3><ul>
+<li><strong>Command</strong>: <code>git config user.name</code></li>
+<li><strong>Description</strong>: Displays the configured username for the current repository.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="remove-a-configuration" data-heading="Remove a Configuration" data-level="3" data-permalink="/docs/azure-devops/azuredevops-02/" data-title="Part 2" -->
+<h3 id="remove-a-configuration">Remove a Configuration</h3><ul>
+<li><strong>Command</strong>: <code>git config --global --unset user.name</code></li>
+<li><strong>Description</strong>: Removes the specified configuration setting.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="get-help" data-heading="Get Help" data-level="3" data-permalink="/docs/azure-devops/azuredevops-02/" data-title="Part 2" -->
+<h3 id="get-help">Get Help</h3><ul>
+<li><strong>Command</strong>: <code>git help config</code></li>
+<li><strong>Description</strong>: Displays help documentation for Git configuration.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="git-log-commands" data-heading="Git Log Commands" data-level="2" data-permalink="/docs/azure-devops/azuredevops-02/" data-title="Part 2" -->
+<h2 id="git-log-commands">Git Log Commands</h2><!-- end-chunk -->
+<!-- begin-chunk data-anchor="view-commit-history" data-heading="View Commit History" data-level="3" data-permalink="/docs/azure-devops/azuredevops-02/" data-title="Part 2" -->
+<h3 id="view-commit-history">View Commit History</h3><ul>
+<li><strong>Command</strong>: <code>git log</code></li>
+<li><strong>Description</strong>: Displays the commit history for the current branch.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="view-a-specific-number-of-commits" data-heading="View a Specific Number of Commits" data-level="3" data-permalink="/docs/azure-devops/azuredevops-02/" data-title="Part 2" -->
+<h3 id="view-a-specific-number-of-commits">View a Specific Number of Commits</h3><ul>
+<li><strong>Command</strong>: <code>git log -n &lt;number&gt;</code></li>
+<li><strong>Description</strong>: Shows the last <code>&lt;number&gt;</code> of commits (e.g., <code>git log -5</code> for the last 5 commits).</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="view-one-line-per-commit" data-heading="View One Line Per Commit" data-level="3" data-permalink="/docs/azure-devops/azuredevops-02/" data-title="Part 2" -->
+<h3 id="view-one-line-per-commit">View One Line Per Commit</h3><ul>
+<li><strong>Command</strong>: <code>git log --oneline</code></li>
+<li><strong>Description</strong>: Displays the commit history in a condensed format, showing each commit on a single line.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="view-commit-history-with-graph" data-heading="View Commit History with Graph" data-level="3" data-permalink="/docs/azure-devops/azuredevops-02/" data-title="Part 2" -->
+<h3 id="view-commit-history-with-graph">View Commit History with Graph</h3><ul>
+<li><strong>Command</strong>: <code>git log --graph</code></li>
+<li><strong>Description</strong>: Displays the commit history as a graph.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="view-commit-history-with-specific-file" data-heading="View Commit History with Specific File" data-level="3" data-permalink="/docs/azure-devops/azuredevops-02/" data-title="Part 2" -->
+<h3 id="view-commit-history-with-specific-file">View Commit History with Specific File</h3><ul>
+<li><strong>Command</strong>: <code>git log -- &lt;file&gt;</code></li>
+<li><strong>Description</strong>: Shows the commit history for a specific file.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="view-commits-by-author" data-heading="View Commits by Author" data-level="3" data-permalink="/docs/azure-devops/azuredevops-02/" data-title="Part 2" -->
+<h3 id="view-commits-by-author">View Commits by Author</h3><ul>
+<li><strong>Command</strong>: <code>git log --author=&quot;Author Name&quot;</code></li>
+<li><strong>Description</strong>: Filters commits to show only those made by the specified author.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="view-commits-within-a-date-range" data-heading="View Commits Within a Date Range" data-level="3" data-permalink="/docs/azure-devops/azuredevops-02/" data-title="Part 2" -->
+<h3 id="view-commits-within-a-date-range">View Commits Within a Date Range</h3><ul>
+<li><strong>Command</strong>: <code>git log --since=&quot;YYYY-MM-DD&quot; --until=&quot;YYYY-MM-DD&quot;</code></li>
+<li><strong>Description</strong>: Filters commits to show those made within the specified date range.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="view-commits-with-detailed-information" data-heading="View Commits with Detailed Information" data-level="3" data-permalink="/docs/azure-devops/azuredevops-02/" data-title="Part 2" -->
+<h3 id="view-commits-with-detailed-information">View Commits with Detailed Information</h3><ul>
+<li><strong>Command</strong>: <code>git log -p</code></li>
+<li><strong>Description</strong>: Displays the commit history along with the diff for each commit.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="view-commits-with-statistics" data-heading="View Commits with Statistics" data-level="3" data-permalink="/docs/azure-devops/azuredevops-02/" data-title="Part 2" -->
+<h3 id="view-commits-with-statistics">View Commits with Statistics</h3><ul>
+<li><strong>Command</strong>: <code>git log --stat</code></li>
+<li><strong>Description</strong>: Shows the commit history along with the statistics of changes (insertions/deletions).</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="search-commit-messages" data-heading="Search Commit Messages" data-level="3" data-permalink="/docs/azure-devops/azuredevops-02/" data-title="Part 2" -->
+<h3 id="search-commit-messages">Search Commit Messages</h3><ul>
+<li><strong>Command</strong>: <code>git log --grep=&quot;search-term&quot;</code></li>
+<li><strong>Description</strong>: Filters commits to show only those with commit messages that match the specified search term.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="view-commits-for-a-specific-branch" data-heading="View Commits for a Specific Branch" data-level="3" data-permalink="/docs/azure-devops/azuredevops-02/" data-title="Part 2" -->
+<h3 id="view-commits-for-a-specific-branch">View Commits for a Specific Branch</h3><ul>
+<li><strong>Command</strong>: <code>git log &lt;branch-name&gt;</code></li>
+<li><strong>Description</strong>: Displays the commit history for a specific branch.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="show-commit-information-for-a-specific-commit" data-heading="Show Commit Information for a Specific Commit" data-level="3" data-permalink="/docs/azure-devops/azuredevops-02/" data-title="Part 2" -->
+<h3 id="show-commit-information-for-a-specific-commit">Show Commit Information for a Specific Commit</h3><ul>
+<li><strong>Command</strong>: <code>git show &lt;commit-hash&gt;</code></li>
+<li><strong>Description</strong>: Displays detailed information about a specific commit.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="view-commit-history-in-reverse-order" data-heading="View Commit History in Reverse Order" data-level="3" data-permalink="/docs/azure-devops/azuredevops-02/" data-title="Part 2" -->
+<h3 id="view-commit-history-in-reverse-order">View Commit History in Reverse Order</h3><ul>
+<li><strong>Command</strong>: <code>git log --reverse</code></li>
+<li><strong>Description</strong>: Displays the commit history in reverse order, showing the oldest commits first.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="limit-output-by-committer" data-heading="Limit Output by Committer" data-level="3" data-permalink="/docs/azure-devops/azuredevops-02/" data-title="Part 2" -->
+<h3 id="limit-output-by-committer">Limit Output by Committer</h3><ul>
+<li><strong>Command</strong>: <code>git log --committer=&quot;Committer Name&quot;</code></li>
+<li><strong>Description</strong>: Filters commits to show only those made by the specified committer.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="format-output-of-git-log" data-heading="Format Output of Git Log" data-level="3" data-permalink="/docs/azure-devops/azuredevops-02/" data-title="Part 2" -->
+<h3 id="format-output-of-git-log">Format Output of Git Log</h3><ul>
+<li><strong>Command</strong>: <code>git log --pretty=format:&quot;%h - %an, %ar : %s&quot;</code></li>
+<li><strong>Description</strong>: Customizes the output format of the log (e.g., showing hash, author name, date, and subject).</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="view-logs-with-relative-dates" data-heading="View Logs with Relative Dates" data-level="3" data-permalink="/docs/azure-devops/azuredevops-02/" data-title="Part 2" -->
+<h3 id="view-logs-with-relative-dates">View Logs with Relative Dates</h3><ul>
+<li><strong>Command</strong>: <code>git log --relative-date</code></li>
+<li><strong>Description</strong>: Displays commit dates in a more human-readable format (e.g., &ldquo;2 weeks ago&rdquo;).</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="view-logs-with-a-specific-path" data-heading="View Logs with a Specific Path" data-level="3" data-permalink="/docs/azure-devops/azuredevops-02/" data-title="Part 2" -->
+<h3 id="view-logs-with-a-specific-path">View Logs with a Specific Path</h3><ul>
+<li><strong>Command</strong>: <code>git log --follow &lt;file&gt;</code></li>
+<li><strong>Description</strong>: Follows the history of a file, even if it was renamed.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="combine-options" data-heading="Combine Options" data-level="3" data-permalink="/docs/azure-devops/azuredevops-02/" data-title="Part 2" -->
+<h3 id="combine-options">Combine Options</h3><ul>
+<li><strong>Command</strong>: <code>git log --oneline --graph --decorate</code></li>
+<li><strong>Description</strong>: Combines multiple options for a more informative and visual representation of the commit history.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="git-reset-commands" data-heading="Git Reset Commands" data-level="2" data-permalink="/docs/azure-devops/azuredevops-02/" data-title="Part 2" -->
+<h2 id="git-reset-commands">Git Reset Commands</h2><!-- end-chunk -->
+<!-- begin-chunk data-anchor="soft-reset" data-heading="Soft Reset" data-level="3" data-permalink="/docs/azure-devops/azuredevops-02/" data-title="Part 2" -->
+<h3 id="soft-reset">Soft Reset</h3><ul>
+<li><strong>Command</strong>: <code>git reset --soft &lt;commit&gt;</code></li>
+<li><strong>Description</strong>: Resets the current branch to the specified commit, keeping changes in the staging area.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="mixed-reset-default" data-heading="Mixed Reset (Default)" data-level="3" data-permalink="/docs/azure-devops/azuredevops-02/" data-title="Part 2" -->
+<h3 id="mixed-reset-default">Mixed Reset (Default)</h3><ul>
+<li><strong>Command</strong>: <code>git reset &lt;commit&gt;</code></li>
+<li><strong>Description</strong>: Resets the current branch to the specified commit, keeping changes in the working directory but removing them from the staging area.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="hard-reset" data-heading="Hard Reset" data-level="3" data-permalink="/docs/azure-devops/azuredevops-02/" data-title="Part 2" -->
+<h3 id="hard-reset">Hard Reset</h3><ul>
+<li><strong>Command</strong>: <code>git reset --hard &lt;commit&gt;</code></li>
+<li><strong>Description</strong>: Resets the current branch to the specified commit, discarding all changes in the working directory and staging area.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="reset-to-head" data-heading="Reset to HEAD" data-level="3" data-permalink="/docs/azure-devops/azuredevops-02/" data-title="Part 2" -->
+<h3 id="reset-to-head">Reset to HEAD</h3><ul>
+<li><strong>Command</strong>: <code>git reset HEAD</code></li>
+<li><strong>Description</strong>: Unstages all changes in the staging area but keeps them in the working directory.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="reset-to-specific-file" data-heading="Reset to Specific File" data-level="3" data-permalink="/docs/azure-devops/azuredevops-02/" data-title="Part 2" -->
+<h3 id="reset-to-specific-file">Reset to Specific File</h3><ul>
+<li><strong>Command</strong>: <code>git reset &lt;file&gt;</code></li>
+<li><strong>Description</strong>: Unstages the specified file from the staging area while keeping changes in the working directory.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="reset-to-previous-commit" data-heading="Reset to Previous Commit" data-level="3" data-permalink="/docs/azure-devops/azuredevops-02/" data-title="Part 2" -->
+<h3 id="reset-to-previous-commit">Reset to Previous Commit</h3><ul>
+<li><strong>Command</strong>: <code>git reset HEAD~1</code></li>
+<li><strong>Description</strong>: Resets the current branch to the previous commit, keeping changes in the working directory (similar to mixed reset).</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="reset-to-a-specific-commit-with-hard-option" data-heading="Reset to a Specific Commit with Hard Option" data-level="3" data-permalink="/docs/azure-devops/azuredevops-02/" data-title="Part 2" -->
+<h3 id="reset-to-a-specific-commit-with-hard-option">Reset to a Specific Commit with Hard Option</h3><ul>
+<li><strong>Command</strong>: <code>git reset --hard &lt;commit&gt;</code></li>
+<li><strong>Description</strong>: Resets the branch and discards all changes since the specified commit.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="reset-with-a-message" data-heading="Reset with a Message" data-level="3" data-permalink="/docs/azure-devops/azuredevops-02/" data-title="Part 2" -->
+<h3 id="reset-with-a-message">Reset with a Message</h3><ul>
+<li><strong>Command</strong>: <code>git reset --mixed -m &quot;Reset message&quot;</code></li>
+<li><strong>Description</strong>: Resets the branch with a message (useful in scripts).</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="undo-last-commit-keep-changes" data-heading="Undo Last Commit (Keep Changes)" data-level="3" data-permalink="/docs/azure-devops/azuredevops-02/" data-title="Part 2" -->
+<h3 id="undo-last-commit-keep-changes">Undo Last Commit (Keep Changes)</h3><ul>
+<li><strong>Command</strong>: <code>git reset --soft HEAD~1</code></li>
+<li><strong>Description</strong>: Undoes the last commit but keeps the changes staged.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="undo-last-commit-discard-changes" data-heading="Undo Last Commit (Discard Changes)" data-level="3" data-permalink="/docs/azure-devops/azuredevops-02/" data-title="Part 2" -->
+<h3 id="undo-last-commit-discard-changes">Undo Last Commit (Discard Changes)</h3><ul>
+<li><strong>Command</strong>: <code>git reset --hard HEAD~1</code></li>
+<li><strong>Description</strong>: Undoes the last commit and discards all changes made in that commit.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="reset-to-remote-state" data-heading="Reset to Remote State" data-level="3" data-permalink="/docs/azure-devops/azuredevops-02/" data-title="Part 2" -->
+<h3 id="reset-to-remote-state">Reset to Remote State</h3><ul>
+<li><strong>Command</strong>: <code>git reset --hard origin/main</code></li>
+<li><strong>Description</strong>: Resets the current branch to match the remote branch, discarding local changes.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="check-status-after-reset" data-heading="Check Status After Reset" data-level="3" data-permalink="/docs/azure-devops/azuredevops-02/" data-title="Part 2" -->
+<h3 id="check-status-after-reset">Check Status After Reset</h3><ul>
+<li><strong>Command</strong>: <code>git status</code></li>
+<li><strong>Description</strong>: Checks the status of the working directory after a reset operation.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="git-revert-commands" data-heading="Git Revert Commands" data-level="2" data-permalink="/docs/azure-devops/azuredevops-02/" data-title="Part 2" -->
+<h2 id="git-revert-commands">Git Revert Commands</h2><!-- end-chunk -->
+<!-- begin-chunk data-anchor="revert-a-commit-1" data-heading="Revert a Commit" data-level="3" data-permalink="/docs/azure-devops/azuredevops-02/" data-title="Part 2" -->
+<h3 id="revert-a-commit-1">Revert a Commit</h3><ul>
+<li><strong>Command</strong>: <code>git revert &lt;commit&gt;</code></li>
+<li><strong>Description</strong>: Creates a new commit that undoes the changes made in the specified commit.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="revert-multiple-commits" data-heading="Revert Multiple Commits" data-level="3" data-permalink="/docs/azure-devops/azuredevops-02/" data-title="Part 2" -->
+<h3 id="revert-multiple-commits">Revert Multiple Commits</h3><ul>
+<li><strong>Command</strong>: <code>git revert &lt;commit1&gt;..&lt;commit2&gt;</code></li>
+<li><strong>Description</strong>: Reverts all commits between the specified commits, creating new commits for each.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="revert-to-head" data-heading="Revert to HEAD" data-level="3" data-permalink="/docs/azure-devops/azuredevops-02/" data-title="Part 2" -->
+<h3 id="revert-to-head">Revert to HEAD</h3><ul>
+<li><strong>Command</strong>: <code>git revert HEAD</code></li>
+<li><strong>Description</strong>: Reverts the latest commit and creates a new commit with the inverse changes.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="git-merge-commands" data-heading="Git Merge Commands" data-level="2" data-permalink="/docs/azure-devops/azuredevops-02/" data-title="Part 2" -->
+<h2 id="git-merge-commands">Git Merge Commands</h2><!-- end-chunk -->
+<!-- begin-chunk data-anchor="merge-a-branch-1" data-heading="Merge a Branch" data-level="3" data-permalink="/docs/azure-devops/azuredevops-02/" data-title="Part 2" -->
+<h3 id="merge-a-branch-1">Merge a Branch</h3><ul>
+<li><strong>Command</strong>: <code>git merge &lt;branch&gt;</code></li>
+<li><strong>Description</strong>: Merges the specified branch into the current branch.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="fast-forward-merge" data-heading="Fast-Forward Merge" data-level="3" data-permalink="/docs/azure-devops/azuredevops-02/" data-title="Part 2" -->
+<h3 id="fast-forward-merge">Fast-Forward Merge</h3><ul>
+<li><strong>Command</strong>: <code>git merge --ff &lt;branch&gt;</code></li>
+<li><strong>Description</strong>: Performs a fast-forward merge if possible; otherwise, it creates a merge commit.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="no-fast-forward-merge" data-heading="No Fast-Forward Merge" data-level="3" data-permalink="/docs/azure-devops/azuredevops-02/" data-title="Part 2" -->
+<h3 id="no-fast-forward-merge">No Fast-Forward Merge</h3><ul>
+<li><strong>Command</strong>: <code>git merge --no-ff &lt;branch&gt;</code></li>
+<li><strong>Description</strong>: Merges the specified branch into the current branch and creates a merge commit even if a fast-forward merge is possible.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="merge-with-a-commit-message" data-heading="Merge with a Commit Message" data-level="3" data-permalink="/docs/azure-devops/azuredevops-02/" data-title="Part 2" -->
+<h3 id="merge-with-a-commit-message">Merge with a Commit Message</h3><ul>
+<li><strong>Command</strong>: <code>git merge &lt;branch&gt; -m &quot;Merge message&quot;</code></li>
+<li><strong>Description</strong>: Merges the specified branch and includes a custom commit message.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="abort-a-merge" data-heading="Abort a Merge" data-level="3" data-permalink="/docs/azure-devops/azuredevops-02/" data-title="Part 2" -->
+<h3 id="abort-a-merge">Abort a Merge</h3><ul>
+<li><strong>Command</strong>: <code>git merge --abort</code></li>
+<li><strong>Description</strong>: Aborts the merge process and returns to the state before the merge began.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="view-merge-conflicts" data-heading="View Merge Conflicts" data-level="3" data-permalink="/docs/azure-devops/azuredevops-02/" data-title="Part 2" -->
+<h3 id="view-merge-conflicts">View Merge Conflicts</h3><ul>
+<li><strong>Command</strong>: <code>git status</code></li>
+<li><strong>Description</strong>: Checks for any merge conflicts after a merge attempt.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="git-tag-commands" data-heading="Git Tag Commands" data-level="2" data-permalink="/docs/azure-devops/azuredevops-02/" data-title="Part 2" -->
+<h2 id="git-tag-commands">Git Tag Commands</h2><!-- end-chunk -->
+<!-- begin-chunk data-anchor="create-a-tag" data-heading="Create a Tag" data-level="3" data-permalink="/docs/azure-devops/azuredevops-02/" data-title="Part 2" -->
+<h3 id="create-a-tag">Create a Tag</h3><ul>
+<li><strong>Command</strong>: <code>git tag &lt;tag-name&gt;</code></li>
+<li><strong>Description</strong>: Creates a lightweight tag at the current commit.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="create-an-annotated-tag" data-heading="Create an Annotated Tag" data-level="3" data-permalink="/docs/azure-devops/azuredevops-02/" data-title="Part 2" -->
+<h3 id="create-an-annotated-tag">Create an Annotated Tag</h3><ul>
+<li><strong>Command</strong>: <code>git tag -a &lt;tag-name&gt; -m &quot;Tag message&quot;</code></li>
+<li><strong>Description</strong>: Creates an annotated tag with a message at the current commit.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="list-tags" data-heading="List Tags" data-level="3" data-permalink="/docs/azure-devops/azuredevops-02/" data-title="Part 2" -->
+<h3 id="list-tags">List Tags</h3><ul>
+<li><strong>Command</strong>: <code>git tag</code></li>
+<li><strong>Description</strong>: Lists all tags in the repository.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="show-tag-details" data-heading="Show Tag Details" data-level="3" data-permalink="/docs/azure-devops/azuredevops-02/" data-title="Part 2" -->
+<h3 id="show-tag-details">Show Tag Details</h3><ul>
+<li><strong>Command</strong>: <code>git show &lt;tag-name&gt;</code></li>
+<li><strong>Description</strong>: Displays details about the specified tag.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="push-tags-to-remote" data-heading="Push Tags to Remote" data-level="3" data-permalink="/docs/azure-devops/azuredevops-02/" data-title="Part 2" -->
+<h3 id="push-tags-to-remote">Push Tags to Remote</h3><ul>
+<li><strong>Command</strong>: <code>git push origin &lt;tag-name&gt;</code></li>
+<li><strong>Description</strong>: Pushes a specific tag to the remote repository.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="push-all-tags-to-remote" data-heading="Push All Tags to Remote" data-level="3" data-permalink="/docs/azure-devops/azuredevops-02/" data-title="Part 2" -->
+<h3 id="push-all-tags-to-remote">Push All Tags to Remote</h3><ul>
+<li><strong>Command</strong>: <code>git push --tags</code></li>
+<li><strong>Description</strong>: Pushes all tags to the remote repository.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="delete-a-tag-1" data-heading="Delete a Tag" data-level="3" data-permalink="/docs/azure-devops/azuredevops-02/" data-title="Part 2" -->
+<h3 id="delete-a-tag-1">Delete a Tag</h3><ul>
+<li><strong>Command</strong>: <code>git tag -d &lt;tag-name&gt;</code></li>
+<li><strong>Description</strong>: Deletes a local tag.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="delete-a-remote-tag" data-heading="Delete a Remote Tag" data-level="3" data-permalink="/docs/azure-devops/azuredevops-02/" data-title="Part 2" -->
+<h3 id="delete-a-remote-tag">Delete a Remote Tag</h3><ul>
+<li><strong>Command</strong>: <code>git push --delete origin &lt;tag-name&gt;</code></li>
+<li><strong>Description</strong>: Deletes a tag from the remote repository.</li>
+</ul>
+
+	
+	
+	
+</div>
+
+
+          </main>
+        </div>
+      </div>
+      
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+    integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+    crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js"
+    integrity="sha512-UR25UO94eTnCVwjbXozyeVd6ZqpaAE9naiEUBK/A+QDbfSTQFhPGj5lOR6d8tsgbBk84Ggb5A3EkjsOgPRPcKA=="
+    crossorigin="anonymous"></script>
+
+
+
+
+
+<script src='/js/tabpane-persist.js'></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="/js/main.min.223ab2fcc7d742c1b94772c0276851c497da4343cd2d21534199ced90681e207.js" integrity="sha256-Ijqy/MfXQsG5R3LAJ2hRxJfaQ0PNLSFTQZnO2QaB4gc=" crossorigin="anonymous"></script>
+
+
+
+<script src='/js/prism.js'></script>
+
+
+
+  </body>
+</html>

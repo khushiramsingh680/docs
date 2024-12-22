@@ -1,0 +1,1854 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="generator" content="Hugo 0.122.0">
+<meta name="robots" content="index, follow">
+
+<link rel="shortcut icon" href="/favicons/favicon.ico" >
+
+<title>Part 1 | Documentation</title>
+<meta name="description" content="Azure Devops">
+<meta property="og:title" content="Part 1" />
+<meta property="og:description" content="Azure Devops" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/docs/azure-devops/azuredevops-01/" /><meta property="article:section" content="docs" />
+
+
+
+<meta itemprop="name" content="Part 1">
+<meta itemprop="description" content="Azure Devops">
+
+<meta itemprop="wordCount" content="5586">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Part 1"/>
+<meta name="twitter:description" content="Azure Devops"/>
+
+
+
+
+<link rel="preload" href="/scss/main.min.b5bfe2535b6f07595fd9cb7a4018024e52e136c3b43e03a17a1e47a950822d03.css" as="style">
+<link href="/scss/main.min.b5bfe2535b6f07595fd9cb7a4018024e52e136c3b43e03a17a1e47a950822d03.css" rel="stylesheet" integrity="">
+
+<script
+  src="https://code.jquery.com/jquery-3.6.0.min.js"
+  integrity="sha384-vtXRMe3mGCbOeY7l30aIg8H9p3GdeSe4IFlP6G8JMa7o7lXvnz3GFKzPxzJdPfGK"
+  crossorigin="anonymous"></script>
+<script
+  src="https://unpkg.com/lunr@2.3.9/lunr.min.js"
+  integrity="sha384-203J0SNzyqHby3iU6hzvzltrWi/M41wOP5Gu+BiJMz5nwKykbkUx8Kp7iti0Lpli"
+  crossorigin="anonymous"></script>
+<link rel="stylesheet" href="/css/prism.css"/>
+<script type="text/javascript"  src="/js/highlight-search.js"></script>
+<script type="text/javascript"  src="/js/manage-side-panels.js"></script>
+  </head>
+  <body class="td-page highlightable">
+    <header>
+      
+<nav class="js-navbar-scroll navbar navbar-expand navbar-dark flex-column flex-md-row td-navbar">
+        <a class="navbar-brand" href="/">
+		<span class="navbar-logo"><svg version="1.0" xmlns="http://www.w3.org/2000/svg" width="217pt" height="232pt" viewBox="0 0 217 232"><g transform="translate(0.000000,232.000000) scale(0.100000,-0.100000)" fill="#000" stroke="none"><path d="M1017 2250c-397-48-698-367-731-775-9-106-3-113 66-87l55 20 11-71c6-39 10-72 9-73s-58-22-127-47c-104-37-124-48-122-64 7-37 56-150 88-205l34-56 66 25 66 26 65-72c206-226 513-322 808-252 367 88 634 417 635 784 0 43-4 77-10 77-5 0-32-9-60-20s-55-20-59-20c-5 0-12 26-16 59-4 32-20 96-36 142s-30 88-31 92c-2 5 54 29 124 55l128 46-31 55c-17 31-33 58-34 59-2 2-31-6-64-19l-61-22-23 29c-81 104-172 178-292 235-140 68-309 97-458 79zm226-299c90-24 136-46 206-101l52-41 61 20 60 20 26-31c15-17 35-44 44-59l17-28-52-19c-29-11-86-32-128-47l-76-27 24-58c26-66 43-144 43-201 0-22 2-39 5-39 2 0 27 9 55 20s55 20 60 20c17 0 10-63-14-131-127-359-580-484-862-237l-35 31-70-24-71-24-30 35c-37 43-97 164-104 212l-6 34 123 46 124 45-3 64c-2 35-5 66-7 68-2 1-27-5-55-14s-53-15-55-14c-2 2 1 29 7 59 32 179 185 352 361 409 112 36 192 39 3e2 12z"/><path d="M134 321c-77-33-95-169-29-231 19-18 36-23 71-23 40 0 51 4 75 30 50 56 47 153-5 202-26 25-80 35-112 22zm82-62c26-29 26-99 0-128-24-26-47-27-77-2-19 15-24 29-24 64 0 76 58 114 101 66z"/><path d="M1172 320c-27-12-44-52-33-82 4-12 31-32 61-47 30-14 58-34 64-43 26-43-50-76-99-44-15 10-26 12-30 6-10-16 4-29 44-40 62-17 114 13 114 65 0 35-19 53-80 81-54 23-67 46-41 72 15 15 62 16 88 2 23-12 35 3 16 19-20 17-77 23-104 11z"/><path d="M350 195V70h25c23 0 25 4 25 45v45h40c76 0 115 40 103 104-8 42-38 56-120 56h-73V195zm134 69c18-18 18-17 10-38-4-11-19-16-50-16-44 0-44 0-44 35 0 33 2 35 34 35 19 0 42-7 50-16z"/><path d="M6e2 195V70h90c83 0 90 2 90 20 0 16-8 19-62 22-63 3-63 3-66 36-3 31-2 32 36 32 36 0 39 2 34 25-4 21-10 25-38 25-30 0-34 3-34 25 0 24 2 25 65 25 58 0 65 2 65 20 0 19-7 20-90 20h-90V195z"/><path d="M850 195c0-117 1-125 20-125 17 0 19 8 22 83l3 82 55-82c41-62 61-83 78-83 22 0 22 2 22 125 0 117-1 125-20 125-17 0-19-8-22-82l-3-82-54 82c-42 65-59 82-77 82-24 0-24 0-24-125z"/><path d="M1360 195c0-104 2-125 15-125 12 0 15 13 15 60v60h65 65v-60c0-47 3-60 15-60 13 0 15 21 15 125s-2 125-15 125c-12 0-15-13-15-55v-55h-65-65v55c0 42-3 55-15 55-13 0-15-21-15-125z"/><path d="M1620 195c0-104 2-125 15-125s15 21 15 125-2 125-15 125-15-21-15-125z"/><path d="M1730 195c0-77 4-125 10-125s10 27 10 60v60h35c19 0 35 5 35 10 0 6-16 10-35 10-35 0-35 0-35 45v45h60c33 0 60 4 60 10s-30 10-70 10h-70V195z"/><path d="M1930 310c0-5 18-10 40-10h40V185c0-70 4-115 10-115s10 45 10 115v115h40c22 0 40 5 40 10 0 6-37 10-90 10s-90-4-90-10z"/></g></svg></span><span class="font-weight-bold">Documentation</span>
+	</a>
+	<div class="td-navbar-nav-scroll ml-md-auto" id="main_navbar">
+		<ul class="navbar-nav mt-2 mt-lg-0">
+			
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/" ><i class='fa fa-home'></i><span>Home</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/docs/azure/" ><i class='fab fa-azure'></i><span>Azure Cloud Computing</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link active" href="/docs/azure-devops/" ><i class='fab fa-azure'></i><span class="active">Azure Devops</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/docs/gitlab/" ><i class='fab fa-gitlab'></i><span>Gitlab Tutorials</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/docs/openshift/" ><i class='fab fa-openshift'></i><span>OpenShift Administration</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/docs/kvm/" ><i class="fab fa-linux"></i><span>Redhat Ansible</span></a>
+			</li>
+			
+			
+			
+		</ul>
+	</div>
+	<div class="navbar-nav d-none d-lg-block">
+<form class="d-flex align-items-center">
+  <input type="search"
+  class="form-control td-search-input"
+  placeholder="&#xf002; Search this site…"
+  aria-label="Search this site…"
+  autocomplete="off"
+  
+  data-offline-search-index-json-src="/offline-search-index.d4ee35dfb31ed3b96d119091cf664ad4.json"
+  data-offline-search-base-href="/"
+  data-offline-search-max-results="20">
+</form>
+</div>
+</nav>
+
+      <div class="manage-panels">
+    <button type="button" class="button-left" id="left-panel-manager" title="Hide sidebar">""</button>
+    <button type="button" class="button-right" id="right-panel-manager" title="Hide sidebar">""</button>
+</div>
+    </header>
+    <div class="container-fluid td-outer">
+      <div class="td-main autonumbering">
+        <div class="row flex-xl-nowrap">
+          <aside class="col-12 col-md-3 col-xl-2 td-sidebar d-print-none">
+            
+<div id="td-sidebar-menu" class="td-sidebar__inner">
+  <div id="content-mobile">
+  <form class="td-sidebar__search d-flex align-items-center">
+    
+<form class="d-flex align-items-center">
+  <input type="search"
+  class="form-control td-search-input"
+  placeholder="&#xf002; Search this site…"
+  aria-label="Search this site…"
+  autocomplete="off"
+  
+  data-offline-search-index-json-src="/offline-search-index.d4ee35dfb31ed3b96d119091cf664ad4.json"
+  data-offline-search-base-href="/"
+  data-offline-search-max-results="20">
+</form>
+
+    <button class="btn btn-link td-sidebar__toggle d-md-none p-0 ml-3 fas fa-bars" type="button" data-toggle="collapse" data-target="#td-section-nav" aria-controls="td-docs-nav" aria-expanded="false" aria-label="Toggle section navigation">
+    </button>
+  </form>
+  </div>
+  <div id="content-desktop"></div>
+  <nav class="collapse td-sidebar-nav foldable-nav" id="td-section-nav">
+    <ul class="td-sidebar-nav__section pr-md-3 ul-0">
+      <li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id="m-docs-li">
+  <a href="/docs/" class="align-left pl-0 td-sidebar-link td-sidebar-link__section tree-root" id="m-docs"><span class="">Docs</span></a>
+  <ul class="ul-1">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-docsazure-li">
+  <input type="checkbox" id="m-docsazure-check"/>
+  <label for="m-docsazure-check"><a href="/docs/azure/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-docsazure"><i class="fab fa-azure"></i><span class="">Azure Cloud Computing</span></a></label>
+  
+  <ul class="ul-2 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazurelinux-basics-li">
+  <input type="checkbox" id="m-docsazurelinux-basics-check"/>
+  <label for="m-docsazurelinux-basics-check"><a href="/docs/azure/linux-basics/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazurelinux-basics"><i class="fab fa-azure"></i><span class="">Linux Basics</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazureazure-vm-li">
+  <input type="checkbox" id="m-docsazureazure-vm-check"/>
+  <label for="m-docsazureazure-vm-check"><a href="/docs/azure/azure-vm/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazureazure-vm"><i class="fab fa-azure"></i><span class="">Azure Cloud Virtual Machine (01)</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazureazuredevops-li">
+  <input type="checkbox" id="m-docsazureazuredevops-check"/>
+  <label for="m-docsazureazuredevops-check"><a href="/docs/azure/azuredevops/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazureazuredevops"><i class="fab fa-azure"></i><span class="">Azure Devops</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazureazure-network-li">
+  <input type="checkbox" id="m-docsazureazure-network-check"/>
+  <label for="m-docsazureazure-network-check"><a href="/docs/azure/azure-network/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazureazure-network"><i class="fab fa-azure"></i><span class="">Azure Cloud Networking</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazureazure-storage-li">
+  <input type="checkbox" id="m-docsazureazure-storage-check"/>
+  <label for="m-docsazureazure-storage-check"><a href="/docs/azure/azure-storage/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazureazure-storage"><i class="fab fa-azure"></i><span class="">Azure Cloud Storage</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazureazure-cli-li">
+  <input type="checkbox" id="m-docsazureazure-cli-check"/>
+  <label for="m-docsazureazure-cli-check"><a href="/docs/azure/azure-cli/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazureazure-cli"><i class="fab fa-azure"></i><span class="">Azure Cli</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazureazure-vmss-li">
+  <input type="checkbox" id="m-docsazureazure-vmss-check"/>
+  <label for="m-docsazureazure-vmss-check"><a href="/docs/azure/azure-vmss/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazureazure-vmss"><i class="fab fa-azure"></i><span class="">Azure Cloud Virtual Machine Scale Set</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazureazure-lb-li">
+  <input type="checkbox" id="m-docsazureazure-lb-check"/>
+  <label for="m-docsazureazure-lb-check"><a href="/docs/azure/azure-lb/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazureazure-lb"><i class="fab fa-azure"></i><span class="">Azure Cloud LoadBalancers</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazureazure-monitor-li">
+  <input type="checkbox" id="m-docsazureazure-monitor-check"/>
+  <label for="m-docsazureazure-monitor-check"><a href="/docs/azure/azure-monitor/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazureazure-monitor"><i class="fab fa-azure"></i><span class="">Azure Monitoring</span></a></label>
+  
+</li>
+  </ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id="m-docsazure-devops-li">
+  <input type="checkbox" id="m-docsazure-devops-check" checked/>
+  <label for="m-docsazure-devops-check"><a href="/docs/azure-devops/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-docsazure-devops"><i class="fab fa-azure"></i><span class="">Azure Devops</span></a></label>
+  
+  <ul class="ul-2 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazure-devopsazure-board-li">
+  <input type="checkbox" id="m-docsazure-devopsazure-board-check"/>
+  <label for="m-docsazure-devopsazure-board-check"><a href="/docs/azure-devops/azure-board/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazure-devopsazure-board"><i class="fab fa-azure"></i><span class="">Azure Board</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazure-devopsazuredevops-01-li">
+  <input type="checkbox" id="m-docsazure-devopsazuredevops-01-check"/>
+  <label for="m-docsazure-devopsazuredevops-01-check"><a href="/docs/azure-devops/azuredevops-01/" class="align-left pl-0  active td-sidebar-link td-sidebar-link__page" id="m-docsazure-devopsazuredevops-01"><i class="fab fa-azure"></i><span class="td-sidebar-nav-active-item">Part 1</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazure-devopsazuredevops-li">
+  <input type="checkbox" id="m-docsazure-devopsazuredevops-check"/>
+  <label for="m-docsazure-devopsazuredevops-check"><a href="/docs/azure-devops/azuredevops/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazure-devopsazuredevops"><i class="fab fa-azure"></i><span class="">Azure Devops</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazure-devopsazuredevops-02-li">
+  <input type="checkbox" id="m-docsazure-devopsazuredevops-02-check"/>
+  <label for="m-docsazure-devopsazuredevops-02-check"><a href="/docs/azure-devops/azuredevops-02/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazure-devopsazuredevops-02"><i class="fab fa-azure"></i><span class="">Part 2</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazure-devopsazuredevops-03-li">
+  <input type="checkbox" id="m-docsazure-devopsazuredevops-03-check"/>
+  <label for="m-docsazure-devopsazuredevops-03-check"><a href="/docs/azure-devops/azuredevops-03/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazure-devopsazuredevops-03"><i class="fab fa-azure"></i><span class="">Part 3</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazure-devopsazuredevops-04-li">
+  <input type="checkbox" id="m-docsazure-devopsazuredevops-04-check"/>
+  <label for="m-docsazure-devopsazuredevops-04-check"><a href="/docs/azure-devops/azuredevops-04/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazure-devopsazuredevops-04"><i class="fab fa-azure"></i><span class="">part 4</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazure-devopsazuredevops-05-li">
+  <input type="checkbox" id="m-docsazure-devopsazuredevops-05-check"/>
+  <label for="m-docsazure-devopsazuredevops-05-check"><a href="/docs/azure-devops/azuredevops-05/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazure-devopsazuredevops-05"><i class="fab fa-azure"></i><span class="">Part 5</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazure-devopsazuredevops-06-li">
+  <input type="checkbox" id="m-docsazure-devopsazuredevops-06-check"/>
+  <label for="m-docsazure-devopsazuredevops-06-check"><a href="/docs/azure-devops/azuredevops-06/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazure-devopsazuredevops-06"><i class="fab fa-azure"></i><span class="">Part 6</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazure-devopsaks-li">
+  <input type="checkbox" id="m-docsazure-devopsaks-check"/>
+  <label for="m-docsazure-devopsaks-check"><a href="/docs/azure-devops/aks/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazure-devopsaks"><i class="fab fa-azure"></i><span class="">AKS</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazure-devopstest-li">
+  <input type="checkbox" id="m-docsazure-devopstest-check"/>
+  <label for="m-docsazure-devopstest-check"><a href="/docs/azure-devops/test/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazure-devopstest"><i class="fab fa-azure"></i><span class="">Azure Devops Test Plans</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazure-devopsdocker-li">
+  <input type="checkbox" id="m-docsazure-devopsdocker-check"/>
+  <label for="m-docsazure-devopsdocker-check"><a href="/docs/azure-devops/docker/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazure-devopsdocker"><i class="fab fa-azure"></i><span class="">Docker</span></a></label>
+  
+</li>
+  </ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-docsgitlab-li">
+  <input type="checkbox" id="m-docsgitlab-check"/>
+  <label for="m-docsgitlab-check"><a href="/docs/gitlab/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-docsgitlab"><i class="fab fa-gitlab"></i><span class="">Gitlab Tutorials</span></a></label>
+  
+  <ul class="ul-2 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsgitlabgitlab01-li">
+  <input type="checkbox" id="m-docsgitlabgitlab01-check"/>
+  <label for="m-docsgitlabgitlab01-check"><a href="/docs/gitlab/gitlab01/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsgitlabgitlab01"><i class="fab fa-gitlab"></i><span class="">GitLab Installation</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsgitlabgitlab-with-ldap-li">
+  <input type="checkbox" id="m-docsgitlabgitlab-with-ldap-check"/>
+  <label for="m-docsgitlabgitlab-with-ldap-check"><a href="/docs/gitlab/gitlab-with-ldap/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsgitlabgitlab-with-ldap"><i class="fas fa-server"></i><span class="">Gitlab Authentication with LDAP</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsgitlabgitlab-container-registry-li">
+  <input type="checkbox" id="m-docsgitlabgitlab-container-registry-check"/>
+  <label for="m-docsgitlabgitlab-container-registry-check"><a href="/docs/gitlab/gitlab-container-registry/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsgitlabgitlab-container-registry"><i class="fab fa-docker"></i><span class="">GitLab Container Registry</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsgitlabgitlab-logs-troubleshooting-li">
+  <input type="checkbox" id="m-docsgitlabgitlab-logs-troubleshooting-check"/>
+  <label for="m-docsgitlabgitlab-logs-troubleshooting-check"><a href="/docs/gitlab/gitlab-logs-troubleshooting/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsgitlabgitlab-logs-troubleshooting"><i class="fas fa-file-alt"></i><span class="">Logs and Troubleshooting</span></a></label>
+  
+</li>
+  </ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-docsopenshift-li">
+  <input type="checkbox" id="m-docsopenshift-check"/>
+  <label for="m-docsopenshift-check"><a href="/docs/openshift/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-docsopenshift"><i class="fab fa-openshift"></i><span class="">OpenShift Administration</span></a></label>
+  
+  <ul class="ul-2 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsopenshiftocp-onvmware-copy-li">
+  <input type="checkbox" id="m-docsopenshiftocp-onvmware-copy-check"/>
+  <label for="m-docsopenshiftocp-onvmware-copy-check"><a href="/docs/openshift/ocp-onvmware-copy/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsopenshiftocp-onvmware-copy"><i class="fab fa-openshift"></i><span class="">Openshift Installation on Vmware</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsopenshiftocp-sno-li">
+  <input type="checkbox" id="m-docsopenshiftocp-sno-check"/>
+  <label for="m-docsopenshiftocp-sno-check"><a href="/docs/openshift/ocp-sno/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsopenshiftocp-sno"><i class="fab fa-openshift"></i><span class="">Openshift Single node Cluster</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsopenshiftocp-tasks-li">
+  <input type="checkbox" id="m-docsopenshiftocp-tasks-check"/>
+  <label for="m-docsopenshiftocp-tasks-check"><a href="/docs/openshift/ocp-tasks/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsopenshiftocp-tasks"><span class="">Openshift 4 Tasks</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsopenshiftocp-tekton-li">
+  <input type="checkbox" id="m-docsopenshiftocp-tekton-check"/>
+  <label for="m-docsopenshiftocp-tekton-check"><a href="/docs/openshift/ocp-tekton/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsopenshiftocp-tekton"><span class="">Openshift Tekton Pipeline</span></a></label>
+  
+</li>
+  </ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-docskvm-li">
+  <input type="checkbox" id="m-docskvm-check"/>
+  <label for="m-docskvm-check"><a href="/docs/kvm/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-docskvm"><i class="fab fa-linux"></i><span class="">Redhat Ansible</span></a></label>
+  
+  <ul class="ul-2 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docskvmkvm-li">
+  <input type="checkbox" id="m-docskvmkvm-check"/>
+  <label for="m-docskvmkvm-check"><a href="/docs/kvm/kvm/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docskvmkvm"><i class="fab fa-kvm"></i><span class="">KVM</span></a></label>
+  
+</li>
+  </ul>
+</li>
+  </ul>
+</li>
+    </ul>
+  </nav>
+</div>
+
+          </aside>
+          <aside class="d-none d-xl-block col-xl-2 td-sidebar-toc d-print-none">
+            
+
+    <div class="td-page-meta ml-2 pb-1 pt-2 mb-0">
+        <div class="toc-title">Actions</div>
+        <a href="/edit/master/content/docs/Azure%20%20Devops/Azuredevops-01.md" target="_blank" rel="noopener"><i class="fa fa-edit fa-fw"></i> Contribute to this page</a>
+        <a href="/issues/new?issue%5Btitle=%f0%9f%93%83%20docs:%20update%20page%20docs/Azure%20%20Devops/Azuredevops-01.md" target="_blank" rel="noopener"><i class="fab fa-gitlab fa-fw"></i> Create a documentation issue</a>
+       
+    </div>
+
+            
+<div class="td-page-meta ml-2 pb-1 pt-2 mb-0 right-menu-toc">
+
+    
+        
+            <div class="toc-title">Table of content</div>
+            <div class="td-toc"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#phases-of-sdlc">Phases of SDLC</a>
+      <ul>
+        <li><a href="#1-planning">1. Planning</a></li>
+        <li><a href="#2-requirements-gathering-and-analysis">2. Requirements Gathering and Analysis</a></li>
+        <li><a href="#3-design">3. Design</a></li>
+        <li><a href="#4-development">4. Development</a></li>
+        <li><a href="#5-testing">5. Testing</a></li>
+        <li><a href="#6-deployment">6. Deployment</a></li>
+        <li><a href="#7-maintenance">7. Maintenance</a></li>
+      </ul>
+    </li>
+    <li><a href="#popular-sdlc-models">Popular SDLC Models</a></li>
+    <li><a href="#before-devops">Before Devops</a>
+      <ul>
+        <li><a href="#waterfall-model">Waterfall Model:</a></li>
+        <li><a href="#agile-methodology">Agile Methodology:</a></li>
+        <li><a href="#key-features">Key Features:</a></li>
+        <li><a href="#12-agile-principles">12 Agile Principles:</a></li>
+        <li><a href="#key-agile-methodology">Key Agile Methodology</a></li>
+        <li><a href="#agile-framework">Agile framework</a>
+          <ul>
+            <li><a href="#scrum-methodology">SCRUM Methodology</a></li>
+          </ul>
+        </li>
+        <li><a href="#scrum-roles">SCRUM Roles:</a></li>
+      </ul>
+    </li>
+    <li><a href="#scrum-workflow">Scrum Workflow</a>
+      <ul>
+        <li><a href="#roles-in-scrum">Roles in Scrum:</a></li>
+        <li><a href="#scrum-artifacts">Scrum Artifacts:</a></li>
+        <li><a href="#key-events-in-scrum">Key Events in Scrum:</a></li>
+      </ul>
+    </li>
+    <li><a href="#kanban-methodology">Kanban Methodology</a>
+      <ul>
+        <li><a href="#key-principles">Key Principles</a></li>
+        <li><a href="#benefits">Benefits</a></li>
+      </ul>
+    </li>
+    <li><a href="#devops-overview">DevOps Overview</a>
+      <ul>
+        <li><a href="#devops-drivers">DevOps Drivers</a></li>
+        <li><a href="#key-takeaways">Key Takeaways</a></li>
+      </ul>
+    </li>
+    <li><a href="#azure-devops">Azure Devops</a>
+      <ul>
+        <li><a href="#azure-devops-offerings">Azure Devops Offerings</a></li>
+        <li><a href="#choose-azure-devops-services">Choose Azure DevOps Services</a></li>
+        <li><a href="#azure-devops-for-open-source">Azure DevOps for Open Source</a></li>
+        <li><a href="#azure-pipelines">Azure Pipelines</a></li>
+        <li><a href="#pricing-for-azure-devops">Pricing for Azure DevOps</a></li>
+        <li><a href="#azure-devops-navigation">Azure DevOps navigation:</a></li>
+      </ul>
+    </li>
+    <li><a href="#azure-devops-organization">Azure DevOps Organization</a>
+      <ul>
+        <li><a href="#key-features-1">Key Features:</a></li>
+      </ul>
+    </li>
+    <li><a href="#azure-devops-project">Azure DevOps Project</a>
+      <ul>
+        <li><a href="#key-features-2">Key Features:</a></li>
+      </ul>
+    </li>
+    <li><a href="#relationship-between-account-organization-and-project">Relationship Between Account, Organization, and Project</a></li>
+    <li><a href="#azure-devops-project-processes">Azure DevOps Project Processes</a>
+      <ul>
+        <li><a href="#agile-process">Agile Process</a>
+          <ul>
+            <li><a href="#key-features-3">Key Features:</a></li>
+            <li><a href="#recommended-for">Recommended For:</a></li>
+          </ul>
+        </li>
+        <li><a href="#scrum-process">Scrum Process</a>
+          <ul>
+            <li><a href="#key-features-4">Key Features:</a></li>
+            <li><a href="#recommended-for-1">Recommended For:</a></li>
+          </ul>
+        </li>
+        <li><a href="#cmmi-capability-maturity-model-integration-process">CMMI (Capability Maturity Model Integration) Process</a>
+          <ul>
+            <li><a href="#key-features-5">Key Features:</a></li>
+            <li><a href="#recommended-for-2">Recommended For:</a></li>
+          </ul>
+        </li>
+        <li><a href="#basic-process">Basic Process</a>
+          <ul>
+            <li><a href="#key-features-6">Key Features:</a></li>
+            <li><a href="#recommended-for-3">Recommended For:</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#process-selection">Process Selection</a>
+      <ul>
+        <li><a href="#choosing-the-right-process">Choosing the Right Process:</a></li>
+        <li><a href="#lab-01">LAB 01</a></li>
+      </ul>
+    </li>
+    <li><a href="#azure-wiki">Azure Wiki</a>
+      <ul>
+        <li><a href="#overview">Overview</a></li>
+        <li><a href="#key-features-7">Key Features</a></li>
+        <li><a href="#use-cases">Use Cases</a></li>
+      </ul>
+    </li>
+    <li><a href="#azure-dashboards">Azure Dashboards</a>
+      <ul>
+        <li><a href="#overview-1">Overview</a></li>
+        <li><a href="#key-features-8">Key Features</a></li>
+        <li><a href="#use-cases-1">Use Cases</a></li>
+        <li><a href="#lab-02">LAB 02</a></li>
+      </ul>
+    </li>
+    <li><a href="#azure-boards-overview">Azure Boards Overview</a>
+      <ul>
+        <li><a href="#what-is-azure-boards">What is Azure Boards?</a></li>
+        <li><a href="#key-features-9">Key Features</a></li>
+        <li><a href="#benefits-1">Benefits</a></li>
+        <li><a href="#basic-process-1">Basic Process</a></li>
+        <li><a href="#agile-process-1">Agile process</a></li>
+        <li><a href="#scrum-process-1">Scrum Process</a></li>
+        <li><a href="#cmmi-process">CMMI Process</a></li>
+        <li><a href="#what-is-an-epic">What is an Epic?</a></li>
+        <li><a href="#key-characteristics-of-an-epic">Key Characteristics of an Epic:</a>
+          <ul>
+            <li><a href="#purpose-of-an-epic">Purpose of an Epic:</a></li>
+            <li><a href="#example">Example:</a></li>
+          </ul>
+        </li>
+        <li><a href="#what-is-a-feature">What is a Feature?</a>
+          <ul>
+            <li><a href="#key-characteristics-of-a-feature">Key Characteristics of a Feature:</a></li>
+            <li><a href="#purpose-of-a-feature">Purpose of a Feature:</a></li>
+            <li><a href="#example-1">Example:</a></li>
+          </ul>
+        </li>
+        <li><a href="#user-story">User Story</a>
+          <ul>
+            <li><a href="#key-characteristics">Key Characteristics:</a></li>
+            <li><a href="#example-2">Example:</a></li>
+          </ul>
+        </li>
+        <li><a href="#task">Task</a>
+          <ul>
+            <li><a href="#key-characteristics-1">Key Characteristics:</a></li>
+            <li><a href="#example-3">Example:</a></li>
+          </ul>
+        </li>
+        <li><a href="#issue">Issue</a>
+          <ul>
+            <li><a href="#key-characteristics-2">Key Characteristics:</a></li>
+            <li><a href="#example-4">Example:</a></li>
+          </ul>
+        </li>
+        <li><a href="#sprints-and-iterations">Sprints and Iterations</a>
+          <ul>
+            <li><a href="#what-is-a-sprint">What is a Sprint?</a></li>
+            <li><a href="#key-characteristics-of-a-sprint">Key Characteristics of a Sprint:</a></li>
+            <li><a href="#purpose-of-a-sprint">Purpose of a Sprint:</a></li>
+          </ul>
+        </li>
+        <li><a href="#what-is-an-iteration">What is an Iteration?</a>
+          <ul>
+            <li><a href="#key-characteristics-of-an-iteration">Key Characteristics of an Iteration:</a></li>
+            <li><a href="#purpose-of-an-iteration">Purpose of an Iteration:</a></li>
+          </ul>
+        </li>
+        <li><a href="#example-5">Example:</a></li>
+        <li><a href="#common-tasks-and-solutions">Common Tasks and Solutions</a>
+          <ul>
+            <li><a href="#create-a-work-item">Create a Work Item</a></li>
+            <li><a href="#update-a-work-item">Update a Work Item</a></li>
+            <li><a href="#use-a-kanban-board">Use a Kanban Board</a></li>
+            <li><a href="#create-a-sprint">Create a Sprint</a></li>
+            <li><a href="#manage-backlogs">Manage Backlogs</a></li>
+            <li><a href="#create-a-query">Create a Query</a></li>
+            <li><a href="#set-up-dashboards">Set Up Dashboards</a></li>
+            <li><a href="#add-comments-to-work-items">Add Comments to Work Items</a></li>
+            <li><a href="#link-work-items">Link Work Items</a></li>
+            <li><a href="#close-a-work-item">Close a Work Item</a></li>
+          </ul>
+        </li>
+        <li><a href="#lab-03">LAB 03</a></li>
+        <li><a href="#what-are-delivery-plans">What are Delivery Plans?</a></li>
+        <li><a href="#key-characteristics-of-delivery-plans">Key Characteristics of Delivery Plans:</a>
+          <ul>
+            <li><a href="#purpose-of-delivery-plans">Purpose of Delivery Plans:</a></li>
+          </ul>
+        </li>
+        <li><a href="#components-of-a-delivery-plan">Components of a Delivery Plan:</a></li>
+        <li><a href="#example-6">Example:</a></li>
+        <li><a href="#benefits-of-using-delivery-plans">Benefits of Using Delivery Plans:</a></li>
+        <li><a href="#who-creates-delivery-plans">Who Creates Delivery Plans?</a></li>
+        <li><a href="#for-whom-are-delivery-plans-created">For Whom Are Delivery Plans Created?</a></li>
+        <li><a href="#purpose-of-delivery-plans-1">Purpose of Delivery Plans:</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li><a href="#1-configure-area-paths">1. Configure Area Paths</a>
+      <ul>
+        <li><a href="#steps">Steps:</a></li>
+      </ul>
+    </li>
+    <li><a href="#2-configure-iterations-sprints">2. Configure Iterations (Sprints)</a>
+      <ul>
+        <li><a href="#steps-1">Steps:</a></li>
+      </ul>
+    </li>
+    <li><a href="#3-assign-area-paths-and-iterations-to-teams">3. Assign Area Paths and Iterations to Teams</a>
+      <ul>
+        <li><a href="#steps-2">Steps:</a></li>
+      </ul>
+    </li>
+    <li><a href="#4-set-default-iteration-and-area-path-for-work-items">4. Set Default Iteration and Area Path for Work Items</a>
+      <ul>
+        <li><a href="#steps-3">Steps:</a></li>
+        <li><a href="#pending-task">Pending Task:</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+        
+    
+
+</div>
+          </aside>
+          <main class="col-12 col-md-9 col-xl-8 pl-md-5" role="main">
+            
+  
+
+            <nav aria-label="breadcrumb" class="td-breadcrumbs">
+  <ol class="breadcrumb">
+  <li class="breadcrumb-item">
+    <a href="/docs/">Docs</a>
+  </li>
+  <li class="breadcrumb-item">
+    <a href="/docs/azure-devops/">Azure Devops</a>
+  </li>
+  <li class="breadcrumb-item active" aria-current="page">
+    <a href="/docs/azure-devops/azuredevops-01/">Part 1</a>
+  </li>
+  </ol>
+</nav>
+            
+<div class="td-content">
+	<h1>Part 1</h1>
+	<div class="lead">Azure Devops</div>
+	<header class="article-meta">
+		
+
+  
+    
+
+
+  
+    
+
+
+  
+
+		
+	</header>    
+	<!-- end-chunk -->
+<!-- begin-chunk data-anchor="devops-introduction" data-heading="DevOps Introduction" data-level="1" data-permalink="/docs/azure-devops/azuredevops-01/" data-title="Part 1" -->
+<h1 id="devops-introduction">DevOps Introduction</h1><!-- end-chunk -->
+<!-- begin-chunk data-anchor="agenda" data-heading="Agenda" data-level="1" data-permalink="/docs/azure-devops/azuredevops-01/" data-title="Part 1" -->
+<h1 id="agenda">Agenda</h1><ul>
+<li><a href="#sdlc">SDLC Lifecycle</a></li>
+<li><a href="#before-devops">Before Devops</a>
+<ul>
+<li><a href="#waterfall-model">Waterfall Model</a></li>
+<li><a href="#agile-methodology">Agile Methodology</a></li>
+<li><a href="#12-agile-principles">Agile Principles</a>
+<ul>
+<li><a href="#agile-framework">Agile Framework</a>
+<ul>
+<li><a href="#scrum-methodology">Scrum Methodology</a></li>
+<li><a href="#kanban-methodology">Kanban methodology</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#devops-overview">Devops</a></li>
+<li><a href="#azure-devops">Azure Devops</a>
+<ul>
+<li><a href="#azure-devops-offerings">Offerings</a></li>
+</ul>
+</li>
+<li><a href="#lab-01">LAB 01</a></li>
+<li><a href="#azure-wiki">Azure Wiki</a></li>
+<li><a href="#azure-dashboards">Azure Dashboard</a></li>
+<li><a href="#lab-02">LAB 02</a></li>
+<li><a href="#azure-boards-overview">Azure Board</a>
+<ul>
+<li><a href="#azure-devops-project-processes">Project Process</a></li>
+<li><a href="#what-is-an-epic">Epic</a></li>
+<li><a href="#what-is-a-feature">Features</a></li>
+<li><a href="#user-story">user Story</a></li>
+<li><a href="#task">Task</a></li>
+<li><a href="#sprints-and-iterations">Sprints and Iterations</a></li>
+</ul>
+</li>
+<li><a href="#lab-03">LAB 03</a></li>
+</ul>
+<hr>
+<p><span style="color:orange">Getting Started with Azure Devops: Build , test and Deploy your application.</span></p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="software-development-life-cycle-sdlc" data-heading="Software Development Life Cycle (SDLC)" data-level="1" data-permalink="/docs/azure-devops/azuredevops-01/" data-title="Part 1" -->
+<h1 id="software-development-life-cycle-sdlc">Software Development Life Cycle (SDLC)</h1><p>The <strong>Software Development Life Cycle (SDLC)</strong> is a structured process that outlines the stages involved in developing software. It ensures high-quality software is produced efficiently, meeting both business and technical requirements.</p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="phases-of-sdlc" data-heading="Phases of SDLC" data-level="2" data-permalink="/docs/azure-devops/azuredevops-01/" data-title="Part 1" -->
+<h2 id="phases-of-sdlc">Phases of SDLC</h2><!-- end-chunk -->
+<!-- begin-chunk data-anchor="1-planning" data-heading="1. Planning" data-level="3" data-permalink="/docs/azure-devops/azuredevops-01/" data-title="Part 1" -->
+<h3 id="1-planning">1. Planning</h3><ul>
+<li><strong>Objective:</strong> Define the project goals, scope, resources, timeline, and cost estimation.</li>
+<li><strong>Outcome:</strong> A project plan or roadmap.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="2-requirements-gathering-and-analysis" data-heading="2. Requirements Gathering and Analysis" data-level="3" data-permalink="/docs/azure-devops/azuredevops-01/" data-title="Part 1" -->
+<h3 id="2-requirements-gathering-and-analysis">2. Requirements Gathering and Analysis</h3><ul>
+<li><strong>Objective:</strong> Understand what the software needs to achieve by collecting functional and non-functional requirements from stakeholders.</li>
+<li><strong>Outcome:</strong> A clear requirements specification document.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="3-design" data-heading="3. Design" data-level="3" data-permalink="/docs/azure-devops/azuredevops-01/" data-title="Part 1" -->
+<h3 id="3-design">3. Design</h3><ul>
+<li><strong>Objective:</strong> Create a blueprint or architecture for how the software will be developed.</li>
+<li><strong>Outcome:</strong> High-level and low-level design documents, including database schema, architecture diagrams, and UI/UX designs.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="4-development" data-heading="4. Development" data-level="3" data-permalink="/docs/azure-devops/azuredevops-01/" data-title="Part 1" -->
+<h3 id="4-development">4. Development</h3><ul>
+<li><strong>Objective:</strong> Actual coding of the software based on the design specifications.</li>
+<li><strong>Outcome:</strong> The working software product.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="5-testing" data-heading="5. Testing" data-level="3" data-permalink="/docs/azure-devops/azuredevops-01/" data-title="Part 1" -->
+<h3 id="5-testing">5. Testing</h3><ul>
+<li><strong>Objective:</strong> Identify and fix defects or issues in the software to ensure it functions as intended.</li>
+<li><strong>Outcome:</strong> A bug-free, functional software ready for deployment.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="6-deployment" data-heading="6. Deployment" data-level="3" data-permalink="/docs/azure-devops/azuredevops-01/" data-title="Part 1" -->
+<h3 id="6-deployment">6. Deployment</h3><ul>
+<li><strong>Objective:</strong> Release the software to the production environment where users can start using it.</li>
+<li><strong>Outcome:</strong> A deployed software product available to the end users.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="7-maintenance" data-heading="7. Maintenance" data-level="3" data-permalink="/docs/azure-devops/azuredevops-01/" data-title="Part 1" -->
+<h3 id="7-maintenance">7. Maintenance</h3><ul>
+<li><strong>Objective:</strong> Ongoing support for bug fixes, updates, and enhancements based on user feedback or emerging requirements.</li>
+<li><strong>Outcome:</strong> Continuous improvement and support for the software.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="popular-sdlc-models" data-heading="Popular SDLC Models" data-level="2" data-permalink="/docs/azure-devops/azuredevops-01/" data-title="Part 1" -->
+<h2 id="popular-sdlc-models">Popular SDLC Models</h2><ul>
+<li><strong>Waterfall Model:</strong> Sequential approach where each phase must be completed before moving to the next.</li>
+<li><strong>Agile Model:</strong> Iterative approach focusing on collaboration, customer feedback, and smaller cycles of development.</li>
+<li><strong>V-Model:</strong> Extension of the waterfall model with a focus on verification and validation.</li>
+<li><strong>Spiral Model:</strong> Combines iterative development with a risk-driven approach.</li>
+<li><strong>DevOps Model:</strong> Integrates development and operations for continuous integration and delivery.</li>
+</ul>
+<p>SDLC helps in managing software projects systematically, ensuring that the software meets user needs, is developed on time, and is within budget.</p>
+<p><img src="/images/sdlc.png" alt="SDLC"></p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="before-devops" data-heading="Before Devops" data-level="2" data-permalink="/docs/azure-devops/azuredevops-01/" data-title="Part 1" -->
+<h2 id="before-devops">Before Devops</h2><!-- end-chunk -->
+<!-- begin-chunk data-anchor="waterfall-model" data-heading="Waterfall Model:" data-level="3" data-permalink="/docs/azure-devops/azuredevops-01/" data-title="Part 1" -->
+<h3 id="waterfall-model">Waterfall Model:</h3><ul>
+<li>The waterfall model is a software development model that is straightforward and linear.</li>
+<li>It follows a top-down approach.<br>
+<img src="/images/water.png" alt="waterfall model"></li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="agile-methodology" data-heading="Agile Methodology:" data-level="3" data-permalink="/docs/azure-devops/azuredevops-01/" data-title="Part 1" -->
+<h3 id="agile-methodology">Agile Methodology:</h3><ul>
+<li>Agile Methodology is an iterative based software development approach It follows a top-down approach</li>
+<li>The software project is broken down into various iterations or sprints</li>
+<li>Each iteration has phases like the waterfall model such as Requirements Gathering, Design, Development, Testing,
+and Maintenance</li>
+<li>The duration of each iteration is generally 2-8 weeks.
+<img src="/images/agile.png" alt="agile"></li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="key-features" data-heading="Key Features:" data-level="3" data-permalink="/docs/azure-devops/azuredevops-01/" data-title="Part 1" -->
+<h3 id="key-features">Key Features:</h3><ul>
+<li>High-priority features</li>
+<li>Customer feedback</li>
+<li>Application improvement post-feedback</li>
+</ul>
+<hr>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="12-agile-principles" data-heading="12 Agile Principles:" data-level="3" data-permalink="/docs/azure-devops/azuredevops-01/" data-title="Part 1" -->
+<h3 id="12-agile-principles">12 Agile Principles:</h3><p><img src="/images/agile03.png" alt="Agile Principles"></p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="key-agile-methodology" data-heading="Key Agile Methodology" data-level="3" data-permalink="/docs/azure-devops/azuredevops-01/" data-title="Part 1" -->
+<h3 id="key-agile-methodology">Key Agile Methodology</h3><p><img src="/images/agile2.png" alt="Key Agile Methodology or framework"></p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="agile-framework" data-heading="Agile framework" data-level="3" data-permalink="/docs/azure-devops/azuredevops-01/" data-title="Part 1" -->
+<h3 id="agile-framework">Agile framework</h3><!-- end-chunk -->
+<!-- begin-chunk data-anchor="scrum-methodology" data-heading="SCRUM Methodology" data-level="4" data-permalink="/docs/azure-devops/azuredevops-01/" data-title="Part 1" -->
+<h4 id="scrum-methodology">SCRUM Methodology</h4><p>Scrum is one of the most popular Agile frameworks.</p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="scrum-roles" data-heading="SCRUM Roles:" data-level="3" data-permalink="/docs/azure-devops/azuredevops-01/" data-title="Part 1" -->
+<h3 id="scrum-roles">SCRUM Roles:</h3><ul>
+<li><strong>Scrum Master</strong>: Coach and gatekeeper, ensuring the Agile framework is followed.</li>
+<li><strong>Product Owner</strong>: Subject matter expert tracking stakeholder expectations and communicating vision.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="scrum-workflow" data-heading="Scrum Workflow" data-level="2" data-permalink="/docs/azure-devops/azuredevops-01/" data-title="Part 1" -->
+<h2 id="scrum-workflow">Scrum Workflow</h2><ol>
+<li>
+<p><strong>Product Backlog</strong></p>
+<ul>
+<li>The Product Owner creates and maintains the product backlog.</li>
+<li>It contains a prioritized list of features, enhancements, bug fixes, and other work items (user stories).</li>
+<li>The Product Owner ensures that the backlog is transparent, visible, and understandable to all stakeholders.</li>
+</ul>
+</li>
+<li>
+<p><strong>Sprint Planning</strong></p>
+<ul>
+<li>The team holds a Sprint Planning meeting at the beginning of each sprint.</li>
+<li>The team decides what items from the product backlog will be worked on during the sprint.</li>
+<li>The team defines the sprint goal and creates the sprint backlog (work items committed for the sprint).</li>
+</ul>
+</li>
+<li>
+<p><strong>Sprint (Typically 2–4 weeks)</strong></p>
+<ul>
+<li>The development team works on the tasks defined in the sprint backlog.</li>
+<li>Daily work involves coding, testing, and collaborating to complete the user stories.</li>
+<li>The team conducts <strong>Daily Standups (Scrum Meetings)</strong>:
+<ul>
+<li>These are short (15-minute) daily meetings to discuss:
+<ol>
+<li>What was done yesterday?</li>
+<li>What will be done today?</li>
+<li>Any blockers or impediments?</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Sprint Review</strong></p>
+<ul>
+<li>At the end of the sprint, the team presents the completed work to the Product Owner and other stakeholders.</li>
+<li>The team demonstrates the new features, improvements, and functionalities developed during the sprint.</li>
+<li>The Product Owner reviews the work and determines whether it meets the <strong>Definition of Done</strong> and accepts or rejects it.</li>
+</ul>
+</li>
+<li>
+<p><strong>Sprint Retrospective</strong></p>
+<ul>
+<li>After the sprint review, the team holds a retrospective meeting to reflect on the sprint.</li>
+<li>The purpose is to discuss:
+<ul>
+<li>What went well during the sprint?</li>
+<li>What could be improved?</li>
+<li>What action items can be implemented for the next sprint?</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Backlog Refinement (Grooming)</strong></p>
+<ul>
+<li>During the sprint (or between sprints), the team meets to refine the product backlog.</li>
+<li>The team and Product Owner collaborate to break down large user stories, clarify requirements, and reprioritize items as necessary.</li>
+<li>The team estimates the effort required for upcoming work.</li>
+</ul>
+</li>
+<li>
+<p><strong>Repeat the Cycle</strong></p>
+<ul>
+<li>The next sprint begins, starting with Sprint Planning, and the Scrum workflow continues iteratively until the product is complete or the project is terminated.</li>
+</ul>
+</li>
+</ol>
+<hr>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="roles-in-scrum" data-heading="Roles in Scrum:" data-level="3" data-permalink="/docs/azure-devops/azuredevops-01/" data-title="Part 1" -->
+<h3 id="roles-in-scrum">Roles in Scrum:</h3><ol>
+<li><strong>Product Owner</strong>: Defines the product backlog and ensures the team is working on the highest-priority items.</li>
+<li><strong>Scrum Master</strong>: Facilitates the Scrum process, removes impediments, and helps the team stay on track.</li>
+<li><strong>Development Team</strong>: Delivers the product increments by working on the items in the sprint backlog.</li>
+</ol>
+<hr>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="scrum-artifacts" data-heading="Scrum Artifacts:" data-level="3" data-permalink="/docs/azure-devops/azuredevops-01/" data-title="Part 1" -->
+<h3 id="scrum-artifacts">Scrum Artifacts:</h3><ol>
+<li><strong>Product Backlog</strong>: The prioritized list of all desired work.</li>
+<li><strong>Sprint Backlog</strong>: The list of work the team commits to completing during the sprint.</li>
+<li><strong>Increment</strong>: The sum of all completed product backlog items during the sprint that meet the Definition of Done.</li>
+</ol>
+<hr>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="key-events-in-scrum" data-heading="Key Events in Scrum:" data-level="3" data-permalink="/docs/azure-devops/azuredevops-01/" data-title="Part 1" -->
+<h3 id="key-events-in-scrum">Key Events in Scrum:</h3><ol>
+<li><strong>Sprint Planning</strong>: Establishes the sprint goal and backlog.</li>
+<li><strong>Daily Scrum (Standup)</strong>: Daily meeting to coordinate work and address blockers.</li>
+<li><strong>Sprint Review</strong>: Presentation of completed work at the end of the sprint.</li>
+<li><strong>Sprint Retrospective</strong>: Reflective meeting to identify improvements for future sprints.</li>
+<li><strong>Backlog Refinement</strong>: Ongoing activity to ensure the product backlog is ready for future sprints.</li>
+</ol>
+<hr>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="kanban-methodology" data-heading="Kanban Methodology" data-level="2" data-permalink="/docs/azure-devops/azuredevops-01/" data-title="Part 1" -->
+<h2 id="kanban-methodology">Kanban Methodology</h2><p>Kanban is a visual management methodology used to improve workflow and efficiency in various processes, particularly in software development and manufacturing. It emphasizes continuous delivery and encourages teams to visualize their work.</p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="key-principles" data-heading="Key Principles" data-level="3" data-permalink="/docs/azure-devops/azuredevops-01/" data-title="Part 1" -->
+<h3 id="key-principles">Key Principles</h3><ol>
+<li>
+<p><strong>Visualize Work</strong>: Use visual boards (Kanban boards) to represent tasks, making it easy to see the status of work items at a glance.</p>
+</li>
+<li>
+<p><strong>Limit Work in Progress (WIP)</strong>: Set limits on the number of tasks that can be in progress at any one time, helping to reduce multitasking and improve focus.</p>
+</li>
+<li>
+<p><strong>Manage Flow</strong>: Track the flow of work items through the system to identify bottlenecks and areas for improvement.</p>
+</li>
+<li>
+<p><strong>Make Process Policies Explicit</strong>: Clearly define and communicate the rules and processes that govern how work is done.</p>
+</li>
+<li>
+<p><strong>Implement Feedback Loops</strong>: Regularly review performance and gather feedback to enhance processes and practices.</p>
+</li>
+<li>
+<p><strong>Improve Collaboratively</strong>: Foster a culture of continuous improvement through team collaboration and iterative enhancements.</p>
+</li>
+</ol>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="benefits" data-heading="Benefits" data-level="3" data-permalink="/docs/azure-devops/azuredevops-01/" data-title="Part 1" -->
+<h3 id="benefits">Benefits</h3><ul>
+<li><strong>Increased Efficiency</strong>: By visualizing work and limiting WIP, teams can optimize their workflows and reduce lead times.</li>
+<li><strong>Enhanced Flexibility</strong>: Kanban allows teams to respond quickly to changing priorities and demands.</li>
+<li><strong>Better Collaboration</strong>: Clear visibility of tasks promotes communication and collaboration among team members.</li>
+</ul>
+<p>Kanban is a versatile methodology that can be applied in various industries to streamline processes and enhance productivity.</p>
+<hr>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="devops-overview" data-heading="DevOps Overview" data-level="2" data-permalink="/docs/azure-devops/azuredevops-01/" data-title="Part 1" -->
+<h2 id="devops-overview">DevOps Overview</h2><p>DevOps is a collaborative approach that combines software development (Dev) and IT operations (Ops) to enhance efficiency, automate processes, and improve software delivery speed and quality through practices like continuous integration and continuous deployment (CI/CD).</p>
+<p>DevOps brings together people, processes, and technology, automating software delivery to provide continuous value to your users.
+DevOps automates and speeds software delivery. It makes your process and your products more reliable.</p>
+<p>Devops is more than a toolset , it enables communication, collaboration , sharing information.
+It enourages to work in a team not in silos.</p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="devops-drivers" data-heading="DevOps Drivers" data-level="3" data-permalink="/docs/azure-devops/azuredevops-01/" data-title="Part 1" -->
+<h3 id="devops-drivers">DevOps Drivers</h3><ol>
+<li>
+<p><strong>Increased Demand</strong>: The need for faster software delivery to stay competitive drives organizations to adopt DevOps practices.</p>
+</li>
+<li>
+<p><strong>Customer Expectations</strong>: Growing customer expectations for frequent updates and high-quality services compel teams to improve their responsiveness.</p>
+</li>
+<li>
+<p><strong>Collaboration and Communication</strong>: A push for better collaboration between development and operations teams leads to the adoption of DevOps to break down silos.</p>
+</li>
+<li>
+<p><strong>Automation</strong>: The rise of automation tools facilitates faster testing, deployment, and monitoring, making DevOps more feasible and effective.</p>
+</li>
+<li>
+<p><strong>Quality Improvement</strong>: Organizations aim to enhance software quality and reliability, prompting the integration of testing and feedback throughout the development cycle.</p>
+</li>
+<li>
+<p><strong>Cultural Shift</strong>: A shift towards a culture of continuous improvement and learning drives the need for DevOps practices.</p>
+</li>
+</ol>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="key-takeaways" data-heading="Key Takeaways" data-level="3" data-permalink="/docs/azure-devops/azuredevops-01/" data-title="Part 1" -->
+<h3 id="key-takeaways">Key Takeaways</h3><ul>
+<li>
+<p><strong>Faster Delivery</strong>: DevOps accelerates the software delivery process through continuous integration and deployment (CI/CD).</p>
+</li>
+<li>
+<p><strong>Enhanced Collaboration</strong>: Promotes a culture of teamwork between development and operations, leading to better communication and cooperation.</p>
+</li>
+<li>
+<p><strong>Increased Efficiency</strong>: Streamlining processes and automating tasks reduces manual work, leading to higher productivity.</p>
+</li>
+<li>
+<p><strong>Higher Quality</strong>: Continuous testing and feedback help catch issues early, improving the overall quality of software products.</p>
+</li>
+<li>
+<p><strong>Adaptability</strong>: Organizations can respond more swiftly to market changes and customer feedback, fostering innovation.</p>
+</li>
+</ul>
+<p>Adopting DevOps practices can significantly enhance an organization&rsquo;s ability to deliver high-quality software efficiently and responsively.</p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="azure-devops" data-heading="Azure Devops" data-level="2" data-permalink="/docs/azure-devops/azuredevops-01/" data-title="Part 1" -->
+<h2 id="azure-devops">Azure Devops</h2><p>Azure Devops is a cloud based platform from microsoft that fosters collaboration between developer and operations team.
+It brings together a set of comprehensive services to help you to</p>
+<ul>
+<li>Plan and track work</li>
+<li>Manage code</li>
+<li>Build and Test</li>
+<li>Deploy and Monitor</li>
+<li>Extend and Integrate</li>
+</ul>
+<p>Azure DevOps supports a collaborative culture and set of processes that bring together developers, project managers, and contributors to develop software. It allows organizations to create and improve products at a faster pace than they can with traditional software development approaches.</p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="azure-devops-offerings" data-heading="Azure Devops Offerings" data-level="3" data-permalink="/docs/azure-devops/azuredevops-01/" data-title="Part 1" -->
+<h3 id="azure-devops-offerings">Azure Devops Offerings</h3><p>Azure Microsoft offers devops services on cloud or on-premises with Azure DevOps Server.</p>
+<table>
+<thead>
+<tr>
+<th><strong>Feature</strong></th>
+<th><strong>Azure DevOps Services</strong></th>
+<th><strong>Azure DevOps Server</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Hosting</strong></td>
+<td>Cloud-based (hosted by Microsoft)</td>
+<td>On-premises</td>
+</tr>
+<tr>
+<td><strong>Availability</strong></td>
+<td>Highly available with built-in redundancy</td>
+<td>Depends on local infrastructure setup</td>
+</tr>
+<tr>
+<td><strong>Updates</strong></td>
+<td>Automatically updated by Microsoft</td>
+<td>Manual updates required; users must manage upgrades</td>
+</tr>
+<tr>
+<td><strong>Scalability</strong></td>
+<td>Automatically scalable as needed</td>
+<td>Limited by on-premises hardware and resources</td>
+</tr>
+<tr>
+<td><strong>Pricing Model</strong></td>
+<td>Subscription-based (pay-as-you-go)</td>
+<td>One-time purchase with licenses, plus ongoing maintenance</td>
+</tr>
+<tr>
+<td><strong>User Management</strong></td>
+<td>Integrated with Azure Active Directory (AAD)</td>
+<td>Integrated with Windows AD or local accounts</td>
+</tr>
+<tr>
+<td><strong>Customization</strong></td>
+<td>Limited customization; primarily through extensions</td>
+<td>High customization capabilities through APIs and extensions</td>
+</tr>
+<tr>
+<td><strong>Features</strong></td>
+<td>New features and enhancements rolled out regularly</td>
+<td>Feature set may lag behind Services; more stable</td>
+</tr>
+<tr>
+<td><strong>Data Storage</strong></td>
+<td>Data stored in Azure, managed by Microsoft</td>
+<td>Data stored locally; requires backup and recovery planning</td>
+</tr>
+<tr>
+<td><strong>Collaboration</strong></td>
+<td>Real-time collaboration features (e.g., dashboards)</td>
+<td>Collaboration features available but may require additional setup</td>
+</tr>
+<tr>
+<td><strong>Performance</strong></td>
+<td>Performance managed by Microsoft</td>
+<td>Performance dependent on local infrastructure</td>
+</tr>
+<tr>
+<td><strong>Integration</strong></td>
+<td>Seamless integration with Azure services and other cloud tools</td>
+<td>Integrates well with on-premises tools but may require additional configuration</td>
+</tr>
+<tr>
+<td><strong>Compliance and Security</strong></td>
+<td>Microsoft handles compliance and security updates</td>
+<td>User responsible for compliance and security measures</td>
+</tr>
+</tbody>
+</table>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="choose-azure-devops-services" data-heading="Choose Azure DevOps Services" data-level="3" data-permalink="/docs/azure-devops/azuredevops-01/" data-title="Part 1" -->
+<h3 id="choose-azure-devops-services">Choose Azure DevOps Services</h3><p>Azure DevOps Services supports integration with GitHub.com and GitHub Enterprise Server repositories. Choose Azure DevOps Services when you want the following outcomes:</p>
+<ul>
+<li>Quick set-up</li>
+<li>Maintenance-free operations</li>
+<li>Easy collaboration across domains</li>
+<li>Elastic scale</li>
+<li>Rock-solid security</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="azure-devops-for-open-source" data-heading="Azure DevOps for Open Source" data-level="3" data-permalink="/docs/azure-devops/azuredevops-01/" data-title="Part 1" -->
+<h3 id="azure-devops-for-open-source">Azure DevOps for Open Source</h3><p>This plan includes:</p>
+<ul>
+<li><strong>10 free parallel jobs</strong> with unlimited minutes per month</li>
+<li><strong>1 free Microsoft-hosted CI/CD parallel job</strong> with up to <strong>1,800 minutes per month</strong></li>
+<li><strong>1 free self-hosted CI/CD parallel job</strong> with unlimited minutes per month</li>
+<li><strong>Unlimited private Git repositories</strong></li>
+<li><strong>2 GiB of free Azure Artifacts</strong></li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="azure-pipelines" data-heading="Azure Pipelines" data-level="3" data-permalink="/docs/azure-devops/azuredevops-01/" data-title="Part 1" -->
+<h3 id="azure-pipelines">Azure Pipelines</h3><ul>
+<li>
+<p><strong>Public Projects</strong>:</p>
+<ul>
+<li>Free to use for building and deploying applications.</li>
+<li>Users need to request a free grant of parallel jobs.</li>
+</ul>
+</li>
+<li>
+<p><strong>Private Projects</strong>:</p>
+<ul>
+<li>Allows users to run up to <strong>1,800 minutes</strong> (or <strong>30 hours</strong>) of pipeline jobs per month for free.</li>
+</ul>
+</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="pricing-for-azure-devops" data-heading="Pricing for Azure DevOps" data-level="3" data-permalink="/docs/azure-devops/azuredevops-01/" data-title="Part 1" -->
+<h3 id="pricing-for-azure-devops">Pricing for Azure DevOps</h3><p><a href="https://azure.microsoft.com/en-us/pricing/details/devops/azure-devops-services/" target="_blank" rel="noopener">https://azure.microsoft.com/en-us/pricing/details/devops/azure-devops-services/</a></p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="azure-devops-navigation" data-heading="Azure DevOps navigation:" data-level="3" data-permalink="/docs/azure-devops/azuredevops-01/" data-title="Part 1" -->
+<h3 id="azure-devops-navigation">Azure DevOps navigation:</h3><p><img src="/images/ad01.png" alt="Azure Devops"></p>
+<ul>
+<li>Dashboards</li>
+<li>Wiki</li>
+<li>Boards</li>
+<li>Repos</li>
+<li>Pipelines</li>
+<li>Test Plans</li>
+<li>Artifacts</li>
+</ul>
+<hr>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="azure-devops-organization" data-heading="Azure DevOps Organization" data-level="2" data-permalink="/docs/azure-devops/azuredevops-01/" data-title="Part 1" -->
+<h2 id="azure-devops-organization">Azure DevOps Organization</h2><p>An <strong>Azure DevOps Organization</strong> is a container for managing and co-ordinating DevOps activities across multiple projects and teams. It serves as the logical boundary for managing access, resources, users, and billing. An organization is linked to your Azure account and is used to organize all the DevOps resources.</p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="key-features-1" data-heading="Key Features:" data-level="3" data-permalink="/docs/azure-devops/azuredevops-01/" data-title="Part 1" -->
+<h3 id="key-features-1">Key Features:</h3><ul>
+<li>You can create multiple organizations under one Azure account.</li>
+<li>Each organization has its own set of users, permissions, and settings.</li>
+<li>Organizations are used to group related projects and manage resources centrally.</li>
+<li>Organization URLs follow the pattern: <code>https://dev.azure.com/{OrganizationName}</code>.</li>
+</ul>
+<hr>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="azure-devops-project" data-heading="Azure DevOps Project" data-level="2" data-permalink="/docs/azure-devops/azuredevops-01/" data-title="Part 1" -->
+<h2 id="azure-devops-project">Azure DevOps Project</h2><p>An <strong>Azure DevOps Project</strong> is a subdivision within an Azure DevOps Organization. It allows you to organize code repositories, build pipelines, test plans, and artifacts related to a specific solution or team. Each project in Azure DevOps is self-contained, with its own repositories, pipelines, work items, and teams.</p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="key-features-2" data-heading="Key Features:" data-level="3" data-permalink="/docs/azure-devops/azuredevops-01/" data-title="Part 1" -->
+<h3 id="key-features-2">Key Features:</h3><ul>
+<li>Projects allow you to organize work for different teams or parts of an application.</li>
+<li>Each project has its own <strong>Azure Repos</strong>, <strong>Azure Pipelines</strong>, <strong>Azure Boards</strong>, <strong>Azure Test Plans</strong>, and <strong>Azure Artifacts</strong>.</li>
+<li>Security and permissions can be configured at the project level to control access to resources.</li>
+<li>Projects support agile, Scrum, and Kanban boards for tracking development progress.</li>
+</ul>
+<hr>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="relationship-between-account-organization-and-project" data-heading="Relationship Between Account, Organization, and Project" data-level="2" data-permalink="/docs/azure-devops/azuredevops-01/" data-title="Part 1" -->
+<h2 id="relationship-between-account-organization-and-project">Relationship Between Account, Organization, and Project</h2><ol>
+<li><strong>Azure Account</strong>: The top-level entity that provides access to the Azure ecosystem, including Azure DevOps services.</li>
+<li><strong>Organization</strong>: A logical container within Azure DevOps, used to group projects, manage users, and organize resources.</li>
+<li><strong>Project</strong>: A sub-container within an organization, allowing teams to manage and collaborate on a specific piece of work or product.</li>
+</ol>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="azure-devops-project-processes" data-heading="Azure DevOps Project Processes" data-level="2" data-permalink="/docs/azure-devops/azuredevops-01/" data-title="Part 1" -->
+<h2 id="azure-devops-project-processes">Azure DevOps Project Processes</h2><p>When you create a project in <strong>Azure DevOps</strong>, you can select a process that defines how work items are tracked, organized, and managed. Azure DevOps supports several different processes, each tailored to different project management methodologies.</p>
+<hr>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="agile-process" data-heading="Agile Process" data-level="3" data-permalink="/docs/azure-devops/azuredevops-01/" data-title="Part 1" -->
+<h3 id="agile-process">Agile Process</h3><p>The <strong>Agile</strong> process is designed for teams that follow Agile methodologies like Scrum or Kanban. It provides a lightweight and flexible structure for tracking user stories, tasks, bugs, and other work items.</p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="key-features-3" data-heading="Key Features:" data-level="4" data-permalink="/docs/azure-devops/azuredevops-01/" data-title="Part 1" -->
+<h4 id="key-features-3">Key Features:</h4><ul>
+<li><strong>User Stories</strong>: Represents a small feature or requirement from a user&rsquo;s perspective.</li>
+<li><strong>Tasks</strong>: Breaks down work into smaller, manageable units.</li>
+<li><strong>Bugs</strong>: Tracks and manages software defects.</li>
+<li><strong>Boards</strong>: Provides Scrum and Kanban boards for managing sprints and workflow.</li>
+<li><strong>Backlog</strong>: Used to prioritize work and manage the product backlog.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="recommended-for" data-heading="Recommended For:" data-level="4" data-permalink="/docs/azure-devops/azuredevops-01/" data-title="Part 1" -->
+<h4 id="recommended-for">Recommended For:</h4><ul>
+<li>Teams that follow Agile, Scrum, or Kanban methodologies.</li>
+<li>Small-to-medium-sized development teams focused on iterative, incremental development.</li>
+</ul>
+<hr>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="scrum-process" data-heading="Scrum Process" data-level="3" data-permalink="/docs/azure-devops/azuredevops-01/" data-title="Part 1" -->
+<h3 id="scrum-process">Scrum Process</h3><p>The <strong>Scrum</strong> process is based on the Scrum framework, which is an Agile process that divides work into sprints. This process includes specific Scrum terminology and work item types.</p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="key-features-4" data-heading="Key Features:" data-level="4" data-permalink="/docs/azure-devops/azuredevops-01/" data-title="Part 1" -->
+<h4 id="key-features-4">Key Features:</h4><ul>
+<li><strong>Product Backlog Item (PBI)</strong>: Represents work that delivers value to the customer.</li>
+<li><strong>Tasks</strong>: Used to define the work needed to complete a PBI.</li>
+<li><strong>Sprints</strong>: Defines time-boxed iterations where work is completed.</li>
+<li><strong>Sprint Planning</strong>: Organizes work into sprints with specific goals.</li>
+<li><strong>Velocity Tracking</strong>: Measures the speed of work based on the number of completed PBIs and tasks.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="recommended-for-1" data-heading="Recommended For:" data-level="4" data-permalink="/docs/azure-devops/azuredevops-01/" data-title="Part 1" -->
+<h4 id="recommended-for-1">Recommended For:</h4><ul>
+<li>Teams that strictly follow the Scrum framework.</li>
+<li>Teams working in time-boxed iterations (sprints).</li>
+</ul>
+<hr>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="cmmi-capability-maturity-model-integration-process" data-heading="CMMI (Capability Maturity Model Integration) Process" data-level="3" data-permalink="/docs/azure-devops/azuredevops-01/" data-title="Part 1" -->
+<h3 id="cmmi-capability-maturity-model-integration-process">CMMI (Capability Maturity Model Integration) Process</h3><p>The <strong>CMMI</strong> process is designed for projects that require more formal processes for compliance and governance, often used in industries with stricter regulatory requirements. It is structured for organizations that need detailed tracking and rigorous process control.</p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="key-features-5" data-heading="Key Features:" data-level="4" data-permalink="/docs/azure-devops/azuredevops-01/" data-title="Part 1" -->
+<h4 id="key-features-5">Key Features:</h4><ul>
+<li><strong>Requirements</strong>: Formalized requirements that must be fulfilled.</li>
+<li><strong>Change Requests</strong>: Tracks requested changes to a project’s scope or objectives.</li>
+<li><strong>Risks</strong>: Helps track and mitigate potential project risks.</li>
+<li><strong>Reviews</strong>: Includes a formal review process for evaluating work items.</li>
+<li><strong>Change Management</strong>: Manages changes to scope and processes.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="recommended-for-2" data-heading="Recommended For:" data-level="4" data-permalink="/docs/azure-devops/azuredevops-01/" data-title="Part 1" -->
+<h4 id="recommended-for-2">Recommended For:</h4><ul>
+<li>Projects with strict compliance, governance, or regulatory requirements.</li>
+<li>Larger enterprises using formal processes.</li>
+</ul>
+<hr>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="basic-process" data-heading="Basic Process" data-level="3" data-permalink="/docs/azure-devops/azuredevops-01/" data-title="Part 1" -->
+<h3 id="basic-process">Basic Process</h3><p>The <strong>Basic</strong> process is a simplified, lightweight process ideal for teams that do not need the complexity of Agile, Scrum, or CMMI. It includes essential work item types like Epics, Issues, and Tasks.</p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="key-features-6" data-heading="Key Features:" data-level="4" data-permalink="/docs/azure-devops/azuredevops-01/" data-title="Part 1" -->
+<h4 id="key-features-6">Key Features:</h4><ul>
+<li><strong>Epics</strong>: Large work items that represent a significant portion of work.</li>
+<li><strong>Issues</strong>: Smaller units of work that can represent tasks, bugs, or features.</li>
+<li><strong>Boards</strong>: A simple Kanban-style board for managing issues and tracking work.</li>
+<li><strong>Minimal Overhead</strong>: Provides fewer work item types for simpler project management.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="recommended-for-3" data-heading="Recommended For:" data-level="4" data-permalink="/docs/azure-devops/azuredevops-01/" data-title="Part 1" -->
+<h4 id="recommended-for-3">Recommended For:</h4><ul>
+<li>Teams that need a minimal and flexible structure.</li>
+<li>Non-software development teams looking for basic project tracking.</li>
+</ul>
+<hr>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="process-selection" data-heading="Process Selection" data-level="2" data-permalink="/docs/azure-devops/azuredevops-01/" data-title="Part 1" -->
+<h2 id="process-selection">Process Selection</h2><p>Each process offers different work item types, workflows, and board structures. When setting up an Azure DevOps project, selecting the right process ensures that the methodology aligns with your team&rsquo;s workflow and project goals.</p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="choosing-the-right-process" data-heading="Choosing the Right Process:" data-level="3" data-permalink="/docs/azure-devops/azuredevops-01/" data-title="Part 1" -->
+<h3 id="choosing-the-right-process">Choosing the Right Process:</h3><ol>
+<li><strong>Agile</strong>: Ideal for teams that want flexibility and incremental delivery.</li>
+<li><strong>Scrum</strong>: Suitable for teams that work in fixed iterations and prefer a more structured framework.</li>
+<li><strong>CMMI</strong>: Best for teams that require formal processes and compliance.</li>
+<li><strong>Basic</strong>: Perfect for small teams or non-development projects where simplicity is key.</li>
+</ol>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="lab-01" data-heading="LAB 01" data-level="3" data-permalink="/docs/azure-devops/azuredevops-01/" data-title="Part 1" -->
+<h3 id="lab-01">LAB 01</h3><ul>
+<li>Create your Github Account</li>
+<li>Create Azure Devops Account using Github account or Azure cloud account</li>
+<li>Create an Organization</li>
+<li>Request to have microsoft hosted agent
+<a href="https://forms.office.com/pages/responsepage.aspx?id=v4j5cvGGr0GRqy180BHbR5zsR558741CrNi6q8iTpANURUhKMVA3WE4wMFhHRExTVlpET1BEMlZSTCQlQCN0PWcu" target="_blank" rel="noopener">Request for Parallel hosting agent</a></li>
+<li>Create a project and select process of your choice along with Version control system
+<img src="/images/project.png" alt="project">
+<img src="/images/project01.png" alt="Project01"></li>
+<li>Check if you can create private project.</li>
+</ul>
+<p><code>NOTE:</code> You will see your work items and pull request after you login to Azure Devops
+<img src="/images/project02.png" alt="activity"></p>
+<ul>
+<li>Walk thtough Azure Devops UI
+<ul>
+<li>Project Settings</li>
+<li>User Settings</li>
+<li>MarketPlace</li>
+</ul>
+</li>
+<li>Also check for Organization Settings
+<ul>
+<li>General
+<ul>
+<li>Oragnization owner</li>
+<li>Organization Deletion</li>
+<li>Project Limits</li>
+<li>Billings</li>
+</ul>
+</li>
+<li>Security
+<ul>
+<li>Policies</li>
+</ul>
+</li>
+<li>Boards</li>
+<li>Pipelines</li>
+<li>Repos</li>
+<li>Artifacts</li>
+</ul>
+</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="azure-wiki" data-heading="Azure Wiki" data-level="2" data-permalink="/docs/azure-devops/azuredevops-01/" data-title="Part 1" -->
+<h2 id="azure-wiki">Azure Wiki</h2><!-- end-chunk -->
+<!-- begin-chunk data-anchor="overview" data-heading="Overview" data-level="3" data-permalink="/docs/azure-devops/azuredevops-01/" data-title="Part 1" -->
+<h3 id="overview">Overview</h3><p>Azure Wiki is a collaborative documentation tool integrated into Azure DevOps. It allows teams to create, share, and manage documentation related to their projects.</p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="key-features-7" data-heading="Key Features" data-level="3" data-permalink="/docs/azure-devops/azuredevops-01/" data-title="Part 1" -->
+<h3 id="key-features-7">Key Features</h3><ul>
+<li><strong>Markdown Support</strong>: Write and format documentation using Markdown for easy readability.</li>
+<li><strong>Version Control</strong>: Keep track of changes made to documentation over time.</li>
+<li><strong>Collaboration</strong>: Team members can edit and comment on wiki pages, facilitating better communication.</li>
+<li><strong>Search Functionality</strong>: Easily find documentation through a powerful search feature.</li>
+<li><strong>Integration with Azure DevOps</strong>: Seamlessly connect wiki content with your Azure DevOps projects.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="use-cases" data-heading="Use Cases" data-level="3" data-permalink="/docs/azure-devops/azuredevops-01/" data-title="Part 1" -->
+<h3 id="use-cases">Use Cases</h3><ul>
+<li>Documenting project guidelines and best practices.</li>
+<li>Keeping track of technical specifications and architecture.</li>
+<li>Creating onboarding materials for new team members.</li>
+</ul>
+<hr>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="azure-dashboards" data-heading="Azure Dashboards" data-level="2" data-permalink="/docs/azure-devops/azuredevops-01/" data-title="Part 1" -->
+<h2 id="azure-dashboards">Azure Dashboards</h2><!-- end-chunk -->
+<!-- begin-chunk data-anchor="overview-1" data-heading="Overview" data-level="3" data-permalink="/docs/azure-devops/azuredevops-01/" data-title="Part 1" -->
+<h3 id="overview-1">Overview</h3><p>Azure Dashboards provide a customizable view of your Azure resources, allowing users to visualize and monitor the health and performance of their applications and services.</p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="key-features-8" data-heading="Key Features" data-level="3" data-permalink="/docs/azure-devops/azuredevops-01/" data-title="Part 1" -->
+<h3 id="key-features-8">Key Features</h3><ul>
+<li><strong>Customizable Layout</strong>: Arrange tiles to create a dashboard that meets your specific needs.</li>
+<li><strong>Multiple Data Sources</strong>: Integrate data from various Azure services, including Azure Monitor and Azure Log Analytics.</li>
+<li><strong>Real-Time Monitoring</strong>: Get real-time insights into resource performance and status.</li>
+<li><strong>Sharing Options</strong>: Share dashboards with team members or stakeholders for collaborative monitoring.</li>
+<li><strong>Alerts and Notifications</strong>: Set up alerts to be notified of critical changes or issues.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="use-cases-1" data-heading="Use Cases" data-level="3" data-permalink="/docs/azure-devops/azuredevops-01/" data-title="Part 1" -->
+<h3 id="use-cases-1">Use Cases</h3><ul>
+<li>Monitoring application performance and usage.</li>
+<li>Visualizing resource utilization and costs.</li>
+<li>Tracking key performance indicators (KPIs) for projects.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="lab-02" data-heading="LAB 02" data-level="3" data-permalink="/docs/azure-devops/azuredevops-01/" data-title="Part 1" -->
+<h3 id="lab-02">LAB 02</h3><ul>
+<li>Create Azure Wiki</li>
+<li>Create Wiki Subpage</li>
+<li>Check other option moving here and there</li>
+<li>Link this with some workitems</li>
+<li>Add some sample Dashboard</li>
+</ul>
+<p>#########################################################################
+########################################################################</p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="azure-boards-overview" data-heading="Azure Boards Overview" data-level="2" data-permalink="/docs/azure-devops/azuredevops-01/" data-title="Part 1" -->
+<h2 id="azure-boards-overview">Azure Boards Overview</h2><!-- end-chunk -->
+<!-- begin-chunk data-anchor="what-is-azure-boards" data-heading="What is Azure Boards?" data-level="3" data-permalink="/docs/azure-devops/azuredevops-01/" data-title="Part 1" -->
+<h3 id="what-is-azure-boards">What is Azure Boards?</h3><p>Azure Boards is a service within Azure DevOps that provides a rich set of tools for planning, tracking, and managing software development projects. It allows teams to organize their work using agile methodologies, such as Scrum and Kanban.</p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="key-features-9" data-heading="Key Features" data-level="3" data-permalink="/docs/azure-devops/azuredevops-01/" data-title="Part 1" -->
+<h3 id="key-features-9">Key Features</h3><ul>
+<li><strong>Work Items</strong>: Create and manage work items like user stories, tasks, bugs, and epics to track project progress.</li>
+<li><strong>Backlogs</strong>: Prioritize and manage work items in a backlog to ensure the team is focused on the most important tasks.</li>
+<li><strong>Boards</strong>: Visualize work in progress using Kanban boards, allowing teams to track tasks and their status.</li>
+<li><strong>Queries</strong>: Use custom queries to filter and view work items based on specific criteria.</li>
+<li><strong>Dashboards</strong>: Create customizable dashboards to visualize project metrics and team performance.</li>
+<li><strong>Sprints</strong>: Manage and plan work in sprints, allowing teams to deliver incremental value regularly.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th><strong>Function</strong></th>
+<th><strong>Description</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Work Items</strong></td>
+<td>Access lists of work items based on specific criteria, such as those assigned to you, those you follow, and work items you&rsquo;ve viewed or updated.</td>
+</tr>
+<tr>
+<td><strong>Boards</strong></td>
+<td>View work items as cards and update their status through drag-and-drop; implement Kanban practices and visualize workflow for a team.</td>
+</tr>
+<tr>
+<td><strong>Backlogs</strong></td>
+<td>View, plan, order, and organize work items to prioritize tasks and focus on important work.</td>
+</tr>
+<tr>
+<td><strong>Sprints</strong></td>
+<td>Access your team&rsquo;s filtered view of work items based on a specific sprint or iteration path.</td>
+</tr>
+<tr>
+<td><strong>Queries</strong></td>
+<td>Generate custom work item lists, perform triage, make bulk updates, and view relationships between work items.</td>
+</tr>
+<tr>
+<td><strong>Delivery Plans</strong></td>
+<td>Manage deliverables and track dependencies across multiple teams in a calendar view.</td>
+</tr>
+<tr>
+<td><strong>Analytics Views</strong></td>
+<td>Create sophisticated Power BI reports based on Azure Boards data; access default analytics views or create custom views.</td>
+</tr>
+</tbody>
+</table>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="benefits-1" data-heading="Benefits" data-level="3" data-permalink="/docs/azure-devops/azuredevops-01/" data-title="Part 1" -->
+<h3 id="benefits-1">Benefits</h3><ul>
+<li><strong>Improved Collaboration</strong>: Teams can easily track and update work items, enhancing communication and collaboration.</li>
+<li><strong>Flexibility</strong>: Supports various methodologies (Agile, Scrum, Kanban) to adapt to your team&rsquo;s workflow.</li>
+<li><strong>Transparency</strong>: Provides visibility into project progress and team workloads, facilitating better decision-making.</li>
+<li><strong>Integration</strong>: Seamlessly integrates with other Azure DevOps services, such as Repos and Pipelines.</li>
+</ul>
+<p>The following image shows the hierarchy for the  process backlog work item:</p>
+<p><a href="https://learn.microsoft.com/en-us/azure/devops/boards/work-items/about-work-items?view=azure-devops&amp;tabs=agile-process" target="_blank" rel="noopener">Source</a></p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="basic-process-1" data-heading="Basic Process" data-level="3" data-permalink="/docs/azure-devops/azuredevops-01/" data-title="Part 1" -->
+<h3 id="basic-process-1">Basic Process</h3><p><img src="/images/workitem.png" alt="Basic"></p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="agile-process-1" data-heading="Agile process" data-level="3" data-permalink="/docs/azure-devops/azuredevops-01/" data-title="Part 1" -->
+<h3 id="agile-process-1">Agile process</h3><p><img src="/images/workitem01.png" alt="agile"></p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="scrum-process-1" data-heading="Scrum Process" data-level="3" data-permalink="/docs/azure-devops/azuredevops-01/" data-title="Part 1" -->
+<h3 id="scrum-process-1">Scrum Process</h3><p><img src="/images/workitem02.png" alt="agile"></p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="cmmi-process" data-heading="CMMI Process" data-level="3" data-permalink="/docs/azure-devops/azuredevops-01/" data-title="Part 1" -->
+<h3 id="cmmi-process">CMMI Process</h3><p><img src="/images/workitem03.png" alt="agile"></p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="what-is-an-epic" data-heading="What is an Epic?" data-level="3" data-permalink="/docs/azure-devops/azuredevops-01/" data-title="Part 1" -->
+<h3 id="what-is-an-epic">What is an Epic?</h3><p>An <strong>Epic</strong> in project management and Agile methodologies is a high-level body of work that can be broken down into smaller, manageable pieces known as <strong>Features</strong> or <strong>User Stories</strong>.</p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="key-characteristics-of-an-epic" data-heading="Key Characteristics of an Epic:" data-level="3" data-permalink="/docs/azure-devops/azuredevops-01/" data-title="Part 1" -->
+<h3 id="key-characteristics-of-an-epic">Key Characteristics of an Epic:</h3><ol>
+<li><strong>Large Scope</strong>: An Epic typically encompasses a significant amount of work that addresses a broad objective or goal.</li>
+<li><strong>Breakdown into Smaller Units</strong>: Epics are divided into smaller, more manageable components (Features or User Stories) that can be worked on incrementally.</li>
+<li><strong>Longer Time Frame</strong>: Completing an Epic may take several sprints or iterations, depending on its complexity.</li>
+<li><strong>Value-Driven</strong>: Epics are often aligned with business goals and deliver substantial value to the end user or the organization.</li>
+</ol>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="purpose-of-an-epic" data-heading="Purpose of an Epic:" data-level="4" data-permalink="/docs/azure-devops/azuredevops-01/" data-title="Part 1" -->
+<h4 id="purpose-of-an-epic">Purpose of an Epic:</h4><ul>
+<li><strong>Organizational Tool</strong>: Helps teams organize work in a way that aligns with strategic objectives.</li>
+<li><strong>Progress Tracking</strong>: Provides a way to track progress on larger initiatives over time.</li>
+<li><strong>Communication</strong>: Facilitates communication among stakeholders regarding high-level goals and progress.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="example" data-heading="Example:" data-level="4" data-permalink="/docs/azure-devops/azuredevops-01/" data-title="Part 1" -->
+<h4 id="example">Example:</h4><ul>
+<li><strong>Epic</strong>: &ldquo;Improve User Experience on E-Commerce Site&rdquo;
+<ul>
+<li><strong>Feature</strong>: &ldquo;Redesign Product Page&rdquo;
+<ul>
+<li><strong>User Story</strong>: &ldquo;As a shopper, I want to see high-quality images of products.&rdquo;</li>
+<li><strong>User Story</strong>: &ldquo;As a shopper, I want to read customer reviews.&rdquo;</li>
+</ul>
+</li>
+<li><strong>Feature</strong>: &ldquo;Implement One-Click Checkout&rdquo;
+<ul>
+<li><strong>User Story</strong>: &ldquo;As a shopper, I want to complete my purchase with one click.&rdquo;</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>Epics help teams focus on delivering larger outcomes while breaking down the work into smaller, actionable tasks.</p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="what-is-a-feature" data-heading="What is a Feature?" data-level="3" data-permalink="/docs/azure-devops/azuredevops-01/" data-title="Part 1" -->
+<h3 id="what-is-a-feature">What is a Feature?</h3><p>A <strong>Feature</strong> is a specific piece of functionality or a set of related capabilities that deliver value to users within a product or system. Features are typically derived from higher-level Epics and are designed to meet user needs or requirements.</p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="key-characteristics-of-a-feature" data-heading="Key Characteristics of a Feature:" data-level="4" data-permalink="/docs/azure-devops/azuredevops-01/" data-title="Part 1" -->
+<h4 id="key-characteristics-of-a-feature">Key Characteristics of a Feature:</h4><ol>
+<li><strong>User-Centric</strong>: Features are designed with the end-user in mind, focusing on how they enhance user experience or solve specific problems.</li>
+<li><strong>Defined Scope</strong>: A feature has a clear scope and purpose, making it easier to manage and develop.</li>
+<li><strong>Measurable</strong>: Features can be measured in terms of success criteria, such as user adoption or performance metrics.</li>
+<li><strong>Time-Bound</strong>: Features are often planned for implementation within specific timeframes, usually aligned with sprints or releases.</li>
+</ol>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="purpose-of-a-feature" data-heading="Purpose of a Feature:" data-level="4" data-permalink="/docs/azure-devops/azuredevops-01/" data-title="Part 1" -->
+<h4 id="purpose-of-a-feature">Purpose of a Feature:</h4><ul>
+<li><strong>Functional Specification</strong>: Provides a detailed description of how a particular aspect of the product should function.</li>
+<li><strong>Prioritization</strong>: Helps teams prioritize work based on user needs and business value.</li>
+<li><strong>Progress Tracking</strong>: Features enable teams to track progress towards completing an Epic.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="example-1" data-heading="Example:" data-level="4" data-permalink="/docs/azure-devops/azuredevops-01/" data-title="Part 1" -->
+<h4 id="example-1">Example:</h4><ul>
+<li><strong>Feature</strong>: &ldquo;Redesign Product Page&rdquo;
+<ul>
+<li><strong>User Story</strong>: &ldquo;As a shopper, I want to see high-quality images of products.&rdquo;</li>
+<li><strong>User Story</strong>: &ldquo;As a shopper, I want to read customer reviews.&rdquo;</li>
+<li><strong>User Story</strong>: &ldquo;As a shopper, I want to view related products.&rdquo;</li>
+</ul>
+</li>
+</ul>
+<p>Features serve as the building blocks of product development, allowing teams to focus on delivering specific functionalities that enhance the overall user experience.</p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="user-story" data-heading="User Story" data-level="3" data-permalink="/docs/azure-devops/azuredevops-01/" data-title="Part 1" -->
+<h3 id="user-story">User Story</h3><p>A <strong>User Story</strong> is a short, simple description of a feature told from the perspective of the user or customer. It captures what the user wants and why, focusing on the value delivered.</p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="key-characteristics" data-heading="Key Characteristics:" data-level="4" data-permalink="/docs/azure-devops/azuredevops-01/" data-title="Part 1" -->
+<h4 id="key-characteristics">Key Characteristics:</h4><ul>
+<li><strong>Format</strong>: Typically written in the format: &ldquo;As a [type of user], I want [some goal] so that [some reason].&rdquo;</li>
+<li><strong>User-Centric</strong>: Centers on the needs and experiences of the end-user.</li>
+<li><strong>Acceptance Criteria</strong>: Each user story includes specific criteria to determine when the story is considered complete.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="example-2" data-heading="Example:" data-level="4" data-permalink="/docs/azure-devops/azuredevops-01/" data-title="Part 1" -->
+<h4 id="example-2">Example:</h4><ul>
+<li><strong>User Story</strong>: &ldquo;As a shopper, I want to filter products by category so that I can find items quickly.&rdquo;</li>
+</ul>
+<hr>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="task" data-heading="Task" data-level="3" data-permalink="/docs/azure-devops/azuredevops-01/" data-title="Part 1" -->
+<h3 id="task">Task</h3><p>A <strong>Task</strong> is a specific piece of work that contributes to the completion of a user story or feature. Tasks are actionable items that the team needs to perform to deliver the user story.</p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="key-characteristics-1" data-heading="Key Characteristics:" data-level="4" data-permalink="/docs/azure-devops/azuredevops-01/" data-title="Part 1" -->
+<h4 id="key-characteristics-1">Key Characteristics:</h4><ul>
+<li><strong>Granular</strong>: Tasks are smaller, more specific actions that can be completed in a short time frame (usually within a sprint).</li>
+<li><strong>Assigned</strong>: Tasks are typically assigned to team members for execution.</li>
+<li><strong>Measurable</strong>: Progress on tasks can be tracked easily.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="example-3" data-heading="Example:" data-level="4" data-permalink="/docs/azure-devops/azuredevops-01/" data-title="Part 1" -->
+<h4 id="example-3">Example:</h4><ul>
+<li><strong>Task</strong>: &ldquo;Implement the product filtering functionality.&rdquo;</li>
+<li><strong>Task</strong>: &ldquo;Design the filter UI for the product page.&rdquo;</li>
+</ul>
+<hr>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="issue" data-heading="Issue" data-level="3" data-permalink="/docs/azure-devops/azuredevops-01/" data-title="Part 1" -->
+<h3 id="issue">Issue</h3><p>An <strong>Issue</strong> refers to a problem or defect in the product that needs to be resolved. Issues can arise during development, testing, or after deployment.</p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="key-characteristics-2" data-heading="Key Characteristics:" data-level="4" data-permalink="/docs/azure-devops/azuredevops-01/" data-title="Part 1" -->
+<h4 id="key-characteristics-2">Key Characteristics:</h4><ul>
+<li><strong>Problem-Focused</strong>: Issues highlight bugs, errors, or areas of concern that impact the functionality or user experience.</li>
+<li><strong>Trackable</strong>: Issues are tracked in issue management tools, allowing teams to prioritize and address them.</li>
+<li><strong>Resolution Needed</strong>: Each issue requires investigation and resolution before the product can be considered complete.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="example-4" data-heading="Example:" data-level="4" data-permalink="/docs/azure-devops/azuredevops-01/" data-title="Part 1" -->
+<h4 id="example-4">Example:</h4><ul>
+<li><strong>Issue</strong>: &ldquo;The filter does not display results correctly.&rdquo;</li>
+<li><strong>Issue</strong>: &ldquo;The checkout page crashes when using certain payment methods.&rdquo;</li>
+</ul>
+<hr>
+<p>These elements—User Stories, Tasks, and Issues—help Agile teams manage their work effectively, ensuring that they deliver value while addressing any problems that may arise during development.</p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="sprints-and-iterations" data-heading="Sprints and Iterations" data-level="3" data-permalink="/docs/azure-devops/azuredevops-01/" data-title="Part 1" -->
+<h3 id="sprints-and-iterations">Sprints and Iterations</h3><!-- end-chunk -->
+<!-- begin-chunk data-anchor="what-is-a-sprint" data-heading="What is a Sprint?" data-level="4" data-permalink="/docs/azure-devops/azuredevops-01/" data-title="Part 1" -->
+<h4 id="what-is-a-sprint">What is a Sprint?</h4><p>A <strong>Sprint</strong> is a fixed time frame during which a specific set of work items, usually derived from the product backlog, is completed. Sprints are a key component of Agile methodologies, particularly Scrum.</p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="key-characteristics-of-a-sprint" data-heading="Key Characteristics of a Sprint:" data-level="4" data-permalink="/docs/azure-devops/azuredevops-01/" data-title="Part 1" -->
+<h4 id="key-characteristics-of-a-sprint">Key Characteristics of a Sprint:</h4><ol>
+<li><strong>Time-Boxed</strong>: Sprints typically last between 1 to 4 weeks, with a fixed duration that does not change.</li>
+<li><strong>Goal-Oriented</strong>: Each sprint has a specific goal or set of deliverables that the team aims to achieve.</li>
+<li><strong>Incremental Delivery</strong>: At the end of a sprint, the team should deliver a potentially shippable product increment, meaning that it can be released if desired.</li>
+</ol>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="purpose-of-a-sprint" data-heading="Purpose of a Sprint:" data-level="4" data-permalink="/docs/azure-devops/azuredevops-01/" data-title="Part 1" -->
+<h4 id="purpose-of-a-sprint">Purpose of a Sprint:</h4><ul>
+<li><strong>Focus</strong>: Provides a structured time frame for teams to focus on delivering specific features or fixes.</li>
+<li><strong>Feedback Loop</strong>: Enables regular feedback from stakeholders and users, allowing teams to adjust their work based on actual user needs.</li>
+<li><strong>Continuous Improvement</strong>: After each sprint, teams hold a retrospective to discuss what went well and what could be improved.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="what-is-an-iteration" data-heading="What is an Iteration?" data-level="3" data-permalink="/docs/azure-devops/azuredevops-01/" data-title="Part 1" -->
+<h3 id="what-is-an-iteration">What is an Iteration?</h3><p>An <strong>Iteration</strong> is a more general term that refers to any repeated cycle in a development process. In Agile, iterations are often synonymous with sprints, but they can also encompass broader cycles of work that may not be time-boxed in the same way.</p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="key-characteristics-of-an-iteration" data-heading="Key Characteristics of an Iteration:" data-level="4" data-permalink="/docs/azure-devops/azuredevops-01/" data-title="Part 1" -->
+<h4 id="key-characteristics-of-an-iteration">Key Characteristics of an Iteration:</h4><ol>
+<li><strong>Flexible Duration</strong>: Unlike sprints, iterations may not always have a fixed length; they can vary based on the project or methodology used.</li>
+<li><strong>Iterative Development</strong>: Focuses on gradually building and refining a product through repeated cycles of development and feedback.</li>
+<li><strong>Adaptability</strong>: Allows teams to respond to changing requirements and incorporate learnings from previous cycles.</li>
+</ol>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="purpose-of-an-iteration" data-heading="Purpose of an Iteration:" data-level="4" data-permalink="/docs/azure-devops/azuredevops-01/" data-title="Part 1" -->
+<h4 id="purpose-of-an-iteration">Purpose of an Iteration:</h4><ul>
+<li><strong>Continuous Development</strong>: Promotes ongoing development and enhancement of the product through regular cycles of work.</li>
+<li><strong>User Feedback</strong>: Provides opportunities to gather user feedback at multiple points in the development process.</li>
+<li><strong>Risk Management</strong>: Helps teams identify and address issues early in the development cycle.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="example-5" data-heading="Example:" data-level="3" data-permalink="/docs/azure-devops/azuredevops-01/" data-title="Part 1" -->
+<h3 id="example-5">Example:</h3><ul>
+<li><strong>Sprint</strong>: A 2-week sprint to develop a new user authentication feature, including user stories for login, registration, and password recovery.</li>
+<li><strong>Iteration</strong>: An ongoing process where the team refines the product based on user feedback collected every few weeks, possibly incorporating both sprints and ad-hoc adjustments.</li>
+</ul>
+<hr>
+<p>In summary, both sprints and iterations are essential for Agile development, enabling teams to deliver value incrementally while adapting to changing requirements and user feedback.</p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="common-tasks-and-solutions" data-heading="Common Tasks and Solutions" data-level="3" data-permalink="/docs/azure-devops/azuredevops-01/" data-title="Part 1" -->
+<h3 id="common-tasks-and-solutions">Common Tasks and Solutions</h3><!-- end-chunk -->
+<!-- begin-chunk data-anchor="create-a-work-item" data-heading="Create a Work Item" data-level="4" data-permalink="/docs/azure-devops/azuredevops-01/" data-title="Part 1" -->
+<h4 id="create-a-work-item">Create a Work Item</h4><p><strong>Task</strong>: Create a new work item (e.g., user story, task).</p>
+<p><strong>Solution</strong>:</p>
+<ul>
+<li>Navigate to <strong>Boards &gt; Work Items</strong>.</li>
+<li>Click on <strong>New Work Item</strong> and select the type.</li>
+<li>Fill in the details and click <strong>Save</strong>.</li>
+</ul>
+<hr>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="update-a-work-item" data-heading="Update a Work Item" data-level="4" data-permalink="/docs/azure-devops/azuredevops-01/" data-title="Part 1" -->
+<h4 id="update-a-work-item">Update a Work Item</h4><p><strong>Task</strong>: Modify an existing work item.</p>
+<p><strong>Solution</strong>:</p>
+<ul>
+<li>Go to <strong>Boards &gt; Work Items</strong>.</li>
+<li>Select the work item to edit.</li>
+<li>Make necessary changes and click <strong>Save</strong>.</li>
+</ul>
+<hr>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="use-a-kanban-board" data-heading="Use a Kanban Board" data-level="4" data-permalink="/docs/azure-devops/azuredevops-01/" data-title="Part 1" -->
+<h4 id="use-a-kanban-board">Use a Kanban Board</h4><p><strong>Task</strong>: Track work items using a Kanban board.</p>
+<p><strong>Solution</strong>:</p>
+<ul>
+<li>Navigate to <strong>Boards &gt; Boards</strong>.</li>
+<li>Drag and drop work items between columns to update their status.</li>
+</ul>
+<hr>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="create-a-sprint" data-heading="Create a Sprint" data-level="4" data-permalink="/docs/azure-devops/azuredevops-01/" data-title="Part 1" -->
+<h4 id="create-a-sprint">Create a Sprint</h4><p><strong>Task</strong>: Set up a new sprint for your team.</p>
+<p><strong>Solution</strong>:</p>
+<ul>
+<li>Go to <strong>Boards &gt; Sprints</strong>.</li>
+<li>Click on <strong>New Sprint</strong>.</li>
+<li>Define the sprint name, start date, and end date, then click <strong>Create</strong>.</li>
+</ul>
+<hr>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="manage-backlogs" data-heading="Manage Backlogs" data-level="4" data-permalink="/docs/azure-devops/azuredevops-01/" data-title="Part 1" -->
+<h4 id="manage-backlogs">Manage Backlogs</h4><p><strong>Task</strong>: Prioritize items in the backlog.</p>
+<p><strong>Solution</strong>:</p>
+<ul>
+<li>Navigate to <strong>Boards &gt; Backlogs</strong>.</li>
+<li>Drag and drop items to reorder them based on priority.</li>
+</ul>
+<hr>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="create-a-query" data-heading="Create a Query" data-level="4" data-permalink="/docs/azure-devops/azuredevops-01/" data-title="Part 1" -->
+<h4 id="create-a-query">Create a Query</h4><p><strong>Task</strong>: Create a custom query to filter work items.</p>
+<p><strong>Solution</strong>:</p>
+<ul>
+<li>Go to <strong>Boards &gt; Queries</strong>.</li>
+<li>Click on <strong>New Query</strong>.</li>
+<li>Set your filtering criteria and click <strong>Run Query</strong> to see results.</li>
+</ul>
+<hr>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="set-up-dashboards" data-heading="Set Up Dashboards" data-level="4" data-permalink="/docs/azure-devops/azuredevops-01/" data-title="Part 1" -->
+<h4 id="set-up-dashboards">Set Up Dashboards</h4><p><strong>Task</strong>: Create a dashboard to visualize project metrics.</p>
+<p><strong>Solution</strong>:</p>
+<ul>
+<li>Navigate to <strong>Dashboards</strong> in Azure DevOps.</li>
+<li>Click on <strong>New Dashboard</strong>.</li>
+<li>Add widgets to display relevant data and metrics.</li>
+</ul>
+<hr>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="add-comments-to-work-items" data-heading="Add Comments to Work Items" data-level="4" data-permalink="/docs/azure-devops/azuredevops-01/" data-title="Part 1" -->
+<h4 id="add-comments-to-work-items">Add Comments to Work Items</h4><p><strong>Task</strong>: Collaborate by adding comments to work items.</p>
+<p><strong>Solution</strong>:</p>
+<ul>
+<li>Open the desired work item.</li>
+<li>Scroll to the comments section, type your message, and click <strong>Add Comment</strong>.</li>
+</ul>
+<hr>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="link-work-items" data-heading="Link Work Items" data-level="4" data-permalink="/docs/azure-devops/azuredevops-01/" data-title="Part 1" -->
+<h4 id="link-work-items">Link Work Items</h4><p><strong>Task</strong>: Link related work items (e.g., tasks to user stories).</p>
+<p><strong>Solution</strong>:</p>
+<ul>
+<li>Open a work item and navigate to the <strong>Links</strong> tab.</li>
+<li>Click on <strong>Add link</strong>, choose the link type, and search for the related work item.</li>
+</ul>
+<hr>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="close-a-work-item" data-heading="Close a Work Item" data-level="4" data-permalink="/docs/azure-devops/azuredevops-01/" data-title="Part 1" -->
+<h4 id="close-a-work-item">Close a Work Item</h4><p><strong>Task</strong>: Mark a work item as complete.</p>
+<p><strong>Solution</strong>:</p>
+<ul>
+<li>Open the work item you wish to close.</li>
+<li>Change its status to <strong>Done</strong> or <strong>Closed</strong> and click <strong>Save</strong>.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="lab-03" data-heading="LAB 03" data-level="3" data-permalink="/docs/azure-devops/azuredevops-01/" data-title="Part 1" -->
+<h3 id="lab-03">LAB 03</h3><ul>
+<li>Change the Work process</li>
+<li>Add a new field</li>
+<li>Add a custom work process and add new fields</li>
+<li>Run the queries</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="what-are-delivery-plans" data-heading="What are Delivery Plans?" data-level="3" data-permalink="/docs/azure-devops/azuredevops-01/" data-title="Part 1" -->
+<h3 id="what-are-delivery-plans">What are Delivery Plans?</h3><p><strong>Delivery Plans</strong> are a visual tool in Agile project management that helps teams track and manage deliverables across multiple teams or projects. They provide a high-level view of upcoming work and dependencies, facilitating better planning and coordination.</p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="key-characteristics-of-delivery-plans" data-heading="Key Characteristics of Delivery Plans:" data-level="3" data-permalink="/docs/azure-devops/azuredevops-01/" data-title="Part 1" -->
+<h3 id="key-characteristics-of-delivery-plans">Key Characteristics of Delivery Plans:</h3><ol>
+<li><strong>Visual Representation</strong>: Delivery plans often use a calendar view or timeline format to show when specific deliverables are expected.</li>
+<li><strong>Multi-Team Coordination</strong>: They help manage dependencies and track deliverables across various teams, ensuring alignment with overall project goals.</li>
+<li><strong>Dynamic</strong>: Delivery plans can be updated regularly to reflect changes in timelines, priorities, or resource allocations.</li>
+</ol>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="purpose-of-delivery-plans" data-heading="Purpose of Delivery Plans:" data-level="4" data-permalink="/docs/azure-devops/azuredevops-01/" data-title="Part 1" -->
+<h4 id="purpose-of-delivery-plans">Purpose of Delivery Plans:</h4><ul>
+<li><strong>Enhanced Visibility</strong>: Provides stakeholders with a clear view of upcoming deliverables and project timelines.</li>
+<li><strong>Dependency Management</strong>: Helps identify and manage dependencies between teams, reducing the risk of delays.</li>
+<li><strong>Alignment</strong>: Ensures that all teams are aligned with the overall objectives and timelines of the project.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="components-of-a-delivery-plan" data-heading="Components of a Delivery Plan:" data-level="3" data-permalink="/docs/azure-devops/azuredevops-01/" data-title="Part 1" -->
+<h3 id="components-of-a-delivery-plan">Components of a Delivery Plan:</h3><ul>
+<li><strong>Milestones</strong>: Key points in the project timeline that mark significant progress or deliverables.</li>
+<li><strong>Features and User Stories</strong>: Specific functionalities or user stories that are being worked on, often tied to specific milestones.</li>
+<li><strong>Teams Involved</strong>: Identification of which teams are responsible for various deliverables, helping to clarify roles and responsibilities.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="example-6" data-heading="Example:" data-level="3" data-permalink="/docs/azure-devops/azuredevops-01/" data-title="Part 1" -->
+<h3 id="example-6">Example:</h3><ul>
+<li><strong>Delivery Plan</strong>: A delivery plan for a new e-commerce platform might include:
+<ul>
+<li><strong>Milestone 1</strong>: User Authentication Feature (Due: Week 3)</li>
+<li><strong>Milestone 2</strong>: Product Search Functionality (Due: Week 5)</li>
+<li><strong>Milestone 3</strong>: Payment Gateway Integration (Due: Week 7)</li>
+</ul>
+</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="benefits-of-using-delivery-plans" data-heading="Benefits of Using Delivery Plans:" data-level="3" data-permalink="/docs/azure-devops/azuredevops-01/" data-title="Part 1" -->
+<h3 id="benefits-of-using-delivery-plans">Benefits of Using Delivery Plans:</h3><ul>
+<li><strong>Improved Collaboration</strong>: Facilitates communication between teams and stakeholders by providing a shared view of progress and timelines.</li>
+<li><strong>Proactive Planning</strong>: Allows teams to anticipate challenges and make adjustments early in the development process.</li>
+<li><strong>Increased Accountability</strong>: Clearly defined deliverables and timelines help hold teams accountable for their commitments.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="who-creates-delivery-plans" data-heading="Who Creates Delivery Plans?" data-level="3" data-permalink="/docs/azure-devops/azuredevops-01/" data-title="Part 1" -->
+<h3 id="who-creates-delivery-plans">Who Creates Delivery Plans?</h3><ol>
+<li><strong>Project Managers</strong>: Often lead the creation of delivery plans to ensure alignment with project goals and timelines.</li>
+<li><strong>Scrum Masters</strong>: Facilitate the process by gathering input from the team and ensuring that all relevant information is included.</li>
+<li><strong>Product Owners</strong>: Provide insights on priorities and features, helping to define what needs to be delivered and when.</li>
+<li><strong>Agile Teams</strong>: Team members may contribute to the delivery plan by providing estimates and updates on their work items.</li>
+</ol>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="for-whom-are-delivery-plans-created" data-heading="For Whom Are Delivery Plans Created?" data-level="3" data-permalink="/docs/azure-devops/azuredevops-01/" data-title="Part 1" -->
+<h3 id="for-whom-are-delivery-plans-created">For Whom Are Delivery Plans Created?</h3><ol>
+<li><strong>Stakeholders</strong>: Delivery plans are primarily created for stakeholders, including executives, sponsors, and clients, to provide transparency and visibility into project progress.</li>
+<li><strong>Development Teams</strong>: Teams use delivery plans to understand their commitments, deadlines, and dependencies on other teams or projects.</li>
+<li><strong>Product Owners</strong>: To help them prioritize features and manage expectations with stakeholders.</li>
+<li><strong>Cross-Functional Teams</strong>: Teams working across different areas benefit from a shared view of timelines and deliverables, fostering collaboration and coordination.</li>
+</ol>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="purpose-of-delivery-plans-1" data-heading="Purpose of Delivery Plans:" data-level="3" data-permalink="/docs/azure-devops/azuredevops-01/" data-title="Part 1" -->
+<h3 id="purpose-of-delivery-plans-1">Purpose of Delivery Plans:</h3><ul>
+<li><strong>Visibility</strong>: Ensures that all parties have a clear understanding of what is being delivered and when.</li>
+<li><strong>Alignment</strong>: Helps align the efforts of various teams toward common project goals.</li>
+<li><strong>Communication</strong>: Acts as a communication tool to keep everyone informed about progress, changes, and potential risks.</li>
+</ul>
+<hr>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="iterations-area-path-and-team-configuration---azure-devops" data-heading="Iterations, Area Path, and Team Configuration - Azure DevOps" data-level="1" data-permalink="/docs/azure-devops/azuredevops-01/" data-title="Part 1" -->
+<h1 id="iterations-area-path-and-team-configuration---azure-devops">Iterations, Area Path, and Team Configuration - Azure DevOps</h1><!-- end-chunk -->
+<!-- begin-chunk data-anchor="1-configure-area-paths" data-heading="1. Configure Area Paths" data-level="2" data-permalink="/docs/azure-devops/azuredevops-01/" data-title="Part 1" -->
+<h2 id="1-configure-area-paths">1. Configure Area Paths</h2><p><strong>Area Paths</strong> represent a hierarchical structure for your project to organize work by team, product, or feature.</p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="steps" data-heading="Steps:" data-level="3" data-permalink="/docs/azure-devops/azuredevops-01/" data-title="Part 1" -->
+<h3 id="steps">Steps:</h3><ol>
+<li>Go to your Azure DevOps project.</li>
+<li>From the left navigation panel, select <strong>Project Settings</strong>.</li>
+<li>Under <strong>Boards</strong>, click <strong>Areas</strong>.</li>
+<li>Create new Area Paths or modify existing ones by clicking <strong>New Child</strong> to create sub-areas.</li>
+<li>Assign the Area Paths to specific teams or work items as needed.</li>
+</ol>
+<hr>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="2-configure-iterations-sprints" data-heading="2. Configure Iterations (Sprints)" data-level="2" data-permalink="/docs/azure-devops/azuredevops-01/" data-title="Part 1" -->
+<h2 id="2-configure-iterations-sprints">2. Configure Iterations (Sprints)</h2><p><strong>Iterations</strong> define timeboxes (Sprints) in which teams will work on completing a set of work items.</p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="steps-1" data-heading="Steps:" data-level="3" data-permalink="/docs/azure-devops/azuredevops-01/" data-title="Part 1" -->
+<h3 id="steps-1">Steps:</h3><ol>
+<li>Navigate to <strong>Project Settings</strong>.</li>
+<li>Under <strong>Boards</strong>, click <strong>Iterations</strong>.</li>
+<li>Click <strong>New Child</strong> to add new iterations under a parent iteration (e.g., a release).</li>
+<li>Set the <strong>start date</strong> and <strong>end date</strong> for each iteration according to your sprint schedule.</li>
+</ol>
+<hr>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="3-assign-area-paths-and-iterations-to-teams" data-heading="3. Assign Area Paths and Iterations to Teams" data-level="2" data-permalink="/docs/azure-devops/azuredevops-01/" data-title="Part 1" -->
+<h2 id="3-assign-area-paths-and-iterations-to-teams">3. Assign Area Paths and Iterations to Teams</h2><p>Teams need to be configured to work within specific Area Paths and Sprints.</p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="steps-2" data-heading="Steps:" data-level="3" data-permalink="/docs/azure-devops/azuredevops-01/" data-title="Part 1" -->
+<h3 id="steps-2">Steps:</h3><ol>
+<li>Go to <strong>Project Settings</strong>.</li>
+<li>Select <strong>Teams</strong>, then choose the team you want to configure.</li>
+<li>Click <strong>Iterations</strong> from the left-hand menu of the team settings.</li>
+<li>Check the Iterations that the team will work on.</li>
+<li>For <strong>Areas</strong>, choose the Area Path(s) that this team will work within.</li>
+</ol>
+<hr>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="4-set-default-iteration-and-area-path-for-work-items" data-heading="4. Set Default Iteration and Area Path for Work Items" data-level="2" data-permalink="/docs/azure-devops/azuredevops-01/" data-title="Part 1" -->
+<h2 id="4-set-default-iteration-and-area-path-for-work-items">4. Set Default Iteration and Area Path for Work Items</h2><p>Set default Area Paths and Iterations for work items created by a specific team.</p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="steps-3" data-heading="Steps:" data-level="3" data-permalink="/docs/azure-devops/azuredevops-01/" data-title="Part 1" -->
+<h3 id="steps-3">Steps:</h3><ol>
+<li>In the team configuration, go to the <strong>Iterations and Areas</strong> tab.</li>
+<li>Set the <strong>default iteration</strong> and <strong>default area</strong> for new work items.</li>
+</ol>
+<hr>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="pending-task" data-heading="Pending Task:" data-level="3" data-permalink="/docs/azure-devops/azuredevops-01/" data-title="Part 1" -->
+<h3 id="pending-task">Pending Task:</h3><ul>
+<li>
+<p>Create a Area and Iteration
+<img src="/images/areaa.png" alt="area"></p>
+</li>
+<li>
+<p>Check the Capacity
+<img src="/images/capacity.png" alt="capacity"></p>
+</li>
+<li>
+<p>Define working days</p>
+</li>
+</ul>
+<p><img src="/images/work.png" alt="wor"></p>
+<p><img src="/images/query.png" alt="query"></p>
+<ul>
+<li>Add a custom Process
+<img src="/images/process.png" alt="process"></li>
+</ul>
+<p><img src="/images/process01.png" alt="process"></p>
+
+	
+	
+	
+</div>
+
+
+          </main>
+        </div>
+      </div>
+      
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+    integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+    crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js"
+    integrity="sha512-UR25UO94eTnCVwjbXozyeVd6ZqpaAE9naiEUBK/A+QDbfSTQFhPGj5lOR6d8tsgbBk84Ggb5A3EkjsOgPRPcKA=="
+    crossorigin="anonymous"></script>
+
+
+
+
+
+<script src='/js/tabpane-persist.js'></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="/js/main.min.223ab2fcc7d742c1b94772c0276851c497da4343cd2d21534199ced90681e207.js" integrity="sha256-Ijqy/MfXQsG5R3LAJ2hRxJfaQ0PNLSFTQZnO2QaB4gc=" crossorigin="anonymous"></script>
+
+
+
+<script src='/js/prism.js'></script>
+
+
+
+  </body>
+</html>

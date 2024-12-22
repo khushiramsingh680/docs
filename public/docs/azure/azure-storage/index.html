@@ -1,0 +1,575 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="generator" content="Hugo 0.122.0">
+<meta name="robots" content="index, follow">
+
+<link rel="shortcut icon" href="/favicons/favicon.ico" >
+
+<title>Azure Cloud Storage | Documentation</title>
+<meta name="description" content="Azure Cloud">
+<meta property="og:title" content="Azure Cloud Storage" />
+<meta property="og:description" content="Azure Cloud" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/docs/azure/azure-storage/" /><meta property="article:section" content="docs" />
+
+
+
+<meta itemprop="name" content="Azure Cloud Storage">
+<meta itemprop="description" content="Azure Cloud">
+
+<meta itemprop="wordCount" content="412">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Azure Cloud Storage"/>
+<meta name="twitter:description" content="Azure Cloud"/>
+
+
+
+
+<link rel="preload" href="/scss/main.min.b5bfe2535b6f07595fd9cb7a4018024e52e136c3b43e03a17a1e47a950822d03.css" as="style">
+<link href="/scss/main.min.b5bfe2535b6f07595fd9cb7a4018024e52e136c3b43e03a17a1e47a950822d03.css" rel="stylesheet" integrity="">
+
+<script
+  src="https://code.jquery.com/jquery-3.6.0.min.js"
+  integrity="sha384-vtXRMe3mGCbOeY7l30aIg8H9p3GdeSe4IFlP6G8JMa7o7lXvnz3GFKzPxzJdPfGK"
+  crossorigin="anonymous"></script>
+<script
+  src="https://unpkg.com/lunr@2.3.9/lunr.min.js"
+  integrity="sha384-203J0SNzyqHby3iU6hzvzltrWi/M41wOP5Gu+BiJMz5nwKykbkUx8Kp7iti0Lpli"
+  crossorigin="anonymous"></script>
+<link rel="stylesheet" href="/css/prism.css"/>
+<script type="text/javascript"  src="/js/highlight-search.js"></script>
+<script type="text/javascript"  src="/js/manage-side-panels.js"></script>
+  </head>
+  <body class="td-page highlightable">
+    <header>
+      
+<nav class="js-navbar-scroll navbar navbar-expand navbar-dark flex-column flex-md-row td-navbar">
+        <a class="navbar-brand" href="/">
+		<span class="navbar-logo"><svg version="1.0" xmlns="http://www.w3.org/2000/svg" width="217pt" height="232pt" viewBox="0 0 217 232"><g transform="translate(0.000000,232.000000) scale(0.100000,-0.100000)" fill="#000" stroke="none"><path d="M1017 2250c-397-48-698-367-731-775-9-106-3-113 66-87l55 20 11-71c6-39 10-72 9-73s-58-22-127-47c-104-37-124-48-122-64 7-37 56-150 88-205l34-56 66 25 66 26 65-72c206-226 513-322 808-252 367 88 634 417 635 784 0 43-4 77-10 77-5 0-32-9-60-20s-55-20-59-20c-5 0-12 26-16 59-4 32-20 96-36 142s-30 88-31 92c-2 5 54 29 124 55l128 46-31 55c-17 31-33 58-34 59-2 2-31-6-64-19l-61-22-23 29c-81 104-172 178-292 235-140 68-309 97-458 79zm226-299c90-24 136-46 206-101l52-41 61 20 60 20 26-31c15-17 35-44 44-59l17-28-52-19c-29-11-86-32-128-47l-76-27 24-58c26-66 43-144 43-201 0-22 2-39 5-39 2 0 27 9 55 20s55 20 60 20c17 0 10-63-14-131-127-359-580-484-862-237l-35 31-70-24-71-24-30 35c-37 43-97 164-104 212l-6 34 123 46 124 45-3 64c-2 35-5 66-7 68-2 1-27-5-55-14s-53-15-55-14c-2 2 1 29 7 59 32 179 185 352 361 409 112 36 192 39 3e2 12z"/><path d="M134 321c-77-33-95-169-29-231 19-18 36-23 71-23 40 0 51 4 75 30 50 56 47 153-5 202-26 25-80 35-112 22zm82-62c26-29 26-99 0-128-24-26-47-27-77-2-19 15-24 29-24 64 0 76 58 114 101 66z"/><path d="M1172 320c-27-12-44-52-33-82 4-12 31-32 61-47 30-14 58-34 64-43 26-43-50-76-99-44-15 10-26 12-30 6-10-16 4-29 44-40 62-17 114 13 114 65 0 35-19 53-80 81-54 23-67 46-41 72 15 15 62 16 88 2 23-12 35 3 16 19-20 17-77 23-104 11z"/><path d="M350 195V70h25c23 0 25 4 25 45v45h40c76 0 115 40 103 104-8 42-38 56-120 56h-73V195zm134 69c18-18 18-17 10-38-4-11-19-16-50-16-44 0-44 0-44 35 0 33 2 35 34 35 19 0 42-7 50-16z"/><path d="M6e2 195V70h90c83 0 90 2 90 20 0 16-8 19-62 22-63 3-63 3-66 36-3 31-2 32 36 32 36 0 39 2 34 25-4 21-10 25-38 25-30 0-34 3-34 25 0 24 2 25 65 25 58 0 65 2 65 20 0 19-7 20-90 20h-90V195z"/><path d="M850 195c0-117 1-125 20-125 17 0 19 8 22 83l3 82 55-82c41-62 61-83 78-83 22 0 22 2 22 125 0 117-1 125-20 125-17 0-19-8-22-82l-3-82-54 82c-42 65-59 82-77 82-24 0-24 0-24-125z"/><path d="M1360 195c0-104 2-125 15-125 12 0 15 13 15 60v60h65 65v-60c0-47 3-60 15-60 13 0 15 21 15 125s-2 125-15 125c-12 0-15-13-15-55v-55h-65-65v55c0 42-3 55-15 55-13 0-15-21-15-125z"/><path d="M1620 195c0-104 2-125 15-125s15 21 15 125-2 125-15 125-15-21-15-125z"/><path d="M1730 195c0-77 4-125 10-125s10 27 10 60v60h35c19 0 35 5 35 10 0 6-16 10-35 10-35 0-35 0-35 45v45h60c33 0 60 4 60 10s-30 10-70 10h-70V195z"/><path d="M1930 310c0-5 18-10 40-10h40V185c0-70 4-115 10-115s10 45 10 115v115h40c22 0 40 5 40 10 0 6-37 10-90 10s-90-4-90-10z"/></g></svg></span><span class="font-weight-bold">Documentation</span>
+	</a>
+	<div class="td-navbar-nav-scroll ml-md-auto" id="main_navbar">
+		<ul class="navbar-nav mt-2 mt-lg-0">
+			
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/" ><i class='fa fa-home'></i><span>Home</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link active" href="/docs/azure/" ><i class='fab fa-azure'></i><span class="active">Azure Cloud Computing</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/docs/azure-devops/" ><i class='fab fa-azure'></i><span>Azure Devops</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/docs/gitlab/" ><i class='fab fa-gitlab'></i><span>Gitlab Tutorials</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/docs/openshift/" ><i class='fab fa-openshift'></i><span>OpenShift Administration</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/docs/kvm/" ><i class="fab fa-linux"></i><span>Redhat Ansible</span></a>
+			</li>
+			
+			
+			
+		</ul>
+	</div>
+	<div class="navbar-nav d-none d-lg-block">
+<form class="d-flex align-items-center">
+  <input type="search"
+  class="form-control td-search-input"
+  placeholder="&#xf002; Search this site…"
+  aria-label="Search this site…"
+  autocomplete="off"
+  
+  data-offline-search-index-json-src="/offline-search-index.d4ee35dfb31ed3b96d119091cf664ad4.json"
+  data-offline-search-base-href="/"
+  data-offline-search-max-results="20">
+</form>
+</div>
+</nav>
+
+      <div class="manage-panels">
+    <button type="button" class="button-left" id="left-panel-manager" title="Hide sidebar">""</button>
+    <button type="button" class="button-right" id="right-panel-manager" title="Hide sidebar">""</button>
+</div>
+    </header>
+    <div class="container-fluid td-outer">
+      <div class="td-main autonumbering">
+        <div class="row flex-xl-nowrap">
+          <aside class="col-12 col-md-3 col-xl-2 td-sidebar d-print-none">
+            
+<div id="td-sidebar-menu" class="td-sidebar__inner">
+  <div id="content-mobile">
+  <form class="td-sidebar__search d-flex align-items-center">
+    
+<form class="d-flex align-items-center">
+  <input type="search"
+  class="form-control td-search-input"
+  placeholder="&#xf002; Search this site…"
+  aria-label="Search this site…"
+  autocomplete="off"
+  
+  data-offline-search-index-json-src="/offline-search-index.d4ee35dfb31ed3b96d119091cf664ad4.json"
+  data-offline-search-base-href="/"
+  data-offline-search-max-results="20">
+</form>
+
+    <button class="btn btn-link td-sidebar__toggle d-md-none p-0 ml-3 fas fa-bars" type="button" data-toggle="collapse" data-target="#td-section-nav" aria-controls="td-docs-nav" aria-expanded="false" aria-label="Toggle section navigation">
+    </button>
+  </form>
+  </div>
+  <div id="content-desktop"></div>
+  <nav class="collapse td-sidebar-nav foldable-nav" id="td-section-nav">
+    <ul class="td-sidebar-nav__section pr-md-3 ul-0">
+      <li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id="m-docs-li">
+  <a href="/docs/" class="align-left pl-0 td-sidebar-link td-sidebar-link__section tree-root" id="m-docs"><span class="">Docs</span></a>
+  <ul class="ul-1">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id="m-docsazure-li">
+  <input type="checkbox" id="m-docsazure-check" checked/>
+  <label for="m-docsazure-check"><a href="/docs/azure/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-docsazure"><i class="fab fa-azure"></i><span class="">Azure Cloud Computing</span></a></label>
+  
+  <ul class="ul-2 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazurelinux-basics-li">
+  <input type="checkbox" id="m-docsazurelinux-basics-check"/>
+  <label for="m-docsazurelinux-basics-check"><a href="/docs/azure/linux-basics/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazurelinux-basics"><i class="fab fa-azure"></i><span class="">Linux Basics</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazureazure-vm-li">
+  <input type="checkbox" id="m-docsazureazure-vm-check"/>
+  <label for="m-docsazureazure-vm-check"><a href="/docs/azure/azure-vm/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazureazure-vm"><i class="fab fa-azure"></i><span class="">Azure Cloud Virtual Machine (01)</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazureazuredevops-li">
+  <input type="checkbox" id="m-docsazureazuredevops-check"/>
+  <label for="m-docsazureazuredevops-check"><a href="/docs/azure/azuredevops/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazureazuredevops"><i class="fab fa-azure"></i><span class="">Azure Devops</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazureazure-network-li">
+  <input type="checkbox" id="m-docsazureazure-network-check"/>
+  <label for="m-docsazureazure-network-check"><a href="/docs/azure/azure-network/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazureazure-network"><i class="fab fa-azure"></i><span class="">Azure Cloud Networking</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazureazure-storage-li">
+  <input type="checkbox" id="m-docsazureazure-storage-check"/>
+  <label for="m-docsazureazure-storage-check"><a href="/docs/azure/azure-storage/" class="align-left pl-0  active td-sidebar-link td-sidebar-link__page" id="m-docsazureazure-storage"><i class="fab fa-azure"></i><span class="td-sidebar-nav-active-item">Azure Cloud Storage</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazureazure-cli-li">
+  <input type="checkbox" id="m-docsazureazure-cli-check"/>
+  <label for="m-docsazureazure-cli-check"><a href="/docs/azure/azure-cli/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazureazure-cli"><i class="fab fa-azure"></i><span class="">Azure Cli</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazureazure-vmss-li">
+  <input type="checkbox" id="m-docsazureazure-vmss-check"/>
+  <label for="m-docsazureazure-vmss-check"><a href="/docs/azure/azure-vmss/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazureazure-vmss"><i class="fab fa-azure"></i><span class="">Azure Cloud Virtual Machine Scale Set</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazureazure-lb-li">
+  <input type="checkbox" id="m-docsazureazure-lb-check"/>
+  <label for="m-docsazureazure-lb-check"><a href="/docs/azure/azure-lb/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazureazure-lb"><i class="fab fa-azure"></i><span class="">Azure Cloud LoadBalancers</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazureazure-monitor-li">
+  <input type="checkbox" id="m-docsazureazure-monitor-check"/>
+  <label for="m-docsazureazure-monitor-check"><a href="/docs/azure/azure-monitor/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazureazure-monitor"><i class="fab fa-azure"></i><span class="">Azure Monitoring</span></a></label>
+  
+</li>
+  </ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-docsazure-devops-li">
+  <input type="checkbox" id="m-docsazure-devops-check"/>
+  <label for="m-docsazure-devops-check"><a href="/docs/azure-devops/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-docsazure-devops"><i class="fab fa-azure"></i><span class="">Azure Devops</span></a></label>
+  
+  <ul class="ul-2 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazure-devopsazure-board-li">
+  <input type="checkbox" id="m-docsazure-devopsazure-board-check"/>
+  <label for="m-docsazure-devopsazure-board-check"><a href="/docs/azure-devops/azure-board/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazure-devopsazure-board"><i class="fab fa-azure"></i><span class="">Azure Board</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazure-devopsazuredevops-01-li">
+  <input type="checkbox" id="m-docsazure-devopsazuredevops-01-check"/>
+  <label for="m-docsazure-devopsazuredevops-01-check"><a href="/docs/azure-devops/azuredevops-01/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazure-devopsazuredevops-01"><i class="fab fa-azure"></i><span class="">Part 1</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazure-devopsazuredevops-li">
+  <input type="checkbox" id="m-docsazure-devopsazuredevops-check"/>
+  <label for="m-docsazure-devopsazuredevops-check"><a href="/docs/azure-devops/azuredevops/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazure-devopsazuredevops"><i class="fab fa-azure"></i><span class="">Azure Devops</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazure-devopsazuredevops-02-li">
+  <input type="checkbox" id="m-docsazure-devopsazuredevops-02-check"/>
+  <label for="m-docsazure-devopsazuredevops-02-check"><a href="/docs/azure-devops/azuredevops-02/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazure-devopsazuredevops-02"><i class="fab fa-azure"></i><span class="">Part 2</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazure-devopsazuredevops-03-li">
+  <input type="checkbox" id="m-docsazure-devopsazuredevops-03-check"/>
+  <label for="m-docsazure-devopsazuredevops-03-check"><a href="/docs/azure-devops/azuredevops-03/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazure-devopsazuredevops-03"><i class="fab fa-azure"></i><span class="">Part 3</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazure-devopsazuredevops-04-li">
+  <input type="checkbox" id="m-docsazure-devopsazuredevops-04-check"/>
+  <label for="m-docsazure-devopsazuredevops-04-check"><a href="/docs/azure-devops/azuredevops-04/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazure-devopsazuredevops-04"><i class="fab fa-azure"></i><span class="">part 4</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazure-devopsazuredevops-05-li">
+  <input type="checkbox" id="m-docsazure-devopsazuredevops-05-check"/>
+  <label for="m-docsazure-devopsazuredevops-05-check"><a href="/docs/azure-devops/azuredevops-05/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazure-devopsazuredevops-05"><i class="fab fa-azure"></i><span class="">Part 5</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazure-devopsazuredevops-06-li">
+  <input type="checkbox" id="m-docsazure-devopsazuredevops-06-check"/>
+  <label for="m-docsazure-devopsazuredevops-06-check"><a href="/docs/azure-devops/azuredevops-06/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazure-devopsazuredevops-06"><i class="fab fa-azure"></i><span class="">Part 6</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazure-devopsaks-li">
+  <input type="checkbox" id="m-docsazure-devopsaks-check"/>
+  <label for="m-docsazure-devopsaks-check"><a href="/docs/azure-devops/aks/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazure-devopsaks"><i class="fab fa-azure"></i><span class="">AKS</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazure-devopstest-li">
+  <input type="checkbox" id="m-docsazure-devopstest-check"/>
+  <label for="m-docsazure-devopstest-check"><a href="/docs/azure-devops/test/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazure-devopstest"><i class="fab fa-azure"></i><span class="">Azure Devops Test Plans</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazure-devopsdocker-li">
+  <input type="checkbox" id="m-docsazure-devopsdocker-check"/>
+  <label for="m-docsazure-devopsdocker-check"><a href="/docs/azure-devops/docker/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazure-devopsdocker"><i class="fab fa-azure"></i><span class="">Docker</span></a></label>
+  
+</li>
+  </ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-docsgitlab-li">
+  <input type="checkbox" id="m-docsgitlab-check"/>
+  <label for="m-docsgitlab-check"><a href="/docs/gitlab/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-docsgitlab"><i class="fab fa-gitlab"></i><span class="">Gitlab Tutorials</span></a></label>
+  
+  <ul class="ul-2 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsgitlabgitlab01-li">
+  <input type="checkbox" id="m-docsgitlabgitlab01-check"/>
+  <label for="m-docsgitlabgitlab01-check"><a href="/docs/gitlab/gitlab01/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsgitlabgitlab01"><i class="fab fa-gitlab"></i><span class="">GitLab Installation</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsgitlabgitlab-with-ldap-li">
+  <input type="checkbox" id="m-docsgitlabgitlab-with-ldap-check"/>
+  <label for="m-docsgitlabgitlab-with-ldap-check"><a href="/docs/gitlab/gitlab-with-ldap/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsgitlabgitlab-with-ldap"><i class="fas fa-server"></i><span class="">Gitlab Authentication with LDAP</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsgitlabgitlab-container-registry-li">
+  <input type="checkbox" id="m-docsgitlabgitlab-container-registry-check"/>
+  <label for="m-docsgitlabgitlab-container-registry-check"><a href="/docs/gitlab/gitlab-container-registry/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsgitlabgitlab-container-registry"><i class="fab fa-docker"></i><span class="">GitLab Container Registry</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsgitlabgitlab-logs-troubleshooting-li">
+  <input type="checkbox" id="m-docsgitlabgitlab-logs-troubleshooting-check"/>
+  <label for="m-docsgitlabgitlab-logs-troubleshooting-check"><a href="/docs/gitlab/gitlab-logs-troubleshooting/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsgitlabgitlab-logs-troubleshooting"><i class="fas fa-file-alt"></i><span class="">Logs and Troubleshooting</span></a></label>
+  
+</li>
+  </ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-docsopenshift-li">
+  <input type="checkbox" id="m-docsopenshift-check"/>
+  <label for="m-docsopenshift-check"><a href="/docs/openshift/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-docsopenshift"><i class="fab fa-openshift"></i><span class="">OpenShift Administration</span></a></label>
+  
+  <ul class="ul-2 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsopenshiftocp-onvmware-copy-li">
+  <input type="checkbox" id="m-docsopenshiftocp-onvmware-copy-check"/>
+  <label for="m-docsopenshiftocp-onvmware-copy-check"><a href="/docs/openshift/ocp-onvmware-copy/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsopenshiftocp-onvmware-copy"><i class="fab fa-openshift"></i><span class="">Openshift Installation on Vmware</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsopenshiftocp-sno-li">
+  <input type="checkbox" id="m-docsopenshiftocp-sno-check"/>
+  <label for="m-docsopenshiftocp-sno-check"><a href="/docs/openshift/ocp-sno/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsopenshiftocp-sno"><i class="fab fa-openshift"></i><span class="">Openshift Single node Cluster</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsopenshiftocp-tasks-li">
+  <input type="checkbox" id="m-docsopenshiftocp-tasks-check"/>
+  <label for="m-docsopenshiftocp-tasks-check"><a href="/docs/openshift/ocp-tasks/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsopenshiftocp-tasks"><span class="">Openshift 4 Tasks</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsopenshiftocp-tekton-li">
+  <input type="checkbox" id="m-docsopenshiftocp-tekton-check"/>
+  <label for="m-docsopenshiftocp-tekton-check"><a href="/docs/openshift/ocp-tekton/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsopenshiftocp-tekton"><span class="">Openshift Tekton Pipeline</span></a></label>
+  
+</li>
+  </ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-docskvm-li">
+  <input type="checkbox" id="m-docskvm-check"/>
+  <label for="m-docskvm-check"><a href="/docs/kvm/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-docskvm"><i class="fab fa-linux"></i><span class="">Redhat Ansible</span></a></label>
+  
+  <ul class="ul-2 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docskvmkvm-li">
+  <input type="checkbox" id="m-docskvmkvm-check"/>
+  <label for="m-docskvmkvm-check"><a href="/docs/kvm/kvm/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docskvmkvm"><i class="fab fa-kvm"></i><span class="">KVM</span></a></label>
+  
+</li>
+  </ul>
+</li>
+  </ul>
+</li>
+    </ul>
+  </nav>
+</div>
+
+          </aside>
+          <aside class="d-none d-xl-block col-xl-2 td-sidebar-toc d-print-none">
+            
+
+    <div class="td-page-meta ml-2 pb-1 pt-2 mb-0">
+        <div class="toc-title">Actions</div>
+        <a href="/edit/master/content/docs/Azure/Azure-storage.md" target="_blank" rel="noopener"><i class="fa fa-edit fa-fw"></i> Contribute to this page</a>
+        <a href="/issues/new?issue%5Btitle=%f0%9f%93%83%20docs:%20update%20page%20docs/Azure/Azure-storage.md" target="_blank" rel="noopener"><i class="fab fa-gitlab fa-fw"></i> Create a documentation issue</a>
+       
+    </div>
+
+            
+<div class="td-page-meta ml-2 pb-1 pt-2 mb-0 right-menu-toc">
+
+    
+        
+            <div class="toc-title">Table of content</div>
+            <div class="td-toc"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#azure-storage-services">Azure Storage Services</a>
+      <ul>
+        <li><a href="#1-blob-storage">1. Blob Storage</a></li>
+        <li><a href="#2-azure-files">2. Azure Files</a></li>
+        <li><a href="#3-queue-storage">3. Queue Storage</a></li>
+        <li><a href="#4-table-storage">4. Table Storage</a></li>
+        <li><a href="#5-disk-storage">5. Disk Storage</a></li>
+      </ul>
+    </li>
+    <li><a href="#redundancy-options">Redundancy Options</a></li>
+    <li><a href="#security-and-access-control">Security and Access Control</a></li>
+    <li><a href="#pricing">Pricing</a></li>
+  </ul>
+</nav></div>
+        
+    
+
+</div>
+          </aside>
+          <main class="col-12 col-md-9 col-xl-8 pl-md-5" role="main">
+            
+  
+
+            <nav aria-label="breadcrumb" class="td-breadcrumbs">
+  <ol class="breadcrumb">
+  <li class="breadcrumb-item">
+    <a href="/docs/">Docs</a>
+  </li>
+  <li class="breadcrumb-item">
+    <a href="/docs/azure/">Azure Cloud Computing</a>
+  </li>
+  <li class="breadcrumb-item active" aria-current="page">
+    <a href="/docs/azure/azure-storage/">Azure Cloud Storage</a>
+  </li>
+  </ol>
+</nav>
+            
+<div class="td-content">
+	<h1>Azure Cloud Storage</h1>
+	<div class="lead">Azure Cloud</div>
+	<header class="article-meta">
+		
+
+  
+    
+
+
+  
+    
+
+
+  
+
+		
+	</header>    
+	<!-- end-chunk -->
+<!-- begin-chunk data-anchor="azure-storage-overview" data-heading="Azure Storage Overview" data-level="1" data-permalink="/docs/azure/azure-storage/" data-title="Azure Cloud Storage" -->
+<h1 id="azure-storage-overview">Azure Storage Overview</h1><p>Azure Storage is a highly scalable, durable cloud solution, supporting different data types and use cases, such as analytics, data lakes, and static web content hosting.</p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="azure-storage-services" data-heading="Azure Storage Services" data-level="2" data-permalink="/docs/azure/azure-storage/" data-title="Azure Cloud Storage" -->
+<h2 id="azure-storage-services">Azure Storage Services</h2><!-- end-chunk -->
+<!-- begin-chunk data-anchor="1-blob-storage" data-heading="1. Blob Storage" data-level="3" data-permalink="/docs/azure/azure-storage/" data-title="Azure Cloud Storage" -->
+<h3 id="1-blob-storage">1. Blob Storage</h3><p>Stores unstructured data like images, videos, and backups.</p>
+<ul>
+<li><strong>Blob Types</strong>:
+<ul>
+<li><strong>Block Blobs</strong>: Stores large binary data.</li>
+<li><strong>Append Blobs</strong>: Optimized for appending data, ideal for logging.</li>
+<li><strong>Page Blobs</strong>: Primarily used for Azure VM storage disks.</li>
+</ul>
+</li>
+<li><strong>Access Tiers</strong>:
+<ul>
+<li><strong>Hot</strong>: Frequently accessed data.</li>
+<li><strong>Cool</strong>: Infrequently accessed data, stored at a lower cost.</li>
+<li><strong>Archive</strong>: Rarely accessed data stored at the lowest cost for long-term storage.</li>
+</ul>
+</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="2-azure-files" data-heading="2. Azure Files" data-level="3" data-permalink="/docs/azure/azure-storage/" data-title="Azure Cloud Storage" -->
+<h3 id="2-azure-files">2. Azure Files</h3><p>Managed file shares that can be accessed via SMB or NFS protocols.</p>
+<ul>
+<li><strong>Features</strong>:
+<ul>
+<li>Mountable on both Windows and Linux systems.</li>
+<li>Supports hybrid access by mounting shares on-premises.</li>
+<li>Integrates with Azure AD for advanced access control.</li>
+</ul>
+</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="3-queue-storage" data-heading="3. Queue Storage" data-level="3" data-permalink="/docs/azure/azure-storage/" data-title="Azure Cloud Storage" -->
+<h3 id="3-queue-storage">3. Queue Storage</h3><p>Provides message queuing for reliable communication between application components.</p>
+<ul>
+<li><strong>Features</strong>:
+<ul>
+<li>Decouples distributed applications.</li>
+<li>Offers ordered message processing and retries for durability.</li>
+</ul>
+</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="4-table-storage" data-heading="4. Table Storage" data-level="3" data-permalink="/docs/azure/azure-storage/" data-title="Azure Cloud Storage" -->
+<h3 id="4-table-storage">4. Table Storage</h3><p>A NoSQL key-value store optimized for large volumes of structured data.</p>
+<ul>
+<li><strong>Features</strong>:
+<ul>
+<li>Highly scalable and designed for rapid access.</li>
+<li>Suitable for non-relational data storage in various applications.</li>
+</ul>
+</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="5-disk-storage" data-heading="5. Disk Storage" data-level="3" data-permalink="/docs/azure/azure-storage/" data-title="Azure Cloud Storage" -->
+<h3 id="5-disk-storage">5. Disk Storage</h3><p>Persistent storage for Azure Virtual Machines, available as <strong>Standard HDD</strong>, <strong>Standard SSD</strong>, and <strong>Premium SSD</strong>.</p>
+<ul>
+<li><strong>Managed Disks</strong>: Automatically manages storage account allocation and is highly resilient to hardware failures.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="redundancy-options" data-heading="Redundancy Options" data-level="2" data-permalink="/docs/azure/azure-storage/" data-title="Azure Cloud Storage" -->
+<h2 id="redundancy-options">Redundancy Options</h2><p>Azure Storage offers multiple redundancy levels to protect data against failures:</p>
+<ul>
+<li>
+<p><strong>LRS (Locally Redundant Storage)</strong>:</p>
+<ul>
+<li>Stores three copies of data within a single data center.</li>
+<li>Low-cost option, but data is not replicated outside the local region.</li>
+</ul>
+</li>
+<li>
+<p><strong>ZRS (Zone-Redundant Storage)</strong>:</p>
+<ul>
+<li>Replicates data across multiple availability zones within the same region.</li>
+<li>Provides higher availability by protecting against data center failures.</li>
+</ul>
+</li>
+<li>
+<p><strong>GRS (Geo-Redundant Storage)</strong>:</p>
+<ul>
+<li>Stores three copies of data in the primary region and three more in a secondary region.</li>
+<li>Ensures data is available even in the event of a regional outage, but the secondary region is read-only until failover.</li>
+</ul>
+</li>
+<li>
+<p><strong>RA-GRS (Read-Access Geo-Redundant Storage)</strong>:</p>
+<ul>
+<li>Similar to GRS but allows read access to data in the secondary region.</li>
+<li>Useful for applications that require high availability during regional outages.</li>
+</ul>
+</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="security-and-access-control" data-heading="Security and Access Control" data-level="2" data-permalink="/docs/azure/azure-storage/" data-title="Azure Cloud Storage" -->
+<h2 id="security-and-access-control">Security and Access Control</h2><ul>
+<li><strong>Shared Access Signatures (SAS)</strong>: Temporarily grant permissions to resources without sharing account keys.</li>
+<li><strong>Azure Active Directory (AD)</strong>: Enables identity-based access controls for enhanced security.</li>
+<li><strong>Encryption</strong>: Data is encrypted at rest by default and can be encrypted during transit.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="pricing" data-heading="Pricing" data-level="2" data-permalink="/docs/azure/azure-storage/" data-title="Azure Cloud Storage" -->
+<h2 id="pricing">Pricing</h2><p>Pricing depends on factors like storage capacity, redundancy options (LRS, ZRS, GRS, RA-GRS), access tiers (Hot, Cool, Archive), and data transfer volumes.</p>
+<p>For more details, refer to the <a href="https://docs.microsoft.com/en-us/azure/storage/" target="_blank" rel="noopener">Azure Storage Documentation</a>.</p>
+
+	
+	
+	
+</div>
+
+
+          </main>
+        </div>
+      </div>
+      
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+    integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+    crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js"
+    integrity="sha512-UR25UO94eTnCVwjbXozyeVd6ZqpaAE9naiEUBK/A+QDbfSTQFhPGj5lOR6d8tsgbBk84Ggb5A3EkjsOgPRPcKA=="
+    crossorigin="anonymous"></script>
+
+
+
+
+
+<script src='/js/tabpane-persist.js'></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="/js/main.min.223ab2fcc7d742c1b94772c0276851c497da4343cd2d21534199ced90681e207.js" integrity="sha256-Ijqy/MfXQsG5R3LAJ2hRxJfaQ0PNLSFTQZnO2QaB4gc=" crossorigin="anonymous"></script>
+
+
+
+<script src='/js/prism.js'></script>
+
+
+
+  </body>
+</html>

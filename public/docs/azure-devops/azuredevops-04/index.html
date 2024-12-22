@@ -1,0 +1,2114 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="generator" content="Hugo 0.122.0">
+<meta name="robots" content="index, follow">
+
+<link rel="shortcut icon" href="/favicons/favicon.ico" >
+
+<title>part 4 | Documentation</title>
+<meta name="description" content="Azure Devops">
+<meta property="og:title" content="part 4" />
+<meta property="og:description" content="Azure Devops" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/docs/azure-devops/azuredevops-04/" /><meta property="article:section" content="docs" />
+
+
+
+<meta itemprop="name" content="part 4">
+<meta itemprop="description" content="Azure Devops">
+
+<meta itemprop="wordCount" content="4642">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/><meta name="twitter:title" content="part 4"/>
+<meta name="twitter:description" content="Azure Devops"/>
+
+
+
+
+<link rel="preload" href="/scss/main.min.b5bfe2535b6f07595fd9cb7a4018024e52e136c3b43e03a17a1e47a950822d03.css" as="style">
+<link href="/scss/main.min.b5bfe2535b6f07595fd9cb7a4018024e52e136c3b43e03a17a1e47a950822d03.css" rel="stylesheet" integrity="">
+
+<script
+  src="https://code.jquery.com/jquery-3.6.0.min.js"
+  integrity="sha384-vtXRMe3mGCbOeY7l30aIg8H9p3GdeSe4IFlP6G8JMa7o7lXvnz3GFKzPxzJdPfGK"
+  crossorigin="anonymous"></script>
+<script
+  src="https://unpkg.com/lunr@2.3.9/lunr.min.js"
+  integrity="sha384-203J0SNzyqHby3iU6hzvzltrWi/M41wOP5Gu+BiJMz5nwKykbkUx8Kp7iti0Lpli"
+  crossorigin="anonymous"></script>
+<link rel="stylesheet" href="/css/prism.css"/>
+<script type="text/javascript"  src="/js/highlight-search.js"></script>
+<script type="text/javascript"  src="/js/manage-side-panels.js"></script>
+  </head>
+  <body class="td-page highlightable">
+    <header>
+      
+<nav class="js-navbar-scroll navbar navbar-expand navbar-dark flex-column flex-md-row td-navbar">
+        <a class="navbar-brand" href="/">
+		<span class="navbar-logo"><svg version="1.0" xmlns="http://www.w3.org/2000/svg" width="217pt" height="232pt" viewBox="0 0 217 232"><g transform="translate(0.000000,232.000000) scale(0.100000,-0.100000)" fill="#000" stroke="none"><path d="M1017 2250c-397-48-698-367-731-775-9-106-3-113 66-87l55 20 11-71c6-39 10-72 9-73s-58-22-127-47c-104-37-124-48-122-64 7-37 56-150 88-205l34-56 66 25 66 26 65-72c206-226 513-322 808-252 367 88 634 417 635 784 0 43-4 77-10 77-5 0-32-9-60-20s-55-20-59-20c-5 0-12 26-16 59-4 32-20 96-36 142s-30 88-31 92c-2 5 54 29 124 55l128 46-31 55c-17 31-33 58-34 59-2 2-31-6-64-19l-61-22-23 29c-81 104-172 178-292 235-140 68-309 97-458 79zm226-299c90-24 136-46 206-101l52-41 61 20 60 20 26-31c15-17 35-44 44-59l17-28-52-19c-29-11-86-32-128-47l-76-27 24-58c26-66 43-144 43-201 0-22 2-39 5-39 2 0 27 9 55 20s55 20 60 20c17 0 10-63-14-131-127-359-580-484-862-237l-35 31-70-24-71-24-30 35c-37 43-97 164-104 212l-6 34 123 46 124 45-3 64c-2 35-5 66-7 68-2 1-27-5-55-14s-53-15-55-14c-2 2 1 29 7 59 32 179 185 352 361 409 112 36 192 39 3e2 12z"/><path d="M134 321c-77-33-95-169-29-231 19-18 36-23 71-23 40 0 51 4 75 30 50 56 47 153-5 202-26 25-80 35-112 22zm82-62c26-29 26-99 0-128-24-26-47-27-77-2-19 15-24 29-24 64 0 76 58 114 101 66z"/><path d="M1172 320c-27-12-44-52-33-82 4-12 31-32 61-47 30-14 58-34 64-43 26-43-50-76-99-44-15 10-26 12-30 6-10-16 4-29 44-40 62-17 114 13 114 65 0 35-19 53-80 81-54 23-67 46-41 72 15 15 62 16 88 2 23-12 35 3 16 19-20 17-77 23-104 11z"/><path d="M350 195V70h25c23 0 25 4 25 45v45h40c76 0 115 40 103 104-8 42-38 56-120 56h-73V195zm134 69c18-18 18-17 10-38-4-11-19-16-50-16-44 0-44 0-44 35 0 33 2 35 34 35 19 0 42-7 50-16z"/><path d="M6e2 195V70h90c83 0 90 2 90 20 0 16-8 19-62 22-63 3-63 3-66 36-3 31-2 32 36 32 36 0 39 2 34 25-4 21-10 25-38 25-30 0-34 3-34 25 0 24 2 25 65 25 58 0 65 2 65 20 0 19-7 20-90 20h-90V195z"/><path d="M850 195c0-117 1-125 20-125 17 0 19 8 22 83l3 82 55-82c41-62 61-83 78-83 22 0 22 2 22 125 0 117-1 125-20 125-17 0-19-8-22-82l-3-82-54 82c-42 65-59 82-77 82-24 0-24 0-24-125z"/><path d="M1360 195c0-104 2-125 15-125 12 0 15 13 15 60v60h65 65v-60c0-47 3-60 15-60 13 0 15 21 15 125s-2 125-15 125c-12 0-15-13-15-55v-55h-65-65v55c0 42-3 55-15 55-13 0-15-21-15-125z"/><path d="M1620 195c0-104 2-125 15-125s15 21 15 125-2 125-15 125-15-21-15-125z"/><path d="M1730 195c0-77 4-125 10-125s10 27 10 60v60h35c19 0 35 5 35 10 0 6-16 10-35 10-35 0-35 0-35 45v45h60c33 0 60 4 60 10s-30 10-70 10h-70V195z"/><path d="M1930 310c0-5 18-10 40-10h40V185c0-70 4-115 10-115s10 45 10 115v115h40c22 0 40 5 40 10 0 6-37 10-90 10s-90-4-90-10z"/></g></svg></span><span class="font-weight-bold">Documentation</span>
+	</a>
+	<div class="td-navbar-nav-scroll ml-md-auto" id="main_navbar">
+		<ul class="navbar-nav mt-2 mt-lg-0">
+			
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/" ><i class='fa fa-home'></i><span>Home</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/docs/azure/" ><i class='fab fa-azure'></i><span>Azure Cloud Computing</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link active" href="/docs/azure-devops/" ><i class='fab fa-azure'></i><span class="active">Azure Devops</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/docs/gitlab/" ><i class='fab fa-gitlab'></i><span>Gitlab Tutorials</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/docs/openshift/" ><i class='fab fa-openshift'></i><span>OpenShift Administration</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/docs/kvm/" ><i class="fab fa-linux"></i><span>Redhat Ansible</span></a>
+			</li>
+			
+			
+			
+		</ul>
+	</div>
+	<div class="navbar-nav d-none d-lg-block">
+<form class="d-flex align-items-center">
+  <input type="search"
+  class="form-control td-search-input"
+  placeholder="&#xf002; Search this site…"
+  aria-label="Search this site…"
+  autocomplete="off"
+  
+  data-offline-search-index-json-src="/offline-search-index.d4ee35dfb31ed3b96d119091cf664ad4.json"
+  data-offline-search-base-href="/"
+  data-offline-search-max-results="20">
+</form>
+</div>
+</nav>
+
+      <div class="manage-panels">
+    <button type="button" class="button-left" id="left-panel-manager" title="Hide sidebar">""</button>
+    <button type="button" class="button-right" id="right-panel-manager" title="Hide sidebar">""</button>
+</div>
+    </header>
+    <div class="container-fluid td-outer">
+      <div class="td-main autonumbering">
+        <div class="row flex-xl-nowrap">
+          <aside class="col-12 col-md-3 col-xl-2 td-sidebar d-print-none">
+            
+<div id="td-sidebar-menu" class="td-sidebar__inner">
+  <div id="content-mobile">
+  <form class="td-sidebar__search d-flex align-items-center">
+    
+<form class="d-flex align-items-center">
+  <input type="search"
+  class="form-control td-search-input"
+  placeholder="&#xf002; Search this site…"
+  aria-label="Search this site…"
+  autocomplete="off"
+  
+  data-offline-search-index-json-src="/offline-search-index.d4ee35dfb31ed3b96d119091cf664ad4.json"
+  data-offline-search-base-href="/"
+  data-offline-search-max-results="20">
+</form>
+
+    <button class="btn btn-link td-sidebar__toggle d-md-none p-0 ml-3 fas fa-bars" type="button" data-toggle="collapse" data-target="#td-section-nav" aria-controls="td-docs-nav" aria-expanded="false" aria-label="Toggle section navigation">
+    </button>
+  </form>
+  </div>
+  <div id="content-desktop"></div>
+  <nav class="collapse td-sidebar-nav foldable-nav" id="td-section-nav">
+    <ul class="td-sidebar-nav__section pr-md-3 ul-0">
+      <li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id="m-docs-li">
+  <a href="/docs/" class="align-left pl-0 td-sidebar-link td-sidebar-link__section tree-root" id="m-docs"><span class="">Docs</span></a>
+  <ul class="ul-1">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-docsazure-li">
+  <input type="checkbox" id="m-docsazure-check"/>
+  <label for="m-docsazure-check"><a href="/docs/azure/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-docsazure"><i class="fab fa-azure"></i><span class="">Azure Cloud Computing</span></a></label>
+  
+  <ul class="ul-2 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazurelinux-basics-li">
+  <input type="checkbox" id="m-docsazurelinux-basics-check"/>
+  <label for="m-docsazurelinux-basics-check"><a href="/docs/azure/linux-basics/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazurelinux-basics"><i class="fab fa-azure"></i><span class="">Linux Basics</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazureazure-vm-li">
+  <input type="checkbox" id="m-docsazureazure-vm-check"/>
+  <label for="m-docsazureazure-vm-check"><a href="/docs/azure/azure-vm/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazureazure-vm"><i class="fab fa-azure"></i><span class="">Azure Cloud Virtual Machine (01)</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazureazuredevops-li">
+  <input type="checkbox" id="m-docsazureazuredevops-check"/>
+  <label for="m-docsazureazuredevops-check"><a href="/docs/azure/azuredevops/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazureazuredevops"><i class="fab fa-azure"></i><span class="">Azure Devops</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazureazure-network-li">
+  <input type="checkbox" id="m-docsazureazure-network-check"/>
+  <label for="m-docsazureazure-network-check"><a href="/docs/azure/azure-network/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazureazure-network"><i class="fab fa-azure"></i><span class="">Azure Cloud Networking</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazureazure-storage-li">
+  <input type="checkbox" id="m-docsazureazure-storage-check"/>
+  <label for="m-docsazureazure-storage-check"><a href="/docs/azure/azure-storage/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazureazure-storage"><i class="fab fa-azure"></i><span class="">Azure Cloud Storage</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazureazure-cli-li">
+  <input type="checkbox" id="m-docsazureazure-cli-check"/>
+  <label for="m-docsazureazure-cli-check"><a href="/docs/azure/azure-cli/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazureazure-cli"><i class="fab fa-azure"></i><span class="">Azure Cli</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazureazure-vmss-li">
+  <input type="checkbox" id="m-docsazureazure-vmss-check"/>
+  <label for="m-docsazureazure-vmss-check"><a href="/docs/azure/azure-vmss/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazureazure-vmss"><i class="fab fa-azure"></i><span class="">Azure Cloud Virtual Machine Scale Set</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazureazure-lb-li">
+  <input type="checkbox" id="m-docsazureazure-lb-check"/>
+  <label for="m-docsazureazure-lb-check"><a href="/docs/azure/azure-lb/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazureazure-lb"><i class="fab fa-azure"></i><span class="">Azure Cloud LoadBalancers</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazureazure-monitor-li">
+  <input type="checkbox" id="m-docsazureazure-monitor-check"/>
+  <label for="m-docsazureazure-monitor-check"><a href="/docs/azure/azure-monitor/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazureazure-monitor"><i class="fab fa-azure"></i><span class="">Azure Monitoring</span></a></label>
+  
+</li>
+  </ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id="m-docsazure-devops-li">
+  <input type="checkbox" id="m-docsazure-devops-check" checked/>
+  <label for="m-docsazure-devops-check"><a href="/docs/azure-devops/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-docsazure-devops"><i class="fab fa-azure"></i><span class="">Azure Devops</span></a></label>
+  
+  <ul class="ul-2 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazure-devopsazure-board-li">
+  <input type="checkbox" id="m-docsazure-devopsazure-board-check"/>
+  <label for="m-docsazure-devopsazure-board-check"><a href="/docs/azure-devops/azure-board/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazure-devopsazure-board"><i class="fab fa-azure"></i><span class="">Azure Board</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazure-devopsazuredevops-01-li">
+  <input type="checkbox" id="m-docsazure-devopsazuredevops-01-check"/>
+  <label for="m-docsazure-devopsazuredevops-01-check"><a href="/docs/azure-devops/azuredevops-01/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazure-devopsazuredevops-01"><i class="fab fa-azure"></i><span class="">Part 1</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazure-devopsazuredevops-li">
+  <input type="checkbox" id="m-docsazure-devopsazuredevops-check"/>
+  <label for="m-docsazure-devopsazuredevops-check"><a href="/docs/azure-devops/azuredevops/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazure-devopsazuredevops"><i class="fab fa-azure"></i><span class="">Azure Devops</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazure-devopsazuredevops-02-li">
+  <input type="checkbox" id="m-docsazure-devopsazuredevops-02-check"/>
+  <label for="m-docsazure-devopsazuredevops-02-check"><a href="/docs/azure-devops/azuredevops-02/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazure-devopsazuredevops-02"><i class="fab fa-azure"></i><span class="">Part 2</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazure-devopsazuredevops-03-li">
+  <input type="checkbox" id="m-docsazure-devopsazuredevops-03-check"/>
+  <label for="m-docsazure-devopsazuredevops-03-check"><a href="/docs/azure-devops/azuredevops-03/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazure-devopsazuredevops-03"><i class="fab fa-azure"></i><span class="">Part 3</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazure-devopsazuredevops-04-li">
+  <input type="checkbox" id="m-docsazure-devopsazuredevops-04-check"/>
+  <label for="m-docsazure-devopsazuredevops-04-check"><a href="/docs/azure-devops/azuredevops-04/" class="align-left pl-0  active td-sidebar-link td-sidebar-link__page" id="m-docsazure-devopsazuredevops-04"><i class="fab fa-azure"></i><span class="td-sidebar-nav-active-item">part 4</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazure-devopsazuredevops-05-li">
+  <input type="checkbox" id="m-docsazure-devopsazuredevops-05-check"/>
+  <label for="m-docsazure-devopsazuredevops-05-check"><a href="/docs/azure-devops/azuredevops-05/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazure-devopsazuredevops-05"><i class="fab fa-azure"></i><span class="">Part 5</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazure-devopsazuredevops-06-li">
+  <input type="checkbox" id="m-docsazure-devopsazuredevops-06-check"/>
+  <label for="m-docsazure-devopsazuredevops-06-check"><a href="/docs/azure-devops/azuredevops-06/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazure-devopsazuredevops-06"><i class="fab fa-azure"></i><span class="">Part 6</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazure-devopsaks-li">
+  <input type="checkbox" id="m-docsazure-devopsaks-check"/>
+  <label for="m-docsazure-devopsaks-check"><a href="/docs/azure-devops/aks/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazure-devopsaks"><i class="fab fa-azure"></i><span class="">AKS</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazure-devopstest-li">
+  <input type="checkbox" id="m-docsazure-devopstest-check"/>
+  <label for="m-docsazure-devopstest-check"><a href="/docs/azure-devops/test/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazure-devopstest"><i class="fab fa-azure"></i><span class="">Azure Devops Test Plans</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazure-devopsdocker-li">
+  <input type="checkbox" id="m-docsazure-devopsdocker-check"/>
+  <label for="m-docsazure-devopsdocker-check"><a href="/docs/azure-devops/docker/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazure-devopsdocker"><i class="fab fa-azure"></i><span class="">Docker</span></a></label>
+  
+</li>
+  </ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-docsgitlab-li">
+  <input type="checkbox" id="m-docsgitlab-check"/>
+  <label for="m-docsgitlab-check"><a href="/docs/gitlab/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-docsgitlab"><i class="fab fa-gitlab"></i><span class="">Gitlab Tutorials</span></a></label>
+  
+  <ul class="ul-2 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsgitlabgitlab01-li">
+  <input type="checkbox" id="m-docsgitlabgitlab01-check"/>
+  <label for="m-docsgitlabgitlab01-check"><a href="/docs/gitlab/gitlab01/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsgitlabgitlab01"><i class="fab fa-gitlab"></i><span class="">GitLab Installation</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsgitlabgitlab-with-ldap-li">
+  <input type="checkbox" id="m-docsgitlabgitlab-with-ldap-check"/>
+  <label for="m-docsgitlabgitlab-with-ldap-check"><a href="/docs/gitlab/gitlab-with-ldap/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsgitlabgitlab-with-ldap"><i class="fas fa-server"></i><span class="">Gitlab Authentication with LDAP</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsgitlabgitlab-container-registry-li">
+  <input type="checkbox" id="m-docsgitlabgitlab-container-registry-check"/>
+  <label for="m-docsgitlabgitlab-container-registry-check"><a href="/docs/gitlab/gitlab-container-registry/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsgitlabgitlab-container-registry"><i class="fab fa-docker"></i><span class="">GitLab Container Registry</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsgitlabgitlab-logs-troubleshooting-li">
+  <input type="checkbox" id="m-docsgitlabgitlab-logs-troubleshooting-check"/>
+  <label for="m-docsgitlabgitlab-logs-troubleshooting-check"><a href="/docs/gitlab/gitlab-logs-troubleshooting/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsgitlabgitlab-logs-troubleshooting"><i class="fas fa-file-alt"></i><span class="">Logs and Troubleshooting</span></a></label>
+  
+</li>
+  </ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-docsopenshift-li">
+  <input type="checkbox" id="m-docsopenshift-check"/>
+  <label for="m-docsopenshift-check"><a href="/docs/openshift/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-docsopenshift"><i class="fab fa-openshift"></i><span class="">OpenShift Administration</span></a></label>
+  
+  <ul class="ul-2 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsopenshiftocp-onvmware-copy-li">
+  <input type="checkbox" id="m-docsopenshiftocp-onvmware-copy-check"/>
+  <label for="m-docsopenshiftocp-onvmware-copy-check"><a href="/docs/openshift/ocp-onvmware-copy/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsopenshiftocp-onvmware-copy"><i class="fab fa-openshift"></i><span class="">Openshift Installation on Vmware</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsopenshiftocp-sno-li">
+  <input type="checkbox" id="m-docsopenshiftocp-sno-check"/>
+  <label for="m-docsopenshiftocp-sno-check"><a href="/docs/openshift/ocp-sno/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsopenshiftocp-sno"><i class="fab fa-openshift"></i><span class="">Openshift Single node Cluster</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsopenshiftocp-tasks-li">
+  <input type="checkbox" id="m-docsopenshiftocp-tasks-check"/>
+  <label for="m-docsopenshiftocp-tasks-check"><a href="/docs/openshift/ocp-tasks/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsopenshiftocp-tasks"><span class="">Openshift 4 Tasks</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsopenshiftocp-tekton-li">
+  <input type="checkbox" id="m-docsopenshiftocp-tekton-check"/>
+  <label for="m-docsopenshiftocp-tekton-check"><a href="/docs/openshift/ocp-tekton/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsopenshiftocp-tekton"><span class="">Openshift Tekton Pipeline</span></a></label>
+  
+</li>
+  </ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-docskvm-li">
+  <input type="checkbox" id="m-docskvm-check"/>
+  <label for="m-docskvm-check"><a href="/docs/kvm/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-docskvm"><i class="fab fa-linux"></i><span class="">Redhat Ansible</span></a></label>
+  
+  <ul class="ul-2 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docskvmkvm-li">
+  <input type="checkbox" id="m-docskvmkvm-check"/>
+  <label for="m-docskvmkvm-check"><a href="/docs/kvm/kvm/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docskvmkvm"><i class="fab fa-kvm"></i><span class="">KVM</span></a></label>
+  
+</li>
+  </ul>
+</li>
+  </ul>
+</li>
+    </ul>
+  </nav>
+</div>
+
+          </aside>
+          <aside class="d-none d-xl-block col-xl-2 td-sidebar-toc d-print-none">
+            
+
+    <div class="td-page-meta ml-2 pb-1 pt-2 mb-0">
+        <div class="toc-title">Actions</div>
+        <a href="/edit/master/content/docs/Azure%20%20Devops/Azuredevops-04.md" target="_blank" rel="noopener"><i class="fa fa-edit fa-fw"></i> Contribute to this page</a>
+        <a href="/issues/new?issue%5Btitle=%f0%9f%93%83%20docs:%20update%20page%20docs/Azure%20%20Devops/Azuredevops-04.md" target="_blank" rel="noopener"><i class="fab fa-gitlab fa-fw"></i> Create a documentation issue</a>
+       
+    </div>
+
+            
+<div class="td-page-meta ml-2 pb-1 pt-2 mb-0 right-menu-toc">
+
+    
+        
+            <div class="toc-title">Table of content</div>
+            <div class="td-toc"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#source-click-here-httpslearnmicrosoftcomen-usazuredevopspipelinesyaml-schemapipelineviewazure-pipelines">Source <a href="https://learn.microsoft.com/en-us/azure/devops/pipelines/yaml-schema/pipeline?view=azure-pipelines">click Here </a></a></li>
+    <li><a href="#declarative-pipeline">Declarative Pipeline</a>
+      <ul>
+        <li><a href="#first-pipeline">First Pipeline</a></li>
+      </ul>
+    </li>
+    <li><a href="#azure-devops-starter-pipeline-explanation">Azure DevOps Starter Pipeline Explanation</a>
+      <ul>
+        <li><a href="#trigger">Trigger:</a></li>
+        <li><a href="#pool">Pool:</a></li>
+        <li><a href="#steps">Steps:</a></li>
+      </ul>
+    </li>
+    <li><a href="#azure-devops-pipeline-stages">Azure DevOps Pipeline Stages</a>
+      <ul>
+        <li><a href="#key-features-of-stages">Key Features of Stages</a></li>
+        <li><a href="#example-of-stages-in-yaml-pipeline">Example of Stages in YAML Pipeline</a></li>
+      </ul>
+    </li>
+    <li><a href="#azure-devops-pipeline-jobs">Azure DevOps Pipeline Jobs</a></li>
+    <li><a href="#key-features-of-jobs">Key Features of Jobs</a></li>
+    <li><a href="#example-of-jobs-in-yaml-pipeline">Example of Jobs in YAML Pipeline</a></li>
+    <li><a href="#azure-devops-pipeline-steps-and-scripts">Azure DevOps Pipeline Steps and Scripts</a></li>
+    <li><a href="#key-features-of-steps">Key Features of Steps</a></li>
+    <li><a href="#example-of-steps-and-scripts-in-yaml-pipeline">Example of Steps and Scripts in YAML Pipeline</a></li>
+    <li><a href="#azure-devops-pipeline-variables">Azure DevOps Pipeline Variables</a></li>
+    <li><a href="#key-features-of-variables">Key Features of Variables</a>
+      <ul>
+        <li><a href="#defining-user-defined-variables">Defining User-Defined Variables</a>
+          <ul>
+            <li><a href="#pipeline-level-variables">Pipeline-level Variables:</a></li>
+            <li><a href="#job-level-variables">Job-level Variables:</a></li>
+            <li><a href="#step-level-variables">Step-level Variables:</a></li>
+          </ul>
+        </li>
+        <li><a href="#example-of-user-defined-variables-in-yaml-pipeline">Example of user defined Variables in YAML Pipeline</a></li>
+        <li><a href="#example-02">Example 02</a></li>
+        <li><a href="#key-differences">Key Differences</a></li>
+      </ul>
+    </li>
+    <li><a href="#parameterized-variables">Parameterized Variables</a>
+      <ul>
+        <li><a href="#example-of-parameterized-variables-in-yaml">Example of Parameterized Variables in YAML</a></li>
+      </ul>
+    </li>
+    <li><a href="#conditional-variables">Conditional Variables</a>
+      <ul>
+        <li><a href="#example-1-set-variable-based-on-branch-name">Example 1: Set Variable Based on Branch Name</a></li>
+        <li><a href="#set-variable-based-on-job-status">Set Variable Based on Job Status</a></li>
+        <li><a href="#using-conditions-in-job-execution">Using Conditions in Job Execution</a></li>
+      </ul>
+    </li>
+    <li><a href="#job-dependencies-with-dependson">Job Dependencies with <code>dependsOn</code></a>
+      <ul>
+        <li><a href="#example-1-basic-job-dependency">Example 1: Basic Job Dependency</a></li>
+        <li><a href="#conditional-execution-with-dependencies">Conditional Execution with Dependencies</a></li>
+        <li><a href="#multiple-job-dependencies">Multiple Job Dependencies</a></li>
+        <li><a href="#deployment-with-approval-gates">Deployment with Approval Gates</a></li>
+      </ul>
+    </li>
+    <li><a href="#azure-devops-templates">Azure DevOps Templates</a>
+      <ul>
+        <li><a href="#types-of-templates">Types of Templates</a></li>
+      </ul>
+    </li>
+    <li><a href="#creating-a-template">Creating a Template</a>
+      <ul>
+        <li><a href="#example-pipeline-template">Example: Pipeline Template</a></li>
+        <li><a href="#using-a-pipeline-template">Using a Pipeline Template</a></li>
+        <li><a href="#job-template-definition">Job Template Definition</a></li>
+        <li><a href="#using-the-job-template">Using the Job Template</a></li>
+        <li><a href="#multiple-scheduled-triggers">Multiple Scheduled Triggers</a></li>
+        <li><a href="#pipeline-with-single-stage-with-multiple-jobs">Pipeline with single stage with multiple jobs</a></li>
+        <li><a href="#pipeline-with-conditional-jobs">Pipeline with Conditional Jobs</a></li>
+        <li><a href="#parallel-jobs-in-a-stage">Parallel Jobs in a Stage</a></li>
+        <li><a href="#pipeline-with-tasks-build-test-deploy">Pipeline with Tasks (Build, Test, Deploy)</a></li>
+      </ul>
+    </li>
+    <li><a href="#azure-devops-deployment-strategies">Azure DevOps Deployment Strategies</a>
+      <ul>
+        <li><a href="#common-deployment-strategies">Common Deployment Strategies</a></li>
+      </ul>
+    </li>
+    <li><a href="#1-blue-green-deployment">1. Blue-Green Deployment</a>
+      <ul>
+        <li><a href="#overview">Overview</a></li>
+        <li><a href="#steps-1">Steps</a></li>
+      </ul>
+    </li>
+    <li><a href="#2-canary-deployment">2. Canary Deployment</a>
+      <ul>
+        <li><a href="#overview-1">Overview</a></li>
+        <li><a href="#steps-2">Steps</a></li>
+      </ul>
+    </li>
+    <li><a href="#3-rolling-deployment">3. Rolling Deployment</a>
+      <ul>
+        <li><a href="#overview-2">Overview</a></li>
+        <li><a href="#steps-3">Steps</a></li>
+      </ul>
+    </li>
+    <li><a href="#4-recreate-deployment">4. Recreate Deployment</a>
+      <ul>
+        <li><a href="#overview-3">Overview</a></li>
+        <li><a href="#steps-4">Steps</a></li>
+        <li><a href="#summary">Summary</a></li>
+      </ul>
+    </li>
+    <li><a href="#tasks">Tasks</a>
+      <ul>
+        <li><a href="#codebase-httpsgithubcomkumarnirpendra25t1-student-maven-projgit">CodeBase <a href="https://github.com/kumarnirpendra25/t1-student-maven-proj.git">https://github.com/kumarnirpendra25/t1-student-maven-proj.git</a></a></li>
+        <li><a href="#task-1-maven-project">Task 1 Maven Project</a></li>
+      </ul>
+    </li>
+    <li><a href="#azure-devops-templates-1">Azure Devops Templates</a>
+      <ul>
+        <li><a href="#prerequisite">Prerequisite</a></li>
+        <li><a href="#what-is-a-template-in-ado-yaml">What is a Template in ADO YAML</a></li>
+        <li><a href="#why-use-ado-yaml-templates">Why Use ADO YAML Templates</a></li>
+        <li><a href="#types-of-templates-1">Types of Templates</a></li>
+        <li><a href="#template-categories">Template Categories</a></li>
+        <li><a href="#step-template-syntax">step template syntax</a></li>
+        <li><a href="#job-template-syntax">job template syntax</a></li>
+        <li><a href="#stage-template-syntax">stage template syntax</a></li>
+        <li><a href="#variable-template-syntax">variable template syntax</a></li>
+        <li><a href="#create-template-with-parameters">Create template with parameters</a>
+          <ul>
+            <li><a href="#example">example:</a></li>
+          </ul>
+        </li>
+        <li><a href="#steps-template-with-parameters-example">Steps Template with parameters example</a></li>
+        <li><a href="#variables-template-with-parameters-example">Variables Template with parameters example</a></li>
+        <li><a href="#create-a-template-at-step-level">Create a template at step level</a></li>
+        <li><a href="#how-to-use-">How to use ?</a></li>
+        <li><a href="#stage-level-template">Stage Level Template</a></li>
+        <li><a href="#how-to-use-in-a-pipeline-">How to use in a pipeline ?</a></li>
+        <li><a href="#job-level-template">Job Level Template</a></li>
+        <li><a href="#how-to-use-this-">How to use this ?</a></li>
+        <li><a href="#stage-level-template-1">Stage level Template</a></li>
+      </ul>
+    </li>
+    <li><a href="#dependencies">Dependencies</a>
+      <ul>
+        <li><a href="#conditions-under-which-a-stage-job-or-step-runs">Conditions under which a stage, job, or step runs</a></li>
+        <li><a href="#example-1">Example 1</a></li>
+        <li><a href="#example-1-1">Example 1</a></li>
+      </ul>
+    </li>
+    <li><a href="#azure-devops-yaml-pipeline-timeout-examples">Azure DevOps YAML Pipeline Timeout Examples</a>
+      <ul>
+        <li><a href="#1-setting-timeoutinminutes-for-jobs">1. Setting <code>timeoutInMinutes</code> for Jobs</a></li>
+        <li><a href="#2-setting-timeoutinminutes-for-stages">2. Setting <code>timeoutInMinutes</code> for Stages</a></li>
+        <li><a href="#3-using-canceltimeoutinminutes-for-graceful-cancellation">3. Using <code>cancelTimeoutInMinutes</code> for Graceful Cancellation</a></li>
+      </ul>
+    </li>
+    <li><a href="#notes">Notes:</a>
+      <ul>
+        <li><a href="#scheduled-job-example">Scheduled Job Example</a></li>
+      </ul>
+    </li>
+    <li><a href="#accessing-azure-key-vault-secrets-using-azure-devops-pipelines">Accessing Azure Key Vault Secrets using Azure DevOps Pipelines</a>
+      <ul>
+        <li><a href="#1-create-azure-key-vault-with-secrets-and-persmissions">1) Create Azure Key Vault with Secrets and persmissions</a></li>
+      </ul>
+    </li>
+    <li><a href="#2-create-service-principal-to-access-key-vault-from-azure-devops-pipelines">2) Create Service Principal to access Key Vault from Azure DevOps Pipelines</a>
+      <ul>
+        <li><a href="#3-create-a-pipeline-to-access-key-vault-secrets">3) Create a pipeline to access Key Vault Secrets</a></li>
+        <li><a href="#31-create-service-connection-using-the-spn">3.1) Create Service Connection using the SPN</a></li>
+        <li><a href="#32-create-yaml-pipeline">3.2) Create YAML pipeline</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+        
+    
+
+</div>
+          </aside>
+          <main class="col-12 col-md-9 col-xl-8 pl-md-5" role="main">
+            
+  
+
+            <nav aria-label="breadcrumb" class="td-breadcrumbs">
+  <ol class="breadcrumb">
+  <li class="breadcrumb-item">
+    <a href="/docs/">Docs</a>
+  </li>
+  <li class="breadcrumb-item">
+    <a href="/docs/azure-devops/">Azure Devops</a>
+  </li>
+  <li class="breadcrumb-item active" aria-current="page">
+    <a href="/docs/azure-devops/azuredevops-04/">part 4</a>
+  </li>
+  </ol>
+</nav>
+            
+<div class="td-content">
+	<h1>part 4</h1>
+	<div class="lead">Azure Devops</div>
+	<header class="article-meta">
+		
+
+  
+    
+
+
+  
+    
+
+
+  
+
+		
+	</header>    
+	<!-- end-chunk -->
+<!-- begin-chunk data-anchor="source-click-here-httpslearnmicrosoftcomen-usazuredevopspipelinesyaml-schemapipelineviewazure-pipelines" data-heading="Source <a href=\"https://learn.microsoft.com/en-us/azure/devops/pipelines/yaml-schema/pipeline?view=azure-pipelines\" target=\"_blank\" rel=\"noopener\">click Here </a>" data-level="2" data-permalink="/docs/azure-devops/azuredevops-04/" data-title="part 4" -->
+<h2 id="source-click-here-httpslearnmicrosoftcomen-usazuredevopspipelinesyaml-schemapipelineviewazure-pipelines">Source <a href="https://learn.microsoft.com/en-us/azure/devops/pipelines/yaml-schema/pipeline?view=azure-pipelines" target="_blank" rel="noopener">click Here </a></h2><!-- end-chunk -->
+<!-- begin-chunk data-anchor="declarative-pipeline" data-heading="Declarative Pipeline" data-level="2" data-permalink="/docs/azure-devops/azuredevops-04/" data-title="part 4" -->
+<h2 id="declarative-pipeline">Declarative Pipeline</h2><!-- end-chunk -->
+<!-- begin-chunk data-anchor="first-pipeline" data-heading="First Pipeline" data-level="3" data-permalink="/docs/azure-devops/azuredevops-04/" data-title="part 4" -->
+<h3 id="first-pipeline">First Pipeline</h3><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#75715e"># Starter pipeline</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Start with a minimal pipeline that you can customize to build and deploy your code.</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Add steps that build, run tests, deploy, and more:</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># https://aka.ms/yaml</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">trigger</span>:
+</span></span><span style="display:flex;"><span>- <span style="color:#ae81ff">master</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">pool</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">vmImage</span>: <span style="color:#ae81ff">ubuntu-latest</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">steps</span>:
+</span></span><span style="display:flex;"><span>- <span style="color:#f92672">script</span>: <span style="color:#ae81ff">echo Hello, world!</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">displayName</span>: <span style="color:#e6db74">&#39;Run a one-line script&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>- <span style="color:#f92672">script</span>: |<span style="color:#e6db74">
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    echo Add other tasks to build, test, and deploy your project.
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    echo See https://aka.ms/yaml</span>    
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">displayName</span>: <span style="color:#e6db74">&#39;Run a multi-line script&#39;</span>
+</span></span></code></pre></div><!-- end-chunk -->
+<!-- begin-chunk data-anchor="azure-devops-starter-pipeline-explanation" data-heading="Azure DevOps Starter Pipeline Explanation" data-level="2" data-permalink="/docs/azure-devops/azuredevops-04/" data-title="part 4" -->
+<h2 id="azure-devops-starter-pipeline-explanation">Azure DevOps Starter Pipeline Explanation</h2><!-- end-chunk -->
+<!-- begin-chunk data-anchor="trigger" data-heading="Trigger:" data-level="3" data-permalink="/docs/azure-devops/azuredevops-04/" data-title="part 4" -->
+<h3 id="trigger">Trigger:</h3><ul>
+<li>The pipeline is set to trigger automatically when changes are pushed to the <code>master</code> branch.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="pool" data-heading="Pool:" data-level="3" data-permalink="/docs/azure-devops/azuredevops-04/" data-title="part 4" -->
+<h3 id="pool">Pool:</h3><ul>
+<li>The pipeline will run on a virtual machine using the latest version of Ubuntu.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="steps" data-heading="Steps:" data-level="3" data-permalink="/docs/azure-devops/azuredevops-04/" data-title="part 4" -->
+<h3 id="steps">Steps:</h3><ul>
+<li>The steps section includes tasks that the pipeline will execute:
+<ul>
+<li>The first step runs a simple script that prints &ldquo;Hello, world!&rdquo;.</li>
+<li>The second step runs a multi-line script that provides additional instructions.</li>
+</ul>
+</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="azure-devops-pipeline-stages" data-heading="Azure DevOps Pipeline Stages" data-level="2" data-permalink="/docs/azure-devops/azuredevops-04/" data-title="part 4" -->
+<h2 id="azure-devops-pipeline-stages">Azure DevOps Pipeline Stages</h2><p>In Azure DevOps pipelines, <strong>stages</strong> are major divisions within a pipeline that allow you to group jobs logically. Stages help in organizing the workflow and managing complex build and release processes. Each stage can contain one or more jobs and can have specific conditions that determine whether the stage runs.</p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="key-features-of-stages" data-heading="Key Features of Stages" data-level="3" data-permalink="/docs/azure-devops/azuredevops-04/" data-title="part 4" -->
+<h3 id="key-features-of-stages">Key Features of Stages</h3><ol>
+<li>
+<p><strong>Logical Grouping</strong>:</p>
+<ul>
+<li>Stages group related jobs together. For example, you might have separate stages for <strong>Build</strong>, <strong>Test</strong>, and <strong>Deploy</strong>.</li>
+</ul>
+</li>
+<li>
+<p><strong>Sequential Execution</strong>:</p>
+<ul>
+<li>Stages run sequentially by default, meaning that one stage must complete successfully before the next stage begins. This order helps in managing dependencies and ensuring that earlier tasks are completed before moving on.</li>
+</ul>
+</li>
+<li>
+<p><strong>Parallel Execution</strong>:</p>
+<ul>
+<li>Within a stage, jobs can run in parallel, allowing multiple tasks to be executed simultaneously, which can speed up the overall pipeline execution time.</li>
+</ul>
+</li>
+<li>
+<p><strong>Conditions</strong>:</p>
+<ul>
+<li>You can define conditions on stages to control whether they should run based on specific criteria. For example, you might want to run a stage only if the previous stage was successful or if certain variables meet specific values.</li>
+</ul>
+</li>
+<li>
+<p><strong>Environment Deployment</strong>:</p>
+<ul>
+<li>Stages can include deployment jobs that target specific environments, allowing you to manage the deployment process as part of your CI/CD workflow.</li>
+</ul>
+</li>
+</ol>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="example-of-stages-in-yaml-pipeline" data-heading="Example of Stages in YAML Pipeline" data-level="3" data-permalink="/docs/azure-devops/azuredevops-04/" data-title="part 4" -->
+<h3 id="example-of-stages-in-yaml-pipeline">Example of Stages in YAML Pipeline</h3><p>Here’s an example YAML pipeline that illustrates the use of stages:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#75715e"># Starter pipeline</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Start with a minimal pipeline that you can customize to build and deploy your code.</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Add steps that build, run tests, deploy, and more:</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># https://aka.ms/yaml</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">trigger</span>:
+</span></span><span style="display:flex;"><span>- <span style="color:#ae81ff">main</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">pool</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">vmImage</span>: <span style="color:#ae81ff">ubuntu-latest</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">stages</span>:
+</span></span><span style="display:flex;"><span>- <span style="color:#f92672">stage</span>: <span style="color:#ae81ff">Build</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">displayName</span>: <span style="color:#e6db74">&#39;Build Stage&#39;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">jobs</span>:
+</span></span><span style="display:flex;"><span>  - <span style="color:#f92672">job</span>: <span style="color:#ae81ff">BuildJob</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">displayName</span>: <span style="color:#e6db74">&#39;Build Job&#39;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">steps</span>:
+</span></span><span style="display:flex;"><span>    - <span style="color:#f92672">script</span>: <span style="color:#ae81ff">echo Building the application...</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">displayName</span>: <span style="color:#e6db74">&#39;Build Step&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>- <span style="color:#f92672">stage</span>: <span style="color:#ae81ff">Test</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">displayName</span>: <span style="color:#e6db74">&#39;Test Stage&#39;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">jobs</span>:
+</span></span><span style="display:flex;"><span>  - <span style="color:#f92672">job</span>: <span style="color:#ae81ff">TestJob</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">displayName</span>: <span style="color:#e6db74">&#39;Test Job&#39;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">steps</span>:
+</span></span><span style="display:flex;"><span>    - <span style="color:#f92672">script</span>: <span style="color:#ae81ff">echo Running tests...</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">displayName</span>: <span style="color:#e6db74">&#39;Test Step&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>- <span style="color:#f92672">stage</span>: <span style="color:#ae81ff">Deploy</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">displayName</span>: <span style="color:#e6db74">&#39;Deploy Stage&#39;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">jobs</span>:
+</span></span><span style="display:flex;"><span>  - <span style="color:#f92672">deployment</span>: <span style="color:#ae81ff">DeployWeb</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">displayName</span>: <span style="color:#e6db74">&#39;Deploy Job&#39;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">environment</span>: <span style="color:#e6db74">&#39;Production&#39;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">strategy</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">runOnce</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">deploy</span>:
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">steps</span>:
+</span></span><span style="display:flex;"><span>          - <span style="color:#f92672">script</span>: <span style="color:#ae81ff">echo Deploying to production...</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">displayName</span>: <span style="color:#e6db74">&#39;Deploy Step&#39;</span>
+</span></span></code></pre></div><!-- end-chunk -->
+<!-- begin-chunk data-anchor="azure-devops-pipeline-jobs" data-heading="Azure DevOps Pipeline Jobs" data-level="2" data-permalink="/docs/azure-devops/azuredevops-04/" data-title="part 4" -->
+<h2 id="azure-devops-pipeline-jobs">Azure DevOps Pipeline Jobs</h2><p>In Azure DevOps pipelines, <strong>jobs</strong> are a collection of steps that run sequentially on an agent. Jobs are essential for organizing tasks within a stage and can be configured to run on different agents or environments, allowing for flexible and efficient execution of your CI/CD processes.</p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="key-features-of-jobs" data-heading="Key Features of Jobs" data-level="2" data-permalink="/docs/azure-devops/azuredevops-04/" data-title="part 4" -->
+<h2 id="key-features-of-jobs">Key Features of Jobs</h2><ol>
+<li>
+<p><strong>Grouping of Steps</strong>:</p>
+<ul>
+<li>Jobs group related steps together, making it easier to manage and understand the workflow. For example, a job might include all the steps needed to build an application.</li>
+</ul>
+</li>
+<li>
+<p><strong>Sequential Execution</strong>:</p>
+<ul>
+<li>Steps within a job are executed sequentially. This means that each step must complete before the next step begins, ensuring that the tasks are performed in the correct order.</li>
+</ul>
+</li>
+<li>
+<p><strong>Agent Specification</strong>:</p>
+<ul>
+<li>You can specify the agent pool for each job, allowing you to choose the environment in which the job runs. This is particularly useful when different jobs require different software or configurations.</li>
+</ul>
+</li>
+<li>
+<p><strong>Parallel Execution</strong>:</p>
+<ul>
+<li>Multiple jobs can run in parallel within a stage, which can significantly speed up the overall execution time of the pipeline.</li>
+</ul>
+</li>
+<li>
+<p><strong>Conditions</strong>:</p>
+<ul>
+<li>Jobs can have conditions that control whether they should run based on the outcomes of previous jobs or other criteria. This allows for dynamic and flexible pipeline behavior.</li>
+</ul>
+</li>
+<li>
+<p><strong>Deployment Jobs</strong>:</p>
+<ul>
+<li>Special job types that are designed for deploying applications. These jobs can include additional features for managing deployment strategies and environments.</li>
+</ul>
+</li>
+</ol>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="example-of-jobs-in-yaml-pipeline" data-heading="Example of Jobs in YAML Pipeline" data-level="2" data-permalink="/docs/azure-devops/azuredevops-04/" data-title="part 4" -->
+<h2 id="example-of-jobs-in-yaml-pipeline">Example of Jobs in YAML Pipeline</h2><p>Here’s an example YAML pipeline that illustrates the use of jobs:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">stages</span>:
+</span></span><span style="display:flex;"><span>- <span style="color:#f92672">stage</span>: <span style="color:#ae81ff">Build</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">displayName</span>: <span style="color:#e6db74">&#39;Build Stage&#39;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">jobs</span>:
+</span></span><span style="display:flex;"><span>  - <span style="color:#f92672">job</span>: <span style="color:#ae81ff">BuildJob</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">displayName</span>: <span style="color:#e6db74">&#39;Build Job&#39;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">pool</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">vmImage</span>: <span style="color:#e6db74">&#39;ubuntu-latest&#39;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">steps</span>:
+</span></span><span style="display:flex;"><span>    - <span style="color:#f92672">script</span>: <span style="color:#ae81ff">echo Building the application...</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">displayName</span>: <span style="color:#e6db74">&#39;Build Step&#39;</span>
+</span></span><span style="display:flex;"><span>    - <span style="color:#f92672">script</span>: <span style="color:#ae81ff">echo Build completed!</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">displayName</span>: <span style="color:#e6db74">&#39;Completion Step&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>- <span style="color:#f92672">stage</span>: <span style="color:#ae81ff">Test</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">displayName</span>: <span style="color:#e6db74">&#39;Test Stage&#39;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">jobs</span>:
+</span></span><span style="display:flex;"><span>  - <span style="color:#f92672">job</span>: <span style="color:#ae81ff">TestJob</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">displayName</span>: <span style="color:#e6db74">&#39;Test Job&#39;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">pool</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">vmImage</span>: <span style="color:#e6db74">&#39;ubuntu-latest&#39;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">steps</span>:
+</span></span><span style="display:flex;"><span>    - <span style="color:#f92672">script</span>: <span style="color:#ae81ff">echo Running tests...</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">displayName</span>: <span style="color:#e6db74">&#39;Test Step&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>- <span style="color:#f92672">stage</span>: <span style="color:#ae81ff">Deploy</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">displayName</span>: <span style="color:#e6db74">&#39;Deploy Stage&#39;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">jobs</span>:
+</span></span><span style="display:flex;"><span>  - <span style="color:#f92672">deployment</span>: <span style="color:#ae81ff">DeployWeb</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">displayName</span>: <span style="color:#e6db74">&#39;Deploy Job&#39;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">environment</span>: <span style="color:#e6db74">&#39;Production&#39;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">strategy</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">runOnce</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">deploy</span>:
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">steps</span>:
+</span></span><span style="display:flex;"><span>          - <span style="color:#f92672">script</span>: <span style="color:#ae81ff">echo Deploying to production...</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">displayName</span>: <span style="color:#e6db74">&#39;Deploy Step&#39;</span>
+</span></span></code></pre></div><!-- end-chunk -->
+<!-- begin-chunk data-anchor="azure-devops-pipeline-steps-and-scripts" data-heading="Azure DevOps Pipeline Steps and Scripts" data-level="2" data-permalink="/docs/azure-devops/azuredevops-04/" data-title="part 4" -->
+<h2 id="azure-devops-pipeline-steps-and-scripts">Azure DevOps Pipeline Steps and Scripts</h2><p>In Azure DevOps pipelines, <strong>steps</strong> are the individual tasks that run as part of a job. Each step can execute a specific command or run a predefined task. Scripts are a common type of step that allows you to write custom commands or scripts to perform actions during the pipeline execution.</p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="key-features-of-steps" data-heading="Key Features of Steps" data-level="2" data-permalink="/docs/azure-devops/azuredevops-04/" data-title="part 4" -->
+<h2 id="key-features-of-steps">Key Features of Steps</h2><ol>
+<li>
+<p><strong>Individual Tasks</strong>:</p>
+<ul>
+<li>Steps represent individual actions that are executed sequentially within a job. Each step must complete successfully for the subsequent steps to run.</li>
+</ul>
+</li>
+<li>
+<p><strong>Types of Steps</strong>:</p>
+<ul>
+<li>Steps can be of various types, including:
+<ul>
+<li><strong>Script Steps</strong>: Execute custom scripts or commands.</li>
+<li><strong>Task Steps</strong>: Use built-in tasks provided by Azure DevOps or custom tasks defined in the marketplace.</li>
+<li><strong>Inline Steps</strong>: Directly embed scripts or commands within the YAML file.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Execution Order</strong>:</p>
+<ul>
+<li>Steps within a job are executed in the order they are defined. This ensures that tasks are completed in a predictable sequence.</li>
+</ul>
+</li>
+<li>
+<p><strong>Display Names</strong>:</p>
+<ul>
+<li>Each step can have a <code>displayName</code> that provides a user-friendly description of the step&rsquo;s purpose, making it easier to understand the pipeline when viewing logs or output.</li>
+</ul>
+</li>
+</ol>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="example-of-steps-and-scripts-in-yaml-pipeline" data-heading="Example of Steps and Scripts in YAML Pipeline" data-level="2" data-permalink="/docs/azure-devops/azuredevops-04/" data-title="part 4" -->
+<h2 id="example-of-steps-and-scripts-in-yaml-pipeline">Example of Steps and Scripts in YAML Pipeline</h2><p>Here’s an example YAML pipeline that demonstrates the use of steps and scripts:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">stages</span>:
+</span></span><span style="display:flex;"><span>- <span style="color:#f92672">stage</span>: <span style="color:#ae81ff">Build</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">displayName</span>: <span style="color:#e6db74">&#39;Build Stage&#39;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">jobs</span>:
+</span></span><span style="display:flex;"><span>  - <span style="color:#f92672">job</span>: <span style="color:#ae81ff">BuildJob</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">displayName</span>: <span style="color:#e6db74">&#39;Build Job&#39;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">pool</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">vmImage</span>: <span style="color:#e6db74">&#39;ubuntu-latest&#39;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">steps</span>:
+</span></span><span style="display:flex;"><span>    - <span style="color:#f92672">script</span>: |<span style="color:#e6db74">
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        echo Building the application...
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        echo Build started at $(date)</span>        
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">displayName</span>: <span style="color:#e6db74">&#39;Build Step&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    - <span style="color:#f92672">script</span>: |<span style="color:#e6db74">
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        echo Running unit tests...
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        echo Test execution started at $(date)</span>        
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">displayName</span>: <span style="color:#e6db74">&#39;Test Step&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    - <span style="color:#f92672">task</span>: <span style="color:#ae81ff">PublishPipelineArtifact@1</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">inputs</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">targetPath</span>: <span style="color:#e6db74">&#39;$(Pipeline.Workspace)&#39;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">artifact</span>: <span style="color:#e6db74">&#39;drop&#39;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">publishLocation</span>: <span style="color:#e6db74">&#39;pipeline&#39;</span>
+</span></span></code></pre></div><!-- end-chunk -->
+<!-- begin-chunk data-anchor="azure-devops-pipeline-variables" data-heading="Azure DevOps Pipeline Variables" data-level="2" data-permalink="/docs/azure-devops/azuredevops-04/" data-title="part 4" -->
+<h2 id="azure-devops-pipeline-variables">Azure DevOps Pipeline Variables</h2><p>In Azure DevOps pipelines, <strong>variables</strong> are used to store values that can be reused throughout the pipeline. They help in managing configurations and can be particularly useful for maintaining consistency and avoiding hard-coded values in your YAML file.</p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="key-features-of-variables" data-heading="Key Features of Variables" data-level="2" data-permalink="/docs/azure-devops/azuredevops-04/" data-title="part 4" -->
+<h2 id="key-features-of-variables">Key Features of Variables</h2><ol>
+<li>
+<p><strong>Reusability</strong>:</p>
+<ul>
+<li>Variables allow you to define values once and reuse them across different jobs, steps, or stages. This promotes DRY (Don&rsquo;t Repeat Yourself) principles and makes maintenance easier.</li>
+</ul>
+</li>
+<li>
+<p><strong>Dynamic Values</strong>:</p>
+<ul>
+<li>Variables can store dynamic values that change during the pipeline execution, such as build numbers, commit IDs, or user inputs.</li>
+</ul>
+</li>
+<li>
+<p><strong>Variable Types</strong>:</p>
+<ul>
+<li><strong>Pipeline Variables</strong>: Defined in the YAML file and available throughout the pipeline.</li>
+<li><strong>Environment Variables</strong>: Set in the pipeline or agent and accessible to scripts and tasks.</li>
+<li><strong>System Variables</strong>: Predefined variables provided by Azure DevOps that contain useful information about the pipeline and execution environment.</li>
+</ul>
+</li>
+<li>
+<p><strong>Variable Groups</strong>:</p>
+<ul>
+<li>You can group related variables into a variable group, making it easier to manage and reference them, especially for projects with multiple pipelines.</li>
+</ul>
+</li>
+<li>
+<p><strong>Expressions</strong>:</p>
+<ul>
+<li>Variables can be used in expressions to control conditions, define paths, and manage execution flow.</li>
+</ul>
+</li>
+</ol>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="defining-user-defined-variables" data-heading="Defining User-Defined Variables" data-level="3" data-permalink="/docs/azure-devops/azuredevops-04/" data-title="part 4" -->
+<h3 id="defining-user-defined-variables">Defining User-Defined Variables</h3><!-- end-chunk -->
+<!-- begin-chunk data-anchor="pipeline-level-variables" data-heading="Pipeline-level Variables:" data-level="4" data-permalink="/docs/azure-devops/azuredevops-04/" data-title="part 4" -->
+<h4 id="pipeline-level-variables">Pipeline-level Variables:</h4><p>These variables are available across all jobs and steps in the pipeline.</p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="job-level-variables" data-heading="Job-level Variables:" data-level="4" data-permalink="/docs/azure-devops/azuredevops-04/" data-title="part 4" -->
+<h4 id="job-level-variables">Job-level Variables:</h4><p>These variables are specific to a single job and are not available in other jobs.</p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="step-level-variables" data-heading="Step-level Variables:" data-level="4" data-permalink="/docs/azure-devops/azuredevops-04/" data-title="part 4" -->
+<h4 id="step-level-variables">Step-level Variables:</h4><p>These variables are defined within a specific step and are limited to that step.</p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="example-of-user-defined-variables-in-yaml-pipeline" data-heading="Example of user defined Variables in YAML Pipeline" data-level="3" data-permalink="/docs/azure-devops/azuredevops-04/" data-title="part 4" -->
+<h3 id="example-of-user-defined-variables-in-yaml-pipeline">Example of user defined Variables in YAML Pipeline</h3><p>Here’s an example YAML pipeline that demonstrates the use of variables:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">trigger</span>:
+</span></span><span style="display:flex;"><span>- <span style="color:#ae81ff">main</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">pool</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">vmImage</span>: <span style="color:#ae81ff">ubuntu-latest</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">variables</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">buildConfiguration</span>: <span style="color:#e6db74">&#39;Release&#39;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">myVariable</span>: <span style="color:#e6db74">&#39;Hello, Azure DevOps!&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">stages</span>:
+</span></span><span style="display:flex;"><span>- <span style="color:#f92672">stage</span>: <span style="color:#ae81ff">Build</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">displayName</span>: <span style="color:#e6db74">&#39;Build Stage&#39;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">jobs</span>:
+</span></span><span style="display:flex;"><span>  - <span style="color:#f92672">job</span>: <span style="color:#ae81ff">BuildJob</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">displayName</span>: <span style="color:#e6db74">&#39;Build Job&#39;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">pool</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">vmImage</span>: <span style="color:#e6db74">&#39;ubuntu-latest&#39;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">steps</span>:
+</span></span><span style="display:flex;"><span>    - <span style="color:#f92672">script</span>: <span style="color:#ae81ff">echo &#34;Building the application in $(buildConfiguration) mode.&#34;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">displayName</span>: <span style="color:#e6db74">&#39;Build Configuration Step&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    - <span style="color:#f92672">script</span>: <span style="color:#ae81ff">echo $(myVariable)</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">displayName</span>: <span style="color:#e6db74">&#39;Display Variable Step&#39;</span>
+</span></span></code></pre></div><!-- end-chunk -->
+<!-- begin-chunk data-anchor="example-02" data-heading="Example 02" data-level="3" data-permalink="/docs/azure-devops/azuredevops-04/" data-title="part 4" -->
+<h3 id="example-02">Example 02</h3><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>trigger:
+</span></span><span style="display:flex;"><span>- none  <span style="color:#75715e"># Only run the pipeline manually</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>variables:
+</span></span><span style="display:flex;"><span>  globalVar: <span style="color:#e6db74">&#39;This is a pipeline-wide variable&#39;</span>
+</span></span><span style="display:flex;"><span>  environment: <span style="color:#e6db74">&#39;dev&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>jobs:
+</span></span><span style="display:flex;"><span>- job: Build
+</span></span><span style="display:flex;"><span>  displayName: <span style="color:#e6db74">&#34;Build Job&#34;</span>
+</span></span><span style="display:flex;"><span>  variables:
+</span></span><span style="display:flex;"><span>    buildVar: <span style="color:#e6db74">&#39;This is a variable for the Build job&#39;</span>
+</span></span><span style="display:flex;"><span>    envVar: <span style="color:#e6db74">&#39;$(environment)&#39;</span>  <span style="color:#75715e"># Using pipeline-wide variable in a job</span>
+</span></span><span style="display:flex;"><span>  pool:
+</span></span><span style="display:flex;"><span>    vmImage: <span style="color:#e6db74">&#39;ubuntu-latest&#39;</span>
+</span></span><span style="display:flex;"><span>  steps:
+</span></span><span style="display:flex;"><span>  - script: |
+</span></span><span style="display:flex;"><span>      echo <span style="color:#e6db74">&#34;Global Variable: </span><span style="color:#66d9ef">$(</span>globalVar<span style="color:#66d9ef">)</span><span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>      echo <span style="color:#e6db74">&#34;Build Job Variable: </span><span style="color:#66d9ef">$(</span>buildVar<span style="color:#66d9ef">)</span><span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>      echo <span style="color:#e6db74">&#34;Environment Variable: </span><span style="color:#66d9ef">$(</span>envVar<span style="color:#66d9ef">)</span><span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>    displayName: <span style="color:#e6db74">&#34;Print Build Variables&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>- job: Deploy
+</span></span><span style="display:flex;"><span>  displayName: <span style="color:#e6db74">&#34;Deploy Job&#34;</span>
+</span></span><span style="display:flex;"><span>  dependsOn: Build  <span style="color:#75715e"># Ensure the Build job runs before the Deploy job</span>
+</span></span><span style="display:flex;"><span>  variables:
+</span></span><span style="display:flex;"><span>    deployVar: <span style="color:#e6db74">&#39;This is a variable for the Deploy job&#39;</span>
+</span></span><span style="display:flex;"><span>    envVar: <span style="color:#e6db74">&#39;$(environment)&#39;</span>  <span style="color:#75715e"># Using pipeline-wide variable in a different job</span>
+</span></span><span style="display:flex;"><span>  pool:
+</span></span><span style="display:flex;"><span>    vmImage: <span style="color:#e6db74">&#39;ubuntu-latest&#39;</span>
+</span></span><span style="display:flex;"><span>  steps:
+</span></span><span style="display:flex;"><span>  - script: |
+</span></span><span style="display:flex;"><span>      echo <span style="color:#e6db74">&#34;Global Variable: </span><span style="color:#66d9ef">$(</span>globalVar<span style="color:#66d9ef">)</span><span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>      echo <span style="color:#e6db74">&#34;Deploy Job Variable: </span><span style="color:#66d9ef">$(</span>deployVar<span style="color:#66d9ef">)</span><span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>      echo <span style="color:#e6db74">&#34;Environment Variable: </span><span style="color:#66d9ef">$(</span>envVar<span style="color:#66d9ef">)</span><span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>    displayName: <span style="color:#e6db74">&#34;Print Deploy Variables&#34;</span>
+</span></span></code></pre></div><!-- end-chunk -->
+<!-- begin-chunk data-anchor="key-differences" data-heading="Key Differences" data-level="3" data-permalink="/docs/azure-devops/azuredevops-04/" data-title="part 4" -->
+<h3 id="key-differences">Key Differences</h3><table>
+<thead>
+<tr>
+<th><strong>Environment Variables</strong></th>
+<th><strong>System Variables</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Set by the user or defined in the pipeline or agent.</td>
+<td>Predefined by Azure DevOps.</td>
+</tr>
+<tr>
+<td>Can be used to control pipeline behavior or share values between tasks and jobs.</td>
+<td>Provide information about the pipeline, agent, and repository.</td>
+</tr>
+<tr>
+<td>Customizable by the user.</td>
+<td>Fixed names and values set by the system.</td>
+</tr>
+</tbody>
+</table>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="parameterized-variables" data-heading="Parameterized Variables" data-level="2" data-permalink="/docs/azure-devops/azuredevops-04/" data-title="part 4" -->
+<h2 id="parameterized-variables">Parameterized Variables</h2><p>Parameterized variables in Azure DevOps YAML pipelines allow you to pass values into your pipeline at runtime. This enables more dynamic and flexible pipeline execution by letting users provide specific inputs when triggering a pipeline.</p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="example-of-parameterized-variables-in-yaml" data-heading="Example of Parameterized Variables in YAML" data-level="3" data-permalink="/docs/azure-devops/azuredevops-04/" data-title="part 4" -->
+<h3 id="example-of-parameterized-variables-in-yaml">Example of Parameterized Variables in YAML</h3><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">trigger</span>:
+</span></span><span style="display:flex;"><span>- <span style="color:#ae81ff">main</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">pool</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">vmImage</span>: <span style="color:#ae81ff">ubuntu-latest</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">parameters</span>:
+</span></span><span style="display:flex;"><span>  - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">buildConfiguration</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">type</span>: <span style="color:#ae81ff">string</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">default</span>: <span style="color:#e6db74">&#39;Release&#39;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">displayName</span>: <span style="color:#e6db74">&#39;Build Configuration&#39;</span>
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span><span style="color:#f92672">jobs</span>:
+</span></span><span style="display:flex;"><span>- <span style="color:#f92672">job</span>: <span style="color:#ae81ff">Build</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">displayName</span>: <span style="color:#e6db74">&#34;Build Job&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">pool</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">vmImage</span>: <span style="color:#e6db74">&#39;ubuntu-latest&#39;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">steps</span>:
+</span></span><span style="display:flex;"><span>  - <span style="color:#f92672">script</span>: |<span style="color:#e6db74">
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      echo &#34;Building with configuration: ${{ parameters.buildConfiguration }}&#34;</span>      
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">displayName</span>: <span style="color:#e6db74">&#34;Print Build Configuration&#34;</span>
+</span></span></code></pre></div><!-- end-chunk -->
+<!-- begin-chunk data-anchor="conditional-variables" data-heading="Conditional Variables" data-level="2" data-permalink="/docs/azure-devops/azuredevops-04/" data-title="part 4" -->
+<h2 id="conditional-variables">Conditional Variables</h2><p>Conditional variables in Azure DevOps allow you to set variable values based on certain conditions or states within your pipeline. This enables dynamic behavior and customization depending on various factors such as the branch being built, the success or failure of previous jobs, and more.</p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="example-1-set-variable-based-on-branch-name" data-heading="Example 1: Set Variable Based on Branch Name" data-level="3" data-permalink="/docs/azure-devops/azuredevops-04/" data-title="part 4" -->
+<h3 id="example-1-set-variable-based-on-branch-name">Example 1: Set Variable Based on Branch Name</h3><p>You can set a variable that changes based on the branch being built:</p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="set-variable-based-on-job-status" data-heading="Set Variable Based on Job Status" data-level="3" data-permalink="/docs/azure-devops/azuredevops-04/" data-title="part 4" -->
+<h3 id="set-variable-based-on-job-status">Set Variable Based on Job Status</h3><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>variables:
+</span></span><span style="display:flex;"><span>  deployEnvironment: <span style="color:#e6db74">${</span>{ if eq(variables[<span style="color:#e6db74">&#39;Build.Reason&#39;</span>], <span style="color:#e6db74">&#39;Manual&#39;</span>) <span style="color:#e6db74">}</span><span style="color:#f92672">}</span>: 
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#39;Production&#39;</span> 
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">else</span>: 
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#39;Staging&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>jobs:
+</span></span><span style="display:flex;"><span>- job: Build
+</span></span><span style="display:flex;"><span>  displayName: <span style="color:#e6db74">&#34;Build Job&#34;</span>
+</span></span><span style="display:flex;"><span>  pool:
+</span></span><span style="display:flex;"><span>    vmImage: <span style="color:#e6db74">&#39;ubuntu-latest&#39;</span>
+</span></span><span style="display:flex;"><span>  steps:
+</span></span><span style="display:flex;"><span>  - script: |
+</span></span><span style="display:flex;"><span>      echo <span style="color:#e6db74">&#34;Deploy environment: </span><span style="color:#66d9ef">$(</span>deployEnvironment<span style="color:#66d9ef">)</span><span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>    displayName: <span style="color:#e6db74">&#34;Print Deploy Environment&#34;</span>
+</span></span></code></pre></div><!-- end-chunk -->
+<!-- begin-chunk data-anchor="using-conditions-in-job-execution" data-heading="Using Conditions in Job Execution" data-level="3" data-permalink="/docs/azure-devops/azuredevops-04/" data-title="part 4" -->
+<h3 id="using-conditions-in-job-execution">Using Conditions in Job Execution</h3><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>variables:
+</span></span><span style="display:flex;"><span>  isRelease: true
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>jobs:
+</span></span><span style="display:flex;"><span>- job: Build
+</span></span><span style="display:flex;"><span>  displayName: <span style="color:#e6db74">&#34;Build Job&#34;</span>
+</span></span><span style="display:flex;"><span>  pool:
+</span></span><span style="display:flex;"><span>    vmImage: <span style="color:#e6db74">&#39;ubuntu-latest&#39;</span>
+</span></span><span style="display:flex;"><span>  steps:
+</span></span><span style="display:flex;"><span>  - script: |
+</span></span><span style="display:flex;"><span>      echo <span style="color:#e6db74">&#34;Building the project...&#34;</span>
+</span></span><span style="display:flex;"><span>    displayName: <span style="color:#e6db74">&#34;Build Project&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>- job: Deploy
+</span></span><span style="display:flex;"><span>  displayName: <span style="color:#e6db74">&#34;Deploy Job&#34;</span>
+</span></span><span style="display:flex;"><span>  condition: and<span style="color:#f92672">(</span>succeeded<span style="color:#f92672">()</span>, eq<span style="color:#f92672">(</span>variables<span style="color:#f92672">[</span><span style="color:#e6db74">&#39;isRelease&#39;</span><span style="color:#f92672">]</span>, <span style="color:#e6db74">&#39;true&#39;</span><span style="color:#f92672">))</span>
+</span></span><span style="display:flex;"><span>  pool:
+</span></span><span style="display:flex;"><span>    vmImage: <span style="color:#e6db74">&#39;ubuntu-latest&#39;</span>
+</span></span><span style="display:flex;"><span>  steps:
+</span></span><span style="display:flex;"><span>  - script: |
+</span></span><span style="display:flex;"><span>      echo <span style="color:#e6db74">&#34;Deploying to production...&#34;</span>
+</span></span><span style="display:flex;"><span>    displayName: <span style="color:#e6db74">&#34;Deploy to Production&#34;</span>
+</span></span></code></pre></div><!-- end-chunk -->
+<!-- begin-chunk data-anchor="job-dependencies-with-dependson" data-heading="Job Dependencies with <code>dependsOn</code>" data-level="2" data-permalink="/docs/azure-devops/azuredevops-04/" data-title="part 4" -->
+<h2 id="job-dependencies-with-dependson">Job Dependencies with <code>dependsOn</code></h2><p>In Azure DevOps YAML pipelines, the <code>dependsOn</code> keyword allows you to specify job dependencies, meaning a job will only run after the specified jobs have completed. This is useful for organizing workflows and ensuring certain jobs complete before others begin.</p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="example-1-basic-job-dependency" data-heading="Example 1: Basic Job Dependency" data-level="3" data-permalink="/docs/azure-devops/azuredevops-04/" data-title="part 4" -->
+<h3 id="example-1-basic-job-dependency">Example 1: Basic Job Dependency</h3><p>In this example, the <code>Deploy</code> job depends on the <code>Build</code> job:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">jobs</span>:
+</span></span><span style="display:flex;"><span>- <span style="color:#f92672">job</span>: <span style="color:#ae81ff">Build</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">displayName</span>: <span style="color:#e6db74">&#34;Build Job&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">pool</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">vmImage</span>: <span style="color:#e6db74">&#39;ubuntu-latest&#39;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">steps</span>:
+</span></span><span style="display:flex;"><span>  - <span style="color:#f92672">script</span>: |<span style="color:#e6db74">
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      echo &#34;Building the project...&#34;</span>      
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">displayName</span>: <span style="color:#e6db74">&#34;Build Project&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>- <span style="color:#f92672">job</span>: <span style="color:#ae81ff">Deploy</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">displayName</span>: <span style="color:#e6db74">&#34;Deploy Job&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">dependsOn</span>: <span style="color:#ae81ff">Build</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">pool</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">vmImage</span>: <span style="color:#e6db74">&#39;ubuntu-latest&#39;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">steps</span>:
+</span></span><span style="display:flex;"><span>  - <span style="color:#f92672">script</span>: |<span style="color:#e6db74">
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      echo &#34;Deploying the project...&#34;</span>      
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">displayName</span>: <span style="color:#e6db74">&#34;Deploy Project&#34;</span>
+</span></span></code></pre></div><!-- end-chunk -->
+<!-- begin-chunk data-anchor="conditional-execution-with-dependencies" data-heading="Conditional Execution with Dependencies" data-level="3" data-permalink="/docs/azure-devops/azuredevops-04/" data-title="part 4" -->
+<h3 id="conditional-execution-with-dependencies">Conditional Execution with Dependencies</h3><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>jobs:
+</span></span><span style="display:flex;"><span>- job: Build
+</span></span><span style="display:flex;"><span>  displayName: <span style="color:#e6db74">&#34;Build Job&#34;</span>
+</span></span><span style="display:flex;"><span>  pool:
+</span></span><span style="display:flex;"><span>    vmImage: <span style="color:#e6db74">&#39;ubuntu-latest&#39;</span>
+</span></span><span style="display:flex;"><span>  steps:
+</span></span><span style="display:flex;"><span>  - script: |
+</span></span><span style="display:flex;"><span>      echo <span style="color:#e6db74">&#34;Building the project...&#34;</span>
+</span></span><span style="display:flex;"><span>    displayName: <span style="color:#e6db74">&#34;Build Project&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>- job: Deploy
+</span></span><span style="display:flex;"><span>  displayName: <span style="color:#e6db74">&#34;Deploy Job&#34;</span>
+</span></span><span style="display:flex;"><span>  dependsOn: Build
+</span></span><span style="display:flex;"><span>  condition: succeeded<span style="color:#f92672">()</span>  <span style="color:#75715e"># Deploy only if Build is successful</span>
+</span></span><span style="display:flex;"><span>  pool:
+</span></span><span style="display:flex;"><span>    vmImage: <span style="color:#e6db74">&#39;ubuntu-latest&#39;</span>
+</span></span><span style="display:flex;"><span>  steps:
+</span></span><span style="display:flex;"><span>  - script: |
+</span></span><span style="display:flex;"><span>      echo <span style="color:#e6db74">&#34;Deploying the project...&#34;</span>
+</span></span><span style="display:flex;"><span>    displayName: <span style="color:#e6db74">&#34;Deploy Project&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>- job: Notify
+</span></span><span style="display:flex;"><span>  displayName: <span style="color:#e6db74">&#34;Notify Job&#34;</span>
+</span></span><span style="display:flex;"><span>  dependsOn: Deploy
+</span></span><span style="display:flex;"><span>  pool:
+</span></span><span style="display:flex;"><span>    vmImage: <span style="color:#e6db74">&#39;ubuntu-latest&#39;</span>
+</span></span><span style="display:flex;"><span>  steps:
+</span></span><span style="display:flex;"><span>  - script: |
+</span></span><span style="display:flex;"><span>      echo <span style="color:#e6db74">&#34;Notifying the team about the deployment...&#34;</span>
+</span></span><span style="display:flex;"><span>    displayName: <span style="color:#e6db74">&#34;Send Notification&#34;</span>
+</span></span></code></pre></div><!-- end-chunk -->
+<!-- begin-chunk data-anchor="multiple-job-dependencies" data-heading="Multiple Job Dependencies" data-level="3" data-permalink="/docs/azure-devops/azuredevops-04/" data-title="part 4" -->
+<h3 id="multiple-job-dependencies">Multiple Job Dependencies</h3><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>jobs:
+</span></span><span style="display:flex;"><span>- job: Build
+</span></span><span style="display:flex;"><span>  displayName: <span style="color:#e6db74">&#34;Build Job&#34;</span>
+</span></span><span style="display:flex;"><span>  pool:
+</span></span><span style="display:flex;"><span>    vmImage: <span style="color:#e6db74">&#39;ubuntu-latest&#39;</span>
+</span></span><span style="display:flex;"><span>  steps:
+</span></span><span style="display:flex;"><span>  - script: |
+</span></span><span style="display:flex;"><span>      echo <span style="color:#e6db74">&#34;Building the project...&#34;</span>
+</span></span><span style="display:flex;"><span>    displayName: <span style="color:#e6db74">&#34;Build Project&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>- job: Deploy
+</span></span><span style="display:flex;"><span>  displayName: <span style="color:#e6db74">&#34;Deploy Job&#34;</span>
+</span></span><span style="display:flex;"><span>  dependsOn: Build
+</span></span><span style="display:flex;"><span>  pool:
+</span></span><span style="display:flex;"><span>    vmImage: <span style="color:#e6db74">&#39;ubuntu-latest&#39;</span>
+</span></span><span style="display:flex;"><span>  steps:
+</span></span><span style="display:flex;"><span>  - script: |
+</span></span><span style="display:flex;"><span>      echo <span style="color:#e6db74">&#34;Deploying the project...&#34;</span>
+</span></span><span style="display:flex;"><span>    displayName: <span style="color:#e6db74">&#34;Deploy Project&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>- job: Test
+</span></span><span style="display:flex;"><span>  displayName: <span style="color:#e6db74">&#34;Test Job&#34;</span>
+</span></span><span style="display:flex;"><span>  dependsOn: 
+</span></span><span style="display:flex;"><span>    - Build
+</span></span><span style="display:flex;"><span>    - Deploy
+</span></span><span style="display:flex;"><span>  pool:
+</span></span><span style="display:flex;"><span>    vmImage: <span style="color:#e6db74">&#39;ubuntu-latest&#39;</span>
+</span></span><span style="display:flex;"><span>  steps:
+</span></span><span style="display:flex;"><span>  - script: |
+</span></span><span style="display:flex;"><span>      echo <span style="color:#e6db74">&#34;Running tests...&#34;</span>
+</span></span><span style="display:flex;"><span>    displayName: <span style="color:#e6db74">&#34;Run Tests&#34;</span>
+</span></span></code></pre></div><!-- end-chunk -->
+<!-- begin-chunk data-anchor="deployment-with-approval-gates" data-heading="Deployment with Approval Gates" data-level="3" data-permalink="/docs/azure-devops/azuredevops-04/" data-title="part 4" -->
+<h3 id="deployment-with-approval-gates">Deployment with Approval Gates</h3><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>stages:
+</span></span><span style="display:flex;"><span>- stage: Build
+</span></span><span style="display:flex;"><span>  jobs:
+</span></span><span style="display:flex;"><span>  - job: Build
+</span></span><span style="display:flex;"><span>    pool:
+</span></span><span style="display:flex;"><span>      vmImage: <span style="color:#e6db74">&#39;ubuntu-latest&#39;</span>
+</span></span><span style="display:flex;"><span>    steps:
+</span></span><span style="display:flex;"><span>    - script: |
+</span></span><span style="display:flex;"><span>        echo <span style="color:#e6db74">&#34;Building the project...&#34;</span>
+</span></span><span style="display:flex;"><span>      displayName: <span style="color:#e6db74">&#34;Build Project&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>- stage: Deploy
+</span></span><span style="display:flex;"><span>  jobs:
+</span></span><span style="display:flex;"><span>  - job: Deploy
+</span></span><span style="display:flex;"><span>    pool:
+</span></span><span style="display:flex;"><span>      vmImage: <span style="color:#e6db74">&#39;ubuntu-latest&#39;</span>
+</span></span><span style="display:flex;"><span>    steps:
+</span></span><span style="display:flex;"><span>    - script: |
+</span></span><span style="display:flex;"><span>        echo <span style="color:#e6db74">&#34;Deploying to production...&#34;</span>
+</span></span><span style="display:flex;"><span>      displayName: <span style="color:#e6db74">&#34;Deploy to Production&#34;</span>
+</span></span><span style="display:flex;"><span>    approvals:
+</span></span><span style="display:flex;"><span>      - approvals: 
+</span></span><span style="display:flex;"><span>          - approver: 
+</span></span><span style="display:flex;"><span>              id: user@example.com
+</span></span></code></pre></div><!-- end-chunk -->
+<!-- begin-chunk data-anchor="azure-devops-templates" data-heading="Azure DevOps Templates" data-level="2" data-permalink="/docs/azure-devops/azuredevops-04/" data-title="part 4" -->
+<h2 id="azure-devops-templates">Azure DevOps Templates</h2><p>Azure DevOps templates allow you to create reusable components for your pipelines. They help maintain consistency across pipelines and reduce redundancy by allowing you to define common steps or jobs in a single location.</p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="types-of-templates" data-heading="Types of Templates" data-level="3" data-permalink="/docs/azure-devops/azuredevops-04/" data-title="part 4" -->
+<h3 id="types-of-templates">Types of Templates</h3><ol>
+<li><strong>Pipeline Templates</strong>: Define a complete pipeline structure that can be reused in different scenarios.</li>
+<li><strong>Job Templates</strong>: Define a reusable job that can be included in multiple pipelines.</li>
+<li><strong>Step Templates</strong>: Define a reusable set of steps that can be included in jobs.</li>
+</ol>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="creating-a-template" data-heading="Creating a Template" data-level="2" data-permalink="/docs/azure-devops/azuredevops-04/" data-title="part 4" -->
+<h2 id="creating-a-template">Creating a Template</h2><p>To create a template, define the YAML structure you want to reuse and save it in a repository.</p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="example-pipeline-template" data-heading="Example: Pipeline Template" data-level="3" data-permalink="/docs/azure-devops/azuredevops-04/" data-title="part 4" -->
+<h3 id="example-pipeline-template">Example: Pipeline Template</h3><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#75715e"># template-pipeline.yaml</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">parameters</span>:
+</span></span><span style="display:flex;"><span>  - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">environment</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">type</span>: <span style="color:#ae81ff">string</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">jobs</span>:
+</span></span><span style="display:flex;"><span>- <span style="color:#f92672">job</span>: <span style="color:#ae81ff">Build</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">pool</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">vmImage</span>: <span style="color:#e6db74">&#39;ubuntu-latest&#39;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">steps</span>:
+</span></span><span style="display:flex;"><span>  - <span style="color:#f92672">script</span>: |<span style="color:#e6db74">
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      echo &#34;Building in the ${{ parameters.environment }} environment.&#34;</span>      
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">displayName</span>: <span style="color:#e6db74">&#34;Build Job&#34;</span>
+</span></span></code></pre></div><!-- end-chunk -->
+<!-- begin-chunk data-anchor="using-a-pipeline-template" data-heading="Using a Pipeline Template" data-level="3" data-permalink="/docs/azure-devops/azuredevops-04/" data-title="part 4" -->
+<h3 id="using-a-pipeline-template">Using a Pipeline Template</h3><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># main-pipeline.yaml</span>
+</span></span><span style="display:flex;"><span>resources:
+</span></span><span style="display:flex;"><span>  repositories:
+</span></span><span style="display:flex;"><span>    - repository: templates
+</span></span><span style="display:flex;"><span>      type: git
+</span></span><span style="display:flex;"><span>      name: MyProject/Templates
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>jobs:
+</span></span><span style="display:flex;"><span>- template: template-pipeline.yaml@templates
+</span></span><span style="display:flex;"><span>  parameters:
+</span></span><span style="display:flex;"><span>    environment: <span style="color:#e6db74">&#39;production&#39;</span>
+</span></span></code></pre></div><!-- end-chunk -->
+<!-- begin-chunk data-anchor="job-template-definition" data-heading="Job Template Definition" data-level="3" data-permalink="/docs/azure-devops/azuredevops-04/" data-title="part 4" -->
+<h3 id="job-template-definition">Job Template Definition</h3><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># job-template.yaml</span>
+</span></span><span style="display:flex;"><span>parameters:
+</span></span><span style="display:flex;"><span>  - name: jobName
+</span></span><span style="display:flex;"><span>    type: string
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>jobs:
+</span></span><span style="display:flex;"><span>- job: <span style="color:#e6db74">${</span>{ parameters.jobName <span style="color:#e6db74">}</span><span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>  pool:
+</span></span><span style="display:flex;"><span>    vmImage: <span style="color:#e6db74">&#39;ubuntu-latest&#39;</span>
+</span></span><span style="display:flex;"><span>  steps:
+</span></span><span style="display:flex;"><span>  - script: |
+</span></span><span style="display:flex;"><span>      echo <span style="color:#e6db74">&#34;Executing job: </span><span style="color:#e6db74">${</span>{ parameters.jobName <span style="color:#e6db74">}</span><span style="color:#e6db74">}&#34;</span>
+</span></span><span style="display:flex;"><span>    displayName: <span style="color:#e6db74">&#34;Job </span><span style="color:#e6db74">${</span>{ parameters.jobName <span style="color:#e6db74">}</span><span style="color:#e6db74">}&#34;</span>
+</span></span></code></pre></div><!-- end-chunk -->
+<!-- begin-chunk data-anchor="using-the-job-template" data-heading="Using the Job Template" data-level="3" data-permalink="/docs/azure-devops/azuredevops-04/" data-title="part 4" -->
+<h3 id="using-the-job-template">Using the Job Template</h3><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># main-pipeline.yaml</span>
+</span></span><span style="display:flex;"><span>jobs:
+</span></span><span style="display:flex;"><span>- template: job-template.yaml
+</span></span><span style="display:flex;"><span>  parameters:
+</span></span><span style="display:flex;"><span>    jobName: <span style="color:#e6db74">&#39;BuildJob&#39;</span>
+</span></span><span style="display:flex;"><span>- template: job-template.yaml
+</span></span><span style="display:flex;"><span>  parameters:
+</span></span><span style="display:flex;"><span>    jobName: <span style="color:#e6db74">&#39;TestJob&#39;</span>
+</span></span></code></pre></div><!-- end-chunk -->
+<!-- begin-chunk data-anchor="multiple-scheduled-triggers" data-heading="Multiple Scheduled Triggers" data-level="3" data-permalink="/docs/azure-devops/azuredevops-04/" data-title="part 4" -->
+<h3 id="multiple-scheduled-triggers">Multiple Scheduled Triggers</h3><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">trigger</span>: <span style="color:#ae81ff">none </span> <span style="color:#75715e"># Disabling CI triggers</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">schedules</span>:
+</span></span><span style="display:flex;"><span>- <span style="color:#f92672">cron</span>: <span style="color:#e6db74">&#34;0 0 * * *&#34;</span>  <span style="color:#75715e"># Every day at midnight</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">displayName</span>: <span style="color:#ae81ff">Daily midnight build</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">branches</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">include</span>:
+</span></span><span style="display:flex;"><span>    - <span style="color:#ae81ff">main</span>
+</span></span><span style="display:flex;"><span>- <span style="color:#f92672">cron</span>: <span style="color:#e6db74">&#34;0 17 * * 5&#34;</span>  <span style="color:#75715e"># Every Friday at 5 PM</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">displayName</span>: <span style="color:#ae81ff">Weekly Friday build</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">branches</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">include</span>:
+</span></span><span style="display:flex;"><span>    - <span style="color:#ae81ff">main</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">pool</span>:
+</span></span><span style="display:flex;"><span><span style="color:#f92672">vmImage</span>: <span style="color:#e6db74">&#39;ubuntu-latest&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">jobs</span>:
+</span></span><span style="display:flex;"><span>- <span style="color:#f92672">job</span>: <span style="color:#ae81ff">Build</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">steps</span>:
+</span></span><span style="display:flex;"><span>- <span style="color:#f92672">script</span>: <span style="color:#ae81ff">echo &#34;Running scheduled build on $(Build.SourceBranch) at $(Build.SourceBranchName)&#34;</span>
+</span></span></code></pre></div><!-- end-chunk -->
+<!-- begin-chunk data-anchor="pipeline-with-single-stage-with-multiple-jobs" data-heading="Pipeline with single stage with multiple jobs" data-level="3" data-permalink="/docs/azure-devops/azuredevops-04/" data-title="part 4" -->
+<h3 id="pipeline-with-single-stage-with-multiple-jobs">Pipeline with single stage with multiple jobs</h3><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#ae81ff">```yaml</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">trigger</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">branches</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">include</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">main</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">stages</span>:
+</span></span><span style="display:flex;"><span>- <span style="color:#f92672">stage</span>: <span style="color:#ae81ff">BuildAndTest</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">jobs</span>:
+</span></span><span style="display:flex;"><span>  - <span style="color:#f92672">job</span>: <span style="color:#ae81ff">BuildJob</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">displayName</span>: <span style="color:#e6db74">&#34;Build the application&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">pool</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">vmImage</span>: <span style="color:#e6db74">&#39;ubuntu-latest&#39;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">steps</span>:
+</span></span><span style="display:flex;"><span>    - <span style="color:#f92672">script</span>: <span style="color:#ae81ff">echo &#34;Building the application&#34;</span>
+</span></span><span style="display:flex;"><span>    - <span style="color:#f92672">script</span>: <span style="color:#ae81ff">echo &#34;Compile the code&#34;</span>
+</span></span><span style="display:flex;"><span>    - <span style="color:#f92672">script</span>: <span style="color:#ae81ff">echo &#34;Build process completed&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  - <span style="color:#f92672">job</span>: <span style="color:#ae81ff">TestJob</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">displayName</span>: <span style="color:#e6db74">&#34;Test the application&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">pool</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">vmImage</span>: <span style="color:#e6db74">&#39;ubuntu-latest&#39;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">steps</span>:
+</span></span><span style="display:flex;"><span>    - <span style="color:#f92672">script</span>: <span style="color:#ae81ff">echo &#34;Running unit tests&#34;</span>
+</span></span><span style="display:flex;"><span>    - <span style="color:#f92672">script</span>: <span style="color:#ae81ff">echo &#34;Test process completed&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ae81ff">```</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">### Pipeline with Multiple Stages</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ae81ff">```yaml</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">trigger</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">branches</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">include</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">main</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">stages</span>:
+</span></span><span style="display:flex;"><span>- <span style="color:#f92672">stage</span>: <span style="color:#ae81ff">Build</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">displayName</span>: <span style="color:#e6db74">&#34;Build Stage&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">jobs</span>:
+</span></span><span style="display:flex;"><span>  - <span style="color:#f92672">job</span>: <span style="color:#ae81ff">BuildApp</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">displayName</span>: <span style="color:#e6db74">&#34;Build the application&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">pool</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">vmImage</span>: <span style="color:#e6db74">&#39;ubuntu-latest&#39;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">steps</span>:
+</span></span><span style="display:flex;"><span>    - <span style="color:#f92672">script</span>: <span style="color:#ae81ff">echo &#34;Building the application&#34;</span>
+</span></span><span style="display:flex;"><span>    - <span style="color:#f92672">script</span>: <span style="color:#ae81ff">echo &#34;Compile the code&#34;</span>
+</span></span><span style="display:flex;"><span>    - <span style="color:#f92672">script</span>: <span style="color:#ae81ff">echo &#34;Build process completed&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>- <span style="color:#f92672">stage</span>: <span style="color:#ae81ff">Test</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">displayName</span>: <span style="color:#e6db74">&#34;Test Stage&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">dependsOn</span>: <span style="color:#ae81ff">Build </span> <span style="color:#75715e"># Runs only after Build stage succeeds</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">jobs</span>:
+</span></span><span style="display:flex;"><span>  - <span style="color:#f92672">job</span>: <span style="color:#ae81ff">UnitTest</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">displayName</span>: <span style="color:#e6db74">&#34;Run Unit Tests&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">pool</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">vmImage</span>: <span style="color:#e6db74">&#39;ubuntu-latest&#39;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">steps</span>:
+</span></span><span style="display:flex;"><span>    - <span style="color:#f92672">script</span>: <span style="color:#ae81ff">echo &#34;Running unit tests&#34;</span>
+</span></span><span style="display:flex;"><span>    - <span style="color:#f92672">script</span>: <span style="color:#ae81ff">echo &#34;Unit tests completed&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>- <span style="color:#f92672">stage</span>: <span style="color:#ae81ff">Deploy</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">displayName</span>: <span style="color:#e6db74">&#34;Deploy Stage&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">dependsOn</span>: <span style="color:#ae81ff">Test </span> <span style="color:#75715e"># Runs only after Test stage succeeds</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">jobs</span>:
+</span></span><span style="display:flex;"><span>  - <span style="color:#f92672">job</span>: <span style="color:#ae81ff">DeployApp</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">displayName</span>: <span style="color:#e6db74">&#34;Deploy the application&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">pool</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">vmImage</span>: <span style="color:#e6db74">&#39;ubuntu-latest&#39;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">steps</span>:
+</span></span><span style="display:flex;"><span>    - <span style="color:#f92672">script</span>: <span style="color:#ae81ff">echo &#34;Deploying the application&#34;</span>
+</span></span><span style="display:flex;"><span>    - <span style="color:#f92672">script</span>: <span style="color:#ae81ff">echo &#34;Deployment process completed&#34;</span>
+</span></span></code></pre></div><!-- end-chunk -->
+<!-- begin-chunk data-anchor="pipeline-with-conditional-jobs" data-heading="Pipeline with Conditional Jobs" data-level="3" data-permalink="/docs/azure-devops/azuredevops-04/" data-title="part 4" -->
+<h3 id="pipeline-with-conditional-jobs">Pipeline with Conditional Jobs</h3><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span> <span style="color:#f92672">trigger</span>:
+</span></span><span style="display:flex;"><span><span style="color:#f92672">branches</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">include</span>:
+</span></span><span style="display:flex;"><span>    - <span style="color:#ae81ff">main</span>
+</span></span><span style="display:flex;"><span>    - <span style="color:#ae81ff">develop</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">stages</span>:
+</span></span><span style="display:flex;"><span>- <span style="color:#f92672">stage</span>: <span style="color:#ae81ff">Build</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">jobs</span>:
+</span></span><span style="display:flex;"><span>- <span style="color:#f92672">job</span>: <span style="color:#ae81ff">BuildJob</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">pool</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">vmImage</span>: <span style="color:#e6db74">&#39;ubuntu-latest&#39;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">steps</span>:
+</span></span><span style="display:flex;"><span>  - <span style="color:#f92672">script</span>: <span style="color:#ae81ff">echo &#34;Building the application&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>- <span style="color:#f92672">stage</span>: <span style="color:#ae81ff">Test</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">dependsOn</span>: <span style="color:#ae81ff">Build</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">jobs</span>:
+</span></span><span style="display:flex;"><span>- <span style="color:#f92672">job</span>: <span style="color:#ae81ff">UnitTests</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">condition</span>: <span style="color:#ae81ff">eq(variables[&#39;Build.SourceBranch&#39;], &#39;refs/heads/main&#39;) </span> <span style="color:#75715e"># Run only on the main branch</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">pool</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">vmImage</span>: <span style="color:#e6db74">&#39;ubuntu-latest&#39;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">steps</span>:
+</span></span><span style="display:flex;"><span>  - <span style="color:#f92672">script</span>: <span style="color:#ae81ff">echo &#34;Running unit tests on the main branch&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>- <span style="color:#f92672">job</span>: <span style="color:#ae81ff">IntegrationTests</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">condition</span>: <span style="color:#ae81ff">succeeded() </span> <span style="color:#75715e"># Only run if previous jobs succeeded</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">pool</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">vmImage</span>: <span style="color:#e6db74">&#39;ubuntu-latest&#39;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">steps</span>:
+</span></span><span style="display:flex;"><span>  - <span style="color:#f92672">script</span>: <span style="color:#ae81ff">echo &#34;Running integration tests&#34;</span>
+</span></span></code></pre></div><!-- end-chunk -->
+<!-- begin-chunk data-anchor="parallel-jobs-in-a-stage" data-heading="Parallel Jobs in a Stage" data-level="3" data-permalink="/docs/azure-devops/azuredevops-04/" data-title="part 4" -->
+<h3 id="parallel-jobs-in-a-stage">Parallel Jobs in a Stage</h3><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span> <span style="color:#f92672">trigger</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">branches</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">include</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">main</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">stages</span>:
+</span></span><span style="display:flex;"><span>- <span style="color:#f92672">stage</span>: <span style="color:#ae81ff">Build</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">jobs</span>:
+</span></span><span style="display:flex;"><span>  - <span style="color:#f92672">job</span>: <span style="color:#ae81ff">BuildJob</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">pool</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">vmImage</span>: <span style="color:#e6db74">&#39;ubuntu-latest&#39;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">steps</span>:
+</span></span><span style="display:flex;"><span>    - <span style="color:#f92672">script</span>: <span style="color:#ae81ff">echo &#34;Building the application&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>- <span style="color:#f92672">stage</span>: <span style="color:#ae81ff">Test</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">dependsOn</span>: <span style="color:#ae81ff">Build</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">jobs</span>:
+</span></span><span style="display:flex;"><span>  - <span style="color:#f92672">job</span>: <span style="color:#ae81ff">UnitTests</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">pool</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">vmImage</span>: <span style="color:#e6db74">&#39;ubuntu-latest&#39;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">steps</span>:
+</span></span><span style="display:flex;"><span>    - <span style="color:#f92672">script</span>: <span style="color:#ae81ff">echo &#34;Running unit tests&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  - <span style="color:#f92672">job</span>: <span style="color:#ae81ff">IntegrationTests</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">pool</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">vmImage</span>: <span style="color:#e6db74">&#39;ubuntu-latest&#39;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">steps</span>:
+</span></span><span style="display:flex;"><span>    - <span style="color:#f92672">script</span>: <span style="color:#ae81ff">echo &#34;Running integration tests&#34;</span>
+</span></span></code></pre></div><!-- end-chunk -->
+<!-- begin-chunk data-anchor="pipeline-with-tasks-build-test-deploy" data-heading="Pipeline with Tasks (Build, Test, Deploy)" data-level="3" data-permalink="/docs/azure-devops/azuredevops-04/" data-title="part 4" -->
+<h3 id="pipeline-with-tasks-build-test-deploy">Pipeline with Tasks (Build, Test, Deploy)</h3><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">trigger</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">branches</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">include</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">main</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">stages</span>:
+</span></span><span style="display:flex;"><span>- <span style="color:#f92672">stage</span>: <span style="color:#ae81ff">Build</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">jobs</span>:
+</span></span><span style="display:flex;"><span>  - <span style="color:#f92672">job</span>: <span style="color:#ae81ff">BuildJob</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">displayName</span>: <span style="color:#e6db74">&#34;Build the .NET application&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">pool</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">vmImage</span>: <span style="color:#e6db74">&#39;windows-latest&#39;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">steps</span>:
+</span></span><span style="display:flex;"><span>    - <span style="color:#f92672">task</span>: <span style="color:#ae81ff">UseDotNet@2</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">inputs</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">packageType</span>: <span style="color:#e6db74">&#39;sdk&#39;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">version</span>: <span style="color:#e6db74">&#39;6.x&#39;</span>
+</span></span><span style="display:flex;"><span>    - <span style="color:#f92672">task</span>: <span style="color:#ae81ff">DotNetCoreCLI@2</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">inputs</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">command</span>: <span style="color:#e6db74">&#39;build&#39;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">projects</span>: <span style="color:#e6db74">&#39;**/*.csproj&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>- <span style="color:#f92672">stage</span>: <span style="color:#ae81ff">Test</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">dependsOn</span>: <span style="color:#ae81ff">Build</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">jobs</span>:
+</span></span><span style="display:flex;"><span>  - <span style="color:#f92672">job</span>: <span style="color:#ae81ff">TestJob</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">displayName</span>: <span style="color:#e6db74">&#34;Test the .NET application&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">pool</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">vmImage</span>: <span style="color:#e6db74">&#39;windows-latest&#39;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">steps</span>:
+</span></span><span style="display:flex;"><span>    - <span style="color:#f92672">task</span>: <span style="color:#ae81ff">DotNetCoreCLI@2</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">inputs</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">command</span>: <span style="color:#e6db74">&#39;test&#39;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">projects</span>: <span style="color:#e6db74">&#39;**/*.csproj&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>- <span style="color:#f92672">stage</span>: <span style="color:#ae81ff">Deploy</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">dependsOn</span>: <span style="color:#ae81ff">Test</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">jobs</span>:
+</span></span><span style="display:flex;"><span>  - <span style="color:#f92672">job</span>: <span style="color:#ae81ff">DeployJob</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">displayName</span>: <span style="color:#e6db74">&#34;Deploy the .NET application&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">pool</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">vmImage</span>: <span style="color:#e6db74">&#39;windows-latest&#39;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">steps</span>:
+</span></span><span style="display:flex;"><span>    - <span style="color:#f92672">task</span>: <span style="color:#ae81ff">AzureRmWebAppDeployment@4</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">inputs</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">azureSubscription</span>: <span style="color:#e6db74">&#39;MyAzureSubscription&#39;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">appType</span>: <span style="color:#e6db74">&#39;webApp&#39;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">WebAppName</span>: <span style="color:#e6db74">&#39;my-web-app&#39;</span>
+</span></span></code></pre></div><!-- end-chunk -->
+<!-- begin-chunk data-anchor="azure-devops-deployment-strategies" data-heading="Azure DevOps Deployment Strategies" data-level="2" data-permalink="/docs/azure-devops/azuredevops-04/" data-title="part 4" -->
+<h2 id="azure-devops-deployment-strategies">Azure DevOps Deployment Strategies</h2><p>Azure DevOps provides several deployment strategies to ensure reliable and efficient application deployment. This guide outlines the common strategies and their implementation steps.</p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="common-deployment-strategies" data-heading="Common Deployment Strategies" data-level="3" data-permalink="/docs/azure-devops/azuredevops-04/" data-title="part 4" -->
+<h3 id="common-deployment-strategies">Common Deployment Strategies</h3><ol>
+<li><strong>Blue-Green Deployment</strong></li>
+<li><strong>Canary Deployment</strong></li>
+<li><strong>Rolling Deployment</strong></li>
+<li><strong>Recreate Deployment</strong></li>
+</ol>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="1-blue-green-deployment" data-heading="1. Blue-Green Deployment" data-level="2" data-permalink="/docs/azure-devops/azuredevops-04/" data-title="part 4" -->
+<h2 id="1-blue-green-deployment">1. Blue-Green Deployment</h2><!-- end-chunk -->
+<!-- begin-chunk data-anchor="overview" data-heading="Overview" data-level="3" data-permalink="/docs/azure-devops/azuredevops-04/" data-title="part 4" -->
+<h3 id="overview">Overview</h3><p>Blue-Green deployment minimizes downtime and risk by running two identical environments. Only one environment (Blue or Green) is live at any time.</p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="steps-1" data-heading="Steps" data-level="3" data-permalink="/docs/azure-devops/azuredevops-04/" data-title="part 4" -->
+<h3 id="steps-1">Steps</h3><ol>
+<li><strong>Set Up Two Environments</strong>: Create two identical environments (e.g., Blue and Green).</li>
+<li><strong>Deploy to Idle Environment</strong>:
+<ul>
+<li>Deploy the new version of the application to the idle environment (e.g., Green).</li>
+</ul>
+</li>
+<li><strong>Switch Traffic</strong>:
+<ul>
+<li>Update the routing to direct traffic from the current environment (Blue) to the new environment (Green).</li>
+</ul>
+</li>
+<li><strong>Monitor</strong>:
+<ul>
+<li>Monitor the new environment for any issues.</li>
+</ul>
+</li>
+<li><strong>Rollback</strong> (if needed):
+<ul>
+<li>If issues are found, switch back traffic to the old environment (Blue).</li>
+</ul>
+</li>
+</ol>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="2-canary-deployment" data-heading="2. Canary Deployment" data-level="2" data-permalink="/docs/azure-devops/azuredevops-04/" data-title="part 4" -->
+<h2 id="2-canary-deployment">2. Canary Deployment</h2><!-- end-chunk -->
+<!-- begin-chunk data-anchor="overview-1" data-heading="Overview" data-level="3" data-permalink="/docs/azure-devops/azuredevops-04/" data-title="part 4" -->
+<h3 id="overview-1">Overview</h3><p>Canary deployment allows you to release new features to a small subset of users before rolling them out to the entire user base.</p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="steps-2" data-heading="Steps" data-level="3" data-permalink="/docs/azure-devops/azuredevops-04/" data-title="part 4" -->
+<h3 id="steps-2">Steps</h3><ol>
+<li><strong>Deploy New Version to a Small Subset</strong>:
+<ul>
+<li>Deploy the new version of the application to a small percentage of users (e.g., 5%).</li>
+</ul>
+</li>
+<li><strong>Monitor Performance</strong>:
+<ul>
+<li>Monitor the performance and user feedback of the canary release.</li>
+</ul>
+</li>
+<li><strong>Incremental Rollout</strong>:
+<ul>
+<li>Gradually increase the percentage of users receiving the new version if the canary release is successful.</li>
+</ul>
+</li>
+<li><strong>Full Rollout</strong>:
+<ul>
+<li>Once confidence is established, roll out the new version to all users.</li>
+</ul>
+</li>
+<li><strong>Rollback</strong> (if needed):
+<ul>
+<li>If issues arise, quickly revert the canary deployment.</li>
+</ul>
+</li>
+</ol>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="3-rolling-deployment" data-heading="3. Rolling Deployment" data-level="2" data-permalink="/docs/azure-devops/azuredevops-04/" data-title="part 4" -->
+<h2 id="3-rolling-deployment">3. Rolling Deployment</h2><!-- end-chunk -->
+<!-- begin-chunk data-anchor="overview-2" data-heading="Overview" data-level="3" data-permalink="/docs/azure-devops/azuredevops-04/" data-title="part 4" -->
+<h3 id="overview-2">Overview</h3><p>Rolling deployment gradually replaces instances of the previous version of the application with the new version without downtime.</p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="steps-3" data-heading="Steps" data-level="3" data-permalink="/docs/azure-devops/azuredevops-04/" data-title="part 4" -->
+<h3 id="steps-3">Steps</h3><ol>
+<li><strong>Set Up Multiple Instances</strong>: Ensure you have multiple instances of the application running.</li>
+<li><strong>Deploy New Version to One Instance</strong>:
+<ul>
+<li>Start by updating one instance with the new version.</li>
+</ul>
+</li>
+<li><strong>Monitor Instance</strong>:
+<ul>
+<li>Monitor the updated instance for any issues.</li>
+</ul>
+</li>
+<li><strong>Continue Updating Remaining Instances</strong>:
+<ul>
+<li>If the updated instance is successful, continue to update the next instance.</li>
+</ul>
+</li>
+<li><strong>Complete Deployment</strong>:
+<ul>
+<li>Repeat until all instances are updated.</li>
+</ul>
+</li>
+</ol>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="4-recreate-deployment" data-heading="4. Recreate Deployment" data-level="2" data-permalink="/docs/azure-devops/azuredevops-04/" data-title="part 4" -->
+<h2 id="4-recreate-deployment">4. Recreate Deployment</h2><!-- end-chunk -->
+<!-- begin-chunk data-anchor="overview-3" data-heading="Overview" data-level="3" data-permalink="/docs/azure-devops/azuredevops-04/" data-title="part 4" -->
+<h3 id="overview-3">Overview</h3><p>Recreate deployment involves stopping the current version of the application and starting the new version, resulting in downtime.</p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="steps-4" data-heading="Steps" data-level="3" data-permalink="/docs/azure-devops/azuredevops-04/" data-title="part 4" -->
+<h3 id="steps-4">Steps</h3><ol>
+<li><strong>Stop the Current Application</strong>:
+<ul>
+<li>Shut down the existing application instance.</li>
+</ul>
+</li>
+<li><strong>Deploy the New Version</strong>:
+<ul>
+<li>Deploy the new version of the application.</li>
+</ul>
+</li>
+<li><strong>Start the New Application</strong>:
+<ul>
+<li>Start the new version of the application.</li>
+</ul>
+</li>
+<li><strong>Monitor</strong>:
+<ul>
+<li>Monitor the application for issues after deployment.</li>
+</ul>
+</li>
+</ol>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="summary" data-heading="Summary" data-level="3" data-permalink="/docs/azure-devops/azuredevops-04/" data-title="part 4" -->
+<h3 id="summary">Summary</h3><p>Choosing the right deployment strategy depends on your application requirements and the level of risk you are willing to accept. Azure DevOps provides the flexibility to implement any of these strategies based on your deployment needs.</p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="tasks" data-heading="Tasks" data-level="2" data-permalink="/docs/azure-devops/azuredevops-04/" data-title="part 4" -->
+<h2 id="tasks">Tasks</h2><!-- end-chunk -->
+<!-- begin-chunk data-anchor="codebase-httpsgithubcomkumarnirpendra25t1-student-maven-projgit" data-heading="CodeBase <a href=\"https://github.com/kumarnirpendra25/t1-student-maven-proj.git\" target=\"_blank\" rel=\"noopener\">https://github.com/kumarnirpendra25/t1-student-maven-proj.git</a>" data-level="3" data-permalink="/docs/azure-devops/azuredevops-04/" data-title="part 4" -->
+<h3 id="codebase-httpsgithubcomkumarnirpendra25t1-student-maven-projgit">CodeBase <a href="https://github.com/kumarnirpendra25/t1-student-maven-proj.git" target="_blank" rel="noopener">https://github.com/kumarnirpendra25/t1-student-maven-proj.git</a></h3><!-- end-chunk -->
+<!-- begin-chunk data-anchor="task-1-maven-project" data-heading="Task 1 Maven Project" data-level="3" data-permalink="/docs/azure-devops/azuredevops-04/" data-title="part 4" -->
+<h3 id="task-1-maven-project">Task 1 Maven Project</h3><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>trigger:
+</span></span><span style="display:flex;"><span>- master
+</span></span><span style="display:flex;"><span>pool:
+</span></span><span style="display:flex;"><span>  vmimage: ubuntu-latest
+</span></span><span style="display:flex;"><span>stages:
+</span></span><span style="display:flex;"><span>  - stage: build
+</span></span><span style="display:flex;"><span>    displayName: build
+</span></span><span style="display:flex;"><span>    jobs:
+</span></span><span style="display:flex;"><span>    - job: build
+</span></span><span style="display:flex;"><span>      displayName: build
+</span></span><span style="display:flex;"><span>      steps:
+</span></span><span style="display:flex;"><span>        - task: Maven@4
+</span></span><span style="display:flex;"><span>          inputs:
+</span></span><span style="display:flex;"><span>            mavenPomFile: <span style="color:#e6db74">&#39;pom.xml&#39;</span>
+</span></span><span style="display:flex;"><span>            publishJUnitResults: false
+</span></span><span style="display:flex;"><span>            javaHomeOption: <span style="color:#e6db74">&#39;JDKVersion&#39;</span>
+</span></span><span style="display:flex;"><span>            mavenVersionOption: <span style="color:#e6db74">&#39;Default&#39;</span>
+</span></span><span style="display:flex;"><span>            mavenAuthenticateFeed: false
+</span></span><span style="display:flex;"><span>            effectivePomSkip: false
+</span></span><span style="display:flex;"><span>            sonarQubeRunAnalysis: false
+</span></span><span style="display:flex;"><span>            goals: package
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        - task: CopyFiles@2
+</span></span><span style="display:flex;"><span>          inputs:
+</span></span><span style="display:flex;"><span>            SourceFolder: <span style="color:#e6db74">&#39;$(agent.builddirectory)&#39;</span>
+</span></span><span style="display:flex;"><span>            Contents: <span style="color:#e6db74">&#39;**/*.war&#39;</span>
+</span></span><span style="display:flex;"><span>            TargetFolder: <span style="color:#e6db74">&#39;$(build.artifactstagingdirectory)&#39;</span>
+</span></span><span style="display:flex;"><span>        - task: PublishBuildArtifacts@1
+</span></span><span style="display:flex;"><span>          inputs:
+</span></span><span style="display:flex;"><span>            PathtoPublish: <span style="color:#e6db74">&#39;$(Build.ArtifactStagingDirectory)&#39;</span>
+</span></span><span style="display:flex;"><span>            ArtifactName: <span style="color:#e6db74">&#39;drop&#39;</span>
+</span></span><span style="display:flex;"><span>            publishLocation: <span style="color:#e6db74">&#39;Container&#39;</span>
+</span></span><span style="display:flex;"><span>  - stage: Release
+</span></span><span style="display:flex;"><span>    displayName: Release
+</span></span><span style="display:flex;"><span>    jobs:
+</span></span><span style="display:flex;"><span>    - deployment: 
+</span></span><span style="display:flex;"><span>      environment: dev
+</span></span><span style="display:flex;"><span>      strategy:
+</span></span><span style="display:flex;"><span>       runOnce:
+</span></span><span style="display:flex;"><span>         deploy:
+</span></span><span style="display:flex;"><span>           steps:
+</span></span><span style="display:flex;"><span>             - task: AzureRmWebAppDeployment@4
+</span></span><span style="display:flex;"><span>               inputs:
+</span></span><span style="display:flex;"><span>                 ConnectionType: <span style="color:#e6db74">&#39;AzureRM&#39;</span>
+</span></span><span style="display:flex;"><span>                 azureSubscription: <span style="color:#e6db74">&#39;Free Trial(98391885-1dc7-4963-93d0-7590a267b3f7)&#39;</span>
+</span></span><span style="display:flex;"><span>                 appType: <span style="color:#e6db74">&#39;webAppLinux&#39;</span>
+</span></span><span style="display:flex;"><span>                 WebAppName: <span style="color:#e6db74">&#39;web000&#39;</span>
+</span></span><span style="display:flex;"><span>                 packageForLinux: <span style="color:#e6db74">&#39;$(Pipeline.Workspace)/**/*.war&#39;</span>
+</span></span><span style="display:flex;"><span>  
+</span></span></code></pre></div><!-- end-chunk -->
+<!-- begin-chunk data-anchor="azure-devops-templates-1" data-heading="Azure Devops Templates" data-level="2" data-permalink="/docs/azure-devops/azuredevops-04/" data-title="part 4" -->
+<h2 id="azure-devops-templates-1">Azure Devops Templates</h2><!-- end-chunk -->
+<!-- begin-chunk data-anchor="prerequisite" data-heading="Prerequisite" data-level="3" data-permalink="/docs/azure-devops/azuredevops-04/" data-title="part 4" -->
+<h3 id="prerequisite">Prerequisite</h3><p>To better understand ADO template we must have basic understanding of  YAML pipeline.</p>
+<ul>
+<li>Stages</li>
+<li>Jobs</li>
+<li>Steps</li>
+</ul>
+<p><img src="/images/ado.webp" alt="ado"></p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="what-is-a-template-in-ado-yaml" data-heading="What is a Template in ADO YAML" data-level="3" data-permalink="/docs/azure-devops/azuredevops-04/" data-title="part 4" -->
+<h3 id="what-is-a-template-in-ado-yaml">What is a Template in ADO YAML</h3><p>A template in Azure DevOps YAML allows you to create reusable content that can be shared across multiple teams or projects.</p>
+<p>Using templates, we can define sharable content, logic, and parameters within a YAML pipeline.</p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="why-use-ado-yaml-templates" data-heading="Why Use ADO YAML Templates" data-level="3" data-permalink="/docs/azure-devops/azuredevops-04/" data-title="part 4" -->
+<h3 id="why-use-ado-yaml-templates">Why Use ADO YAML Templates</h3><ul>
+<li>Speed up development</li>
+<li>Secure pipelines</li>
+<li>Cleaner YAML pipeline code</li>
+<li>Avoid duplicating the same logic in multiple places</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="types-of-templates-1" data-heading="Types of Templates" data-level="3" data-permalink="/docs/azure-devops/azuredevops-04/" data-title="part 4" -->
+<h3 id="types-of-templates-1">Types of Templates</h3><ul>
+<li><strong>Include</strong>: Insert reusable control</li>
+<li><strong>Extends</strong>: Insert specific elements and define logic for other templates to follow</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="template-categories" data-heading="Template Categories" data-level="3" data-permalink="/docs/azure-devops/azuredevops-04/" data-title="part 4" -->
+<h3 id="template-categories">Template Categories</h3><ul>
+<li><strong>Stage template</strong></li>
+<li><strong>Job template</strong></li>
+<li><strong>Step template</strong></li>
+<li><strong>Variable template</strong></li>
+</ul>
+<p><img src="/images/ado1.webp" alt="ado"></p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="step-template-syntax" data-heading="step template syntax" data-level="3" data-permalink="/docs/azure-devops/azuredevops-04/" data-title="part 4" -->
+<h3 id="step-template-syntax">step template syntax</h3><p>Now lets understand how we can create step template and how it can be referred from another yaml pipeline file.</p>
+<p>step template helps to group all the steps that can be sharable in many jobs or stages.</p>
+<p><img src="/images/ado2.webp" alt="ado"></p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="job-template-syntax" data-heading="job template syntax" data-level="3" data-permalink="/docs/azure-devops/azuredevops-04/" data-title="part 4" -->
+<h3 id="job-template-syntax">job template syntax</h3><p>job template helps to group all the Jobs that can be sharable in many jobs and stages</p>
+<p><img src="/images/ado4.webp" alt="ado"></p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="stage-template-syntax" data-heading="stage template syntax" data-level="3" data-permalink="/docs/azure-devops/azuredevops-04/" data-title="part 4" -->
+<h3 id="stage-template-syntax">stage template syntax</h3><p>stage template helps to group all the stages that can be sharable reference in many master pipeline.</p>
+<p><img src="/images/ado5.webp" alt="ado"></p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="variable-template-syntax" data-heading="variable template syntax" data-level="3" data-permalink="/docs/azure-devops/azuredevops-04/" data-title="part 4" -->
+<h3 id="variable-template-syntax">variable template syntax</h3><p>variable template helps to group all the variables that can be referenced in pipeline.</p>
+<p><img src="/images/ado6.webp" alt="ado"></p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="create-template-with-parameters" data-heading="Create template with parameters" data-level="3" data-permalink="/docs/azure-devops/azuredevops-04/" data-title="part 4" -->
+<h3 id="create-template-with-parameters">Create template with parameters</h3><p>In some scenario you are required to pass some parameters to the template. We can create parameters with all types of template like step, stage, jobs, variables.</p>
+<p>In this case we need to declare and define the parameters in two files.</p>
+<p>In template file</p>
+<p>the file from which template file is being called.</p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="example" data-heading="example:" data-level="4" data-permalink="/docs/azure-devops/azuredevops-04/" data-title="part 4" -->
+<h4 id="example">example:</h4><ul>
+<li>Job Template with parameters example</li>
+</ul>
+<p><img src="/images/ado7.webp" alt="ado"></p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="steps-template-with-parameters-example" data-heading="Steps Template with parameters example" data-level="3" data-permalink="/docs/azure-devops/azuredevops-04/" data-title="part 4" -->
+<h3 id="steps-template-with-parameters-example">Steps Template with parameters example</h3><p><img src="/images/ado8.webp" alt="ado"></p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="variables-template-with-parameters-example" data-heading="Variables Template with parameters example" data-level="3" data-permalink="/docs/azure-devops/azuredevops-04/" data-title="part 4" -->
+<h3 id="variables-template-with-parameters-example">Variables Template with parameters example</h3><p><img src="/images/ado9.webp" alt="ado"></p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="create-a-template-at-step-level" data-heading="Create a template at step level" data-level="3" data-permalink="/docs/azure-devops/azuredevops-04/" data-title="part 4" -->
+<h3 id="create-a-template-at-step-level">Create a template at step level</h3><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">steps</span>:
+</span></span><span style="display:flex;"><span>- <span style="color:#f92672">script</span>: <span style="color:#ae81ff">echo Hello, world!</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">displayName</span>: <span style="color:#e6db74">&#39;Run a one-line script&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>- <span style="color:#f92672">script</span>: |<span style="color:#e6db74">
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    echo Add other tasks to build, test, and deploy your project.
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    echo See https://aka.ms/yaml</span>    
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">displayName</span>: <span style="color:#e6db74">&#39;Run a multi-line script&#39;</span>
+</span></span></code></pre></div><!-- end-chunk -->
+<!-- begin-chunk data-anchor="how-to-use-" data-heading="How to use ?" data-level="3" data-permalink="/docs/azure-devops/azuredevops-04/" data-title="part 4" -->
+<h3 id="how-to-use-">How to use ?</h3><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">trigger</span>:
+</span></span><span style="display:flex;"><span>- <span style="color:#ae81ff">master</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">pool</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">vmImage</span>: <span style="color:#ae81ff">ubuntu-latest</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">steps</span>:
+</span></span><span style="display:flex;"><span>- <span style="color:#f92672">template</span>: <span style="color:#ae81ff">temp.yaml</span>
+</span></span></code></pre></div><!-- end-chunk -->
+<!-- begin-chunk data-anchor="stage-level-template" data-heading="Stage Level Template" data-level="3" data-permalink="/docs/azure-devops/azuredevops-04/" data-title="part 4" -->
+<h3 id="stage-level-template">Stage Level Template</h3><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#75715e"># build-stage.yml</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">parameters</span>:
+</span></span><span style="display:flex;"><span>  - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">vmImage</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">type</span>: <span style="color:#ae81ff">string</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">default</span>: <span style="color:#e6db74">&#39;ubuntu-latest&#39;</span>
+</span></span><span style="display:flex;"><span>  - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">buildConfiguration</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">type</span>: <span style="color:#ae81ff">string</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">default</span>: <span style="color:#e6db74">&#39;Release&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">stages</span>:
+</span></span><span style="display:flex;"><span>  - <span style="color:#f92672">stage</span>: <span style="color:#ae81ff">Build</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">displayName</span>: <span style="color:#e6db74">&#39;Build Stage&#39;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">jobs</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#f92672">job</span>: <span style="color:#ae81ff">BuildJob</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">pool</span>:
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">vmImage</span>: <span style="color:#ae81ff">${{ parameters.vmImage }}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">steps</span>:
+</span></span><span style="display:flex;"><span>          - <span style="color:#f92672">checkout</span>: <span style="color:#ae81ff">self</span>
+</span></span><span style="display:flex;"><span>          - <span style="color:#f92672">script</span>: <span style="color:#ae81ff">echo &#34;Building with ${{ parameters.buildConfiguration }} configuration.&#34;</span>
+</span></span></code></pre></div><!-- end-chunk -->
+<!-- begin-chunk data-anchor="how-to-use-in-a-pipeline-" data-heading="How to use in a pipeline ?" data-level="3" data-permalink="/docs/azure-devops/azuredevops-04/" data-title="part 4" -->
+<h3 id="how-to-use-in-a-pipeline-">How to use in a pipeline ?</h3><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">trigger</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">branches</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">include</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">main</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">stages</span>:
+</span></span><span style="display:flex;"><span>  - <span style="color:#f92672">template</span>: <span style="color:#ae81ff">temp.yaml</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">parameters</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">stageName</span>: <span style="color:#e6db74">&#39;Build&#39;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">pool</span>: <span style="color:#ae81ff">Azure Pipelines</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">vmImage</span>: <span style="color:#e6db74">&#39;ubuntu-latest&#39;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">jobs</span>:
+</span></span><span style="display:flex;"><span>        - <span style="color:#f92672">job</span>: <span style="color:#ae81ff">BuildJob</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">steps</span>:
+</span></span><span style="display:flex;"><span>            - <span style="color:#f92672">task</span>: <span style="color:#ae81ff">UseDotNet@2</span>
+</span></span><span style="display:flex;"><span>              <span style="color:#f92672">inputs</span>:
+</span></span><span style="display:flex;"><span>                <span style="color:#f92672">packageType</span>: <span style="color:#e6db74">&#39;sdk&#39;</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#f92672">version</span>: <span style="color:#e6db74">&#39;6.x&#39;</span>
+</span></span><span style="display:flex;"><span>            - <span style="color:#f92672">script</span>: <span style="color:#ae81ff">dotnet build</span>
+</span></span><span style="display:flex;"><span>              <span style="color:#f92672">displayName</span>: <span style="color:#e6db74">&#39;Build project&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  - <span style="color:#f92672">template</span>: <span style="color:#ae81ff">temp.yaml</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">parameters</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">stageName</span>: <span style="color:#e6db74">&#39;Deploy&#39;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">pool</span>: <span style="color:#ae81ff">Azure Pipelines</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">vmImage</span>: <span style="color:#e6db74">&#39;ubuntu-latest&#39;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">jobs</span>:
+</span></span><span style="display:flex;"><span>        - <span style="color:#f92672">job</span>: <span style="color:#ae81ff">DeployJob</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">steps</span>:
+</span></span><span style="display:flex;"><span>            - <span style="color:#f92672">script</span>: <span style="color:#ae81ff">echo &#34;Deploying application...&#34;</span>
+</span></span><span style="display:flex;"><span>              <span style="color:#f92672">displayName</span>: <span style="color:#e6db74">&#39;Deployment Steps&#39;</span>
+</span></span></code></pre></div><!-- end-chunk -->
+<!-- begin-chunk data-anchor="job-level-template" data-heading="Job Level Template" data-level="3" data-permalink="/docs/azure-devops/azuredevops-04/" data-title="part 4" -->
+<h3 id="job-level-template">Job Level Template</h3><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">parameters</span>:
+</span></span><span style="display:flex;"><span>  - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">jobName</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">type</span>: <span style="color:#ae81ff">string</span>
+</span></span><span style="display:flex;"><span>  - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">displayName</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">type</span>: <span style="color:#ae81ff">string</span>
+</span></span><span style="display:flex;"><span>  - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">steps</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">type</span>: <span style="color:#ae81ff">stepList</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">jobs</span>:
+</span></span><span style="display:flex;"><span>  - <span style="color:#f92672">job</span>: <span style="color:#ae81ff">${{ parameters.jobName }}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">displayName</span>: <span style="color:#ae81ff">${{ parameters.displayName }}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">steps</span>: <span style="color:#ae81ff">${{ parameters.steps }}</span>
+</span></span></code></pre></div><!-- end-chunk -->
+<!-- begin-chunk data-anchor="how-to-use-this-" data-heading="How to use this ?" data-level="3" data-permalink="/docs/azure-devops/azuredevops-04/" data-title="part 4" -->
+<h3 id="how-to-use-this-">How to use this ?</h3><!-- end-chunk -->
+<!-- begin-chunk data-anchor="stage-level-template-1" data-heading="Stage level Template" data-level="3" data-permalink="/docs/azure-devops/azuredevops-04/" data-title="part 4" -->
+<h3 id="stage-level-template-1">Stage level Template</h3><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">parameters</span>:
+</span></span><span style="display:flex;"><span>  - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">stageName</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">type</span>: <span style="color:#ae81ff">string</span>
+</span></span><span style="display:flex;"><span>  - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">pool</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">type</span>: <span style="color:#ae81ff">string</span>
+</span></span><span style="display:flex;"><span>  - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">vmImage</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">type</span>: <span style="color:#ae81ff">string</span>
+</span></span><span style="display:flex;"><span>  - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">jobs</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">type</span>: <span style="color:#ae81ff">jobList</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">stages</span>:
+</span></span><span style="display:flex;"><span>  - <span style="color:#f92672">stage</span>: <span style="color:#ae81ff">${{ parameters.stageName }}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">displayName</span>: <span style="color:#e6db74">&#39;Stage - ${{ parameters.stageName }}&#39;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">pool</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">name</span>: <span style="color:#ae81ff">${{ parameters.pool }}</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">vmImage</span>: <span style="color:#ae81ff">${{ parameters.vmImage }}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">jobs</span>: <span style="color:#ae81ff">${{ parameters.jobs }}</span>
+</span></span></code></pre></div><!-- end-chunk -->
+<!-- begin-chunk data-anchor="dependencies" data-heading="Dependencies" data-level="2" data-permalink="/docs/azure-devops/azuredevops-04/" data-title="part 4" -->
+<h2 id="dependencies">Dependencies</h2><ul>
+<li>
+<p>By default, a job or stage runs if it doesn&rsquo;t depend on any other job or stage, or if all its dependencies completed and succeeded. This requirement applies not only to direct dependencies, but to their indirect dependencies, computed recursively.</p>
+</li>
+<li>
+<p>By default, a step runs if nothing in its job failed yet and the step immediately preceding it completed.</p>
+</li>
+<li>
+<p>You can override or customize this behavior by forcing a stage, job, or step to run even if a previous dependency fails, or by specifying a custom condition.</p>
+</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="conditions-under-which-a-stage-job-or-step-runs" data-heading="Conditions under which a stage, job, or step runs" data-level="3" data-permalink="/docs/azure-devops/azuredevops-04/" data-title="part 4" -->
+<h3 id="conditions-under-which-a-stage-job-or-step-runs">Conditions under which a stage, job, or step runs</h3><ul>
+<li>
+<p>In the pipeline definition YAML, you can specify the following conditions under which a stage, job, or step runs:</p>
+</li>
+<li>
+<p>Only when all previous direct and indirect dependencies with the same agent pool succeed. If you have different agent pools, those stages or jobs run concurrently. This condition is the default if no condition is set in the YAML.</p>
+</li>
+<li>
+<p>Even if a previous dependency fails, unless the run is canceled. Use succeededOrFailed() in the YAML for this condition.</p>
+</li>
+<li>
+<p>Even if a previous dependency fails, and even if the run is canceled. Use always() in the YAML for this condition.</p>
+</li>
+<li>
+<p>Only when a previous dependency fails. Use failed() in the YAML for this condition.</p>
+</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="example-1" data-heading="Example 1" data-level="3" data-permalink="/docs/azure-devops/azuredevops-04/" data-title="part 4" -->
+<h3 id="example-1">Example 1</h3><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">trigger</span>:
+</span></span><span style="display:flex;"><span>    - <span style="color:#ae81ff">main</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">stages</span>:
+</span></span><span style="display:flex;"><span>- <span style="color:#f92672">stage</span>: <span style="color:#ae81ff">Build</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">jobs</span>:
+</span></span><span style="display:flex;"><span>    - <span style="color:#f92672">job</span>: <span style="color:#ae81ff">BuildJob</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">displayName</span>: <span style="color:#e6db74">&#34;Building Project&#34;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">steps</span>:
+</span></span><span style="display:flex;"><span>        - <span style="color:#f92672">script</span>: <span style="color:#ae81ff">echo &#34;Building...&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>- <span style="color:#f92672">stage</span>: <span style="color:#ae81ff">Test</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">dependsOn</span>: <span style="color:#ae81ff">Build</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">jobs</span>:
+</span></span><span style="display:flex;"><span>    - <span style="color:#f92672">job</span>: <span style="color:#ae81ff">TestJob</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">displayName</span>: <span style="color:#e6db74">&#34;Running Tests&#34;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">steps</span>:
+</span></span><span style="display:flex;"><span>        - <span style="color:#f92672">script</span>: <span style="color:#ae81ff">echo &#34;Testing...&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>- <span style="color:#f92672">stage</span>: <span style="color:#ae81ff">Deploy</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">dependsOn</span>:
+</span></span><span style="display:flex;"><span>    - <span style="color:#ae81ff">Build</span>
+</span></span><span style="display:flex;"><span>    - <span style="color:#ae81ff">Test</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">jobs</span>:
+</span></span><span style="display:flex;"><span>    - <span style="color:#f92672">job</span>: <span style="color:#ae81ff">DeployJob</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">displayName</span>: <span style="color:#e6db74">&#34;Deploying Project&#34;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">steps</span>:
+</span></span><span style="display:flex;"><span>        - <span style="color:#f92672">script</span>: <span style="color:#ae81ff">echo &#34;Deploying...&#34;</span>
+</span></span></code></pre></div><!-- end-chunk -->
+<!-- begin-chunk data-anchor="example-1-1" data-heading="Example 1" data-level="3" data-permalink="/docs/azure-devops/azuredevops-04/" data-title="part 4" -->
+<h3 id="example-1-1">Example 1</h3><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">jobs</span>:
+</span></span><span style="display:flex;"><span>- <span style="color:#f92672">job</span>: <span style="color:#ae81ff">Foo</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">steps</span>:
+</span></span><span style="display:flex;"><span>  - <span style="color:#f92672">script</span>: <span style="color:#ae81ff">echo Hello!</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">condition</span>: <span style="color:#ae81ff">always()</span> <span style="color:#75715e"># this step runs, even if the build is canceled</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>- <span style="color:#f92672">job</span>: <span style="color:#ae81ff">Bar</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">dependsOn</span>: <span style="color:#ae81ff">Foo</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">condition</span>: <span style="color:#ae81ff">failed()</span> <span style="color:#75715e"># this job runs only if Foo fails</span>
+</span></span></code></pre></div><!-- end-chunk -->
+<!-- begin-chunk data-anchor="azure-devops-yaml-pipeline-timeout-examples" data-heading="Azure DevOps YAML Pipeline Timeout Examples" data-level="2" data-permalink="/docs/azure-devops/azuredevops-04/" data-title="part 4" -->
+<h2 id="azure-devops-yaml-pipeline-timeout-examples">Azure DevOps YAML Pipeline Timeout Examples</h2><!-- end-chunk -->
+<!-- begin-chunk data-anchor="1-setting-timeoutinminutes-for-jobs" data-heading="1. Setting <code>timeoutInMinutes</code> for Jobs" data-level="3" data-permalink="/docs/azure-devops/azuredevops-04/" data-title="part 4" -->
+<h3 id="1-setting-timeoutinminutes-for-jobs">1. Setting <code>timeoutInMinutes</code> for Jobs</h3><p>jobs:</p>
+<ul>
+<li>job: JobA
+displayName: &ldquo;Job A with Timeout&rdquo;
+timeoutInMinutes: 10  # Job will timeout after 10 minutes
+steps:
+<ul>
+<li>script: echo &ldquo;Running Job A&rdquo;</li>
+<li>script: sleep 600  # Simulating a long-running process</li>
+</ul>
+</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="2-setting-timeoutinminutes-for-stages" data-heading="2. Setting <code>timeoutInMinutes</code> for Stages" data-level="3" data-permalink="/docs/azure-devops/azuredevops-04/" data-title="part 4" -->
+<h3 id="2-setting-timeoutinminutes-for-stages">2. Setting <code>timeoutInMinutes</code> for Stages</h3><p>stages:</p>
+<ul>
+<li>stage: Build
+displayName: &ldquo;Build Stage with Timeout&rdquo;
+timeoutInMinutes: 20  # Stage will timeout after 20 minutes
+jobs:
+<ul>
+<li>job: BuildJob
+steps:
+<ul>
+<li>script: echo &ldquo;Building&hellip;&rdquo;</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="3-using-canceltimeoutinminutes-for-graceful-cancellation" data-heading="3. Using <code>cancelTimeoutInMinutes</code> for Graceful Cancellation" data-level="3" data-permalink="/docs/azure-devops/azuredevops-04/" data-title="part 4" -->
+<h3 id="3-using-canceltimeoutinminutes-for-graceful-cancellation">3. Using <code>cancelTimeoutInMinutes</code> for Graceful Cancellation</h3><p>jobs:</p>
+<ul>
+<li>job: JobA
+displayName: &ldquo;Job with Cancellation Timeout&rdquo;
+timeoutInMinutes: 15
+cancelTimeoutInMinutes: 5  # Grace period of 5 minutes for cancellation
+steps:
+<ul>
+<li>script: echo &ldquo;Running Job A&rdquo;</li>
+</ul>
+</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="notes" data-heading="Notes:" data-level="2" data-permalink="/docs/azure-devops/azuredevops-04/" data-title="part 4" -->
+<h2 id="notes">Notes:</h2><ul>
+<li>The default timeout for jobs is 60 minutes if <code>timeoutInMinutes</code> is not specified.</li>
+<li><code>cancelTimeoutInMinutes</code> sets a grace period for cancellation, allowing jobs to wrap up before force termination.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="scheduled-job-example" data-heading="Scheduled Job Example" data-level="3" data-permalink="/docs/azure-devops/azuredevops-04/" data-title="part 4" -->
+<h3 id="scheduled-job-example">Scheduled Job Example</h3><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">trigger</span>: <span style="color:#ae81ff">none</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">schedules</span>:
+</span></span><span style="display:flex;"><span>  - <span style="color:#f92672">cron</span>: <span style="color:#e6db74">&#34;0 0 * * *&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">displayName</span>: <span style="color:#ae81ff">Daily build</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">branches</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">include</span>:
+</span></span><span style="display:flex;"><span>        - <span style="color:#ae81ff">main</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">always</span>: <span style="color:#66d9ef">true</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">pool</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">vmImage</span>: <span style="color:#e6db74">&#39;ubuntu-latest&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">steps</span>:
+</span></span><span style="display:flex;"><span>  - <span style="color:#f92672">script</span>: <span style="color:#ae81ff">echo &#34;Scheduled Build Running&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">displayName</span>: <span style="color:#e6db74">&#39;Scheduled Trigger Example&#39;</span>
+</span></span></code></pre></div><!-- end-chunk -->
+<!-- begin-chunk data-anchor="accessing-azure-key-vault-secrets-using-azure-devops-pipelines" data-heading="Accessing Azure Key Vault Secrets using Azure DevOps Pipelines" data-level="2" data-permalink="/docs/azure-devops/azuredevops-04/" data-title="part 4" -->
+<h2 id="accessing-azure-key-vault-secrets-using-azure-devops-pipelines">Accessing Azure Key Vault Secrets using Azure DevOps Pipelines</h2><p>Demoing the use of Azure Key Vault Secrets within Azure DevOps Pipelines.</p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="1-create-azure-key-vault-with-secrets-and-persmissions" data-heading="1) Create Azure Key Vault with Secrets and persmissions" data-level="3" data-permalink="/docs/azure-devops/azuredevops-04/" data-title="part 4" -->
+<h3 id="1-create-azure-key-vault-with-secrets-and-persmissions">1) Create Azure Key Vault with Secrets and persmissions</h3><p>The following script will create a Key Vault and Secret:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># create the variables</span>
+</span></span><span style="display:flex;"><span>KEYVAULT_RG<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;rg-keyvault-devops&#34;</span>
+</span></span><span style="display:flex;"><span>KEYVAULT_NAME<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;keyvault019&#34;</span>
+</span></span><span style="display:flex;"><span>SUBSCRIPTION_ID<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>az account show --query id -o tsv<span style="color:#66d9ef">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">### create new resource group</span>
+</span></span><span style="display:flex;"><span>az group create -n rg-keyvault-devops -l westeurope
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">### create key vault with RBAC option (not Access Policy)</span>
+</span></span><span style="display:flex;"><span>az keyvault create --name $KEYVAULT_NAME <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>   --resource-group $KEYVAULT_RG <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>   --enable-rbac-authorization
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e">### assign RBAC role to the current user to manage secrets</span>
+</span></span><span style="display:flex;"><span>USER_ID<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>az ad signed-in-user show --query objectId -o tsv<span style="color:#66d9ef">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>KEYVAULT_ID<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>az keyvault show --name $KEYVAULT_NAME <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>   --resource-group $KEYVAULT_RG <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>   --query id <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>   --output tsv<span style="color:#66d9ef">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>az role assignment create --role <span style="color:#e6db74">&#34;Key Vault Secrets Officer&#34;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>   --scope $KEYVAULT_ID <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>   --assignee-object-id $USER_ID
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e">### create a secret</span>
+</span></span><span style="display:flex;"><span>az keyvault secret set --name <span style="color:#e6db74">&#34;DatabasePassword&#34;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --value <span style="color:#e6db74">&#34;mySecretPassword&#34;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --vault-name $KEYVAULT_NAME
+</span></span></code></pre></div><!-- end-chunk -->
+<!-- begin-chunk data-anchor="2-create-service-principal-to-access-key-vault-from-azure-devops-pipelines" data-heading="2) Create Service Principal to access Key Vault from Azure DevOps Pipelines" data-level="2" data-permalink="/docs/azure-devops/azuredevops-04/" data-title="part 4" -->
+<h2 id="2-create-service-principal-to-access-key-vault-from-azure-devops-pipelines">2) Create Service Principal to access Key Vault from Azure DevOps Pipelines</h2><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e">### create a service principal</span>
+</span></span><span style="display:flex;"><span>SPN<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>az ad sp create-for-rbac -n <span style="color:#e6db74">&#34;spn-keyvault-devops&#34;</span><span style="color:#66d9ef">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>echo $SPN | jq .
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>SPN_APPID<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>echo $SPN | jq .appId<span style="color:#66d9ef">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>SPN_ID<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>az ad sp list --display-name <span style="color:#e6db74">&#34;spn-keyvault-devops&#34;</span> --query <span style="color:#f92672">[</span>0<span style="color:#f92672">]</span>.objectId --out tsv<span style="color:#66d9ef">)</span>
+</span></span><span style="display:flex;"><span>&lt;!-- SPN_ID<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>az ad sp show --id $SPN_APPID --query objectId --out tsv<span style="color:#66d9ef">)</span> --&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">### assign RBAC role to the service principal</span>
+</span></span><span style="display:flex;"><span>az role assignment create --role <span style="color:#e6db74">&#34;Key Vault Secrets User&#34;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>   --scope $KEYVAULT_ID <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>   --assignee-object-id $SPN_ID
+</span></span></code></pre></div><!-- end-chunk -->
+<!-- begin-chunk data-anchor="3-create-a-pipeline-to-access-key-vault-secrets" data-heading="3) Create a pipeline to access Key Vault Secrets" data-level="3" data-permalink="/docs/azure-devops/azuredevops-04/" data-title="part 4" -->
+<h3 id="3-create-a-pipeline-to-access-key-vault-secrets">3) Create a pipeline to access Key Vault Secrets</h3><!-- end-chunk -->
+<!-- begin-chunk data-anchor="31-create-service-connection-using-the-spn" data-heading="3.1) Create Service Connection using the SPN" data-level="3" data-permalink="/docs/azure-devops/azuredevops-04/" data-title="part 4" -->
+<h3 id="31-create-service-connection-using-the-spn">3.1) Create Service Connection using the SPN</h3><p>Create a service connection in Azure DevOps using the SPN created earlier.</p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="32-create-yaml-pipeline" data-heading="3.2) Create YAML pipeline" data-level="3" data-permalink="/docs/azure-devops/azuredevops-04/" data-title="part 4" -->
+<h3 id="32-create-yaml-pipeline">3.2) Create YAML pipeline</h3><p>Create the following yaml pipeline to get access to the secrets.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">trigger</span>:
+</span></span><span style="display:flex;"><span>- <span style="color:#ae81ff">main</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">pool</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">vmImage</span>: <span style="color:#ae81ff">ubuntu-latest</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">steps</span>:
+</span></span><span style="display:flex;"><span>- <span style="color:#f92672">task</span>: <span style="color:#ae81ff">AzureKeyVault@2</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">displayName</span>: <span style="color:#ae81ff">Get Secrets from Key Vault</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">inputs</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">azureSubscription</span>: <span style="color:#e6db74">&#39;spn-keyvault-devops&#39;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">KeyVaultName</span>: <span style="color:#e6db74">&#39;keyvault019&#39;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">SecretsFilter</span>: <span style="color:#e6db74">&#39;*&#39;</span> <span style="color:#75715e"># &#39;DatabasePassword&#39;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">RunAsPreJob</span>: <span style="color:#66d9ef">false</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>- <span style="color:#f92672">task</span>: <span style="color:#ae81ff">CmdLine@2</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">displayName</span>: <span style="color:#ae81ff">Write Secret into File</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">inputs</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">script</span>: |<span style="color:#e6db74">
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      echo $(DatabasePassword)
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      echo $(DatabasePassword) &gt; secret.txt
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      cat secret.txt</span>      
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>- <span style="color:#f92672">task</span>: <span style="color:#ae81ff">CopyFiles@2</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">displayName</span>: <span style="color:#ae81ff">Copy Secrets File</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">inputs</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">Contents</span>: <span style="color:#ae81ff">secret.txt</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">targetFolder</span>: <span style="color:#e6db74">&#39;$(Build.ArtifactStagingDirectory)&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>- <span style="color:#f92672">task</span>: <span style="color:#ae81ff">PublishBuildArtifacts@1</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">displayName</span>: <span style="color:#ae81ff">Publish Secrets File</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">inputs</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">PathtoPublish</span>: <span style="color:#e6db74">&#39;$(Build.ArtifactStagingDirectory)&#39;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">ArtifactName</span>: <span style="color:#e6db74">&#39;drop&#39;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">publishLocation</span>: <span style="color:#e6db74">&#39;Container&#39;</span>
+</span></span></code></pre></div>
+	
+	
+	
+</div>
+
+
+          </main>
+        </div>
+      </div>
+      
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+    integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+    crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js"
+    integrity="sha512-UR25UO94eTnCVwjbXozyeVd6ZqpaAE9naiEUBK/A+QDbfSTQFhPGj5lOR6d8tsgbBk84Ggb5A3EkjsOgPRPcKA=="
+    crossorigin="anonymous"></script>
+
+
+
+
+
+<script src='/js/tabpane-persist.js'></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="/js/main.min.223ab2fcc7d742c1b94772c0276851c497da4343cd2d21534199ced90681e207.js" integrity="sha256-Ijqy/MfXQsG5R3LAJ2hRxJfaQ0PNLSFTQZnO2QaB4gc=" crossorigin="anonymous"></script>
+
+
+
+<script src='/js/prism.js'></script>
+
+
+
+  </body>
+</html>

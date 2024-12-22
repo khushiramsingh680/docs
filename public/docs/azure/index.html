@@ -1,0 +1,1142 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="generator" content="Hugo 0.122.0">
+<link rel="alternate" type="application/rss&#43;xml" href="/docs/azure/index.xml">
+<meta name="robots" content="index, follow">
+
+<link rel="shortcut icon" href="/favicons/favicon.ico" >
+
+<title>Azure Cloud Computing | Documentation</title>
+<meta name="description" content="Azure Cloud">
+<meta property="og:title" content="Azure Cloud Computing" />
+<meta property="og:description" content="Azure Cloud" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="/docs/azure/" />
+
+<meta itemprop="name" content="Azure Cloud Computing">
+<meta itemprop="description" content="Azure Cloud"><meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Azure Cloud Computing"/>
+<meta name="twitter:description" content="Azure Cloud"/>
+
+
+
+
+<link rel="preload" href="/scss/main.min.b5bfe2535b6f07595fd9cb7a4018024e52e136c3b43e03a17a1e47a950822d03.css" as="style">
+<link href="/scss/main.min.b5bfe2535b6f07595fd9cb7a4018024e52e136c3b43e03a17a1e47a950822d03.css" rel="stylesheet" integrity="">
+
+<script
+  src="https://code.jquery.com/jquery-3.6.0.min.js"
+  integrity="sha384-vtXRMe3mGCbOeY7l30aIg8H9p3GdeSe4IFlP6G8JMa7o7lXvnz3GFKzPxzJdPfGK"
+  crossorigin="anonymous"></script>
+<script
+  src="https://unpkg.com/lunr@2.3.9/lunr.min.js"
+  integrity="sha384-203J0SNzyqHby3iU6hzvzltrWi/M41wOP5Gu+BiJMz5nwKykbkUx8Kp7iti0Lpli"
+  crossorigin="anonymous"></script>
+<link rel="stylesheet" href="/css/prism.css"/>
+<script type="text/javascript"  src="/js/highlight-search.js"></script>
+<script type="text/javascript"  src="/js/manage-side-panels.js"></script>
+  </head>
+  <body class="td-section highlightable">
+    <header>
+      
+<nav class="js-navbar-scroll navbar navbar-expand navbar-dark flex-column flex-md-row td-navbar">
+        <a class="navbar-brand" href="/">
+		<span class="navbar-logo"><svg version="1.0" xmlns="http://www.w3.org/2000/svg" width="217pt" height="232pt" viewBox="0 0 217 232"><g transform="translate(0.000000,232.000000) scale(0.100000,-0.100000)" fill="#000" stroke="none"><path d="M1017 2250c-397-48-698-367-731-775-9-106-3-113 66-87l55 20 11-71c6-39 10-72 9-73s-58-22-127-47c-104-37-124-48-122-64 7-37 56-150 88-205l34-56 66 25 66 26 65-72c206-226 513-322 808-252 367 88 634 417 635 784 0 43-4 77-10 77-5 0-32-9-60-20s-55-20-59-20c-5 0-12 26-16 59-4 32-20 96-36 142s-30 88-31 92c-2 5 54 29 124 55l128 46-31 55c-17 31-33 58-34 59-2 2-31-6-64-19l-61-22-23 29c-81 104-172 178-292 235-140 68-309 97-458 79zm226-299c90-24 136-46 206-101l52-41 61 20 60 20 26-31c15-17 35-44 44-59l17-28-52-19c-29-11-86-32-128-47l-76-27 24-58c26-66 43-144 43-201 0-22 2-39 5-39 2 0 27 9 55 20s55 20 60 20c17 0 10-63-14-131-127-359-580-484-862-237l-35 31-70-24-71-24-30 35c-37 43-97 164-104 212l-6 34 123 46 124 45-3 64c-2 35-5 66-7 68-2 1-27-5-55-14s-53-15-55-14c-2 2 1 29 7 59 32 179 185 352 361 409 112 36 192 39 3e2 12z"/><path d="M134 321c-77-33-95-169-29-231 19-18 36-23 71-23 40 0 51 4 75 30 50 56 47 153-5 202-26 25-80 35-112 22zm82-62c26-29 26-99 0-128-24-26-47-27-77-2-19 15-24 29-24 64 0 76 58 114 101 66z"/><path d="M1172 320c-27-12-44-52-33-82 4-12 31-32 61-47 30-14 58-34 64-43 26-43-50-76-99-44-15 10-26 12-30 6-10-16 4-29 44-40 62-17 114 13 114 65 0 35-19 53-80 81-54 23-67 46-41 72 15 15 62 16 88 2 23-12 35 3 16 19-20 17-77 23-104 11z"/><path d="M350 195V70h25c23 0 25 4 25 45v45h40c76 0 115 40 103 104-8 42-38 56-120 56h-73V195zm134 69c18-18 18-17 10-38-4-11-19-16-50-16-44 0-44 0-44 35 0 33 2 35 34 35 19 0 42-7 50-16z"/><path d="M6e2 195V70h90c83 0 90 2 90 20 0 16-8 19-62 22-63 3-63 3-66 36-3 31-2 32 36 32 36 0 39 2 34 25-4 21-10 25-38 25-30 0-34 3-34 25 0 24 2 25 65 25 58 0 65 2 65 20 0 19-7 20-90 20h-90V195z"/><path d="M850 195c0-117 1-125 20-125 17 0 19 8 22 83l3 82 55-82c41-62 61-83 78-83 22 0 22 2 22 125 0 117-1 125-20 125-17 0-19-8-22-82l-3-82-54 82c-42 65-59 82-77 82-24 0-24 0-24-125z"/><path d="M1360 195c0-104 2-125 15-125 12 0 15 13 15 60v60h65 65v-60c0-47 3-60 15-60 13 0 15 21 15 125s-2 125-15 125c-12 0-15-13-15-55v-55h-65-65v55c0 42-3 55-15 55-13 0-15-21-15-125z"/><path d="M1620 195c0-104 2-125 15-125s15 21 15 125-2 125-15 125-15-21-15-125z"/><path d="M1730 195c0-77 4-125 10-125s10 27 10 60v60h35c19 0 35 5 35 10 0 6-16 10-35 10-35 0-35 0-35 45v45h60c33 0 60 4 60 10s-30 10-70 10h-70V195z"/><path d="M1930 310c0-5 18-10 40-10h40V185c0-70 4-115 10-115s10 45 10 115v115h40c22 0 40 5 40 10 0 6-37 10-90 10s-90-4-90-10z"/></g></svg></span><span class="font-weight-bold">Documentation</span>
+	</a>
+	<div class="td-navbar-nav-scroll ml-md-auto" id="main_navbar">
+		<ul class="navbar-nav mt-2 mt-lg-0">
+			
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/" ><i class='fa fa-home'></i><span>Home</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link active" href="/docs/azure/" ><i class='fab fa-azure'></i><span class="active">Azure Cloud Computing</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/docs/azure-devops/" ><i class='fab fa-azure'></i><span>Azure Devops</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/docs/gitlab/" ><i class='fab fa-gitlab'></i><span>Gitlab Tutorials</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/docs/openshift/" ><i class='fab fa-openshift'></i><span>OpenShift Administration</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/docs/kvm/" ><i class="fab fa-linux"></i><span>Redhat Ansible</span></a>
+			</li>
+			
+			
+			
+		</ul>
+	</div>
+	<div class="navbar-nav d-none d-lg-block">
+<form class="d-flex align-items-center">
+  <input type="search"
+  class="form-control td-search-input"
+  placeholder="&#xf002; Search this site…"
+  aria-label="Search this site…"
+  autocomplete="off"
+  
+  data-offline-search-index-json-src="/offline-search-index.d4ee35dfb31ed3b96d119091cf664ad4.json"
+  data-offline-search-base-href="/"
+  data-offline-search-max-results="20">
+</form>
+</div>
+</nav>
+
+      <div class="manage-panels">
+    <button type="button" class="button-left" id="left-panel-manager" title="Hide sidebar">""</button>
+    <button type="button" class="button-right" id="right-panel-manager" title="Hide sidebar">""</button>
+</div>
+    </header>
+    <div class="container-fluid td-outer">
+      <div class="td-main autonumbering">
+        <div class="row flex-xl-nowrap">
+          <aside class="col-12 col-md-3 col-xl-2 td-sidebar d-print-none">
+            
+<div id="td-sidebar-menu" class="td-sidebar__inner">
+  <div id="content-mobile">
+  <form class="td-sidebar__search d-flex align-items-center">
+    
+<form class="d-flex align-items-center">
+  <input type="search"
+  class="form-control td-search-input"
+  placeholder="&#xf002; Search this site…"
+  aria-label="Search this site…"
+  autocomplete="off"
+  
+  data-offline-search-index-json-src="/offline-search-index.d4ee35dfb31ed3b96d119091cf664ad4.json"
+  data-offline-search-base-href="/"
+  data-offline-search-max-results="20">
+</form>
+
+    <button class="btn btn-link td-sidebar__toggle d-md-none p-0 ml-3 fas fa-bars" type="button" data-toggle="collapse" data-target="#td-section-nav" aria-controls="td-docs-nav" aria-expanded="false" aria-label="Toggle section navigation">
+    </button>
+  </form>
+  </div>
+  <div id="content-desktop"></div>
+  <nav class="collapse td-sidebar-nav foldable-nav" id="td-section-nav">
+    <ul class="td-sidebar-nav__section pr-md-3 ul-0">
+      <li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id="m-docs-li">
+  <a href="/docs/" class="align-left pl-0 td-sidebar-link td-sidebar-link__section tree-root" id="m-docs"><span class="">Docs</span></a>
+  <ul class="ul-1">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-docsazure-li">
+  <input type="checkbox" id="m-docsazure-check"/>
+  <label for="m-docsazure-check"><a href="/docs/azure/" class="align-left pl-0  active td-sidebar-link td-sidebar-link__section" id="m-docsazure"><i class="fab fa-azure"></i><span class="td-sidebar-nav-active-item">Azure Cloud Computing</span></a></label>
+  
+  <ul class="ul-2 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazurelinux-basics-li">
+  <input type="checkbox" id="m-docsazurelinux-basics-check"/>
+  <label for="m-docsazurelinux-basics-check"><a href="/docs/azure/linux-basics/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazurelinux-basics"><i class="fab fa-azure"></i><span class="">Linux Basics</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazureazure-vm-li">
+  <input type="checkbox" id="m-docsazureazure-vm-check"/>
+  <label for="m-docsazureazure-vm-check"><a href="/docs/azure/azure-vm/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazureazure-vm"><i class="fab fa-azure"></i><span class="">Azure Cloud Virtual Machine (01)</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazureazuredevops-li">
+  <input type="checkbox" id="m-docsazureazuredevops-check"/>
+  <label for="m-docsazureazuredevops-check"><a href="/docs/azure/azuredevops/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazureazuredevops"><i class="fab fa-azure"></i><span class="">Azure Devops</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazureazure-network-li">
+  <input type="checkbox" id="m-docsazureazure-network-check"/>
+  <label for="m-docsazureazure-network-check"><a href="/docs/azure/azure-network/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazureazure-network"><i class="fab fa-azure"></i><span class="">Azure Cloud Networking</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazureazure-storage-li">
+  <input type="checkbox" id="m-docsazureazure-storage-check"/>
+  <label for="m-docsazureazure-storage-check"><a href="/docs/azure/azure-storage/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazureazure-storage"><i class="fab fa-azure"></i><span class="">Azure Cloud Storage</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazureazure-cli-li">
+  <input type="checkbox" id="m-docsazureazure-cli-check"/>
+  <label for="m-docsazureazure-cli-check"><a href="/docs/azure/azure-cli/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazureazure-cli"><i class="fab fa-azure"></i><span class="">Azure Cli</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazureazure-vmss-li">
+  <input type="checkbox" id="m-docsazureazure-vmss-check"/>
+  <label for="m-docsazureazure-vmss-check"><a href="/docs/azure/azure-vmss/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazureazure-vmss"><i class="fab fa-azure"></i><span class="">Azure Cloud Virtual Machine Scale Set</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazureazure-lb-li">
+  <input type="checkbox" id="m-docsazureazure-lb-check"/>
+  <label for="m-docsazureazure-lb-check"><a href="/docs/azure/azure-lb/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazureazure-lb"><i class="fab fa-azure"></i><span class="">Azure Cloud LoadBalancers</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazureazure-monitor-li">
+  <input type="checkbox" id="m-docsazureazure-monitor-check"/>
+  <label for="m-docsazureazure-monitor-check"><a href="/docs/azure/azure-monitor/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazureazure-monitor"><i class="fab fa-azure"></i><span class="">Azure Monitoring</span></a></label>
+  
+</li>
+  </ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-docsazure-devops-li">
+  <input type="checkbox" id="m-docsazure-devops-check"/>
+  <label for="m-docsazure-devops-check"><a href="/docs/azure-devops/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-docsazure-devops"><i class="fab fa-azure"></i><span class="">Azure Devops</span></a></label>
+  
+  <ul class="ul-2 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazure-devopsazure-board-li">
+  <input type="checkbox" id="m-docsazure-devopsazure-board-check"/>
+  <label for="m-docsazure-devopsazure-board-check"><a href="/docs/azure-devops/azure-board/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazure-devopsazure-board"><i class="fab fa-azure"></i><span class="">Azure Board</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazure-devopsazuredevops-01-li">
+  <input type="checkbox" id="m-docsazure-devopsazuredevops-01-check"/>
+  <label for="m-docsazure-devopsazuredevops-01-check"><a href="/docs/azure-devops/azuredevops-01/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazure-devopsazuredevops-01"><i class="fab fa-azure"></i><span class="">Part 1</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazure-devopsazuredevops-li">
+  <input type="checkbox" id="m-docsazure-devopsazuredevops-check"/>
+  <label for="m-docsazure-devopsazuredevops-check"><a href="/docs/azure-devops/azuredevops/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazure-devopsazuredevops"><i class="fab fa-azure"></i><span class="">Azure Devops</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazure-devopsazuredevops-02-li">
+  <input type="checkbox" id="m-docsazure-devopsazuredevops-02-check"/>
+  <label for="m-docsazure-devopsazuredevops-02-check"><a href="/docs/azure-devops/azuredevops-02/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazure-devopsazuredevops-02"><i class="fab fa-azure"></i><span class="">Part 2</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazure-devopsazuredevops-03-li">
+  <input type="checkbox" id="m-docsazure-devopsazuredevops-03-check"/>
+  <label for="m-docsazure-devopsazuredevops-03-check"><a href="/docs/azure-devops/azuredevops-03/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazure-devopsazuredevops-03"><i class="fab fa-azure"></i><span class="">Part 3</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazure-devopsazuredevops-04-li">
+  <input type="checkbox" id="m-docsazure-devopsazuredevops-04-check"/>
+  <label for="m-docsazure-devopsazuredevops-04-check"><a href="/docs/azure-devops/azuredevops-04/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazure-devopsazuredevops-04"><i class="fab fa-azure"></i><span class="">part 4</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazure-devopsazuredevops-05-li">
+  <input type="checkbox" id="m-docsazure-devopsazuredevops-05-check"/>
+  <label for="m-docsazure-devopsazuredevops-05-check"><a href="/docs/azure-devops/azuredevops-05/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazure-devopsazuredevops-05"><i class="fab fa-azure"></i><span class="">Part 5</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazure-devopsazuredevops-06-li">
+  <input type="checkbox" id="m-docsazure-devopsazuredevops-06-check"/>
+  <label for="m-docsazure-devopsazuredevops-06-check"><a href="/docs/azure-devops/azuredevops-06/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazure-devopsazuredevops-06"><i class="fab fa-azure"></i><span class="">Part 6</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazure-devopsaks-li">
+  <input type="checkbox" id="m-docsazure-devopsaks-check"/>
+  <label for="m-docsazure-devopsaks-check"><a href="/docs/azure-devops/aks/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazure-devopsaks"><i class="fab fa-azure"></i><span class="">AKS</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazure-devopstest-li">
+  <input type="checkbox" id="m-docsazure-devopstest-check"/>
+  <label for="m-docsazure-devopstest-check"><a href="/docs/azure-devops/test/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazure-devopstest"><i class="fab fa-azure"></i><span class="">Azure Devops Test Plans</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazure-devopsdocker-li">
+  <input type="checkbox" id="m-docsazure-devopsdocker-check"/>
+  <label for="m-docsazure-devopsdocker-check"><a href="/docs/azure-devops/docker/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazure-devopsdocker"><i class="fab fa-azure"></i><span class="">Docker</span></a></label>
+  
+</li>
+  </ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-docsgitlab-li">
+  <input type="checkbox" id="m-docsgitlab-check"/>
+  <label for="m-docsgitlab-check"><a href="/docs/gitlab/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-docsgitlab"><i class="fab fa-gitlab"></i><span class="">Gitlab Tutorials</span></a></label>
+  
+  <ul class="ul-2 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsgitlabgitlab01-li">
+  <input type="checkbox" id="m-docsgitlabgitlab01-check"/>
+  <label for="m-docsgitlabgitlab01-check"><a href="/docs/gitlab/gitlab01/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsgitlabgitlab01"><i class="fab fa-gitlab"></i><span class="">GitLab Installation</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsgitlabgitlab-with-ldap-li">
+  <input type="checkbox" id="m-docsgitlabgitlab-with-ldap-check"/>
+  <label for="m-docsgitlabgitlab-with-ldap-check"><a href="/docs/gitlab/gitlab-with-ldap/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsgitlabgitlab-with-ldap"><i class="fas fa-server"></i><span class="">Gitlab Authentication with LDAP</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsgitlabgitlab-container-registry-li">
+  <input type="checkbox" id="m-docsgitlabgitlab-container-registry-check"/>
+  <label for="m-docsgitlabgitlab-container-registry-check"><a href="/docs/gitlab/gitlab-container-registry/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsgitlabgitlab-container-registry"><i class="fab fa-docker"></i><span class="">GitLab Container Registry</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsgitlabgitlab-logs-troubleshooting-li">
+  <input type="checkbox" id="m-docsgitlabgitlab-logs-troubleshooting-check"/>
+  <label for="m-docsgitlabgitlab-logs-troubleshooting-check"><a href="/docs/gitlab/gitlab-logs-troubleshooting/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsgitlabgitlab-logs-troubleshooting"><i class="fas fa-file-alt"></i><span class="">Logs and Troubleshooting</span></a></label>
+  
+</li>
+  </ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-docsopenshift-li">
+  <input type="checkbox" id="m-docsopenshift-check"/>
+  <label for="m-docsopenshift-check"><a href="/docs/openshift/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-docsopenshift"><i class="fab fa-openshift"></i><span class="">OpenShift Administration</span></a></label>
+  
+  <ul class="ul-2 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsopenshiftocp-onvmware-copy-li">
+  <input type="checkbox" id="m-docsopenshiftocp-onvmware-copy-check"/>
+  <label for="m-docsopenshiftocp-onvmware-copy-check"><a href="/docs/openshift/ocp-onvmware-copy/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsopenshiftocp-onvmware-copy"><i class="fab fa-openshift"></i><span class="">Openshift Installation on Vmware</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsopenshiftocp-sno-li">
+  <input type="checkbox" id="m-docsopenshiftocp-sno-check"/>
+  <label for="m-docsopenshiftocp-sno-check"><a href="/docs/openshift/ocp-sno/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsopenshiftocp-sno"><i class="fab fa-openshift"></i><span class="">Openshift Single node Cluster</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsopenshiftocp-tasks-li">
+  <input type="checkbox" id="m-docsopenshiftocp-tasks-check"/>
+  <label for="m-docsopenshiftocp-tasks-check"><a href="/docs/openshift/ocp-tasks/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsopenshiftocp-tasks"><span class="">Openshift 4 Tasks</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsopenshiftocp-tekton-li">
+  <input type="checkbox" id="m-docsopenshiftocp-tekton-check"/>
+  <label for="m-docsopenshiftocp-tekton-check"><a href="/docs/openshift/ocp-tekton/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsopenshiftocp-tekton"><span class="">Openshift Tekton Pipeline</span></a></label>
+  
+</li>
+  </ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-docskvm-li">
+  <input type="checkbox" id="m-docskvm-check"/>
+  <label for="m-docskvm-check"><a href="/docs/kvm/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-docskvm"><i class="fab fa-linux"></i><span class="">Redhat Ansible</span></a></label>
+  
+  <ul class="ul-2 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docskvmkvm-li">
+  <input type="checkbox" id="m-docskvmkvm-check"/>
+  <label for="m-docskvmkvm-check"><a href="/docs/kvm/kvm/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docskvmkvm"><i class="fab fa-kvm"></i><span class="">KVM</span></a></label>
+  
+</li>
+  </ul>
+</li>
+  </ul>
+</li>
+    </ul>
+  </nav>
+</div>
+
+          </aside>
+          <aside class="d-none d-xl-block col-xl-2 td-sidebar-toc d-print-none">
+            
+
+    <div class="td-page-meta ml-2 pb-1 pt-2 mb-0">
+        <div class="toc-title">Actions</div>
+        <a href="/edit/master/content/docs/Azure/_index.md" target="_blank" rel="noopener"><i class="fa fa-edit fa-fw"></i> Contribute to this page</a>
+        <a href="/issues/new?issue%5Btitle=%f0%9f%93%83%20docs:%20update%20page%20docs/Azure/_index.md" target="_blank" rel="noopener"><i class="fab fa-gitlab fa-fw"></i> Create a documentation issue</a>
+       
+    </div>
+
+            
+<div class="td-page-meta ml-2 pb-1 pt-2 mb-0 right-menu-toc">
+
+    
+        
+            <div class="toc-title">Table of content</div>
+            <div class="td-toc"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#table-of-contents">Table of Contents</a></li>
+    <li><a href="#introduction-to-azure-cloud">Introduction to Azure Cloud</a></li>
+    <li><a href="#azure-core-concepts">Azure Core Concepts</a>
+      <ul>
+        <li><a href="#azure-account">Azure Account</a></li>
+        <li><a href="#subscription">Subscription</a></li>
+        <li><a href="#azure-management-group">Azure Management Group</a></li>
+        <li><a href="#resource-groups">Resource Groups</a></li>
+        <li><a href="#regions-and-availability-zones">Regions and Availability Zones</a></li>
+      </ul>
+    </li>
+    <li><a href="#1-availability-zones">1. Availability Zones</a></li>
+    <li><a href="#2-availability-sets">2. Availability Sets</a>
+      <ul>
+        <li><a href="#summary">Summary</a></li>
+        <li><a href="#cloud-computing-basics-aws-azure-google-oracle">Cloud Computing Basics: AWS, Azure, Google, Oracle</a></li>
+        <li><a href="#what-is-traditional-architecture">What is Traditional Architecture?</a></li>
+        <li><a href="#problems-with-traditional-architecture">Problems With Traditional Architecture</a></li>
+        <li><a href="#how-cloud-computing-overcomes-the-problems-of-traditional-architecture">How Cloud Computing Overcomes the Problems of Traditional Architecture</a></li>
+        <li><a href="#characteristics-of-cloud-computing">Characteristics of Cloud Computing</a></li>
+        <li><a href="#conclusion">Conclusion</a></li>
+      </ul>
+    </li>
+    <li><a href="#cloud-service-models">Cloud Service Models</a>
+      <ul>
+        <li><a href="#1-infrastructure-as-a-service-iaas">1. Infrastructure as a Service (IaaS)</a></li>
+        <li><a href="#2-platform-as-a-service-paas">2. Platform as a Service (PaaS)</a></li>
+        <li><a href="#3-software-as-a-service-saas">3. Software as a Service (SaaS)</a></li>
+      </ul>
+    </li>
+    <li><a href="#conclusion-1">Conclusion</a></li>
+    <li><a href="#cloud-deployment-models">Cloud Deployment Models</a>
+      <ul>
+        <li><a href="#1-public-cloud">1. Public Cloud</a></li>
+        <li><a href="#2-private-cloud">2. Private Cloud</a></li>
+        <li><a href="#3-hybrid-cloud">3. Hybrid Cloud</a></li>
+        <li><a href="#4-community-cloud">4. Community Cloud</a></li>
+      </ul>
+    </li>
+    <li><a href="#conclusion-2">Conclusion</a></li>
+    <li><a href="#well-architected-framework">Well-Architected Framework</a>
+      <ul>
+        <li><a href="#1-operational-excellence">1. Operational Excellence</a></li>
+        <li><a href="#2-security">2. Security</a></li>
+        <li><a href="#3-reliability">3. Reliability</a></li>
+        <li><a href="#4-performance-efficiency">4. Performance Efficiency</a></li>
+        <li><a href="#5-cost-optimization">5. Cost Optimization</a></li>
+      </ul>
+    </li>
+    <li><a href="#conclusion-3">Conclusion</a></li>
+    <li><a href="#pillars-of-cloud-computing">Pillars of Cloud Computing</a>
+      <ul>
+        <li><a href="#1-cost-efficiency">1. Cost Efficiency</a></li>
+        <li><a href="#2-scalability">2. Scalability</a></li>
+        <li><a href="#3-performance">3. Performance</a></li>
+        <li><a href="#4-security">4. Security</a></li>
+        <li><a href="#5-reliability">5. Reliability</a></li>
+        <li><a href="#6-flexibility">6. Flexibility</a></li>
+      </ul>
+    </li>
+    <li><a href="#conclusion-4">Conclusion</a></li>
+    <li><a href="#az-104-microsoft-azure-administrator-exam-table-of-contents">AZ-104: Microsoft Azure Administrator Exam Table of Contents</a>
+      <ul>
+        <li><a href="#1-manage-azure-identities-and-governance">1. Manage Azure identities and governance</a></li>
+        <li><a href="#2-implement-and-manage-storage">2. Implement and manage storage</a></li>
+        <li><a href="#3-deploy-and-manage-azure-compute-resources">3. Deploy and manage Azure compute resources</a></li>
+        <li><a href="#4-configure-and-manage-virtual-networking">4. Configure and manage virtual networking</a></li>
+        <li><a href="#5-monitor-and-maintain-azure-resources">5. Monitor and maintain Azure resources</a></li>
+        <li><a href="#az-305-designing-microsoft-azure-infrastructure-solutions-exam-table-of-contents">AZ-305: Designing Microsoft Azure Infrastructure Solutions Exam Table of Contents</a></li>
+        <li><a href="#1-design-identity-and-security">1. Design identity and security</a></li>
+        <li><a href="#2-design-data-storage-solutions">2. Design data storage solutions</a></li>
+        <li><a href="#3-design-business-continuity-solutions">3. Design business continuity solutions</a></li>
+        <li><a href="#4-design-infrastructure-solutions">4. Design infrastructure solutions</a></li>
+        <li><a href="#5-design-monitoring-and-management-solutions">5. Design monitoring and management solutions</a></li>
+      </ul>
+    </li>
+    <li><a href="#high-level-toc">High Level Toc</a>
+      <ul>
+        <li><a href="#azure-cloud-basics">Azure Cloud Basics</a></li>
+        <li><a href="#azure-virtual-machine">Azure Virtual Machine</a></li>
+        <li><a href="#azure-cli">Azure Cli</a></li>
+        <li><a href="#azure-networking">Azure Networking</a></li>
+        <li><a href="#azure-vmss">Azure VMSS</a></li>
+        <li><a href="#azure-loadbalancers">Azure LoadBalancers</a></li>
+        <li><a href="#azure-storage">Azure Storage</a></li>
+        <li><a href="#azure-app-service">Azure App Service</a></li>
+        <li><a href="#azure-backup-and-restore">Azure Backup and Restore</a></li>
+        <li><a href="#azure-monitoring">Azure Monitoring</a></li>
+        <li><a href="#azure-loging-using-log-analytics">Azure Loging using Log Analytics</a></li>
+        <li><a href="#azure-container-registry">Azure Container Registry</a></li>
+        <li><a href="#azure-kuberntes-service">Azure Kuberntes Service</a></li>
+        <li><a href="#azure-key-vault-service">Azure Key vault service</a></li>
+        <li><a href="#azure-dns-service">Azure DNS service</a></li>
+        <li><a href="#azure-cloud-defender">Azure Cloud Defender</a></li>
+        <li><a href="#azure-resource-manager-template">Azure Resource Manager template</a></li>
+        <li><a href="#azure-entra-id">Azure Entra ID</a></li>
+        <li><a href="#azure-devops-overview">Azure Devops Overview</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+        
+    
+
+</div>
+          </aside>
+          <main class="col-12 col-md-9 col-xl-8 pl-md-5" role="main">
+            
+  
+
+            <nav aria-label="breadcrumb" class="td-breadcrumbs">
+  <ol class="breadcrumb">
+  <li class="breadcrumb-item">
+    <a href="/docs/">Docs</a>
+  </li>
+  <li class="breadcrumb-item active" aria-current="page">
+    <a href="/docs/azure/">Azure Cloud Computing</a>
+  </li>
+  </ol>
+</nav>
+            
+<div class="td-content">
+	<h1>Azure Cloud Computing</h1>
+  <div class="lead">Azure Cloud</div>
+	<header class="article-meta">
+		
+
+  
+    
+
+
+  
+    
+
+
+  
+
+		
+	</header>
+	<!-- end-chunk -->
+<!-- begin-chunk data-anchor="table-of-contents" data-heading="Table of Contents" data-level="2" data-permalink="/docs/azure/" data-title="Azure Cloud Computing" -->
+<h2 id="table-of-contents">Table of Contents</h2><ol>
+<li><a href="#introduction-to-azure-cloud">Introduction to Azure Cloud</a></li>
+<li><a href="#azure-core-concepts">Azure Core Concepts</a>
+<ul>
+<li><a href="#resource-groups">Resource Groups</a></li>
+<li><a href="#regions-and-availability-zones">Regions and Availability Zones</a></li>
+</ul>
+</li>
+<li><a href="#azure-services-overview">Azure Services Overview</a>
+<ul>
+<li><a href="#compute-services">Compute Services</a></li>
+<li><a href="#storage-services">Storage Services</a></li>
+<li><a href="#networking-services">Networking Services</a></li>
+</ul>
+</li>
+<li><a href="#getting-started-with-azure">Getting Started with Azure</a>
+<ul>
+<li><a href="#creating-an-azure-account">Creating an Azure Account</a></li>
+<li><a href="#azure-portal-overview">Azure Portal Overview</a></li>
+<li><a href="#using-azure-cli">Using Azure CLI</a></li>
+</ul>
+</li>
+<li><a href="#deploying-your-first-virtual-machine-vm">Deploying Your First Virtual Machine (VM)</a></li>
+<li><a href="#conclusion">Conclusion</a></li>
+<li><a href="">Managing Azure Cloud with Terraform</a></li>
+<li><a href="">Azure Cloud Monitoring and Logging</a></li>
+<li><a href="">Azure Cloud Security</a></li>
+<li><a href="">Inroduction to Azure Devops</a></li>
+</ol>
+<hr>
+<p>This module introduces you to cloud computing. It covers things such as cloud concepts, deployment models, and understanding shared responsibility in the cloud.</p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="introduction-to-azure-cloud" data-heading="Introduction to Azure Cloud" data-level="2" data-permalink="/docs/azure/" data-title="Azure Cloud Computing" -->
+<h2 id="introduction-to-azure-cloud">Introduction to Azure Cloud</h2><p>Azure is a cloud computing platform by Microsoft, offering a wide range of services such as virtual machines, storage, networking, and databases. It enables businesses to build, deploy, and manage applications in a scalable, secure, and global environment.</p>
+<p>Azure offers services under three primary models:</p>
+<ol>
+<li><strong>Infrastructure as a Service (IaaS)</strong></li>
+<li><strong>Platform as a Service (PaaS)</strong></li>
+<li><strong>Software as a Service (SaaS)</strong></li>
+</ol>
+<hr>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="azure-core-concepts" data-heading="Azure Core Concepts" data-level="2" data-permalink="/docs/azure/" data-title="Azure Cloud Computing" -->
+<h2 id="azure-core-concepts">Azure Core Concepts</h2><!-- end-chunk -->
+<!-- begin-chunk data-anchor="azure-account" data-heading="Azure Account" data-level="3" data-permalink="/docs/azure/" data-title="Azure Cloud Computing" -->
+<h3 id="azure-account">Azure Account</h3><!-- end-chunk -->
+<!-- begin-chunk data-anchor="subscription" data-heading="Subscription" data-level="3" data-permalink="/docs/azure/" data-title="Azure Cloud Computing" -->
+<h3 id="subscription">Subscription</h3><!-- end-chunk -->
+<!-- begin-chunk data-anchor="azure-management-group" data-heading="Azure Management Group" data-level="3" data-permalink="/docs/azure/" data-title="Azure Cloud Computing" -->
+<h3 id="azure-management-group">Azure Management Group</h3><!-- end-chunk -->
+<!-- begin-chunk data-anchor="resource-groups" data-heading="Resource Groups" data-level="3" data-permalink="/docs/azure/" data-title="Azure Cloud Computing" -->
+<h3 id="resource-groups">Resource Groups</h3><p>A <strong>Resource Group</strong> is a logical container used to organize and manage Azure resources (like virtual machines, databases, and storage accounts). All the resources inside a resource group share the same lifecycle—meaning you can deploy, update, or delete them together.</p>
+<p>Here’s how you can create a resource group:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>az group create --name myResourceGroup --location eastus
+</span></span></code></pre></div><!-- end-chunk -->
+<!-- begin-chunk data-anchor="regions-and-availability-zones" data-heading="Regions and Availability Zones" data-level="3" data-permalink="/docs/azure/" data-title="Azure Cloud Computing" -->
+<h3 id="regions-and-availability-zones">Regions and Availability Zones</h3><ul>
+<li>
+<p><strong>Regions</strong>: Azure has data centers around the globe. A region is a specific geographical location where Azure resources are hosted. When you deploy resources, you must choose a region to locate them.</p>
+</li>
+<li>
+<p><strong>Availability Zones</strong>: These are isolated locations within a region. They provide redundancy and protect resources from data center failures.</p>
+</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="1-availability-zones" data-heading="1. Availability Zones" data-level="2" data-permalink="/docs/azure/" data-title="Azure Cloud Computing" -->
+<h2 id="1-availability-zones">1. Availability Zones</h2><ul>
+<li><strong>Definition</strong>: Availability Zones are unique physical locations within an Azure region, each comprising one or more datacenters with independent power, cooling, and networking.</li>
+<li><strong>Purpose</strong>: They protect applications and data from datacenter failures within a region. Placing resources in different zones ensures applications stay available even if one zone fails.</li>
+<li><strong>Use Case</strong>: Ideal for applications requiring high availability and low-latency replication, such as those with a 99.99% SLA or needing rapid failover.</li>
+<li><strong>Fault Isolation</strong>: Each zone is isolated to prevent failure in one zone from impacting others.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="2-availability-sets" data-heading="2. Availability Sets" data-level="2" data-permalink="/docs/azure/" data-title="Azure Cloud Computing" -->
+<h2 id="2-availability-sets">2. Availability Sets</h2><ul>
+<li><strong>Definition</strong>: An Availability Set is a logical grouping of VMs within a datacenter that allows Azure to understand how your application is built to provide redundancy.</li>
+<li><strong>Purpose</strong>: Protects against hardware and software failures within a single datacenter. Azure distributes VMs in an Availability Set across multiple <strong>Update Domains</strong> and <strong>Fault Domains</strong>.
+<ul>
+<li><strong>Fault Domain</strong>: A group of resources that share a common power source and network switch, isolated from other fault domains.</li>
+<li><strong>Update Domain</strong>: A set of resources that can undergo maintenance or updates independently from other update domains.</li>
+</ul>
+</li>
+<li><strong>Use Case</strong>: For workloads requiring a high degree of reliability within a single datacenter, with an SLA of up to 99.95% uptime.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="summary" data-heading="Summary" data-level="3" data-permalink="/docs/azure/" data-title="Azure Cloud Computing" -->
+<h3 id="summary">Summary</h3><ul>
+<li><strong>Availability Zones</strong>: Cross-datacenter redundancy within a region for ultra-high availability.</li>
+<li><strong>Availability Sets</strong>: Redundancy within a single datacenter to protect against localized failures.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="cloud-computing-basics-aws-azure-google-oracle" data-heading="Cloud Computing Basics: AWS, Azure, Google, Oracle" data-level="3" data-permalink="/docs/azure/" data-title="Azure Cloud Computing" -->
+<h3 id="cloud-computing-basics-aws-azure-google-oracle">Cloud Computing Basics: AWS, Azure, Google, Oracle</h3><p>Cloud computing is a way to get IT services like computing power, storage, and databases over the internet, paying only for what you use. Instead of buying and maintaining physical data centers and servers, you can access these services from various providers. To start learning cloud computing, you can choose from popular providers such as Amazon Web Services (AWS), Microsoft Azure, Google Cloud Platform (GCP), or Oracle Cloud.</p>
+<p>Cloud computing has revolutionized the way we access IT services, offering a flexible, scalable, and cost-effective alternative to traditional IT setups. In this blog, we’ll explore the essentials of cloud computing, its benefits over traditional architecture, and guide you through choosing the right cloud service and deployment models.</p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="what-is-traditional-architecture" data-heading="What is Traditional Architecture?" data-level="3" data-permalink="/docs/azure/" data-title="Azure Cloud Computing" -->
+<h3 id="what-is-traditional-architecture">What is Traditional Architecture?</h3><div align="center">
+<p><img src="/images/azuredc.png" alt="Data Center Image"></p>
+</div>
+<p>Traditional IT infrastructure comprises physical hardware and software components, including data centers, servers, networking hardware, and enterprise applications. Maintaining such an infrastructure involves significant costs and challenges:</p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="problems-with-traditional-architecture" data-heading="Problems With Traditional Architecture" data-level="3" data-permalink="/docs/azure/" data-title="Azure Cloud Computing" -->
+<h3 id="problems-with-traditional-architecture">Problems With Traditional Architecture</h3><ul>
+<li><strong>Recurring Costs</strong>: Ongoing expenses for data center rent can be significant.</li>
+<li><strong>Operational Expenses</strong>: Costs for power supply, cooling, and maintenance can quickly add up.</li>
+<li><strong>Hardware Management</strong>: Adding or replacing hardware can be time-consuming and complex.</li>
+<li><strong>Scaling Challenges</strong>: Scaling up resources is often limited and can require substantial lead time.</li>
+<li><strong>Infrastructure Monitoring</strong>: A dedicated team is needed to continuously monitor and maintain the infrastructure.</li>
+<li><strong>Disaster Preparedness</strong>: How do you effectively manage disasters such as earthquakes, power outages, or fires?</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="how-cloud-computing-overcomes-the-problems-of-traditional-architecture" data-heading="How Cloud Computing Overcomes the Problems of Traditional Architecture" data-level="3" data-permalink="/docs/azure/" data-title="Azure Cloud Computing" -->
+<h3 id="how-cloud-computing-overcomes-the-problems-of-traditional-architecture">How Cloud Computing Overcomes the Problems of Traditional Architecture</h3><ol>
+<li>
+<p><strong>Lower IT Costs</strong>:<br>
+The cloud allows organizations to offload many costs associated with maintaining on-premises infrastructure, including purchasing, installing, configuring, and managing hardware. This shift can lead to substantial savings, as businesses only pay for what they use, reducing capital expenditures and ongoing operational costs</p>
+</li>
+<li>
+<p><strong>Improved Agility and Time-to-Value</strong>:<br>
+With cloud computing, organizations can deploy enterprise applications almost instantly, significantly reducing the time needed to respond to IT requests. Instead of waiting weeks or months for hardware and software setup, users—particularly developers and data scientists—can provision resources on demand, enhancing productivity and innovation</p>
+</li>
+<li>
+<p><strong>Scalability and Cost-Effectiveness</strong>:<br>
+The elasticity of cloud services enables businesses to scale their resources up or down based on current demand, effectively managing traffic spikes and dips without investing in excess capacity that may sit idle. This flexibility not only optimizes resource use but also ensures that organizations can adapt to changing business needs in real time</p>
+</li>
+</ol>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="characteristics-of-cloud-computing" data-heading="Characteristics of Cloud Computing" data-level="3" data-permalink="/docs/azure/" data-title="Azure Cloud Computing" -->
+<h3 id="characteristics-of-cloud-computing">Characteristics of Cloud Computing</h3><ol>
+<li>
+<p><strong>On-Demand Self-Service</strong><br>
+![On-Demand Icon]
+Users can provision resources automatically as needed without requiring human interaction from the service provider.</p>
+</li>
+<li>
+<p><strong>Broad Network Access</strong><br>
+![Network Access Icon]<br>
+Cloud services are available over the network and can be accessed through standard mechanisms (e.g., mobile phones, tablets, laptops).</p>
+</li>
+<li>
+<p><strong>Resource Pooling</strong><br>
+![Resource Pooling Icon]<br>
+The provider’s computing resources are pooled to serve multiple consumers using a multi-tenant model, with different physical and virtual resources dynamically assigned according to demand.</p>
+</li>
+<li>
+<p><strong>Rapid Elasticity</strong><br>
+![Elasticity Icon]<br>
+Resources can be elastically provisioned and released to scale rapidly outward and inward commensurate with demand.</p>
+</li>
+<li>
+<p><strong>Measured Service</strong><br>
+![Measured Service Icon]
+Cloud systems automatically control and optimize resource use by leveraging a metering capability at some level of abstraction appropriate to the type of service.</p>
+</li>
+<li>
+<p><strong>Security and Compliance</strong><br>
+![Security Icon]
+Cloud providers implement robust security measures to protect data and comply with industry standards and regulations.</p>
+</li>
+<li>
+<p><strong>Cost Efficiency</strong><br>
+![Cost Efficiency Icon]
+With a pay-as-you-go model, businesses can save on upfront capital costs and reduce the overall cost of IT infrastructure.</p>
+</li>
+<li>
+<p><strong>High Availability</strong><br>
+![High Availability Icon]
+Cloud computing services are designed for high availability and reliability, ensuring minimal downtime for users.</p>
+</li>
+</ol>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="conclusion" data-heading="Conclusion" data-level="3" data-permalink="/docs/azure/" data-title="Azure Cloud Computing" -->
+<h3 id="conclusion">Conclusion</h3><p>Cloud computing offers flexible, scalable, and cost-effective solutions, enabling organizations to innovate faster and focus on core business activities rather than managing infrastructure.</p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="cloud-service-models" data-heading="Cloud Service Models" data-level="2" data-permalink="/docs/azure/" data-title="Azure Cloud Computing" -->
+<h2 id="cloud-service-models">Cloud Service Models</h2><p>Cloud computing is categorized into three primary service models, each serving different business needs and technical requirements:</p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="1-infrastructure-as-a-service-iaas" data-heading="1. Infrastructure as a Service (IaaS)" data-level="3" data-permalink="/docs/azure/" data-title="Azure Cloud Computing" -->
+<h3 id="1-infrastructure-as-a-service-iaas">1. Infrastructure as a Service (IaaS)</h3><p>IaaS provides virtualized computing resources over the internet. It offers the fundamental building blocks of computing, including:</p>
+<ul>
+<li><strong>Compute</strong>: Virtual machines with various configurations.</li>
+<li><strong>Storage</strong>: Options for data storage like block, file, and object storage.</li>
+<li><strong>Networking</strong>: Virtual networks, load balancers, and firewalls.</li>
+</ul>
+<p><strong>Key Features:</strong></p>
+<ul>
+<li><strong>Scalability</strong>: Easily scale up or down based on demand.</li>
+<li><strong>Control</strong>: Provides users with greater control over the infrastructure.</li>
+</ul>
+<p><strong>Example Providers</strong>: Amazon Web Services (AWS), Microsoft Azure, Google Cloud Platform (GCP).</p>
+<hr>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="2-platform-as-a-service-paas" data-heading="2. Platform as a Service (PaaS)" data-level="3" data-permalink="/docs/azure/" data-title="Azure Cloud Computing" -->
+<h3 id="2-platform-as-a-service-paas">2. Platform as a Service (PaaS)</h3><p>PaaS offers a platform allowing customers to develop, run, and manage applications without the complexity of building and maintaining the underlying infrastructure.</p>
+<p><strong>Key Features:</strong></p>
+<ul>
+<li><strong>Development Tools</strong>: Integrated development environments (IDEs) and application hosting.</li>
+<li><strong>Middleware</strong>: Services that help manage application operations.</li>
+</ul>
+<p><strong>Example Providers</strong>: Google App Engine, Microsoft Azure App Service, Heroku.</p>
+<hr>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="3-software-as-a-service-saas" data-heading="3. Software as a Service (SaaS)" data-level="3" data-permalink="/docs/azure/" data-title="Azure Cloud Computing" -->
+<h3 id="3-software-as-a-service-saas">3. Software as a Service (SaaS)</h3><p>SaaS delivers software applications over the internet, on a subscription basis. Users access the software via a web browser, eliminating the need for installation and maintenance.</p>
+<p><strong>Key Features:</strong></p>
+<ul>
+<li><strong>Accessibility</strong>: Accessible from any device with internet connectivity.</li>
+<li><strong>Automatic Updates</strong>: Providers manage the infrastructure, security, and updates.</li>
+</ul>
+<p><strong>Example Providers</strong>: Salesforce, Google Workspace, Microsoft 365.</p>
+<hr>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="conclusion-1" data-heading="Conclusion" data-level="2" data-permalink="/docs/azure/" data-title="Azure Cloud Computing" -->
+<h2 id="conclusion-1">Conclusion</h2><p>Understanding these cloud service models helps businesses choose the right solution based on their operational needs and technical requirements.</p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="cloud-deployment-models" data-heading="Cloud Deployment Models" data-level="2" data-permalink="/docs/azure/" data-title="Azure Cloud Computing" -->
+<h2 id="cloud-deployment-models">Cloud Deployment Models</h2><p>Cloud deployment models define how cloud services are provided and utilized. The main types of cloud deployment models are:</p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="1-public-cloud" data-heading="1. Public Cloud" data-level="3" data-permalink="/docs/azure/" data-title="Azure Cloud Computing" -->
+<h3 id="1-public-cloud">1. Public Cloud</h3><p>In a public cloud deployment, the services and infrastructure are provided off-site over the internet and shared across multiple organizations. The cloud provider manages everything, and users pay for the resources they consume.</p>
+<p><strong>Key Features:</strong></p>
+<ul>
+<li><strong>Cost-Effective</strong>: No capital expenditure, only operational costs.</li>
+<li><strong>Scalability</strong>: Easily scalable to accommodate varying workloads.</li>
+</ul>
+<p><strong>Example Providers</strong>: Amazon Web Services (AWS), Microsoft Azure, Google Cloud Platform (GCP).</p>
+<hr>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="2-private-cloud" data-heading="2. Private Cloud" data-level="3" data-permalink="/docs/azure/" data-title="Azure Cloud Computing" -->
+<h3 id="2-private-cloud">2. Private Cloud</h3><p>A private cloud is dedicated to a single organization and can be hosted either on-premises or off-site. It offers more control over data security and privacy but requires a higher capital investment.</p>
+<p><strong>Key Features:</strong></p>
+<ul>
+<li><strong>Enhanced Security</strong>: Greater control over sensitive data and compliance.</li>
+<li><strong>Customization</strong>: Tailored to specific business needs.</li>
+</ul>
+<p><strong>Example Use Cases</strong>: Enterprises with strict regulatory requirements or sensitive data management.</p>
+<hr>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="3-hybrid-cloud" data-heading="3. Hybrid Cloud" data-level="3" data-permalink="/docs/azure/" data-title="Azure Cloud Computing" -->
+<h3 id="3-hybrid-cloud">3. Hybrid Cloud</h3><p>The hybrid cloud model combines both public and private clouds, allowing data and applications to be shared between them. This offers greater flexibility and more deployment options.</p>
+<p><strong>Key Features:</strong></p>
+<ul>
+<li><strong>Flexibility</strong>: Businesses can leverage both environments based on their needs.</li>
+<li><strong>Cost Efficiency</strong>: Balance between cost and performance by utilizing both public and private resources.</li>
+</ul>
+<p><strong>Example Use Cases</strong>: Organizations that need to handle varying workloads and want to maintain control over sensitive data while leveraging public resources for other applications.</p>
+<hr>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="4-community-cloud" data-heading="4. Community Cloud" data-level="3" data-permalink="/docs/azure/" data-title="Azure Cloud Computing" -->
+<h3 id="4-community-cloud">4. Community Cloud</h3><p>A community cloud is shared among several organizations with similar requirements, often within the same industry. It can be managed internally or by a third-party provider.</p>
+<p><strong>Key Features:</strong></p>
+<ul>
+<li><strong>Cost Sharing</strong>: Organizations share the costs of infrastructure and services.</li>
+<li><strong>Collaboration</strong>: Facilitates collaboration among organizations with shared interests or requirements.</li>
+</ul>
+<p><strong>Example Use Cases</strong>: Government agencies or educational institutions sharing resources for collaborative projects.</p>
+<hr>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="conclusion-2" data-heading="Conclusion" data-level="2" data-permalink="/docs/azure/" data-title="Azure Cloud Computing" -->
+<h2 id="conclusion-2">Conclusion</h2><p>Understanding the different cloud deployment models allows organizations to choose the right mix of solutions based on their business needs, security requirements, and budget constraints.</p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="well-architected-framework" data-heading="Well-Architected Framework" data-level="2" data-permalink="/docs/azure/" data-title="Azure Cloud Computing" -->
+<h2 id="well-architected-framework">Well-Architected Framework</h2><p>The <strong>Well-Architected Framework</strong> (WAF) is a set of best practices created by Amazon Web Services (AWS) to assist cloud architects in building secure, high-performing, resilient, and efficient infrastructure for their applications. The framework is divided into five key pillars:</p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="1-operational-excellence" data-heading="1. Operational Excellence" data-level="3" data-permalink="/docs/azure/" data-title="Azure Cloud Computing" -->
+<h3 id="1-operational-excellence">1. Operational Excellence</h3><ul>
+<li><strong>Focus</strong>: Emphasizes running and monitoring systems to deliver business value and continuously improve processes and procedures.</li>
+<li><strong>Key Practices</strong>: Implement automation, monitoring, incident response, and evolve procedures based on feedback.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="2-security" data-heading="2. Security" data-level="3" data-permalink="/docs/azure/" data-title="Azure Cloud Computing" -->
+<h3 id="2-security">2. Security</h3><ul>
+<li><strong>Focus</strong>: Protects data, systems, and assets while delivering business value through risk assessments and mitigation strategies.</li>
+<li><strong>Key Practices</strong>: Implement strong identity and access management, use encryption for data protection, and maintain compliance with regulations.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="3-reliability" data-heading="3. Reliability" data-level="3" data-permalink="/docs/azure/" data-title="Azure Cloud Computing" -->
+<h3 id="3-reliability">3. Reliability</h3><ul>
+<li><strong>Focus</strong>: Ensures a workload performs its intended function correctly and consistently when expected.</li>
+<li><strong>Key Practices</strong>: Design systems for failover and recovery, implement backups, and use redundancy to minimize the impact of failures.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="4-performance-efficiency" data-heading="4. Performance Efficiency" data-level="3" data-permalink="/docs/azure/" data-title="Azure Cloud Computing" -->
+<h3 id="4-performance-efficiency">4. Performance Efficiency</h3><ul>
+<li><strong>Focus</strong>: Utilizes IT and computing resources efficiently to meet system requirements and maintain that efficiency as demand changes and technologies evolve.</li>
+<li><strong>Key Practices</strong>: Select the right resource types and sizes, monitor performance, and adjust resources dynamically to meet demand.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="5-cost-optimization" data-heading="5. Cost Optimization" data-level="3" data-permalink="/docs/azure/" data-title="Azure Cloud Computing" -->
+<h3 id="5-cost-optimization">5. Cost Optimization</h3><ul>
+<li><strong>Focus</strong>: Avoids unnecessary costs by understanding where money is spent and eliminating unneeded expenses.</li>
+<li><strong>Key Practices</strong>: Monitor and analyze costs, implement resource optimization strategies, and use pricing models effectively.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="conclusion-3" data-heading="Conclusion" data-level="2" data-permalink="/docs/azure/" data-title="Azure Cloud Computing" -->
+<h2 id="conclusion-3">Conclusion</h2><p>By following the Well-Architected Framework, organizations can enhance their cloud architectures&rsquo; resilience, efficiency, and security. AWS provides a Well-Architected Tool that helps review workloads against these best practices, offering insights and recommendations to improve architecture.</p>
+<p>For further details, check the official <a href="https://aws.amazon.com/architecture/well-architected/" target="_blank" rel="noopener">AWS Well-Architected Framework documentation</a>.</p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="pillars-of-cloud-computing" data-heading="Pillars of Cloud Computing" data-level="2" data-permalink="/docs/azure/" data-title="Azure Cloud Computing" -->
+<h2 id="pillars-of-cloud-computing">Pillars of Cloud Computing</h2><p>The <strong>pillars of cloud computing</strong> refer to essential principles that guide the design, deployment, and management of cloud services. Below are the primary pillars:</p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="1-cost-efficiency" data-heading="1. Cost Efficiency" data-level="3" data-permalink="/docs/azure/" data-title="Azure Cloud Computing" -->
+<h3 id="1-cost-efficiency">1. Cost Efficiency</h3><ul>
+<li>Organizations can reduce costs associated with hardware and software by utilizing cloud services, which operate on a pay-as-you-go model. This allows businesses to scale resources based on demand without significant upfront investments.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="2-scalability" data-heading="2. Scalability" data-level="3" data-permalink="/docs/azure/" data-title="Azure Cloud Computing" -->
+<h3 id="2-scalability">2. Scalability</h3><ul>
+<li>Cloud computing offers the ability to scale resources up or down quickly based on usage. This elasticity is crucial for businesses that experience variable workloads, enabling them to accommodate peak demands without overprovisioning.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="3-performance" data-heading="3. Performance" data-level="3" data-permalink="/docs/azure/" data-title="Azure Cloud Computing" -->
+<h3 id="3-performance">3. Performance</h3><ul>
+<li>Cloud providers typically offer robust infrastructure and high availability, ensuring that applications run efficiently and with low latency. They also provide various tools for monitoring and optimizing performance.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="4-security" data-heading="4. Security" data-level="3" data-permalink="/docs/azure/" data-title="Azure Cloud Computing" -->
+<h3 id="4-security">4. Security</h3><ul>
+<li>Security is a critical pillar, as cloud providers implement a range of security measures to protect data and applications. This includes identity and access management, encryption, and compliance with industry regulations.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="5-reliability" data-heading="5. Reliability" data-level="3" data-permalink="/docs/azure/" data-title="Azure Cloud Computing" -->
+<h3 id="5-reliability">5. Reliability</h3><ul>
+<li>Cloud services are designed to be reliable, with built-in redundancies and backup solutions to ensure continuity. This minimizes downtime and enhances the overall resilience of applications.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="6-flexibility" data-heading="6. Flexibility" data-level="3" data-permalink="/docs/azure/" data-title="Azure Cloud Computing" -->
+<h3 id="6-flexibility">6. Flexibility</h3><ul>
+<li>The cloud allows organizations to deploy applications and services quickly without the constraints of physical infrastructure. This flexibility supports innovation and rapid experimentation.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="conclusion-4" data-heading="Conclusion" data-level="2" data-permalink="/docs/azure/" data-title="Azure Cloud Computing" -->
+<h2 id="conclusion-4">Conclusion</h2><p>Understanding these pillars is essential for organizations looking to leverage cloud computing effectively. They serve as a foundation for building cloud strategies that optimize resources and improve overall operati</p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="az-104-microsoft-azure-administrator-exam-table-of-contents" data-heading="AZ-104: Microsoft Azure Administrator Exam Table of Contents" data-level="2" data-permalink="/docs/azure/" data-title="Azure Cloud Computing" -->
+<h2 id="az-104-microsoft-azure-administrator-exam-table-of-contents">AZ-104: Microsoft Azure Administrator Exam Table of Contents</h2><!-- end-chunk -->
+<!-- begin-chunk data-anchor="1-manage-azure-identities-and-governance" data-heading="1. Manage Azure identities and governance" data-level="3" data-permalink="/docs/azure/" data-title="Azure Cloud Computing" -->
+<h3 id="1-manage-azure-identities-and-governance">1. Manage Azure identities and governance</h3><ul>
+<li>Azure Active Directory (Azure AD)</li>
+<li>Managing users and groups</li>
+<li>Implementing role-based access control (RBAC)</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="2-implement-and-manage-storage" data-heading="2. Implement and manage storage" data-level="3" data-permalink="/docs/azure/" data-title="Azure Cloud Computing" -->
+<h3 id="2-implement-and-manage-storage">2. Implement and manage storage</h3><ul>
+<li>Azure Storage accounts</li>
+<li>Blob storage and file shares</li>
+<li>Data protection strategies</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="3-deploy-and-manage-azure-compute-resources" data-heading="3. Deploy and manage Azure compute resources" data-level="3" data-permalink="/docs/azure/" data-title="Azure Cloud Computing" -->
+<h3 id="3-deploy-and-manage-azure-compute-resources">3. Deploy and manage Azure compute resources</h3><ul>
+<li>Configuring virtual machines (VMs)</li>
+<li>Azure App Services</li>
+<li>Azure Kubernetes Service (AKS)</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="4-configure-and-manage-virtual-networking" data-heading="4. Configure and manage virtual networking" data-level="3" data-permalink="/docs/azure/" data-title="Azure Cloud Computing" -->
+<h3 id="4-configure-and-manage-virtual-networking">4. Configure and manage virtual networking</h3><ul>
+<li>Virtual networks</li>
+<li>Network security groups (NSGs)</li>
+<li>Azure DNS and VPN gateways</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="5-monitor-and-maintain-azure-resources" data-heading="5. Monitor and maintain Azure resources" data-level="3" data-permalink="/docs/azure/" data-title="Azure Cloud Computing" -->
+<h3 id="5-monitor-and-maintain-azure-resources">5. Monitor and maintain Azure resources</h3><ul>
+<li>Azure Monitor</li>
+<li>Azure Security Center</li>
+<li>Troubleshooting issues</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="az-305-designing-microsoft-azure-infrastructure-solutions-exam-table-of-contents" data-heading="AZ-305: Designing Microsoft Azure Infrastructure Solutions Exam Table of Contents" data-level="3" data-permalink="/docs/azure/" data-title="Azure Cloud Computing" -->
+<h3 id="az-305-designing-microsoft-azure-infrastructure-solutions-exam-table-of-contents">AZ-305: Designing Microsoft Azure Infrastructure Solutions Exam Table of Contents</h3><!-- end-chunk -->
+<!-- begin-chunk data-anchor="1-design-identity-and-security" data-heading="1. Design identity and security" data-level="3" data-permalink="/docs/azure/" data-title="Azure Cloud Computing" -->
+<h3 id="1-design-identity-and-security">1. Design identity and security</h3><ul>
+<li>Design identity and access management solutions</li>
+<li>Design security for applications and services</li>
+<li>Design security for data and networks</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="2-design-data-storage-solutions" data-heading="2. Design data storage solutions" data-level="3" data-permalink="/docs/azure/" data-title="Azure Cloud Computing" -->
+<h3 id="2-design-data-storage-solutions">2. Design data storage solutions</h3><ul>
+<li>Design data storage solutions for relational data</li>
+<li>Design data storage solutions for non-relational data</li>
+<li>Design for data retention and archiving</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="3-design-business-continuity-solutions" data-heading="3. Design business continuity solutions" data-level="3" data-permalink="/docs/azure/" data-title="Azure Cloud Computing" -->
+<h3 id="3-design-business-continuity-solutions">3. Design business continuity solutions</h3><ul>
+<li>Design backup and disaster recovery solutions</li>
+<li>Design high availability solutions</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="4-design-infrastructure-solutions" data-heading="4. Design infrastructure solutions" data-level="3" data-permalink="/docs/azure/" data-title="Azure Cloud Computing" -->
+<h3 id="4-design-infrastructure-solutions">4. Design infrastructure solutions</h3><ul>
+<li>Design virtual networks</li>
+<li>Design network security</li>
+<li>Design compute solutions</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="5-design-monitoring-and-management-solutions" data-heading="5. Design monitoring and management solutions" data-level="3" data-permalink="/docs/azure/" data-title="Azure Cloud Computing" -->
+<h3 id="5-design-monitoring-and-management-solutions">5. Design monitoring and management solutions</h3><ul>
+<li>Design monitoring solutions for applications and infrastructure</li>
+<li>Design management solutions for Azure resources</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="high-level-toc" data-heading="High Level Toc" data-level="2" data-permalink="/docs/azure/" data-title="Azure Cloud Computing" -->
+<h2 id="high-level-toc">High Level Toc</h2><!-- end-chunk -->
+<!-- begin-chunk data-anchor="azure-cloud-basics" data-heading="Azure Cloud Basics" data-level="3" data-permalink="/docs/azure/" data-title="Azure Cloud Computing" -->
+<h3 id="azure-cloud-basics">Azure Cloud Basics</h3><ul>
+<li>Azure Cloud Account
+<ul>
+<li><a href="portal.azure.com">Azure portal</a></li>
+</ul>
+</li>
+<li>Azure Subscription</li>
+<li>Azure Managemnt Group</li>
+<li>Resource Group</li>
+<li>Resources
+<ul>
+<li>Vm</li>
+<li>Storage</li>
+</ul>
+</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="azure-virtual-machine" data-heading="Azure Virtual Machine" data-level="3" data-permalink="/docs/azure/" data-title="Azure Cloud Computing" -->
+<h3 id="azure-virtual-machine">Azure Virtual Machine</h3><ul>
+<li>Redeploy</li>
+<li>Reapply</li>
+<li>Run</li>
+<li>Console</li>
+<li>Size</li>
+<li>Trobleshooting</li>
+<li>Proximity group</li>
+<li>Availablity Set</li>
+<li>Availablity Zone</li>
+<li>Extension</li>
+<li>Public Ips</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="azure-cli" data-heading="Azure Cli" data-level="3" data-permalink="/docs/azure/" data-title="Azure Cloud Computing" -->
+<h3 id="azure-cli">Azure Cli</h3><!-- end-chunk -->
+<!-- begin-chunk data-anchor="azure-networking" data-heading="Azure Networking" data-level="3" data-permalink="/docs/azure/" data-title="Azure Cloud Computing" -->
+<h3 id="azure-networking">Azure Networking</h3><ul>
+<li>Vent</li>
+<li>NSG</li>
+<li>ASG</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="azure-vmss" data-heading="Azure VMSS" data-level="3" data-permalink="/docs/azure/" data-title="Azure Cloud Computing" -->
+<h3 id="azure-vmss">Azure VMSS</h3><ul>
+<li>Capture</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="azure-loadbalancers" data-heading="Azure LoadBalancers" data-level="3" data-permalink="/docs/azure/" data-title="Azure Cloud Computing" -->
+<h3 id="azure-loadbalancers">Azure LoadBalancers</h3><ul>
+<li>Standard LoadBalancer</li>
+<li>Application Load Balancer</li>
+<li>Traffice Manager</li>
+<li>Frontdoor</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="azure-storage" data-heading="Azure Storage" data-level="3" data-permalink="/docs/azure/" data-title="Azure Cloud Computing" -->
+<h3 id="azure-storage">Azure Storage</h3><!-- end-chunk -->
+<!-- begin-chunk data-anchor="azure-app-service" data-heading="Azure App Service" data-level="3" data-permalink="/docs/azure/" data-title="Azure Cloud Computing" -->
+<h3 id="azure-app-service">Azure App Service</h3><!-- end-chunk -->
+<!-- begin-chunk data-anchor="azure-backup-and-restore" data-heading="Azure Backup and Restore" data-level="3" data-permalink="/docs/azure/" data-title="Azure Cloud Computing" -->
+<h3 id="azure-backup-and-restore">Azure Backup and Restore</h3><!-- end-chunk -->
+<!-- begin-chunk data-anchor="azure-monitoring" data-heading="Azure Monitoring" data-level="3" data-permalink="/docs/azure/" data-title="Azure Cloud Computing" -->
+<h3 id="azure-monitoring">Azure Monitoring</h3><!-- end-chunk -->
+<!-- begin-chunk data-anchor="azure-loging-using-log-analytics" data-heading="Azure Loging using Log Analytics" data-level="3" data-permalink="/docs/azure/" data-title="Azure Cloud Computing" -->
+<h3 id="azure-loging-using-log-analytics">Azure Loging using Log Analytics</h3><!-- end-chunk -->
+<!-- begin-chunk data-anchor="azure-container-registry" data-heading="Azure Container Registry" data-level="3" data-permalink="/docs/azure/" data-title="Azure Cloud Computing" -->
+<h3 id="azure-container-registry">Azure Container Registry</h3><!-- end-chunk -->
+<!-- begin-chunk data-anchor="azure-kuberntes-service" data-heading="Azure Kuberntes Service" data-level="3" data-permalink="/docs/azure/" data-title="Azure Cloud Computing" -->
+<h3 id="azure-kuberntes-service">Azure Kuberntes Service</h3><!-- end-chunk -->
+<!-- begin-chunk data-anchor="azure-key-vault-service" data-heading="Azure Key vault service" data-level="3" data-permalink="/docs/azure/" data-title="Azure Cloud Computing" -->
+<h3 id="azure-key-vault-service">Azure Key vault service</h3><!-- end-chunk -->
+<!-- begin-chunk data-anchor="azure-dns-service" data-heading="Azure DNS service" data-level="3" data-permalink="/docs/azure/" data-title="Azure Cloud Computing" -->
+<h3 id="azure-dns-service">Azure DNS service</h3><!-- end-chunk -->
+<!-- begin-chunk data-anchor="azure-cloud-defender" data-heading="Azure Cloud Defender" data-level="3" data-permalink="/docs/azure/" data-title="Azure Cloud Computing" -->
+<h3 id="azure-cloud-defender">Azure Cloud Defender</h3><!-- end-chunk -->
+<!-- begin-chunk data-anchor="azure-resource-manager-template" data-heading="Azure Resource Manager template" data-level="3" data-permalink="/docs/azure/" data-title="Azure Cloud Computing" -->
+<h3 id="azure-resource-manager-template">Azure Resource Manager template</h3><ul>
+<li>Json</li>
+<li>Bicep</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="azure-entra-id" data-heading="Azure Entra ID" data-level="3" data-permalink="/docs/azure/" data-title="Azure Cloud Computing" -->
+<h3 id="azure-entra-id">Azure Entra ID</h3><ul>
+<li>User</li>
+<li>Service Principal</li>
+<li>Managed Identity
+<ul>
+<li>System Managed</li>
+<li>Self Managed</li>
+</ul>
+</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="azure-devops-overview" data-heading="Azure Devops Overview" data-level="3" data-permalink="/docs/azure/" data-title="Azure Cloud Computing" -->
+<h3 id="azure-devops-overview">Azure Devops Overview</h3><ul>
+<li>Azure Repo</li>
+<li>Azure Pipeline</li>
+<li>Azure Test Plans</li>
+<li>Azure Artifacts</li>
+</ul>
+
+        <div class="section-index">
+    
+    
+    
+    
+    
+    
+    
+    
+    <hr class="panel-line">
+        
+            
+            <div class="entry">
+                <h5>
+                    <a href="/docs/azure/linux-basics/">Linux Basics</a>
+                </h5>
+                <p>Azure Cloud</p>
+            </div>
+        
+            
+            <div class="entry">
+                <h5>
+                    <a href="/docs/azure/azure-vm/">Azure Cloud Virtual Machine (01)</a>
+                </h5>
+                <p>Azure Cloud</p>
+            </div>
+        
+            
+            <div class="entry">
+                <h5>
+                    <a href="/docs/azure/azuredevops/">Azure Devops</a>
+                </h5>
+                <p>Azure Cloud</p>
+            </div>
+        
+            
+            <div class="entry">
+                <h5>
+                    <a href="/docs/azure/azure-network/">Azure Cloud Networking</a>
+                </h5>
+                <p>Azure Cloud</p>
+            </div>
+        
+            
+            <div class="entry">
+                <h5>
+                    <a href="/docs/azure/azure-storage/">Azure Cloud Storage</a>
+                </h5>
+                <p>Azure Cloud</p>
+            </div>
+        
+            
+            <div class="entry">
+                <h5>
+                    <a href="/docs/azure/azure-cli/">Azure Cli</a>
+                </h5>
+                <p>Azure Cloud</p>
+            </div>
+        
+            
+            <div class="entry">
+                <h5>
+                    <a href="/docs/azure/azure-vmss/">Azure Cloud Virtual Machine Scale Set</a>
+                </h5>
+                <p>Azure Cloud</p>
+            </div>
+        
+            
+            <div class="entry">
+                <h5>
+                    <a href="/docs/azure/azure-lb/">Azure Cloud LoadBalancers</a>
+                </h5>
+                <p>Azure Cloud</p>
+            </div>
+        
+            
+            <div class="entry">
+                <h5>
+                    <a href="/docs/azure/azure-monitor/">Azure Monitoring</a>
+                </h5>
+                <p>Azure Cloud</p>
+            </div>
+        
+    
+</div>
+
+	
+	
+	
+</div>
+
+          </main>
+        </div>
+      </div>
+      
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+    integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+    crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js"
+    integrity="sha512-UR25UO94eTnCVwjbXozyeVd6ZqpaAE9naiEUBK/A+QDbfSTQFhPGj5lOR6d8tsgbBk84Ggb5A3EkjsOgPRPcKA=="
+    crossorigin="anonymous"></script>
+
+
+
+
+
+<script src='/js/tabpane-persist.js'></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="/js/main.min.223ab2fcc7d742c1b94772c0276851c497da4343cd2d21534199ced90681e207.js" integrity="sha256-Ijqy/MfXQsG5R3LAJ2hRxJfaQ0PNLSFTQZnO2QaB4gc=" crossorigin="anonymous"></script>
+
+
+
+<script src='/js/prism.js'></script>
+
+
+
+  </body>
+</html>

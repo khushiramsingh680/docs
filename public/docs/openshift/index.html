@@ -1,0 +1,868 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="generator" content="Hugo 0.122.0">
+<link rel="alternate" type="application/rss&#43;xml" href="/docs/openshift/index.xml">
+<meta name="robots" content="index, follow">
+
+<link rel="shortcut icon" href="/favicons/favicon.ico" >
+
+<title>OpenShift Administration | Documentation</title>
+<meta name="description" content="Comprehensive OpenShift guides and documentation.">
+<meta property="og:title" content="OpenShift Administration" />
+<meta property="og:description" content="Comprehensive OpenShift guides and documentation." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="/docs/openshift/" />
+
+<meta itemprop="name" content="OpenShift Administration">
+<meta itemprop="description" content="Comprehensive OpenShift guides and documentation."><meta name="twitter:card" content="summary"/><meta name="twitter:title" content="OpenShift Administration"/>
+<meta name="twitter:description" content="Comprehensive OpenShift guides and documentation."/>
+
+
+
+
+<link rel="preload" href="/scss/main.min.b5bfe2535b6f07595fd9cb7a4018024e52e136c3b43e03a17a1e47a950822d03.css" as="style">
+<link href="/scss/main.min.b5bfe2535b6f07595fd9cb7a4018024e52e136c3b43e03a17a1e47a950822d03.css" rel="stylesheet" integrity="">
+
+<script
+  src="https://code.jquery.com/jquery-3.6.0.min.js"
+  integrity="sha384-vtXRMe3mGCbOeY7l30aIg8H9p3GdeSe4IFlP6G8JMa7o7lXvnz3GFKzPxzJdPfGK"
+  crossorigin="anonymous"></script>
+<script
+  src="https://unpkg.com/lunr@2.3.9/lunr.min.js"
+  integrity="sha384-203J0SNzyqHby3iU6hzvzltrWi/M41wOP5Gu+BiJMz5nwKykbkUx8Kp7iti0Lpli"
+  crossorigin="anonymous"></script>
+<link rel="stylesheet" href="/css/prism.css"/>
+<script type="text/javascript"  src="/js/highlight-search.js"></script>
+<script type="text/javascript"  src="/js/manage-side-panels.js"></script>
+  </head>
+  <body class="td-section highlightable">
+    <header>
+      
+<nav class="js-navbar-scroll navbar navbar-expand navbar-dark flex-column flex-md-row td-navbar">
+        <a class="navbar-brand" href="/">
+		<span class="navbar-logo"><svg version="1.0" xmlns="http://www.w3.org/2000/svg" width="217pt" height="232pt" viewBox="0 0 217 232"><g transform="translate(0.000000,232.000000) scale(0.100000,-0.100000)" fill="#000" stroke="none"><path d="M1017 2250c-397-48-698-367-731-775-9-106-3-113 66-87l55 20 11-71c6-39 10-72 9-73s-58-22-127-47c-104-37-124-48-122-64 7-37 56-150 88-205l34-56 66 25 66 26 65-72c206-226 513-322 808-252 367 88 634 417 635 784 0 43-4 77-10 77-5 0-32-9-60-20s-55-20-59-20c-5 0-12 26-16 59-4 32-20 96-36 142s-30 88-31 92c-2 5 54 29 124 55l128 46-31 55c-17 31-33 58-34 59-2 2-31-6-64-19l-61-22-23 29c-81 104-172 178-292 235-140 68-309 97-458 79zm226-299c90-24 136-46 206-101l52-41 61 20 60 20 26-31c15-17 35-44 44-59l17-28-52-19c-29-11-86-32-128-47l-76-27 24-58c26-66 43-144 43-201 0-22 2-39 5-39 2 0 27 9 55 20s55 20 60 20c17 0 10-63-14-131-127-359-580-484-862-237l-35 31-70-24-71-24-30 35c-37 43-97 164-104 212l-6 34 123 46 124 45-3 64c-2 35-5 66-7 68-2 1-27-5-55-14s-53-15-55-14c-2 2 1 29 7 59 32 179 185 352 361 409 112 36 192 39 3e2 12z"/><path d="M134 321c-77-33-95-169-29-231 19-18 36-23 71-23 40 0 51 4 75 30 50 56 47 153-5 202-26 25-80 35-112 22zm82-62c26-29 26-99 0-128-24-26-47-27-77-2-19 15-24 29-24 64 0 76 58 114 101 66z"/><path d="M1172 320c-27-12-44-52-33-82 4-12 31-32 61-47 30-14 58-34 64-43 26-43-50-76-99-44-15 10-26 12-30 6-10-16 4-29 44-40 62-17 114 13 114 65 0 35-19 53-80 81-54 23-67 46-41 72 15 15 62 16 88 2 23-12 35 3 16 19-20 17-77 23-104 11z"/><path d="M350 195V70h25c23 0 25 4 25 45v45h40c76 0 115 40 103 104-8 42-38 56-120 56h-73V195zm134 69c18-18 18-17 10-38-4-11-19-16-50-16-44 0-44 0-44 35 0 33 2 35 34 35 19 0 42-7 50-16z"/><path d="M6e2 195V70h90c83 0 90 2 90 20 0 16-8 19-62 22-63 3-63 3-66 36-3 31-2 32 36 32 36 0 39 2 34 25-4 21-10 25-38 25-30 0-34 3-34 25 0 24 2 25 65 25 58 0 65 2 65 20 0 19-7 20-90 20h-90V195z"/><path d="M850 195c0-117 1-125 20-125 17 0 19 8 22 83l3 82 55-82c41-62 61-83 78-83 22 0 22 2 22 125 0 117-1 125-20 125-17 0-19-8-22-82l-3-82-54 82c-42 65-59 82-77 82-24 0-24 0-24-125z"/><path d="M1360 195c0-104 2-125 15-125 12 0 15 13 15 60v60h65 65v-60c0-47 3-60 15-60 13 0 15 21 15 125s-2 125-15 125c-12 0-15-13-15-55v-55h-65-65v55c0 42-3 55-15 55-13 0-15-21-15-125z"/><path d="M1620 195c0-104 2-125 15-125s15 21 15 125-2 125-15 125-15-21-15-125z"/><path d="M1730 195c0-77 4-125 10-125s10 27 10 60v60h35c19 0 35 5 35 10 0 6-16 10-35 10-35 0-35 0-35 45v45h60c33 0 60 4 60 10s-30 10-70 10h-70V195z"/><path d="M1930 310c0-5 18-10 40-10h40V185c0-70 4-115 10-115s10 45 10 115v115h40c22 0 40 5 40 10 0 6-37 10-90 10s-90-4-90-10z"/></g></svg></span><span class="font-weight-bold">Documentation</span>
+	</a>
+	<div class="td-navbar-nav-scroll ml-md-auto" id="main_navbar">
+		<ul class="navbar-nav mt-2 mt-lg-0">
+			
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/" ><i class='fa fa-home'></i><span>Home</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/docs/azure/" ><i class='fab fa-azure'></i><span>Azure Cloud Computing</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/docs/azure-devops/" ><i class='fab fa-azure'></i><span>Azure Devops</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/docs/gitlab/" ><i class='fab fa-gitlab'></i><span>Gitlab Tutorials</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link active" href="/docs/openshift/" ><i class='fab fa-openshift'></i><span class="active">OpenShift Administration</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/docs/kvm/" ><i class="fab fa-linux"></i><span>Redhat Ansible</span></a>
+			</li>
+			
+			
+			
+		</ul>
+	</div>
+	<div class="navbar-nav d-none d-lg-block">
+<form class="d-flex align-items-center">
+  <input type="search"
+  class="form-control td-search-input"
+  placeholder="&#xf002; Search this site…"
+  aria-label="Search this site…"
+  autocomplete="off"
+  
+  data-offline-search-index-json-src="/offline-search-index.d4ee35dfb31ed3b96d119091cf664ad4.json"
+  data-offline-search-base-href="/"
+  data-offline-search-max-results="20">
+</form>
+</div>
+</nav>
+
+      <div class="manage-panels">
+    <button type="button" class="button-left" id="left-panel-manager" title="Hide sidebar">""</button>
+    <button type="button" class="button-right" id="right-panel-manager" title="Hide sidebar">""</button>
+</div>
+    </header>
+    <div class="container-fluid td-outer">
+      <div class="td-main autonumbering">
+        <div class="row flex-xl-nowrap">
+          <aside class="col-12 col-md-3 col-xl-2 td-sidebar d-print-none">
+            
+<div id="td-sidebar-menu" class="td-sidebar__inner">
+  <div id="content-mobile">
+  <form class="td-sidebar__search d-flex align-items-center">
+    
+<form class="d-flex align-items-center">
+  <input type="search"
+  class="form-control td-search-input"
+  placeholder="&#xf002; Search this site…"
+  aria-label="Search this site…"
+  autocomplete="off"
+  
+  data-offline-search-index-json-src="/offline-search-index.d4ee35dfb31ed3b96d119091cf664ad4.json"
+  data-offline-search-base-href="/"
+  data-offline-search-max-results="20">
+</form>
+
+    <button class="btn btn-link td-sidebar__toggle d-md-none p-0 ml-3 fas fa-bars" type="button" data-toggle="collapse" data-target="#td-section-nav" aria-controls="td-docs-nav" aria-expanded="false" aria-label="Toggle section navigation">
+    </button>
+  </form>
+  </div>
+  <div id="content-desktop"></div>
+  <nav class="collapse td-sidebar-nav foldable-nav" id="td-section-nav">
+    <ul class="td-sidebar-nav__section pr-md-3 ul-0">
+      <li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id="m-docs-li">
+  <a href="/docs/" class="align-left pl-0 td-sidebar-link td-sidebar-link__section tree-root" id="m-docs"><span class="">Docs</span></a>
+  <ul class="ul-1">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-docsazure-li">
+  <input type="checkbox" id="m-docsazure-check"/>
+  <label for="m-docsazure-check"><a href="/docs/azure/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-docsazure"><i class="fab fa-azure"></i><span class="">Azure Cloud Computing</span></a></label>
+  
+  <ul class="ul-2 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazurelinux-basics-li">
+  <input type="checkbox" id="m-docsazurelinux-basics-check"/>
+  <label for="m-docsazurelinux-basics-check"><a href="/docs/azure/linux-basics/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazurelinux-basics"><i class="fab fa-azure"></i><span class="">Linux Basics</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazureazure-vm-li">
+  <input type="checkbox" id="m-docsazureazure-vm-check"/>
+  <label for="m-docsazureazure-vm-check"><a href="/docs/azure/azure-vm/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazureazure-vm"><i class="fab fa-azure"></i><span class="">Azure Cloud Virtual Machine (01)</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazureazuredevops-li">
+  <input type="checkbox" id="m-docsazureazuredevops-check"/>
+  <label for="m-docsazureazuredevops-check"><a href="/docs/azure/azuredevops/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazureazuredevops"><i class="fab fa-azure"></i><span class="">Azure Devops</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazureazure-network-li">
+  <input type="checkbox" id="m-docsazureazure-network-check"/>
+  <label for="m-docsazureazure-network-check"><a href="/docs/azure/azure-network/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazureazure-network"><i class="fab fa-azure"></i><span class="">Azure Cloud Networking</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazureazure-storage-li">
+  <input type="checkbox" id="m-docsazureazure-storage-check"/>
+  <label for="m-docsazureazure-storage-check"><a href="/docs/azure/azure-storage/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazureazure-storage"><i class="fab fa-azure"></i><span class="">Azure Cloud Storage</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazureazure-cli-li">
+  <input type="checkbox" id="m-docsazureazure-cli-check"/>
+  <label for="m-docsazureazure-cli-check"><a href="/docs/azure/azure-cli/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazureazure-cli"><i class="fab fa-azure"></i><span class="">Azure Cli</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazureazure-vmss-li">
+  <input type="checkbox" id="m-docsazureazure-vmss-check"/>
+  <label for="m-docsazureazure-vmss-check"><a href="/docs/azure/azure-vmss/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazureazure-vmss"><i class="fab fa-azure"></i><span class="">Azure Cloud Virtual Machine Scale Set</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazureazure-lb-li">
+  <input type="checkbox" id="m-docsazureazure-lb-check"/>
+  <label for="m-docsazureazure-lb-check"><a href="/docs/azure/azure-lb/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazureazure-lb"><i class="fab fa-azure"></i><span class="">Azure Cloud LoadBalancers</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazureazure-monitor-li">
+  <input type="checkbox" id="m-docsazureazure-monitor-check"/>
+  <label for="m-docsazureazure-monitor-check"><a href="/docs/azure/azure-monitor/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazureazure-monitor"><i class="fab fa-azure"></i><span class="">Azure Monitoring</span></a></label>
+  
+</li>
+  </ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-docsazure-devops-li">
+  <input type="checkbox" id="m-docsazure-devops-check"/>
+  <label for="m-docsazure-devops-check"><a href="/docs/azure-devops/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-docsazure-devops"><i class="fab fa-azure"></i><span class="">Azure Devops</span></a></label>
+  
+  <ul class="ul-2 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazure-devopsazure-board-li">
+  <input type="checkbox" id="m-docsazure-devopsazure-board-check"/>
+  <label for="m-docsazure-devopsazure-board-check"><a href="/docs/azure-devops/azure-board/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazure-devopsazure-board"><i class="fab fa-azure"></i><span class="">Azure Board</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazure-devopsazuredevops-01-li">
+  <input type="checkbox" id="m-docsazure-devopsazuredevops-01-check"/>
+  <label for="m-docsazure-devopsazuredevops-01-check"><a href="/docs/azure-devops/azuredevops-01/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazure-devopsazuredevops-01"><i class="fab fa-azure"></i><span class="">Part 1</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazure-devopsazuredevops-li">
+  <input type="checkbox" id="m-docsazure-devopsazuredevops-check"/>
+  <label for="m-docsazure-devopsazuredevops-check"><a href="/docs/azure-devops/azuredevops/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazure-devopsazuredevops"><i class="fab fa-azure"></i><span class="">Azure Devops</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazure-devopsazuredevops-02-li">
+  <input type="checkbox" id="m-docsazure-devopsazuredevops-02-check"/>
+  <label for="m-docsazure-devopsazuredevops-02-check"><a href="/docs/azure-devops/azuredevops-02/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazure-devopsazuredevops-02"><i class="fab fa-azure"></i><span class="">Part 2</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazure-devopsazuredevops-03-li">
+  <input type="checkbox" id="m-docsazure-devopsazuredevops-03-check"/>
+  <label for="m-docsazure-devopsazuredevops-03-check"><a href="/docs/azure-devops/azuredevops-03/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazure-devopsazuredevops-03"><i class="fab fa-azure"></i><span class="">Part 3</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazure-devopsazuredevops-04-li">
+  <input type="checkbox" id="m-docsazure-devopsazuredevops-04-check"/>
+  <label for="m-docsazure-devopsazuredevops-04-check"><a href="/docs/azure-devops/azuredevops-04/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazure-devopsazuredevops-04"><i class="fab fa-azure"></i><span class="">part 4</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazure-devopsazuredevops-05-li">
+  <input type="checkbox" id="m-docsazure-devopsazuredevops-05-check"/>
+  <label for="m-docsazure-devopsazuredevops-05-check"><a href="/docs/azure-devops/azuredevops-05/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazure-devopsazuredevops-05"><i class="fab fa-azure"></i><span class="">Part 5</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazure-devopsazuredevops-06-li">
+  <input type="checkbox" id="m-docsazure-devopsazuredevops-06-check"/>
+  <label for="m-docsazure-devopsazuredevops-06-check"><a href="/docs/azure-devops/azuredevops-06/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazure-devopsazuredevops-06"><i class="fab fa-azure"></i><span class="">Part 6</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazure-devopsaks-li">
+  <input type="checkbox" id="m-docsazure-devopsaks-check"/>
+  <label for="m-docsazure-devopsaks-check"><a href="/docs/azure-devops/aks/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazure-devopsaks"><i class="fab fa-azure"></i><span class="">AKS</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazure-devopstest-li">
+  <input type="checkbox" id="m-docsazure-devopstest-check"/>
+  <label for="m-docsazure-devopstest-check"><a href="/docs/azure-devops/test/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazure-devopstest"><i class="fab fa-azure"></i><span class="">Azure Devops Test Plans</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazure-devopsdocker-li">
+  <input type="checkbox" id="m-docsazure-devopsdocker-check"/>
+  <label for="m-docsazure-devopsdocker-check"><a href="/docs/azure-devops/docker/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazure-devopsdocker"><i class="fab fa-azure"></i><span class="">Docker</span></a></label>
+  
+</li>
+  </ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-docsgitlab-li">
+  <input type="checkbox" id="m-docsgitlab-check"/>
+  <label for="m-docsgitlab-check"><a href="/docs/gitlab/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-docsgitlab"><i class="fab fa-gitlab"></i><span class="">Gitlab Tutorials</span></a></label>
+  
+  <ul class="ul-2 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsgitlabgitlab01-li">
+  <input type="checkbox" id="m-docsgitlabgitlab01-check"/>
+  <label for="m-docsgitlabgitlab01-check"><a href="/docs/gitlab/gitlab01/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsgitlabgitlab01"><i class="fab fa-gitlab"></i><span class="">GitLab Installation</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsgitlabgitlab-with-ldap-li">
+  <input type="checkbox" id="m-docsgitlabgitlab-with-ldap-check"/>
+  <label for="m-docsgitlabgitlab-with-ldap-check"><a href="/docs/gitlab/gitlab-with-ldap/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsgitlabgitlab-with-ldap"><i class="fas fa-server"></i><span class="">Gitlab Authentication with LDAP</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsgitlabgitlab-container-registry-li">
+  <input type="checkbox" id="m-docsgitlabgitlab-container-registry-check"/>
+  <label for="m-docsgitlabgitlab-container-registry-check"><a href="/docs/gitlab/gitlab-container-registry/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsgitlabgitlab-container-registry"><i class="fab fa-docker"></i><span class="">GitLab Container Registry</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsgitlabgitlab-logs-troubleshooting-li">
+  <input type="checkbox" id="m-docsgitlabgitlab-logs-troubleshooting-check"/>
+  <label for="m-docsgitlabgitlab-logs-troubleshooting-check"><a href="/docs/gitlab/gitlab-logs-troubleshooting/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsgitlabgitlab-logs-troubleshooting"><i class="fas fa-file-alt"></i><span class="">Logs and Troubleshooting</span></a></label>
+  
+</li>
+  </ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-docsopenshift-li">
+  <input type="checkbox" id="m-docsopenshift-check"/>
+  <label for="m-docsopenshift-check"><a href="/docs/openshift/" class="align-left pl-0  active td-sidebar-link td-sidebar-link__section" id="m-docsopenshift"><i class="fab fa-openshift"></i><span class="td-sidebar-nav-active-item">OpenShift Administration</span></a></label>
+  
+  <ul class="ul-2 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsopenshiftocp-onvmware-copy-li">
+  <input type="checkbox" id="m-docsopenshiftocp-onvmware-copy-check"/>
+  <label for="m-docsopenshiftocp-onvmware-copy-check"><a href="/docs/openshift/ocp-onvmware-copy/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsopenshiftocp-onvmware-copy"><i class="fab fa-openshift"></i><span class="">Openshift Installation on Vmware</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsopenshiftocp-sno-li">
+  <input type="checkbox" id="m-docsopenshiftocp-sno-check"/>
+  <label for="m-docsopenshiftocp-sno-check"><a href="/docs/openshift/ocp-sno/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsopenshiftocp-sno"><i class="fab fa-openshift"></i><span class="">Openshift Single node Cluster</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsopenshiftocp-tasks-li">
+  <input type="checkbox" id="m-docsopenshiftocp-tasks-check"/>
+  <label for="m-docsopenshiftocp-tasks-check"><a href="/docs/openshift/ocp-tasks/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsopenshiftocp-tasks"><span class="">Openshift 4 Tasks</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsopenshiftocp-tekton-li">
+  <input type="checkbox" id="m-docsopenshiftocp-tekton-check"/>
+  <label for="m-docsopenshiftocp-tekton-check"><a href="/docs/openshift/ocp-tekton/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsopenshiftocp-tekton"><span class="">Openshift Tekton Pipeline</span></a></label>
+  
+</li>
+  </ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-docskvm-li">
+  <input type="checkbox" id="m-docskvm-check"/>
+  <label for="m-docskvm-check"><a href="/docs/kvm/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-docskvm"><i class="fab fa-linux"></i><span class="">Redhat Ansible</span></a></label>
+  
+  <ul class="ul-2 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docskvmkvm-li">
+  <input type="checkbox" id="m-docskvmkvm-check"/>
+  <label for="m-docskvmkvm-check"><a href="/docs/kvm/kvm/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docskvmkvm"><i class="fab fa-kvm"></i><span class="">KVM</span></a></label>
+  
+</li>
+  </ul>
+</li>
+  </ul>
+</li>
+    </ul>
+  </nav>
+</div>
+
+          </aside>
+          <aside class="d-none d-xl-block col-xl-2 td-sidebar-toc d-print-none">
+            
+
+    <div class="td-page-meta ml-2 pb-1 pt-2 mb-0">
+        <div class="toc-title">Actions</div>
+        <a href="/edit/master/content/docs/Openshift/_index.md" target="_blank" rel="noopener"><i class="fa fa-edit fa-fw"></i> Contribute to this page</a>
+        <a href="/issues/new?issue%5Btitle=%f0%9f%93%83%20docs:%20update%20page%20docs/Openshift/_index.md" target="_blank" rel="noopener"><i class="fab fa-gitlab fa-fw"></i> Create a documentation issue</a>
+       
+    </div>
+
+            
+<div class="td-page-meta ml-2 pb-1 pt-2 mb-0 right-menu-toc">
+
+    
+        
+            <div class="toc-title">Table of content</div>
+            <div class="td-toc"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#openshift-architecture-overview">OpenShift Architecture Overview</a></li>
+    <li><a href="#openshift-installation">OpenShift Installation</a></li>
+    <li><a href="#authentication--authorization">Authentication &amp; Authorization</a></li>
+    <li><a href="#networking-in-openshift">Networking in OpenShift</a></li>
+    <li><a href="#storage-management">Storage Management</a></li>
+    <li><a href="#scaling-and-performance-optimization">Scaling and Performance Optimization</a></li>
+    <li><a href="#security-in-openshift">Security in OpenShift</a></li>
+    <li><a href="#operators-in-openshift">Operators in OpenShift</a></li>
+    <li><a href="#monitoring--logging">Monitoring &amp; Logging</a></li>
+    <li><a href="#cicd-with-openshift">CI/CD with OpenShift</a></li>
+    <li><a href="#backup-and-disaster-recovery">Backup and Disaster Recovery</a></li>
+    <li><a href="#openshift-upgrades">OpenShift Upgrades</a></li>
+    <li><a href="#troubleshooting-openshift">Troubleshooting OpenShift</a></li>
+    <li><a href="#multi-cluster-management">Multi-Cluster Management</a></li>
+    <li><a href="#post-installation-tasks">Post-Installation Tasks</a></li>
+    <li><a href="#multi-tenancy">Multi-Tenancy</a></li>
+    <li><a href="#installation-on-various-environments">Installation on Various Environments</a></li>
+    <li><a href="#red-hat-openshift-4-on-bare-metal">Red Hat OpenShift 4 on Bare Metal</a>
+      <ul>
+        <li><a href="#course-objective">Course Objective</a></li>
+        <li><a href="#lab-requirement">Lab Requirement</a></li>
+        <li><a href="#modules">Modules</a>
+          <ul>
+            <li><a href="#module-1-introduction">Module 1: Introduction</a></li>
+            <li><a href="#module-2-administration">Module 2: Administration</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#table-of-contents-for-rh288---red-hat-openshift-development-i-containers--kubernetes">Table of Contents for RH288 - Red Hat OpenShift Development I: Containers &amp; Kubernetes</a></li>
+  </ul>
+</nav></div>
+        
+    
+
+</div>
+          </aside>
+          <main class="col-12 col-md-9 col-xl-8 pl-md-5" role="main">
+            
+  
+
+            <nav aria-label="breadcrumb" class="td-breadcrumbs">
+  <ol class="breadcrumb">
+  <li class="breadcrumb-item">
+    <a href="/docs/">Docs</a>
+  </li>
+  <li class="breadcrumb-item active" aria-current="page">
+    <a href="/docs/openshift/">OpenShift Administration</a>
+  </li>
+  </ol>
+</nav>
+            
+<div class="td-content">
+	<h1>OpenShift Administration</h1>
+  <div class="lead">Comprehensive OpenShift guides and documentation.</div>
+	<header class="article-meta">
+		
+
+  
+    
+
+
+  
+    
+
+
+  
+
+		
+	</header>
+	<!-- end-chunk -->
+<!-- begin-chunk data-anchor="openshift-architecture-overview" data-heading="OpenShift Architecture Overview" data-level="2" data-permalink="/docs/openshift/" data-title="OpenShift Administration" -->
+<h2 id="openshift-architecture-overview">OpenShift Architecture Overview</h2><ul>
+<li><strong>Control Plane</strong>: API server, etcd, controller manager, scheduler.</li>
+<li><strong>Node Components</strong>: Kubelet, CRI-O/Containerd, SDN (Software-Defined Networking).</li>
+<li><strong>OpenShift-Specific Components</strong>: Image Registry, Router, OAuth, and more.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="openshift-installation" data-heading="OpenShift Installation" data-level="2" data-permalink="/docs/openshift/" data-title="OpenShift Administration" -->
+<h2 id="openshift-installation">OpenShift Installation</h2><ul>
+<li><strong>Installation Methods</strong>:
+<ul>
+<li><strong>IPI (Installer-Provisioned Infrastructure)</strong>: AWS, Azure, GCP.</li>
+<li><strong>UPI (User-Provisioned Infrastructure)</strong>: Bare metal, vSphere.</li>
+</ul>
+</li>
+<li><strong>Cluster Setup</strong>: Configuring pull secret, worker node size, etc.</li>
+<li><strong>Post-Installation Tasks</strong>:
+<ul>
+<li><strong>Certificate Configuration</strong>: Secure communication across components.</li>
+<li><strong>Registry Configuration</strong>: Expose internal registry for image push/pull.</li>
+<li><strong>Node Configuration</strong>: Set proxy settings, trusted certificates, SSH access.</li>
+</ul>
+</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="authentication--authorization" data-heading="Authentication &amp; Authorization" data-level="2" data-permalink="/docs/openshift/" data-title="OpenShift Administration" -->
+<h2 id="authentication--authorization">Authentication &amp; Authorization</h2><ul>
+<li><strong>Identity Providers</strong>: LDAP, OAuth, GitHub, OpenID, SAML.</li>
+<li><strong>RBAC (Role-Based Access Control)</strong>: Managing roles, role bindings, cluster roles.</li>
+<li><strong>OAuth Configuration</strong>: Customizing login flows.</li>
+<li><strong>Project Isolation</strong>: Managing user access and namespace isolation.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="networking-in-openshift" data-heading="Networking in OpenShift" data-level="2" data-permalink="/docs/openshift/" data-title="OpenShift Administration" -->
+<h2 id="networking-in-openshift">Networking in OpenShift</h2><ul>
+<li><strong>SDN</strong>: OpenShift SDN, OVN-Kubernetes.</li>
+<li><strong>Ingress &amp; Egress</strong>:
+<ul>
+<li>Router Configuration: External routes, edge, passthrough, re-encrypt.</li>
+<li>Ingress Controllers: HAProxy, load balancing.</li>
+<li>Network Policies: Pod communication security.</li>
+</ul>
+</li>
+<li><strong>Service Mesh</strong>: Istio for microservices communication.</li>
+<li><strong>DNS &amp; Load Balancers</strong>: Configuring OpenShift DNS and external load balancers.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="storage-management" data-heading="Storage Management" data-level="2" data-permalink="/docs/openshift/" data-title="OpenShift Administration" -->
+<h2 id="storage-management">Storage Management</h2><ul>
+<li><strong>Persistent Storage</strong>: PVs, PVCs, StorageClasses (NFS, GlusterFS, Ceph, EBS).</li>
+<li><strong>CSI Drivers</strong>: Container Storage Interface.</li>
+<li><strong>Quotas &amp; Limits</strong>: Storage resource control for namespaces.</li>
+<li><strong>Rook Ceph</strong>: Configure/manage Ceph storage.</li>
+<li><strong>Local Storage</strong>: Setup local persistent storage solutions.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="scaling-and-performance-optimization" data-heading="Scaling and Performance Optimization" data-level="2" data-permalink="/docs/openshift/" data-title="OpenShift Administration" -->
+<h2 id="scaling-and-performance-optimization">Scaling and Performance Optimization</h2><ul>
+<li><strong>Horizontal Pod Autoscaling (HPA)</strong>: Scaling based on CPU/memory usage.</li>
+<li><strong>Vertical Pod Autoscaling (VPA)</strong>: Adjusting pod resource requests/limits.</li>
+<li><strong>Cluster Autoscaler</strong>: Scaling nodes based on workloads.</li>
+<li><strong>MachineSets</strong>: Add nodes via machine sets.</li>
+<li><strong>Optimizing Node Performance</strong>: Node CPU/memory allocation management.</li>
+<li><strong>CI/CD Pipelines</strong>: Using OpenShift Pipelines (Tekton).</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="security-in-openshift" data-heading="Security in OpenShift" data-level="2" data-permalink="/docs/openshift/" data-title="OpenShift Administration" -->
+<h2 id="security-in-openshift">Security in OpenShift</h2><ul>
+<li><strong>SCCs (Security Context Constraints)</strong>: Controlling pod privileges.</li>
+<li><strong>Pod Security Policies (PSPs)</strong>: Enforcing security policies.</li>
+<li><strong>Compliance Operator</strong>: Cluster compliance (CIS, PCI-DSS).</li>
+<li><strong>Image Security</strong>:
+<ul>
+<li>Image scanning (Clair, Quay).</li>
+<li>Image signing for trusted deployments.</li>
+</ul>
+</li>
+<li><strong>TLS/SSL Configurations</strong>: Certificate management and renewals.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="operators-in-openshift" data-heading="Operators in OpenShift" data-level="2" data-permalink="/docs/openshift/" data-title="OpenShift Administration" -->
+<h2 id="operators-in-openshift">Operators in OpenShift</h2><ul>
+<li><strong>OLM (Operator Lifecycle Manager)</strong>: Managing operator installations.</li>
+<li><strong>Custom Resource Definitions (CRDs)</strong>: Defining Kubernetes extensions.</li>
+<li><strong>Operators</strong>:
+<ul>
+<li>Built-in: Image registry, monitoring, logging.</li>
+<li>Third-Party: Databases, storage, and applications.</li>
+</ul>
+</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="monitoring--logging" data-heading="Monitoring &amp; Logging" data-level="2" data-permalink="/docs/openshift/" data-title="OpenShift Administration" -->
+<h2 id="monitoring--logging">Monitoring &amp; Logging</h2><ul>
+<li><strong>Monitoring Stack</strong>:
+<ul>
+<li>Prometheus, Grafana, Alertmanager.</li>
+<li>Monitoring node/pod resources (CPU, memory, etc.).</li>
+<li>Cluster Metrics: Kube State Metrics.</li>
+</ul>
+</li>
+<li><strong>Logging Stack</strong>:
+<ul>
+<li>EFK (Elasticsearch, Fluentd, Kibana) for centralized logging.</li>
+<li>Fluentd log forwarding, cluster-wide log aggregation.</li>
+</ul>
+</li>
+<li><strong>Alerting</strong>: Custom alerts for resource usage or app performance.</li>
+<li><strong>Grafana Loki</strong>: Log aggregation and monitoring with Loki.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="cicd-with-openshift" data-heading="CI/CD with OpenShift" data-level="2" data-permalink="/docs/openshift/" data-title="OpenShift Administration" -->
+<h2 id="cicd-with-openshift">CI/CD with OpenShift</h2><ul>
+<li><strong>OpenShift Pipelines</strong>: Tekton-based CI/CD for build, test, deploy.</li>
+<li><strong>Jenkins Integration</strong>: Managing complex pipelines with Jenkins.</li>
+<li><strong>GitOps</strong>: Infrastructure/application management with ArgoCD.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="backup-and-disaster-recovery" data-heading="Backup and Disaster Recovery" data-level="2" data-permalink="/docs/openshift/" data-title="OpenShift Administration" -->
+<h2 id="backup-and-disaster-recovery">Backup and Disaster Recovery</h2><ul>
+<li><strong>Etcd Backup/Restore</strong>: Backing up etcd key-value store.</li>
+<li><strong>Disaster Recovery Planning</strong>: Backing up PVs, restoring snapshots.</li>
+<li><strong>Velero Operator</strong>: Managing backup/restore operations.</li>
+<li><strong>Kasten Operator</strong></li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="openshift-upgrades" data-heading="OpenShift Upgrades" data-level="2" data-permalink="/docs/openshift/" data-title="OpenShift Administration" -->
+<h2 id="openshift-upgrades">OpenShift Upgrades</h2><ul>
+<li><strong>Cluster Upgrades</strong>: Upgrade OpenShift without downtime.</li>
+<li><strong>Operator Upgrades</strong>: Compatibility during version upgrades.</li>
+<li><strong>Upgrade Troubleshooting</strong>: Monitoring progress and fixing issues.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="troubleshooting-openshift" data-heading="Troubleshooting OpenShift" data-level="2" data-permalink="/docs/openshift/" data-title="OpenShift Administration" -->
+<h2 id="troubleshooting-openshift">Troubleshooting OpenShift</h2><ul>
+<li><strong>Logs &amp; Diagnostics</strong>: Pod logs, oc adm must-gather, diagnostic info.</li>
+<li><strong>Cluster Health</strong>: Checking node health, network/storage performance.</li>
+<li><strong>Pod Debugging</strong>: Crashing containers, resource constraints.</li>
+<li><strong>Networking Tools</strong>: oc adm network for connectivity issues.</li>
+<li><strong>Upgrading/Patching</strong>: Applying patches and fixing upgrade problems.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="multi-cluster-management" data-heading="Multi-Cluster Management" data-level="2" data-permalink="/docs/openshift/" data-title="OpenShift Administration" -->
+<h2 id="multi-cluster-management">Multi-Cluster Management</h2><ul>
+<li><strong>RHACM (Red Hat Advanced Cluster Management)</strong>: Managing multiple clusters.</li>
+<li><strong>Application Lifecycle Management</strong>: Managing apps across clusters.</li>
+<li><strong>Backup &amp; Disaster Recovery</strong>: Managing across multiple clusters.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="post-installation-tasks" data-heading="Post-Installation Tasks" data-level="2" data-permalink="/docs/openshift/" data-title="OpenShift Administration" -->
+<h2 id="post-installation-tasks">Post-Installation Tasks</h2><ul>
+<li><strong>Resource Management</strong>: Setting Quota/LimitRange for namespaces.</li>
+<li><strong>Authentication Configuration</strong>:
+<ul>
+<li>LDAP, GitLab, GitHub, Htpasswd, Azure AD.</li>
+</ul>
+</li>
+<li><strong>Shell Access</strong>: Configure shell for developers.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="multi-tenancy" data-heading="Multi-Tenancy" data-level="2" data-permalink="/docs/openshift/" data-title="OpenShift Administration" -->
+<h2 id="multi-tenancy">Multi-Tenancy</h2><ul>
+<li><strong>Configure Multitenancy</strong>: Manage separate environments or projects.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="installation-on-various-environments" data-heading="Installation on Various Environments" data-level="2" data-permalink="/docs/openshift/" data-title="OpenShift Administration" -->
+<h2 id="installation-on-various-environments">Installation on Various Environments</h2><ul>
+<li><strong>CodeReady Containers</strong>: Setup for development environments.</li>
+<li><strong>OpenShift Sandbox</strong>: Managed environment for testing.</li>
+<li><strong>OpenShift Dedicated</strong>: Cloud offering.</li>
+<li><strong>OpenShift on Baremetal</strong>: Deployment on bare-metal servers.</li>
+<li><strong>OpenShift on VMware</strong>: Deployment on vSphere.</li>
+<li><strong>OpenShift on KVM</strong>: Virtualized deployment on KVM.</li>
+<li><strong>Azure Red Hat OpenShift (ARO)</strong>: Managed OpenShift on Azure.</li>
+<li><strong>Red Hat OpenShift on AWS (ROSA)</strong>: Managed OpenShift on AWS.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="red-hat-openshift-4-on-bare-metal" data-heading="Red Hat OpenShift 4 on Bare Metal" data-level="2" data-permalink="/docs/openshift/" data-title="OpenShift Administration" -->
+<h2 id="red-hat-openshift-4-on-bare-metal">Red Hat OpenShift 4 on Bare Metal</h2><p><strong>Duration:</strong> 1 day (8 hours/day)<br>
+<strong>Prerequisite:</strong></p>
+<ul>
+<li>Basic System Administration</li>
+<li>Basics of Kubernetes</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="course-objective" data-heading="Course Objective" data-level="3" data-permalink="/docs/openshift/" data-title="OpenShift Administration" -->
+<h3 id="course-objective">Course Objective</h3><p>Learn the fundamentals and basic concepts of OpenShift needed to build a production-ready OpenShift cluster and get started with deploying and managing applications.</p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="lab-requirement" data-heading="Lab Requirement" data-level="3" data-permalink="/docs/openshift/" data-title="OpenShift Administration" -->
+<h3 id="lab-requirement">Lab Requirement</h3><!-- end-chunk -->
+<!-- begin-chunk data-anchor="modules" data-heading="Modules" data-level="3" data-permalink="/docs/openshift/" data-title="OpenShift Administration" -->
+<h3 id="modules">Modules</h3><!-- end-chunk -->
+<!-- begin-chunk data-anchor="module-1-introduction" data-heading="Module 1: Introduction" data-level="4" data-permalink="/docs/openshift/" data-title="OpenShift Administration" -->
+<h4 id="module-1-introduction">Module 1: Introduction</h4><ul>
+<li><strong>Introduction</strong></li>
+<li><strong>Architecture Diagram</strong>: Understanding OpenShift architecture on bare metal.</li>
+<li><strong>Setup KVM Infrastructure (On Hypervisor Node)</strong>: Setting up KVM on a hypervisor node.</li>
+<li><strong>Create Utility Virtual Machine</strong>: Creating a utility VM for managing OpenShift deployment.</li>
+<li><strong>Configure OCP Zone on Bind DNS Server</strong>: Configuring DNS zones for OpenShift using Bind.</li>
+<li><strong>Install and Configure DHCP Server</strong>: Setting up a DHCP server to assign IP addresses.</li>
+<li><strong>Configure Apache and HAProxy</strong>: Configuring Apache as a web server and HAProxy as a load balancer.</li>
+<li><strong>Setup NFS Server</strong>: Setting up an NFS server for persistent storage.</li>
+<li><strong>Setup TFTP Service and Install OpenShift Installer and CLI Binary</strong>: Setting up TFTP service and installing the OpenShift CLI and installer.</li>
+<li><strong>Generate Ignition Files</strong>: Generating ignition files for the OpenShift nodes.</li>
+<li><strong>Create Bootstrap, Masters, and Worker VMs (On Hypervisor Node)</strong>: Creating virtual machines for OpenShift components on the hypervisor node.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="module-2-administration" data-heading="Module 2: Administration" data-level="4" data-permalink="/docs/openshift/" data-title="OpenShift Administration" -->
+<h4 id="module-2-administration">Module 2: Administration</h4><ul>
+<li><strong>OpenShift Authentication &amp; Authorization</strong>: Understanding and configuring authentication and authorization in OpenShift.</li>
+<li><strong>Local Image Registry</strong>: Setting up and managing a local image registry.</li>
+<li><strong>Role-Based Access Control (RBAC)</strong>: Configuring RBAC for OpenShift cluster security.</li>
+<li><strong>Controlling Application Permissions with Security Context Constraints (SCC)</strong>: Implementing SCC to control application permissions.</li>
+<li><strong>NFS Storage Class with OpenShift</strong>: Setting up and using NFS as a storage class in OpenShift.</li>
+<li><strong>Cluster Health Check</strong>: Performing health checks on the OpenShift cluster.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="table-of-contents-for-rh288---red-hat-openshift-development-i-containers--kubernetes" data-heading="Table of Contents for RH288 - Red Hat OpenShift Development I: Containers &amp; Kubernetes" data-level="2" data-permalink="/docs/openshift/" data-title="OpenShift Administration" -->
+<h2 id="table-of-contents-for-rh288---red-hat-openshift-development-i-containers--kubernetes">Table of Contents for RH288 - Red Hat OpenShift Development I: Containers &amp; Kubernetes</h2><ol>
+<li>
+<p><strong>Introduction to Containers and OpenShift</strong></p>
+<ul>
+<li>Overview of Container Technology</li>
+<li>Introduction to OpenShift and Kubernetes</li>
+<li>OpenShift Architecture and Key Components</li>
+</ul>
+</li>
+<li>
+<p><strong>Working with Container Images</strong></p>
+<ul>
+<li>Building and Managing Container Images</li>
+<li>Using Red Hat Universal Base Images (UBI)</li>
+<li>Pushing and Pulling Images from Registries</li>
+<li>OpenShift Image Streams</li>
+</ul>
+</li>
+<li>
+<p><strong>Getting Started with OpenShift</strong></p>
+<ul>
+<li>OpenShift Web Console and CLI Overview</li>
+<li>Creating and Managing Projects</li>
+<li>Role-Based Access Control (RBAC) Basics</li>
+<li>Working with Namespaces and Multi-Tenancy</li>
+</ul>
+</li>
+<li>
+<p><strong>Deploying Applications on OpenShift</strong></p>
+<ul>
+<li>Deploying Applications from Images and Git Repositories</li>
+<li>Configuring Deployments and Rollouts</li>
+<li>Monitoring and Scaling Applications</li>
+<li>Managing Pods and ReplicaSets</li>
+</ul>
+</li>
+<li>
+<p><strong>Exposing Applications to External Traffic</strong></p>
+<ul>
+<li>Creating Routes and Services</li>
+<li>Configuring Ingress and Cluster IP Services</li>
+<li>Understanding Load Balancing Options in OpenShift</li>
+</ul>
+</li>
+<li>
+<p><strong>Persistent Storage in OpenShift</strong></p>
+<ul>
+<li>Overview of Persistent Volumes and Claims</li>
+<li>Configuring Persistent Storage for Applications</li>
+<li>Understanding Storage Classes in OpenShift</li>
+</ul>
+</li>
+<li>
+<p><strong>Environment Configuration for Applications</strong></p>
+<ul>
+<li>Using ConfigMaps and Secrets</li>
+<li>Injecting Environment Variables into Pods</li>
+<li>Configuring Application Settings with OpenShift Resources</li>
+</ul>
+</li>
+<li>
+<p><strong>Source-to-Image (S2I) in OpenShift</strong></p>
+<ul>
+<li>Overview of Source-to-Image (S2I) Builds</li>
+<li>Customizing and Using S2I Builders</li>
+<li>Automating Application Builds with S2I</li>
+</ul>
+</li>
+<li>
+<p><strong>Automated Build and Deployment Pipelines</strong></p>
+<ul>
+<li>Introduction to OpenShift Pipelines and Tekton</li>
+<li>Creating CI/CD Pipelines</li>
+<li>Managing Build Configurations and Triggers</li>
+</ul>
+</li>
+<li>
+<p><strong>Monitoring and Logging in OpenShift</strong></p>
+<ul>
+<li>Understanding OpenShift Monitoring Tools</li>
+<li>Viewing Logs for Applications and Containers</li>
+<li>Configuring Alerts and Metrics for Applications</li>
+</ul>
+</li>
+<li>
+<p><strong>Troubleshooting Applications in OpenShift</strong></p>
+<ul>
+<li>Debugging Pods and Containers</li>
+<li>Investigating Failed Deployments</li>
+<li>Using OpenShift Diagnostic Tools</li>
+</ul>
+</li>
+<li>
+<p><strong>Security and Compliance in OpenShift</strong></p>
+<ul>
+<li>Securing Applications with Role-Based Access Control (RBAC)</li>
+<li>Using Security Context Constraints (SCC)</li>
+<li>Managing OpenShift Security Policies</li>
+</ul>
+</li>
+<li>
+<p><strong>OpenShift Developer Tools and IDE Integrations</strong></p>
+<ul>
+<li>Overview of OpenShift Developer Tools</li>
+<li>Integrating with VS Code, Eclipse, and Other IDEs</li>
+<li>Using the OpenShift Do (odo) CLI for Rapid Development</li>
+</ul>
+</li>
+<li>
+<p><strong>Advanced Application Deployment Strategies</strong></p>
+<ul>
+<li>Blue-Green and Canary Deployments</li>
+<li>A/B Testing and Traffic Splitting</li>
+<li>Implementing Advanced Rollout Strategies in OpenShift</li>
+</ul>
+</li>
+<li>
+<p><strong>Summary and Next Steps</strong></p>
+<ul>
+<li>Review of Key Concepts</li>
+<li>Additional OpenShift and Kubernetes Resources</li>
+<li>Preparing for the EX288 Exam (if applicable)</li>
+</ul>
+</li>
+</ol>
+<hr>
+
+        <div class="section-index">
+    
+    
+    
+    
+    
+    
+    
+    
+    <hr class="panel-line">
+        
+            
+            <div class="entry">
+                <h5>
+                    <a href="/docs/openshift/ocp-onvmware-copy/">Openshift Installation on Vmware</a>
+                </h5>
+                <p>Comprehensive OpenShift guides and documentation.</p>
+            </div>
+        
+            
+            <div class="entry">
+                <h5>
+                    <a href="/docs/openshift/ocp-sno/">Openshift Single node Cluster</a>
+                </h5>
+                <p>Comprehensive OpenShift guides and documentation.</p>
+            </div>
+        
+            
+            <div class="entry">
+                <h5>
+                    <a href="/docs/openshift/ocp-tasks/">Openshift 4 Tasks</a>
+                </h5>
+                <p>Openshift</p>
+            </div>
+        
+            
+            <div class="entry">
+                <h5>
+                    <a href="/docs/openshift/ocp-tekton/">Openshift Tekton Pipeline</a>
+                </h5>
+                <p>Openshift</p>
+            </div>
+        
+    
+</div>
+
+	
+	
+	
+</div>
+
+          </main>
+        </div>
+      </div>
+      
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+    integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+    crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js"
+    integrity="sha512-UR25UO94eTnCVwjbXozyeVd6ZqpaAE9naiEUBK/A+QDbfSTQFhPGj5lOR6d8tsgbBk84Ggb5A3EkjsOgPRPcKA=="
+    crossorigin="anonymous"></script>
+
+
+
+
+
+<script src='/js/tabpane-persist.js'></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="/js/main.min.223ab2fcc7d742c1b94772c0276851c497da4343cd2d21534199ced90681e207.js" integrity="sha256-Ijqy/MfXQsG5R3LAJ2hRxJfaQ0PNLSFTQZnO2QaB4gc=" crossorigin="anonymous"></script>
+
+
+
+<script src='/js/prism.js'></script>
+
+
+
+  </body>
+</html>

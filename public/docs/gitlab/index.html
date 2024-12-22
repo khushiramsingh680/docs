@@ -1,0 +1,927 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="generator" content="Hugo 0.122.0">
+<link rel="alternate" type="application/rss&#43;xml" href="/docs/gitlab/index.xml">
+<meta name="robots" content="index, follow">
+
+<link rel="shortcut icon" href="/favicons/favicon.ico" >
+
+<title>Gitlab Tutorials | Documentation</title>
+<meta name="description" content="Gitlab Admin/CICD">
+<meta property="og:title" content="Gitlab Tutorials" />
+<meta property="og:description" content="Gitlab Admin/CICD" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="/docs/gitlab/" />
+
+<meta itemprop="name" content="Gitlab Tutorials">
+<meta itemprop="description" content="Gitlab Admin/CICD"><meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Gitlab Tutorials"/>
+<meta name="twitter:description" content="Gitlab Admin/CICD"/>
+
+
+
+
+<link rel="preload" href="/scss/main.min.b5bfe2535b6f07595fd9cb7a4018024e52e136c3b43e03a17a1e47a950822d03.css" as="style">
+<link href="/scss/main.min.b5bfe2535b6f07595fd9cb7a4018024e52e136c3b43e03a17a1e47a950822d03.css" rel="stylesheet" integrity="">
+
+<script
+  src="https://code.jquery.com/jquery-3.6.0.min.js"
+  integrity="sha384-vtXRMe3mGCbOeY7l30aIg8H9p3GdeSe4IFlP6G8JMa7o7lXvnz3GFKzPxzJdPfGK"
+  crossorigin="anonymous"></script>
+<script
+  src="https://unpkg.com/lunr@2.3.9/lunr.min.js"
+  integrity="sha384-203J0SNzyqHby3iU6hzvzltrWi/M41wOP5Gu+BiJMz5nwKykbkUx8Kp7iti0Lpli"
+  crossorigin="anonymous"></script>
+<link rel="stylesheet" href="/css/prism.css"/>
+<script type="text/javascript"  src="/js/highlight-search.js"></script>
+<script type="text/javascript"  src="/js/manage-side-panels.js"></script>
+  </head>
+  <body class="td-section highlightable">
+    <header>
+      
+<nav class="js-navbar-scroll navbar navbar-expand navbar-dark flex-column flex-md-row td-navbar">
+        <a class="navbar-brand" href="/">
+		<span class="navbar-logo"><svg version="1.0" xmlns="http://www.w3.org/2000/svg" width="217pt" height="232pt" viewBox="0 0 217 232"><g transform="translate(0.000000,232.000000) scale(0.100000,-0.100000)" fill="#000" stroke="none"><path d="M1017 2250c-397-48-698-367-731-775-9-106-3-113 66-87l55 20 11-71c6-39 10-72 9-73s-58-22-127-47c-104-37-124-48-122-64 7-37 56-150 88-205l34-56 66 25 66 26 65-72c206-226 513-322 808-252 367 88 634 417 635 784 0 43-4 77-10 77-5 0-32-9-60-20s-55-20-59-20c-5 0-12 26-16 59-4 32-20 96-36 142s-30 88-31 92c-2 5 54 29 124 55l128 46-31 55c-17 31-33 58-34 59-2 2-31-6-64-19l-61-22-23 29c-81 104-172 178-292 235-140 68-309 97-458 79zm226-299c90-24 136-46 206-101l52-41 61 20 60 20 26-31c15-17 35-44 44-59l17-28-52-19c-29-11-86-32-128-47l-76-27 24-58c26-66 43-144 43-201 0-22 2-39 5-39 2 0 27 9 55 20s55 20 60 20c17 0 10-63-14-131-127-359-580-484-862-237l-35 31-70-24-71-24-30 35c-37 43-97 164-104 212l-6 34 123 46 124 45-3 64c-2 35-5 66-7 68-2 1-27-5-55-14s-53-15-55-14c-2 2 1 29 7 59 32 179 185 352 361 409 112 36 192 39 3e2 12z"/><path d="M134 321c-77-33-95-169-29-231 19-18 36-23 71-23 40 0 51 4 75 30 50 56 47 153-5 202-26 25-80 35-112 22zm82-62c26-29 26-99 0-128-24-26-47-27-77-2-19 15-24 29-24 64 0 76 58 114 101 66z"/><path d="M1172 320c-27-12-44-52-33-82 4-12 31-32 61-47 30-14 58-34 64-43 26-43-50-76-99-44-15 10-26 12-30 6-10-16 4-29 44-40 62-17 114 13 114 65 0 35-19 53-80 81-54 23-67 46-41 72 15 15 62 16 88 2 23-12 35 3 16 19-20 17-77 23-104 11z"/><path d="M350 195V70h25c23 0 25 4 25 45v45h40c76 0 115 40 103 104-8 42-38 56-120 56h-73V195zm134 69c18-18 18-17 10-38-4-11-19-16-50-16-44 0-44 0-44 35 0 33 2 35 34 35 19 0 42-7 50-16z"/><path d="M6e2 195V70h90c83 0 90 2 90 20 0 16-8 19-62 22-63 3-63 3-66 36-3 31-2 32 36 32 36 0 39 2 34 25-4 21-10 25-38 25-30 0-34 3-34 25 0 24 2 25 65 25 58 0 65 2 65 20 0 19-7 20-90 20h-90V195z"/><path d="M850 195c0-117 1-125 20-125 17 0 19 8 22 83l3 82 55-82c41-62 61-83 78-83 22 0 22 2 22 125 0 117-1 125-20 125-17 0-19-8-22-82l-3-82-54 82c-42 65-59 82-77 82-24 0-24 0-24-125z"/><path d="M1360 195c0-104 2-125 15-125 12 0 15 13 15 60v60h65 65v-60c0-47 3-60 15-60 13 0 15 21 15 125s-2 125-15 125c-12 0-15-13-15-55v-55h-65-65v55c0 42-3 55-15 55-13 0-15-21-15-125z"/><path d="M1620 195c0-104 2-125 15-125s15 21 15 125-2 125-15 125-15-21-15-125z"/><path d="M1730 195c0-77 4-125 10-125s10 27 10 60v60h35c19 0 35 5 35 10 0 6-16 10-35 10-35 0-35 0-35 45v45h60c33 0 60 4 60 10s-30 10-70 10h-70V195z"/><path d="M1930 310c0-5 18-10 40-10h40V185c0-70 4-115 10-115s10 45 10 115v115h40c22 0 40 5 40 10 0 6-37 10-90 10s-90-4-90-10z"/></g></svg></span><span class="font-weight-bold">Documentation</span>
+	</a>
+	<div class="td-navbar-nav-scroll ml-md-auto" id="main_navbar">
+		<ul class="navbar-nav mt-2 mt-lg-0">
+			
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/" ><i class='fa fa-home'></i><span>Home</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/docs/azure/" ><i class='fab fa-azure'></i><span>Azure Cloud Computing</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/docs/azure-devops/" ><i class='fab fa-azure'></i><span>Azure Devops</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link active" href="/docs/gitlab/" ><i class='fab fa-gitlab'></i><span class="active">Gitlab Tutorials</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/docs/openshift/" ><i class='fab fa-openshift'></i><span>OpenShift Administration</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/docs/kvm/" ><i class="fab fa-linux"></i><span>Redhat Ansible</span></a>
+			</li>
+			
+			
+			
+		</ul>
+	</div>
+	<div class="navbar-nav d-none d-lg-block">
+<form class="d-flex align-items-center">
+  <input type="search"
+  class="form-control td-search-input"
+  placeholder="&#xf002; Search this site…"
+  aria-label="Search this site…"
+  autocomplete="off"
+  
+  data-offline-search-index-json-src="/offline-search-index.d4ee35dfb31ed3b96d119091cf664ad4.json"
+  data-offline-search-base-href="/"
+  data-offline-search-max-results="20">
+</form>
+</div>
+</nav>
+
+      <div class="manage-panels">
+    <button type="button" class="button-left" id="left-panel-manager" title="Hide sidebar">""</button>
+    <button type="button" class="button-right" id="right-panel-manager" title="Hide sidebar">""</button>
+</div>
+    </header>
+    <div class="container-fluid td-outer">
+      <div class="td-main autonumbering">
+        <div class="row flex-xl-nowrap">
+          <aside class="col-12 col-md-3 col-xl-2 td-sidebar d-print-none">
+            
+<div id="td-sidebar-menu" class="td-sidebar__inner">
+  <div id="content-mobile">
+  <form class="td-sidebar__search d-flex align-items-center">
+    
+<form class="d-flex align-items-center">
+  <input type="search"
+  class="form-control td-search-input"
+  placeholder="&#xf002; Search this site…"
+  aria-label="Search this site…"
+  autocomplete="off"
+  
+  data-offline-search-index-json-src="/offline-search-index.d4ee35dfb31ed3b96d119091cf664ad4.json"
+  data-offline-search-base-href="/"
+  data-offline-search-max-results="20">
+</form>
+
+    <button class="btn btn-link td-sidebar__toggle d-md-none p-0 ml-3 fas fa-bars" type="button" data-toggle="collapse" data-target="#td-section-nav" aria-controls="td-docs-nav" aria-expanded="false" aria-label="Toggle section navigation">
+    </button>
+  </form>
+  </div>
+  <div id="content-desktop"></div>
+  <nav class="collapse td-sidebar-nav foldable-nav" id="td-section-nav">
+    <ul class="td-sidebar-nav__section pr-md-3 ul-0">
+      <li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id="m-docs-li">
+  <a href="/docs/" class="align-left pl-0 td-sidebar-link td-sidebar-link__section tree-root" id="m-docs"><span class="">Docs</span></a>
+  <ul class="ul-1">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-docsazure-li">
+  <input type="checkbox" id="m-docsazure-check"/>
+  <label for="m-docsazure-check"><a href="/docs/azure/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-docsazure"><i class="fab fa-azure"></i><span class="">Azure Cloud Computing</span></a></label>
+  
+  <ul class="ul-2 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazurelinux-basics-li">
+  <input type="checkbox" id="m-docsazurelinux-basics-check"/>
+  <label for="m-docsazurelinux-basics-check"><a href="/docs/azure/linux-basics/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazurelinux-basics"><i class="fab fa-azure"></i><span class="">Linux Basics</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazureazure-vm-li">
+  <input type="checkbox" id="m-docsazureazure-vm-check"/>
+  <label for="m-docsazureazure-vm-check"><a href="/docs/azure/azure-vm/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazureazure-vm"><i class="fab fa-azure"></i><span class="">Azure Cloud Virtual Machine (01)</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazureazuredevops-li">
+  <input type="checkbox" id="m-docsazureazuredevops-check"/>
+  <label for="m-docsazureazuredevops-check"><a href="/docs/azure/azuredevops/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazureazuredevops"><i class="fab fa-azure"></i><span class="">Azure Devops</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazureazure-network-li">
+  <input type="checkbox" id="m-docsazureazure-network-check"/>
+  <label for="m-docsazureazure-network-check"><a href="/docs/azure/azure-network/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazureazure-network"><i class="fab fa-azure"></i><span class="">Azure Cloud Networking</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazureazure-storage-li">
+  <input type="checkbox" id="m-docsazureazure-storage-check"/>
+  <label for="m-docsazureazure-storage-check"><a href="/docs/azure/azure-storage/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazureazure-storage"><i class="fab fa-azure"></i><span class="">Azure Cloud Storage</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazureazure-cli-li">
+  <input type="checkbox" id="m-docsazureazure-cli-check"/>
+  <label for="m-docsazureazure-cli-check"><a href="/docs/azure/azure-cli/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazureazure-cli"><i class="fab fa-azure"></i><span class="">Azure Cli</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazureazure-vmss-li">
+  <input type="checkbox" id="m-docsazureazure-vmss-check"/>
+  <label for="m-docsazureazure-vmss-check"><a href="/docs/azure/azure-vmss/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazureazure-vmss"><i class="fab fa-azure"></i><span class="">Azure Cloud Virtual Machine Scale Set</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazureazure-lb-li">
+  <input type="checkbox" id="m-docsazureazure-lb-check"/>
+  <label for="m-docsazureazure-lb-check"><a href="/docs/azure/azure-lb/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazureazure-lb"><i class="fab fa-azure"></i><span class="">Azure Cloud LoadBalancers</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazureazure-monitor-li">
+  <input type="checkbox" id="m-docsazureazure-monitor-check"/>
+  <label for="m-docsazureazure-monitor-check"><a href="/docs/azure/azure-monitor/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazureazure-monitor"><i class="fab fa-azure"></i><span class="">Azure Monitoring</span></a></label>
+  
+</li>
+  </ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-docsazure-devops-li">
+  <input type="checkbox" id="m-docsazure-devops-check"/>
+  <label for="m-docsazure-devops-check"><a href="/docs/azure-devops/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-docsazure-devops"><i class="fab fa-azure"></i><span class="">Azure Devops</span></a></label>
+  
+  <ul class="ul-2 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazure-devopsazure-board-li">
+  <input type="checkbox" id="m-docsazure-devopsazure-board-check"/>
+  <label for="m-docsazure-devopsazure-board-check"><a href="/docs/azure-devops/azure-board/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazure-devopsazure-board"><i class="fab fa-azure"></i><span class="">Azure Board</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazure-devopsazuredevops-01-li">
+  <input type="checkbox" id="m-docsazure-devopsazuredevops-01-check"/>
+  <label for="m-docsazure-devopsazuredevops-01-check"><a href="/docs/azure-devops/azuredevops-01/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazure-devopsazuredevops-01"><i class="fab fa-azure"></i><span class="">Part 1</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazure-devopsazuredevops-li">
+  <input type="checkbox" id="m-docsazure-devopsazuredevops-check"/>
+  <label for="m-docsazure-devopsazuredevops-check"><a href="/docs/azure-devops/azuredevops/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazure-devopsazuredevops"><i class="fab fa-azure"></i><span class="">Azure Devops</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazure-devopsazuredevops-02-li">
+  <input type="checkbox" id="m-docsazure-devopsazuredevops-02-check"/>
+  <label for="m-docsazure-devopsazuredevops-02-check"><a href="/docs/azure-devops/azuredevops-02/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazure-devopsazuredevops-02"><i class="fab fa-azure"></i><span class="">Part 2</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazure-devopsazuredevops-03-li">
+  <input type="checkbox" id="m-docsazure-devopsazuredevops-03-check"/>
+  <label for="m-docsazure-devopsazuredevops-03-check"><a href="/docs/azure-devops/azuredevops-03/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazure-devopsazuredevops-03"><i class="fab fa-azure"></i><span class="">Part 3</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazure-devopsazuredevops-04-li">
+  <input type="checkbox" id="m-docsazure-devopsazuredevops-04-check"/>
+  <label for="m-docsazure-devopsazuredevops-04-check"><a href="/docs/azure-devops/azuredevops-04/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazure-devopsazuredevops-04"><i class="fab fa-azure"></i><span class="">part 4</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazure-devopsazuredevops-05-li">
+  <input type="checkbox" id="m-docsazure-devopsazuredevops-05-check"/>
+  <label for="m-docsazure-devopsazuredevops-05-check"><a href="/docs/azure-devops/azuredevops-05/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazure-devopsazuredevops-05"><i class="fab fa-azure"></i><span class="">Part 5</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazure-devopsazuredevops-06-li">
+  <input type="checkbox" id="m-docsazure-devopsazuredevops-06-check"/>
+  <label for="m-docsazure-devopsazuredevops-06-check"><a href="/docs/azure-devops/azuredevops-06/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazure-devopsazuredevops-06"><i class="fab fa-azure"></i><span class="">Part 6</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazure-devopsaks-li">
+  <input type="checkbox" id="m-docsazure-devopsaks-check"/>
+  <label for="m-docsazure-devopsaks-check"><a href="/docs/azure-devops/aks/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazure-devopsaks"><i class="fab fa-azure"></i><span class="">AKS</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazure-devopstest-li">
+  <input type="checkbox" id="m-docsazure-devopstest-check"/>
+  <label for="m-docsazure-devopstest-check"><a href="/docs/azure-devops/test/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazure-devopstest"><i class="fab fa-azure"></i><span class="">Azure Devops Test Plans</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazure-devopsdocker-li">
+  <input type="checkbox" id="m-docsazure-devopsdocker-check"/>
+  <label for="m-docsazure-devopsdocker-check"><a href="/docs/azure-devops/docker/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazure-devopsdocker"><i class="fab fa-azure"></i><span class="">Docker</span></a></label>
+  
+</li>
+  </ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-docsgitlab-li">
+  <input type="checkbox" id="m-docsgitlab-check"/>
+  <label for="m-docsgitlab-check"><a href="/docs/gitlab/" class="align-left pl-0  active td-sidebar-link td-sidebar-link__section" id="m-docsgitlab"><i class="fab fa-gitlab"></i><span class="td-sidebar-nav-active-item">Gitlab Tutorials</span></a></label>
+  
+  <ul class="ul-2 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsgitlabgitlab01-li">
+  <input type="checkbox" id="m-docsgitlabgitlab01-check"/>
+  <label for="m-docsgitlabgitlab01-check"><a href="/docs/gitlab/gitlab01/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsgitlabgitlab01"><i class="fab fa-gitlab"></i><span class="">GitLab Installation</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsgitlabgitlab-with-ldap-li">
+  <input type="checkbox" id="m-docsgitlabgitlab-with-ldap-check"/>
+  <label for="m-docsgitlabgitlab-with-ldap-check"><a href="/docs/gitlab/gitlab-with-ldap/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsgitlabgitlab-with-ldap"><i class="fas fa-server"></i><span class="">Gitlab Authentication with LDAP</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsgitlabgitlab-container-registry-li">
+  <input type="checkbox" id="m-docsgitlabgitlab-container-registry-check"/>
+  <label for="m-docsgitlabgitlab-container-registry-check"><a href="/docs/gitlab/gitlab-container-registry/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsgitlabgitlab-container-registry"><i class="fab fa-docker"></i><span class="">GitLab Container Registry</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsgitlabgitlab-logs-troubleshooting-li">
+  <input type="checkbox" id="m-docsgitlabgitlab-logs-troubleshooting-check"/>
+  <label for="m-docsgitlabgitlab-logs-troubleshooting-check"><a href="/docs/gitlab/gitlab-logs-troubleshooting/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsgitlabgitlab-logs-troubleshooting"><i class="fas fa-file-alt"></i><span class="">Logs and Troubleshooting</span></a></label>
+  
+</li>
+  </ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-docsopenshift-li">
+  <input type="checkbox" id="m-docsopenshift-check"/>
+  <label for="m-docsopenshift-check"><a href="/docs/openshift/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-docsopenshift"><i class="fab fa-openshift"></i><span class="">OpenShift Administration</span></a></label>
+  
+  <ul class="ul-2 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsopenshiftocp-onvmware-copy-li">
+  <input type="checkbox" id="m-docsopenshiftocp-onvmware-copy-check"/>
+  <label for="m-docsopenshiftocp-onvmware-copy-check"><a href="/docs/openshift/ocp-onvmware-copy/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsopenshiftocp-onvmware-copy"><i class="fab fa-openshift"></i><span class="">Openshift Installation on Vmware</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsopenshiftocp-sno-li">
+  <input type="checkbox" id="m-docsopenshiftocp-sno-check"/>
+  <label for="m-docsopenshiftocp-sno-check"><a href="/docs/openshift/ocp-sno/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsopenshiftocp-sno"><i class="fab fa-openshift"></i><span class="">Openshift Single node Cluster</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsopenshiftocp-tasks-li">
+  <input type="checkbox" id="m-docsopenshiftocp-tasks-check"/>
+  <label for="m-docsopenshiftocp-tasks-check"><a href="/docs/openshift/ocp-tasks/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsopenshiftocp-tasks"><span class="">Openshift 4 Tasks</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsopenshiftocp-tekton-li">
+  <input type="checkbox" id="m-docsopenshiftocp-tekton-check"/>
+  <label for="m-docsopenshiftocp-tekton-check"><a href="/docs/openshift/ocp-tekton/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsopenshiftocp-tekton"><span class="">Openshift Tekton Pipeline</span></a></label>
+  
+</li>
+  </ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-docskvm-li">
+  <input type="checkbox" id="m-docskvm-check"/>
+  <label for="m-docskvm-check"><a href="/docs/kvm/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-docskvm"><i class="fab fa-linux"></i><span class="">Redhat Ansible</span></a></label>
+  
+  <ul class="ul-2 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docskvmkvm-li">
+  <input type="checkbox" id="m-docskvmkvm-check"/>
+  <label for="m-docskvmkvm-check"><a href="/docs/kvm/kvm/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docskvmkvm"><i class="fab fa-kvm"></i><span class="">KVM</span></a></label>
+  
+</li>
+  </ul>
+</li>
+  </ul>
+</li>
+    </ul>
+  </nav>
+</div>
+
+          </aside>
+          <aside class="d-none d-xl-block col-xl-2 td-sidebar-toc d-print-none">
+            
+
+    <div class="td-page-meta ml-2 pb-1 pt-2 mb-0">
+        <div class="toc-title">Actions</div>
+        <a href="/edit/master/content/docs/Gitlab/_index.md" target="_blank" rel="noopener"><i class="fa fa-edit fa-fw"></i> Contribute to this page</a>
+        <a href="/issues/new?issue%5Btitle=%f0%9f%93%83%20docs:%20update%20page%20docs/Gitlab/_index.md" target="_blank" rel="noopener"><i class="fab fa-gitlab fa-fw"></i> Create a documentation issue</a>
+       
+    </div>
+
+            
+<div class="td-page-meta ml-2 pb-1 pt-2 mb-0 right-menu-toc">
+
+    
+        
+            <div class="toc-title">Table of content</div>
+            <div class="td-toc"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#gitlab-overview">GitLab Overview</a></li>
+    <li><a href="#gitlab-architecture">GitLab Architecture</a></li>
+    <li><a href="#linux-vm-setup">Linux VM setup</a></li>
+    <li><a href="#gitlab-installation">GitLab Installation</a></li>
+    <li><a href="#securing-gitlab-external-url">Securing GitLab External URL</a></li>
+    <li><a href="#gitlab-authentication-and-authorization">GitLab Authentication and Authorization</a></li>
+    <li><a href="#gitlab-authentication-with-ldapazure-ad">GitLab Authentication with LDAP/Azure AD</a></li>
+    <li><a href="#gitlab-log-management">GitLab Log Management</a></li>
+    <li><a href="#gitlab-container-registry-management">GitLab Container Registry Management</a></li>
+    <li><a href="#frequently-used-gitlab-rails-commands">Frequently Used GitLab Rails Commands</a></li>
+    <li><a href="#frequently-used-gitlab-rake-commands">Frequently Used GitLab Rake Commands</a></li>
+    <li><a href="#performing-gitlab-administration-with-web-interface">Performing GitLab Administration with Web Interface</a></li>
+    <li><a href="#gitlab-troubleshooting">GitLab Troubleshooting</a></li>
+    <li><a href="#gitlab-ssl-related-issues-and-fixes">GitLab SSL-Related Issues and Fixes</a></li>
+    <li><a href="#gitlab-geo-replication">GitLab Geo Replication</a></li>
+    <li><a href="#security-and-compliance">Security and Compliance</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#gitlab-fundamentals">GitLab Fundamentals</a></li>
+    <li><a href="#introduction-to-cicd">Introduction to CI/CD</a></li>
+    <li><a href="#getting-started-with-gitlab-cicd">Getting Started with GitLab CI/CD</a></li>
+    <li><a href="#understanding-the-gitlab-ciyml-file">Understanding the .gitlab-ci.yml File</a></li>
+    <li><a href="#configuring-cicd-pipelines">Configuring CI/CD Pipelines</a></li>
+    <li><a href="#pipeline-triggers">Pipeline Triggers</a></li>
+    <li><a href="#managing-cicd-jobs">Managing CI/CD Jobs</a></li>
+    <li><a href="#using-gitlab-cicd-runners">Using GitLab CI/CD Runners</a></li>
+    <li><a href="#monitoring-and-debugging-pipelines">Monitoring and Debugging Pipelines</a></li>
+    <li><a href="#advanced-cicd-features">Advanced CI/CD Features</a></li>
+    <li><a href="#security-and-compliance-in-cicd">Security and Compliance in CI/CD</a></li>
+    <li><a href="#common-cicd-use-cases">Common CI/CD Use Cases</a></li>
+    <li><a href="#best-practices-for-gitlab-cicd">Best Practices for GitLab CI/CD</a></li>
+    <li><a href="#troubleshooting-cicd-pipelines">Troubleshooting CI/CD Pipelines</a></li>
+    <li><a href="#continuous-integration-and-continuous-deployment-cicd">Continuous Integration and Continuous Deployment (CI/CD)</a></li>
+    <li><a href="#gitlab-devops-tools">GitLab DevOps Tools</a></li>
+    <li><a href="#integrations-and-advanced-features">Integrations and Advanced Features</a></li>
+    <li><a href="#collaboration-and-project-management">Collaboration and Project Management</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#introduction">Introduction</a></li>
+    <li><a href="#gitlab-account-and-project-setup">GitLab Account and Project Setup</a></li>
+    <li><a href="#hands-on-sessions">Hands-On Sessions</a>
+      <ul>
+        <li><a href="#1-gitlab-ci-pipelines---beginners-level">1. GitLab CI Pipelines - Beginners Level</a></li>
+        <li><a href="#2-digital-ocean-account-and-runner-setup">2. Digital Ocean Account and Runner Setup</a></li>
+        <li><a href="#3-gitlab-ci-pipelines---advanced-level">3. GitLab CI Pipelines - Advanced Level</a></li>
+      </ul>
+    </li>
+    <li><a href="#hands-on-tasks-covered">Hands-On Tasks Covered</a>
+      <ul>
+        <li><a href="#gitlab-setup">GitLab Setup</a></li>
+        <li><a href="#gitlab-hands-on-beginners">GitLab Hands-On Beginners</a></li>
+        <li><a href="#gitlab-hands-on-advanced">GitLab Hands-On Advanced</a></li>
+      </ul>
+    </li>
+    <li><a href="#gitlab-cicd-project">GitLab CI/CD Project</a></li>
+  </ul>
+</nav></div>
+        
+    
+
+</div>
+          </aside>
+          <main class="col-12 col-md-9 col-xl-8 pl-md-5" role="main">
+            
+  
+
+            <nav aria-label="breadcrumb" class="td-breadcrumbs">
+  <ol class="breadcrumb">
+  <li class="breadcrumb-item">
+    <a href="/docs/">Docs</a>
+  </li>
+  <li class="breadcrumb-item active" aria-current="page">
+    <a href="/docs/gitlab/">Gitlab Tutorials</a>
+  </li>
+  </ol>
+</nav>
+            
+<div class="td-content">
+	<h1>Gitlab Tutorials</h1>
+  <div class="lead">Gitlab Admin/CICD</div>
+	<header class="article-meta">
+		
+
+  
+    
+
+
+  
+    
+
+
+  
+
+		
+	</header>
+	<!-- end-chunk -->
+<!-- begin-chunk data-anchor="gitlab-administration-topics" data-heading="GitLab Administration Topics" data-level="1" data-permalink="/docs/gitlab/" data-title="Gitlab Tutorials" -->
+<h1 id="gitlab-administration-topics">GitLab Administration Topics</h1><!-- end-chunk -->
+<!-- begin-chunk data-anchor="gitlab-overview" data-heading="GitLab Overview" data-level="2" data-permalink="/docs/gitlab/" data-title="Gitlab Tutorials" -->
+<h2 id="gitlab-overview">GitLab Overview</h2><!-- end-chunk -->
+<!-- begin-chunk data-anchor="gitlab-architecture" data-heading="GitLab Architecture" data-level="2" data-permalink="/docs/gitlab/" data-title="Gitlab Tutorials" -->
+<h2 id="gitlab-architecture">GitLab Architecture</h2><ul>
+<li>Know about Gitlab Components</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="linux-vm-setup" data-heading="Linux VM setup" data-level="2" data-permalink="/docs/gitlab/" data-title="Gitlab Tutorials" -->
+<h2 id="linux-vm-setup">Linux VM setup</h2><ul>
+<li>Setting up a virtual machine.</li>
+<li>Installing and configuring Rocky Linux 9 as the operating system.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="gitlab-installation" data-heading="GitLab Installation" data-level="2" data-permalink="/docs/gitlab/" data-title="Gitlab Tutorials" -->
+<h2 id="gitlab-installation">GitLab Installation</h2><ul>
+<li>Steps to install a self-managed GitLab instance.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="securing-gitlab-external-url" data-heading="Securing GitLab External URL" data-level="2" data-permalink="/docs/gitlab/" data-title="Gitlab Tutorials" -->
+<h2 id="securing-gitlab-external-url">Securing GitLab External URL</h2><ul>
+<li>Configuring SSL certificates for secure external access.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="gitlab-authentication-and-authorization" data-heading="GitLab Authentication and Authorization" data-level="2" data-permalink="/docs/gitlab/" data-title="Gitlab Tutorials" -->
+<h2 id="gitlab-authentication-and-authorization">GitLab Authentication and Authorization</h2><ul>
+<li>Managing users ,Groups and roles within GitLab.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="gitlab-authentication-with-ldapazure-ad" data-heading="GitLab Authentication with LDAP/Azure AD" data-level="2" data-permalink="/docs/gitlab/" data-title="Gitlab Tutorials" -->
+<h2 id="gitlab-authentication-with-ldapazure-ad">GitLab Authentication with LDAP/Azure AD</h2><ul>
+<li>Integrating GitLab with LDAP or Azure Active Directory.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="gitlab-log-management" data-heading="GitLab Log Management" data-level="2" data-permalink="/docs/gitlab/" data-title="Gitlab Tutorials" -->
+<h2 id="gitlab-log-management">GitLab Log Management</h2><ul>
+<li>Best practices for managing and analyzing logs.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="gitlab-container-registry-management" data-heading="GitLab Container Registry Management" data-level="2" data-permalink="/docs/gitlab/" data-title="Gitlab Tutorials" -->
+<h2 id="gitlab-container-registry-management">GitLab Container Registry Management</h2><ul>
+<li>Using VM storage for the GitLab container registry.</li>
+<li>Configuring MinIO for registry storage.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="frequently-used-gitlab-rails-commands" data-heading="Frequently Used GitLab Rails Commands" data-level="2" data-permalink="/docs/gitlab/" data-title="Gitlab Tutorials" -->
+<h2 id="frequently-used-gitlab-rails-commands">Frequently Used GitLab Rails Commands</h2><ul>
+<li>Common Rails commands for administration tasks.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="frequently-used-gitlab-rake-commands" data-heading="Frequently Used GitLab Rake Commands" data-level="2" data-permalink="/docs/gitlab/" data-title="Gitlab Tutorials" -->
+<h2 id="frequently-used-gitlab-rake-commands">Frequently Used GitLab Rake Commands</h2><ul>
+<li>Important Rake commands for management and troubleshooting.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="performing-gitlab-administration-with-web-interface" data-heading="Performing GitLab Administration with Web Interface" data-level="2" data-permalink="/docs/gitlab/" data-title="Gitlab Tutorials" -->
+<h2 id="performing-gitlab-administration-with-web-interface">Performing GitLab Administration with Web Interface</h2><ul>
+<li>Managing GitLab through the web interface.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="gitlab-troubleshooting" data-heading="GitLab Troubleshooting" data-level="2" data-permalink="/docs/gitlab/" data-title="Gitlab Tutorials" -->
+<h2 id="gitlab-troubleshooting">GitLab Troubleshooting</h2><ul>
+<li>Strategies and tools for diagnosing and resolving issues.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="gitlab-ssl-related-issues-and-fixes" data-heading="GitLab SSL-Related Issues and Fixes" data-level="2" data-permalink="/docs/gitlab/" data-title="Gitlab Tutorials" -->
+<h2 id="gitlab-ssl-related-issues-and-fixes">GitLab SSL-Related Issues and Fixes</h2><ul>
+<li>Troubleshooting SSL problems and implementing solutions.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="gitlab-geo-replication" data-heading="GitLab Geo Replication" data-level="2" data-permalink="/docs/gitlab/" data-title="Gitlab Tutorials" -->
+<h2 id="gitlab-geo-replication">GitLab Geo Replication</h2><ul>
+<li>Configuring and managing GitLab Geo for multi-site replication.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="security-and-compliance" data-heading="Security and Compliance" data-level="2" data-permalink="/docs/gitlab/" data-title="Gitlab Tutorials" -->
+<h2 id="security-and-compliance">Security and Compliance</h2><ul>
+<li>Overview of GitLab’s security features, including two-factor authentication, protected branches, and role-based access controls.</li>
+</ul>
+<hr>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="gitlab-cicd-documentation" data-heading="GitLab CI/CD Documentation" data-level="1" data-permalink="/docs/gitlab/" data-title="Gitlab Tutorials" -->
+<h1 id="gitlab-cicd-documentation">GitLab CI/CD Documentation</h1><!-- end-chunk -->
+<!-- begin-chunk data-anchor="gitlab-fundamentals" data-heading="GitLab Fundamentals" data-level="2" data-permalink="/docs/gitlab/" data-title="Gitlab Tutorials" -->
+<h2 id="gitlab-fundamentals">GitLab Fundamentals</h2><ul>
+<li>
+<p>Repository Management</p>
+<ul>
+<li>Create, manage, and organize repositories for efficient collaboration.</li>
+</ul>
+</li>
+<li>
+<p>Branching and Merging Strategies</p>
+<ul>
+<li>Explore branching strategies (e.g., GitFlow) and best practices for merging.</li>
+</ul>
+</li>
+<li>
+<p>Code Review Process</p>
+<ul>
+<li>Utilize Merge Requests (MRs) for effective code reviews and approval workflows.</li>
+</ul>
+</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="introduction-to-cicd" data-heading="Introduction to CI/CD" data-level="2" data-permalink="/docs/gitlab/" data-title="Gitlab Tutorials" -->
+<h2 id="introduction-to-cicd">Introduction to CI/CD</h2><ul>
+<li>What is Continuous Integration?</li>
+<li>What is Continuous Deployment?</li>
+<li>Benefits of CI/CD in DevOps.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="getting-started-with-gitlab-cicd" data-heading="Getting Started with GitLab CI/CD" data-level="2" data-permalink="/docs/gitlab/" data-title="Gitlab Tutorials" -->
+<h2 id="getting-started-with-gitlab-cicd">Getting Started with GitLab CI/CD</h2><ul>
+<li>Prerequisites for Setting Up CI/CD.</li>
+<li>Creating a New GitLab Project.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="understanding-the-gitlab-ciyml-file" data-heading="Understanding the .gitlab-ci.yml File" data-level="2" data-permalink="/docs/gitlab/" data-title="Gitlab Tutorials" -->
+<h2 id="understanding-the-gitlab-ciyml-file">Understanding the .gitlab-ci.yml File</h2><ul>
+<li>Structure of the .gitlab-ci.yml File.</li>
+<li>Defining Stages and Jobs.</li>
+<li>Variables and Secrets Management.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="configuring-cicd-pipelines" data-heading="Configuring CI/CD Pipelines" data-level="2" data-permalink="/docs/gitlab/" data-title="Gitlab Tutorials" -->
+<h2 id="configuring-cicd-pipelines">Configuring CI/CD Pipelines</h2><ul>
+<li>Creating Your First Pipeline.</li>
+<li>Configuring Jobs for Building, Testing, and Deploying.</li>
+<li>Using Docker in CI/CD Pipelines.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="pipeline-triggers" data-heading="Pipeline Triggers" data-level="2" data-permalink="/docs/gitlab/" data-title="Gitlab Tutorials" -->
+<h2 id="pipeline-triggers">Pipeline Triggers</h2><ul>
+<li>Manual vs. Automatic Triggers.</li>
+<li>Scheduled Pipelines.</li>
+<li>Triggering Pipelines via Webhooks.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="managing-cicd-jobs" data-heading="Managing CI/CD Jobs" data-level="2" data-permalink="/docs/gitlab/" data-title="Gitlab Tutorials" -->
+<h2 id="managing-cicd-jobs">Managing CI/CD Jobs</h2><ul>
+<li>Using Job Artifacts and Caches.</li>
+<li>Parallel and Sequential Job Execution.</li>
+<li>Retries and Job Failures.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="using-gitlab-cicd-runners" data-heading="Using GitLab CI/CD Runners" data-level="2" data-permalink="/docs/gitlab/" data-title="Gitlab Tutorials" -->
+<h2 id="using-gitlab-cicd-runners">Using GitLab CI/CD Runners</h2><ul>
+<li>Overview of GitLab Runners.</li>
+<li>Installing and Registering Runners.</li>
+<li>Configuring Runner Executors (Shell, Docker, Kubernetes, etc.).</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="monitoring-and-debugging-pipelines" data-heading="Monitoring and Debugging Pipelines" data-level="2" data-permalink="/docs/gitlab/" data-title="Gitlab Tutorials" -->
+<h2 id="monitoring-and-debugging-pipelines">Monitoring and Debugging Pipelines</h2><ul>
+<li>Viewing Pipeline Status and Logs.</li>
+<li>Debugging Failed Jobs.</li>
+<li>Using Debugging Tools within Pipelines.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="advanced-cicd-features" data-heading="Advanced CI/CD Features" data-level="2" data-permalink="/docs/gitlab/" data-title="Gitlab Tutorials" -->
+<h2 id="advanced-cicd-features">Advanced CI/CD Features</h2><ul>
+<li>Using Rules and Only/Except Keywords.</li>
+<li>Conditional Job Execution.</li>
+<li>Dynamic Environments.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="security-and-compliance-in-cicd" data-heading="Security and Compliance in CI/CD" data-level="2" data-permalink="/docs/gitlab/" data-title="Gitlab Tutorials" -->
+<h2 id="security-and-compliance-in-cicd">Security and Compliance in CI/CD</h2><ul>
+<li>Integrating Security Scans into Pipelines.</li>
+<li>Compliance Management and Audit Logs.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="common-cicd-use-cases" data-heading="Common CI/CD Use Cases" data-level="2" data-permalink="/docs/gitlab/" data-title="Gitlab Tutorials" -->
+<h2 id="common-cicd-use-cases">Common CI/CD Use Cases</h2><ul>
+<li>Deploying to Cloud Providers (AWS, GCP, Azure).</li>
+<li>Deploying to Kubernetes.</li>
+<li>Integrating with External APIs and Services.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="best-practices-for-gitlab-cicd" data-heading="Best Practices for GitLab CI/CD" data-level="2" data-permalink="/docs/gitlab/" data-title="Gitlab Tutorials" -->
+<h2 id="best-practices-for-gitlab-cicd">Best Practices for GitLab CI/CD</h2><ul>
+<li>Keeping Pipelines Efficient.</li>
+<li>Versioning CI/CD Configurations.</li>
+<li>Collaborating with Team Members.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="troubleshooting-cicd-pipelines" data-heading="Troubleshooting CI/CD Pipelines" data-level="2" data-permalink="/docs/gitlab/" data-title="Gitlab Tutorials" -->
+<h2 id="troubleshooting-cicd-pipelines">Troubleshooting CI/CD Pipelines</h2><ul>
+<li>Common Issues and Solutions.</li>
+<li>Community and Official Support Resources.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="continuous-integration-and-continuous-deployment-cicd" data-heading="Continuous Integration and Continuous Deployment (CI/CD)" data-level="2" data-permalink="/docs/gitlab/" data-title="Gitlab Tutorials" -->
+<h2 id="continuous-integration-and-continuous-deployment-cicd">Continuous Integration and Continuous Deployment (CI/CD)</h2><ul>
+<li>
+<p>GitLab CI/CD Pipeline Configuration</p>
+<ul>
+<li>Configure CI/CD pipelines to automate build, test, and deployment processes.</li>
+</ul>
+</li>
+<li>
+<p>Building, Testing, and Deploying Applications</p>
+<ul>
+<li>Learn best practices for application lifecycle management using CI/CD.</li>
+</ul>
+</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="gitlab-devops-tools" data-heading="GitLab DevOps Tools" data-level="2" data-permalink="/docs/gitlab/" data-title="Gitlab Tutorials" -->
+<h2 id="gitlab-devops-tools">GitLab DevOps Tools</h2><ul>
+<li>
+<p>Package Registry</p>
+<ul>
+<li>Manage and store packages in GitLab’s integrated package registry.</li>
+</ul>
+</li>
+<li>
+<p>Container Registry</p>
+<ul>
+<li>Securely store Docker images and integrate with CI/CD workflows.</li>
+</ul>
+</li>
+<li>
+<p>Terraform State Management</p>
+<ul>
+<li>Manage Terraform state files for better infrastructure as code (IaC) practices.</li>
+</ul>
+</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="integrations-and-advanced-features" data-heading="Integrations and Advanced Features" data-level="2" data-permalink="/docs/gitlab/" data-title="Gitlab Tutorials" -->
+<h2 id="integrations-and-advanced-features">Integrations and Advanced Features</h2><ul>
+<li>
+<p>AWS Integration</p>
+<ul>
+<li>Seamlessly integrate GitLab with AWS for deployment and infrastructure management.</li>
+</ul>
+</li>
+<li>
+<p>Docker and DockerHub</p>
+<ul>
+<li>Integrate with Docker and DockerHub for containerized application workflows.</li>
+</ul>
+</li>
+<li>
+<p>Kubernetes and EKS</p>
+<ul>
+<li>Manage Kubernetes clusters (e.g., EKS) for automated application deployment.</li>
+</ul>
+</li>
+<li>
+<p>Terraform Integration</p>
+<ul>
+<li>Automate infrastructure provisioning using Terraform scripts in GitLab pipelines.</li>
+</ul>
+</li>
+<li>
+<p>Ansible</p>
+<ul>
+<li>Integrate Ansible for automated configuration management.</li>
+</ul>
+</li>
+<li>
+<p>SonarQube for Code Quality Analysis</p>
+<ul>
+<li>Ensure code quality with static analysis through SonarQube integration.</li>
+</ul>
+</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="collaboration-and-project-management" data-heading="Collaboration and Project Management" data-level="2" data-permalink="/docs/gitlab/" data-title="Gitlab Tutorials" -->
+<h2 id="collaboration-and-project-management">Collaboration and Project Management</h2><ul>
+<li>
+<p>Jira Integration</p>
+<ul>
+<li>Link GitLab with Jira for better issue tracking and project management.</li>
+</ul>
+</li>
+<li>
+<p>Confluence Integration</p>
+<ul>
+<li>Document GitLab projects effectively using Confluence.</li>
+</ul>
+</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="gitlab-cicd-course-layout" data-heading="GitLab CI/CD Course Layout" data-level="1" data-permalink="/docs/gitlab/" data-title="Gitlab Tutorials" -->
+<h1 id="gitlab-cicd-course-layout">GitLab CI/CD Course Layout</h1><!-- end-chunk -->
+<!-- begin-chunk data-anchor="introduction" data-heading="Introduction" data-level="2" data-permalink="/docs/gitlab/" data-title="Gitlab Tutorials" -->
+<h2 id="introduction">Introduction</h2><ul>
+<li>Overview of GitLab CI/CD</li>
+<li>Importance of Continuous Integration and Continuous Deployment</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="gitlab-account-and-project-setup" data-heading="GitLab Account and Project Setup" data-level="2" data-permalink="/docs/gitlab/" data-title="Gitlab Tutorials" -->
+<h2 id="gitlab-account-and-project-setup">GitLab Account and Project Setup</h2><ul>
+<li>Creating a GitLab account</li>
+<li>Setting up a GitLab project</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="hands-on-sessions" data-heading="Hands-On Sessions" data-level="2" data-permalink="/docs/gitlab/" data-title="Gitlab Tutorials" -->
+<h2 id="hands-on-sessions">Hands-On Sessions</h2><!-- end-chunk -->
+<!-- begin-chunk data-anchor="1-gitlab-ci-pipelines---beginners-level" data-heading="1. GitLab CI Pipelines - Beginners Level" data-level="3" data-permalink="/docs/gitlab/" data-title="Gitlab Tutorials" -->
+<h3 id="1-gitlab-ci-pipelines---beginners-level">1. GitLab CI Pipelines - Beginners Level</h3><ul>
+<li><strong>Duration:</strong> 25 Hands-On Exercises</li>
+<li><strong>Objectives:</strong> Understand basic GitLab CI concepts and pipeline creation.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="2-digital-ocean-account-and-runner-setup" data-heading="2. Digital Ocean Account and Runner Setup" data-level="3" data-permalink="/docs/gitlab/" data-title="Gitlab Tutorials" -->
+<h3 id="2-digital-ocean-account-and-runner-setup">2. Digital Ocean Account and Runner Setup</h3><ul>
+<li>Creating a Digital Ocean account</li>
+<li>Setting up a VM for the GitLab Runner</li>
+<li>Installing and configuring the GitLab Runner</li>
+<li>Registering the GitLab Runner with the GitLab project</li>
+<li>Docker setup on the Runner</li>
+<li>Configuring sudo access on the Runner</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="3-gitlab-ci-pipelines---advanced-level" data-heading="3. GitLab CI Pipelines - Advanced Level" data-level="3" data-permalink="/docs/gitlab/" data-title="Gitlab Tutorials" -->
+<h3 id="3-gitlab-ci-pipelines---advanced-level">3. GitLab CI Pipelines - Advanced Level</h3><ul>
+<li><strong>Objectives:</strong> Learn advanced features of GitLab CI/CD.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="hands-on-tasks-covered" data-heading="Hands-On Tasks Covered" data-level="2" data-permalink="/docs/gitlab/" data-title="Gitlab Tutorials" -->
+<h2 id="hands-on-tasks-covered">Hands-On Tasks Covered</h2><!-- end-chunk -->
+<!-- begin-chunk data-anchor="gitlab-setup" data-heading="GitLab Setup" data-level="3" data-permalink="/docs/gitlab/" data-title="Gitlab Tutorials" -->
+<h3 id="gitlab-setup">GitLab Setup</h3><ul>
+<li><strong>Digital Ocean Account Setup</strong></li>
+<li><strong>VM for Runner Setup</strong></li>
+<li><strong>GitLab Account Setup</strong></li>
+<li><strong>GitLab Runner Setup</strong></li>
+<li><strong>GitLab Runner Registration</strong></li>
+<li><strong>Docker Setup on Runner</strong></li>
+<li><strong>Sudo Setup on Runner</strong></li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="gitlab-hands-on-beginners" data-heading="GitLab Hands-On Beginners" data-level="3" data-permalink="/docs/gitlab/" data-title="Gitlab Tutorials" -->
+<h3 id="gitlab-hands-on-beginners">GitLab Hands-On Beginners</h3><ul>
+<li>GitLab Stages</li>
+<li>GitLab Jobs</li>
+<li>GitLab Scripts</li>
+<li>GitLab Only</li>
+<li>GitLab Tags</li>
+<li>GitLab Variables</li>
+<li>GitLab Predefined Variables</li>
+<li>GitLab Before Script</li>
+<li>GitLab After Script</li>
+<li>GitLab Allow Failures</li>
+<li>GitLab Needs</li>
+<li>GitLab Rules</li>
+<li>GitLab Timeout</li>
+<li>GitLab Parallel Execution</li>
+<li>Runner Concurrent Limits</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="gitlab-hands-on-advanced" data-heading="GitLab Hands-On Advanced" data-level="3" data-permalink="/docs/gitlab/" data-title="Gitlab Tutorials" -->
+<h3 id="gitlab-hands-on-advanced">GitLab Hands-On Advanced</h3><ul>
+<li>GitLab Triggers</li>
+<li>GitLab Includes</li>
+<li>GitLab Inherit</li>
+<li>GitLab Cache</li>
+<li>GitLab Pages</li>
+<li>GitLab Access Tokens</li>
+<li>GitLab Environments</li>
+<li>GitLab Templates</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="gitlab-cicd-project" data-heading="GitLab CI/CD Project" data-level="2" data-permalink="/docs/gitlab/" data-title="Gitlab Tutorials" -->
+<h2 id="gitlab-cicd-project">GitLab CI/CD Project</h2><ul>
+<li>Dockerfile setup</li>
+<li>GitLab Container Registry setup</li>
+<li>GitLab Environment setup</li>
+<li>Building and deploying to production environments</li>
+</ul>
+
+        <div class="section-index">
+    
+    
+    
+    
+    
+    
+    
+    
+    <hr class="panel-line">
+        
+            
+            <div class="entry">
+                <h5>
+                    <a href="/docs/gitlab/gitlab01/">GitLab Installation</a>
+                </h5>
+                <p>Steps to install a self-managed GitLab instance.</p>
+            </div>
+        
+            
+            <div class="entry">
+                <h5>
+                    <a href="/docs/gitlab/gitlab-with-ldap/">Gitlab Authentication with LDAP</a>
+                </h5>
+                <p>Install self-managed GitLab</p>
+            </div>
+        
+            
+            <div class="entry">
+                <h5>
+                    <a href="/docs/gitlab/gitlab-container-registry/">GitLab Container Registry</a>
+                </h5>
+                <p>Managing Docker images in GitLab&rsquo;s Container Registry.</p>
+            </div>
+        
+            
+            <div class="entry">
+                <h5>
+                    <a href="/docs/gitlab/gitlab-logs-troubleshooting/">Logs and Troubleshooting</a>
+                </h5>
+                <p>Managing logs and troubleshooting issues in GitLab.</p>
+            </div>
+        
+    
+</div>
+
+	
+	
+	
+</div>
+
+          </main>
+        </div>
+      </div>
+      
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+    integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+    crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js"
+    integrity="sha512-UR25UO94eTnCVwjbXozyeVd6ZqpaAE9naiEUBK/A+QDbfSTQFhPGj5lOR6d8tsgbBk84Ggb5A3EkjsOgPRPcKA=="
+    crossorigin="anonymous"></script>
+
+
+
+
+
+<script src='/js/tabpane-persist.js'></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="/js/main.min.223ab2fcc7d742c1b94772c0276851c497da4343cd2d21534199ced90681e207.js" integrity="sha256-Ijqy/MfXQsG5R3LAJ2hRxJfaQ0PNLSFTQZnO2QaB4gc=" crossorigin="anonymous"></script>
+
+
+
+<script src='/js/prism.js'></script>
+
+
+
+  </body>
+</html>

@@ -1,0 +1,1091 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="generator" content="Hugo 0.122.0">
+<meta name="robots" content="index, follow">
+
+<link rel="shortcut icon" href="/favicons/favicon.ico" >
+
+<title>Part 5 | Documentation</title>
+<meta name="description" content="Azure devops">
+<meta property="og:title" content="Part 5" />
+<meta property="og:description" content="Azure devops" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/docs/azure-devops/azuredevops-05/" /><meta property="article:section" content="docs" />
+
+
+
+<meta itemprop="name" content="Part 5">
+<meta itemprop="description" content="Azure devops">
+
+<meta itemprop="wordCount" content="2229">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Part 5"/>
+<meta name="twitter:description" content="Azure devops"/>
+
+
+
+
+<link rel="preload" href="/scss/main.min.b5bfe2535b6f07595fd9cb7a4018024e52e136c3b43e03a17a1e47a950822d03.css" as="style">
+<link href="/scss/main.min.b5bfe2535b6f07595fd9cb7a4018024e52e136c3b43e03a17a1e47a950822d03.css" rel="stylesheet" integrity="">
+
+<script
+  src="https://code.jquery.com/jquery-3.6.0.min.js"
+  integrity="sha384-vtXRMe3mGCbOeY7l30aIg8H9p3GdeSe4IFlP6G8JMa7o7lXvnz3GFKzPxzJdPfGK"
+  crossorigin="anonymous"></script>
+<script
+  src="https://unpkg.com/lunr@2.3.9/lunr.min.js"
+  integrity="sha384-203J0SNzyqHby3iU6hzvzltrWi/M41wOP5Gu+BiJMz5nwKykbkUx8Kp7iti0Lpli"
+  crossorigin="anonymous"></script>
+<link rel="stylesheet" href="/css/prism.css"/>
+<script type="text/javascript"  src="/js/highlight-search.js"></script>
+<script type="text/javascript"  src="/js/manage-side-panels.js"></script>
+  </head>
+  <body class="td-page highlightable">
+    <header>
+      
+<nav class="js-navbar-scroll navbar navbar-expand navbar-dark flex-column flex-md-row td-navbar">
+        <a class="navbar-brand" href="/">
+		<span class="navbar-logo"><svg version="1.0" xmlns="http://www.w3.org/2000/svg" width="217pt" height="232pt" viewBox="0 0 217 232"><g transform="translate(0.000000,232.000000) scale(0.100000,-0.100000)" fill="#000" stroke="none"><path d="M1017 2250c-397-48-698-367-731-775-9-106-3-113 66-87l55 20 11-71c6-39 10-72 9-73s-58-22-127-47c-104-37-124-48-122-64 7-37 56-150 88-205l34-56 66 25 66 26 65-72c206-226 513-322 808-252 367 88 634 417 635 784 0 43-4 77-10 77-5 0-32-9-60-20s-55-20-59-20c-5 0-12 26-16 59-4 32-20 96-36 142s-30 88-31 92c-2 5 54 29 124 55l128 46-31 55c-17 31-33 58-34 59-2 2-31-6-64-19l-61-22-23 29c-81 104-172 178-292 235-140 68-309 97-458 79zm226-299c90-24 136-46 206-101l52-41 61 20 60 20 26-31c15-17 35-44 44-59l17-28-52-19c-29-11-86-32-128-47l-76-27 24-58c26-66 43-144 43-201 0-22 2-39 5-39 2 0 27 9 55 20s55 20 60 20c17 0 10-63-14-131-127-359-580-484-862-237l-35 31-70-24-71-24-30 35c-37 43-97 164-104 212l-6 34 123 46 124 45-3 64c-2 35-5 66-7 68-2 1-27-5-55-14s-53-15-55-14c-2 2 1 29 7 59 32 179 185 352 361 409 112 36 192 39 3e2 12z"/><path d="M134 321c-77-33-95-169-29-231 19-18 36-23 71-23 40 0 51 4 75 30 50 56 47 153-5 202-26 25-80 35-112 22zm82-62c26-29 26-99 0-128-24-26-47-27-77-2-19 15-24 29-24 64 0 76 58 114 101 66z"/><path d="M1172 320c-27-12-44-52-33-82 4-12 31-32 61-47 30-14 58-34 64-43 26-43-50-76-99-44-15 10-26 12-30 6-10-16 4-29 44-40 62-17 114 13 114 65 0 35-19 53-80 81-54 23-67 46-41 72 15 15 62 16 88 2 23-12 35 3 16 19-20 17-77 23-104 11z"/><path d="M350 195V70h25c23 0 25 4 25 45v45h40c76 0 115 40 103 104-8 42-38 56-120 56h-73V195zm134 69c18-18 18-17 10-38-4-11-19-16-50-16-44 0-44 0-44 35 0 33 2 35 34 35 19 0 42-7 50-16z"/><path d="M6e2 195V70h90c83 0 90 2 90 20 0 16-8 19-62 22-63 3-63 3-66 36-3 31-2 32 36 32 36 0 39 2 34 25-4 21-10 25-38 25-30 0-34 3-34 25 0 24 2 25 65 25 58 0 65 2 65 20 0 19-7 20-90 20h-90V195z"/><path d="M850 195c0-117 1-125 20-125 17 0 19 8 22 83l3 82 55-82c41-62 61-83 78-83 22 0 22 2 22 125 0 117-1 125-20 125-17 0-19-8-22-82l-3-82-54 82c-42 65-59 82-77 82-24 0-24 0-24-125z"/><path d="M1360 195c0-104 2-125 15-125 12 0 15 13 15 60v60h65 65v-60c0-47 3-60 15-60 13 0 15 21 15 125s-2 125-15 125c-12 0-15-13-15-55v-55h-65-65v55c0 42-3 55-15 55-13 0-15-21-15-125z"/><path d="M1620 195c0-104 2-125 15-125s15 21 15 125-2 125-15 125-15-21-15-125z"/><path d="M1730 195c0-77 4-125 10-125s10 27 10 60v60h35c19 0 35 5 35 10 0 6-16 10-35 10-35 0-35 0-35 45v45h60c33 0 60 4 60 10s-30 10-70 10h-70V195z"/><path d="M1930 310c0-5 18-10 40-10h40V185c0-70 4-115 10-115s10 45 10 115v115h40c22 0 40 5 40 10 0 6-37 10-90 10s-90-4-90-10z"/></g></svg></span><span class="font-weight-bold">Documentation</span>
+	</a>
+	<div class="td-navbar-nav-scroll ml-md-auto" id="main_navbar">
+		<ul class="navbar-nav mt-2 mt-lg-0">
+			
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/" ><i class='fa fa-home'></i><span>Home</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/docs/azure/" ><i class='fab fa-azure'></i><span>Azure Cloud Computing</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link active" href="/docs/azure-devops/" ><i class='fab fa-azure'></i><span class="active">Azure Devops</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/docs/gitlab/" ><i class='fab fa-gitlab'></i><span>Gitlab Tutorials</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/docs/openshift/" ><i class='fab fa-openshift'></i><span>OpenShift Administration</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/docs/kvm/" ><i class="fab fa-linux"></i><span>Redhat Ansible</span></a>
+			</li>
+			
+			
+			
+		</ul>
+	</div>
+	<div class="navbar-nav d-none d-lg-block">
+<form class="d-flex align-items-center">
+  <input type="search"
+  class="form-control td-search-input"
+  placeholder="&#xf002; Search this site…"
+  aria-label="Search this site…"
+  autocomplete="off"
+  
+  data-offline-search-index-json-src="/offline-search-index.d4ee35dfb31ed3b96d119091cf664ad4.json"
+  data-offline-search-base-href="/"
+  data-offline-search-max-results="20">
+</form>
+</div>
+</nav>
+
+      <div class="manage-panels">
+    <button type="button" class="button-left" id="left-panel-manager" title="Hide sidebar">""</button>
+    <button type="button" class="button-right" id="right-panel-manager" title="Hide sidebar">""</button>
+</div>
+    </header>
+    <div class="container-fluid td-outer">
+      <div class="td-main autonumbering">
+        <div class="row flex-xl-nowrap">
+          <aside class="col-12 col-md-3 col-xl-2 td-sidebar d-print-none">
+            
+<div id="td-sidebar-menu" class="td-sidebar__inner">
+  <div id="content-mobile">
+  <form class="td-sidebar__search d-flex align-items-center">
+    
+<form class="d-flex align-items-center">
+  <input type="search"
+  class="form-control td-search-input"
+  placeholder="&#xf002; Search this site…"
+  aria-label="Search this site…"
+  autocomplete="off"
+  
+  data-offline-search-index-json-src="/offline-search-index.d4ee35dfb31ed3b96d119091cf664ad4.json"
+  data-offline-search-base-href="/"
+  data-offline-search-max-results="20">
+</form>
+
+    <button class="btn btn-link td-sidebar__toggle d-md-none p-0 ml-3 fas fa-bars" type="button" data-toggle="collapse" data-target="#td-section-nav" aria-controls="td-docs-nav" aria-expanded="false" aria-label="Toggle section navigation">
+    </button>
+  </form>
+  </div>
+  <div id="content-desktop"></div>
+  <nav class="collapse td-sidebar-nav foldable-nav" id="td-section-nav">
+    <ul class="td-sidebar-nav__section pr-md-3 ul-0">
+      <li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id="m-docs-li">
+  <a href="/docs/" class="align-left pl-0 td-sidebar-link td-sidebar-link__section tree-root" id="m-docs"><span class="">Docs</span></a>
+  <ul class="ul-1">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-docsazure-li">
+  <input type="checkbox" id="m-docsazure-check"/>
+  <label for="m-docsazure-check"><a href="/docs/azure/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-docsazure"><i class="fab fa-azure"></i><span class="">Azure Cloud Computing</span></a></label>
+  
+  <ul class="ul-2 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazurelinux-basics-li">
+  <input type="checkbox" id="m-docsazurelinux-basics-check"/>
+  <label for="m-docsazurelinux-basics-check"><a href="/docs/azure/linux-basics/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazurelinux-basics"><i class="fab fa-azure"></i><span class="">Linux Basics</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazureazure-vm-li">
+  <input type="checkbox" id="m-docsazureazure-vm-check"/>
+  <label for="m-docsazureazure-vm-check"><a href="/docs/azure/azure-vm/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazureazure-vm"><i class="fab fa-azure"></i><span class="">Azure Cloud Virtual Machine (01)</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazureazuredevops-li">
+  <input type="checkbox" id="m-docsazureazuredevops-check"/>
+  <label for="m-docsazureazuredevops-check"><a href="/docs/azure/azuredevops/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazureazuredevops"><i class="fab fa-azure"></i><span class="">Azure Devops</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazureazure-network-li">
+  <input type="checkbox" id="m-docsazureazure-network-check"/>
+  <label for="m-docsazureazure-network-check"><a href="/docs/azure/azure-network/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazureazure-network"><i class="fab fa-azure"></i><span class="">Azure Cloud Networking</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazureazure-storage-li">
+  <input type="checkbox" id="m-docsazureazure-storage-check"/>
+  <label for="m-docsazureazure-storage-check"><a href="/docs/azure/azure-storage/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazureazure-storage"><i class="fab fa-azure"></i><span class="">Azure Cloud Storage</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazureazure-cli-li">
+  <input type="checkbox" id="m-docsazureazure-cli-check"/>
+  <label for="m-docsazureazure-cli-check"><a href="/docs/azure/azure-cli/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazureazure-cli"><i class="fab fa-azure"></i><span class="">Azure Cli</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazureazure-vmss-li">
+  <input type="checkbox" id="m-docsazureazure-vmss-check"/>
+  <label for="m-docsazureazure-vmss-check"><a href="/docs/azure/azure-vmss/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazureazure-vmss"><i class="fab fa-azure"></i><span class="">Azure Cloud Virtual Machine Scale Set</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazureazure-lb-li">
+  <input type="checkbox" id="m-docsazureazure-lb-check"/>
+  <label for="m-docsazureazure-lb-check"><a href="/docs/azure/azure-lb/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazureazure-lb"><i class="fab fa-azure"></i><span class="">Azure Cloud LoadBalancers</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazureazure-monitor-li">
+  <input type="checkbox" id="m-docsazureazure-monitor-check"/>
+  <label for="m-docsazureazure-monitor-check"><a href="/docs/azure/azure-monitor/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazureazure-monitor"><i class="fab fa-azure"></i><span class="">Azure Monitoring</span></a></label>
+  
+</li>
+  </ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id="m-docsazure-devops-li">
+  <input type="checkbox" id="m-docsazure-devops-check" checked/>
+  <label for="m-docsazure-devops-check"><a href="/docs/azure-devops/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-docsazure-devops"><i class="fab fa-azure"></i><span class="">Azure Devops</span></a></label>
+  
+  <ul class="ul-2 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazure-devopsazure-board-li">
+  <input type="checkbox" id="m-docsazure-devopsazure-board-check"/>
+  <label for="m-docsazure-devopsazure-board-check"><a href="/docs/azure-devops/azure-board/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazure-devopsazure-board"><i class="fab fa-azure"></i><span class="">Azure Board</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazure-devopsazuredevops-01-li">
+  <input type="checkbox" id="m-docsazure-devopsazuredevops-01-check"/>
+  <label for="m-docsazure-devopsazuredevops-01-check"><a href="/docs/azure-devops/azuredevops-01/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazure-devopsazuredevops-01"><i class="fab fa-azure"></i><span class="">Part 1</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazure-devopsazuredevops-li">
+  <input type="checkbox" id="m-docsazure-devopsazuredevops-check"/>
+  <label for="m-docsazure-devopsazuredevops-check"><a href="/docs/azure-devops/azuredevops/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazure-devopsazuredevops"><i class="fab fa-azure"></i><span class="">Azure Devops</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazure-devopsazuredevops-02-li">
+  <input type="checkbox" id="m-docsazure-devopsazuredevops-02-check"/>
+  <label for="m-docsazure-devopsazuredevops-02-check"><a href="/docs/azure-devops/azuredevops-02/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazure-devopsazuredevops-02"><i class="fab fa-azure"></i><span class="">Part 2</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazure-devopsazuredevops-03-li">
+  <input type="checkbox" id="m-docsazure-devopsazuredevops-03-check"/>
+  <label for="m-docsazure-devopsazuredevops-03-check"><a href="/docs/azure-devops/azuredevops-03/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazure-devopsazuredevops-03"><i class="fab fa-azure"></i><span class="">Part 3</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazure-devopsazuredevops-04-li">
+  <input type="checkbox" id="m-docsazure-devopsazuredevops-04-check"/>
+  <label for="m-docsazure-devopsazuredevops-04-check"><a href="/docs/azure-devops/azuredevops-04/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazure-devopsazuredevops-04"><i class="fab fa-azure"></i><span class="">part 4</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazure-devopsazuredevops-05-li">
+  <input type="checkbox" id="m-docsazure-devopsazuredevops-05-check"/>
+  <label for="m-docsazure-devopsazuredevops-05-check"><a href="/docs/azure-devops/azuredevops-05/" class="align-left pl-0  active td-sidebar-link td-sidebar-link__page" id="m-docsazure-devopsazuredevops-05"><i class="fab fa-azure"></i><span class="td-sidebar-nav-active-item">Part 5</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazure-devopsazuredevops-06-li">
+  <input type="checkbox" id="m-docsazure-devopsazuredevops-06-check"/>
+  <label for="m-docsazure-devopsazuredevops-06-check"><a href="/docs/azure-devops/azuredevops-06/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazure-devopsazuredevops-06"><i class="fab fa-azure"></i><span class="">Part 6</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazure-devopsaks-li">
+  <input type="checkbox" id="m-docsazure-devopsaks-check"/>
+  <label for="m-docsazure-devopsaks-check"><a href="/docs/azure-devops/aks/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazure-devopsaks"><i class="fab fa-azure"></i><span class="">AKS</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazure-devopstest-li">
+  <input type="checkbox" id="m-docsazure-devopstest-check"/>
+  <label for="m-docsazure-devopstest-check"><a href="/docs/azure-devops/test/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazure-devopstest"><i class="fab fa-azure"></i><span class="">Azure Devops Test Plans</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazure-devopsdocker-li">
+  <input type="checkbox" id="m-docsazure-devopsdocker-check"/>
+  <label for="m-docsazure-devopsdocker-check"><a href="/docs/azure-devops/docker/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazure-devopsdocker"><i class="fab fa-azure"></i><span class="">Docker</span></a></label>
+  
+</li>
+  </ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-docsgitlab-li">
+  <input type="checkbox" id="m-docsgitlab-check"/>
+  <label for="m-docsgitlab-check"><a href="/docs/gitlab/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-docsgitlab"><i class="fab fa-gitlab"></i><span class="">Gitlab Tutorials</span></a></label>
+  
+  <ul class="ul-2 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsgitlabgitlab01-li">
+  <input type="checkbox" id="m-docsgitlabgitlab01-check"/>
+  <label for="m-docsgitlabgitlab01-check"><a href="/docs/gitlab/gitlab01/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsgitlabgitlab01"><i class="fab fa-gitlab"></i><span class="">GitLab Installation</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsgitlabgitlab-with-ldap-li">
+  <input type="checkbox" id="m-docsgitlabgitlab-with-ldap-check"/>
+  <label for="m-docsgitlabgitlab-with-ldap-check"><a href="/docs/gitlab/gitlab-with-ldap/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsgitlabgitlab-with-ldap"><i class="fas fa-server"></i><span class="">Gitlab Authentication with LDAP</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsgitlabgitlab-container-registry-li">
+  <input type="checkbox" id="m-docsgitlabgitlab-container-registry-check"/>
+  <label for="m-docsgitlabgitlab-container-registry-check"><a href="/docs/gitlab/gitlab-container-registry/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsgitlabgitlab-container-registry"><i class="fab fa-docker"></i><span class="">GitLab Container Registry</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsgitlabgitlab-logs-troubleshooting-li">
+  <input type="checkbox" id="m-docsgitlabgitlab-logs-troubleshooting-check"/>
+  <label for="m-docsgitlabgitlab-logs-troubleshooting-check"><a href="/docs/gitlab/gitlab-logs-troubleshooting/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsgitlabgitlab-logs-troubleshooting"><i class="fas fa-file-alt"></i><span class="">Logs and Troubleshooting</span></a></label>
+  
+</li>
+  </ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-docsopenshift-li">
+  <input type="checkbox" id="m-docsopenshift-check"/>
+  <label for="m-docsopenshift-check"><a href="/docs/openshift/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-docsopenshift"><i class="fab fa-openshift"></i><span class="">OpenShift Administration</span></a></label>
+  
+  <ul class="ul-2 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsopenshiftocp-onvmware-copy-li">
+  <input type="checkbox" id="m-docsopenshiftocp-onvmware-copy-check"/>
+  <label for="m-docsopenshiftocp-onvmware-copy-check"><a href="/docs/openshift/ocp-onvmware-copy/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsopenshiftocp-onvmware-copy"><i class="fab fa-openshift"></i><span class="">Openshift Installation on Vmware</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsopenshiftocp-sno-li">
+  <input type="checkbox" id="m-docsopenshiftocp-sno-check"/>
+  <label for="m-docsopenshiftocp-sno-check"><a href="/docs/openshift/ocp-sno/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsopenshiftocp-sno"><i class="fab fa-openshift"></i><span class="">Openshift Single node Cluster</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsopenshiftocp-tasks-li">
+  <input type="checkbox" id="m-docsopenshiftocp-tasks-check"/>
+  <label for="m-docsopenshiftocp-tasks-check"><a href="/docs/openshift/ocp-tasks/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsopenshiftocp-tasks"><span class="">Openshift 4 Tasks</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsopenshiftocp-tekton-li">
+  <input type="checkbox" id="m-docsopenshiftocp-tekton-check"/>
+  <label for="m-docsopenshiftocp-tekton-check"><a href="/docs/openshift/ocp-tekton/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsopenshiftocp-tekton"><span class="">Openshift Tekton Pipeline</span></a></label>
+  
+</li>
+  </ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-docskvm-li">
+  <input type="checkbox" id="m-docskvm-check"/>
+  <label for="m-docskvm-check"><a href="/docs/kvm/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-docskvm"><i class="fab fa-linux"></i><span class="">Redhat Ansible</span></a></label>
+  
+  <ul class="ul-2 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docskvmkvm-li">
+  <input type="checkbox" id="m-docskvmkvm-check"/>
+  <label for="m-docskvmkvm-check"><a href="/docs/kvm/kvm/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docskvmkvm"><i class="fab fa-kvm"></i><span class="">KVM</span></a></label>
+  
+</li>
+  </ul>
+</li>
+  </ul>
+</li>
+    </ul>
+  </nav>
+</div>
+
+          </aside>
+          <aside class="d-none d-xl-block col-xl-2 td-sidebar-toc d-print-none">
+            
+
+    <div class="td-page-meta ml-2 pb-1 pt-2 mb-0">
+        <div class="toc-title">Actions</div>
+        <a href="/edit/master/content/docs/Azure%20%20Devops/Azuredevops-05.md" target="_blank" rel="noopener"><i class="fa fa-edit fa-fw"></i> Contribute to this page</a>
+        <a href="/issues/new?issue%5Btitle=%f0%9f%93%83%20docs:%20update%20page%20docs/Azure%20%20Devops/Azuredevops-05.md" target="_blank" rel="noopener"><i class="fab fa-gitlab fa-fw"></i> Create a documentation issue</a>
+       
+    </div>
+
+            
+<div class="td-page-meta ml-2 pb-1 pt-2 mb-0 right-menu-toc">
+
+    
+        
+            <div class="toc-title">Table of content</div>
+            <div class="td-toc"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#azure-artifacts">Azure Artifacts</a>
+      <ul>
+        <li><a href="#key-features">Key Features</a></li>
+        <li><a href="#supported-package-types">Supported Package Types</a></li>
+      </ul>
+    </li>
+    <li><a href="#how-to-use-azure-artifacts">How to Use Azure Artifacts</a>
+      <ul>
+        <li><a href="#1-setting-up-a-feed">1. Setting Up a Feed</a></li>
+        <li><a href="#2-publishing-packages">2. Publishing Packages</a></li>
+        <li><a href="#3-consuming-packages">3. Consuming Packages</a></li>
+      </ul>
+    </li>
+    <li><a href="#conclusion">Conclusion</a></li>
+    <li><a href="#permissions-in-azure-devops">Permissions in Azure DevOps</a>
+      <ul>
+        <li><a href="#overview">Overview</a></li>
+        <li><a href="#key-concepts">Key Concepts</a></li>
+        <li><a href="#types-of-permissions">Types of Permissions</a></li>
+        <li><a href="#1-organization-level-permissions">1. Organization-Level Permissions</a></li>
+        <li><a href="#2-project-level-permissions">2. Project-Level Permissions</a></li>
+        <li><a href="#3-repository-permissions">3. Repository Permissions</a></li>
+        <li><a href="#4-pipeline-permissions">4. Pipeline Permissions</a></li>
+        <li><a href="#5-work-item-permissions">5. Work Item Permissions</a></li>
+      </ul>
+    </li>
+    <li><a href="#managing-permissions">Managing Permissions</a>
+      <ul>
+        <li><a href="#step-1-access-project-settings">Step 1: Access Project Settings</a></li>
+        <li><a href="#step-2-navigate-to-permissions">Step 2: Navigate to Permissions</a></li>
+        <li><a href="#step-3-modify-permissions">Step 3: Modify Permissions</a></li>
+        <li><a href="#step-4-add-users-to-security-groups">Step 4: Add Users to Security Groups</a></li>
+      </ul>
+    </li>
+    <li><a href="#best-practices">Best Practices</a>
+      <ul>
+        <li><a href="#summary">Summary</a></li>
+      </ul>
+    </li>
+    <li><a href="#azure-devops-test-plans">Azure DevOps Test Plans</a>
+      <ul>
+        <li><a href="#key-features-of-azure-test-plans">Key Features of Azure Test Plans</a></li>
+        <li><a href="#creating-a-test-plan">Creating a Test Plan</a></li>
+        <li><a href="#step-1-navigate-to-azure-devops">Step 1: Navigate to Azure DevOps</a></li>
+        <li><a href="#step-2-create-a-new-test-plan">Step 2: Create a New Test Plan</a></li>
+      </ul>
+    </li>
+    <li><a href="#adding-test-suites">Adding Test Suites</a>
+      <ul>
+        <li><a href="#step-1-create-a-test-suite">Step 1: Create a Test Suite</a></li>
+      </ul>
+    </li>
+    <li><a href="#creating-test-cases">Creating Test Cases</a>
+      <ul>
+        <li><a href="#step-1-define-a-test-case">Step 1: Define a Test Case</a></li>
+        <li><a href="#step-2-save-the-test-case">Step 2: Save the Test Case</a></li>
+      </ul>
+    </li>
+    <li><a href="#running-tests">Running Tests</a>
+      <ul>
+        <li><a href="#step-1-execute-test-cases">Step 1: Execute Test Cases</a></li>
+        <li><a href="#step-2-logging-defects">Step 2: Logging Defects</a></li>
+      </ul>
+    </li>
+    <li><a href="#viewing-test-results">Viewing Test Results</a></li>
+    <li><a href="#integrating-automated-tests">Integrating Automated Tests</a>
+      <ul>
+        <li><a href="#step-1-set-up-cicd">Step 1: Set Up CI/CD</a></li>
+        <li><a href="#step-2-monitor-test-results">Step 2: Monitor Test Results</a></li>
+        <li><a href="#summary-1">Summary</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li><a href="#introduction-to-aks">Introduction to AKS</a></li>
+    <li><a href="#prerequisites">Prerequisites</a></li>
+    <li><a href="#step-by-step-guide-to-setting-up-aks">Step-by-Step Guide to Setting Up AKS</a>
+      <ul>
+        <li><a href="#step-1-log-in-to-azure">Step 1: Log in to Azure</a></li>
+        <li><a href="#step-2-create-a-resource-group">Step 2: Create a Resource Group</a></li>
+        <li><a href="#step-3-create-an-aks-cluster">Step 3: Create an AKS Cluster</a></li>
+        <li><a href="#step-4-configure-kubectl">Step 4: Configure kubectl</a></li>
+        <li><a href="#step-5-verify-the-cluster">Step 5: Verify the Cluster</a></li>
+        <li><a href="#step-6-deploy-an-application">Step 6: Deploy an Application</a></li>
+        <li><a href="#step-7-expose-the-application">Step 7: Expose the Application</a></li>
+        <li><a href="#step-8-get-the-external-ip-address">Step 8: Get the External IP Address</a></li>
+        <li><a href="#step-9-scale-the-application">Step 9: Scale the Application</a></li>
+        <li><a href="#step-10-clean-up-resources">Step 10: Clean Up Resources</a></li>
+      </ul>
+    </li>
+    <li><a href="#best-practices-for-using-aks">Best Practices for Using AKS</a></li>
+    <li><a href="#conclusion-1">Conclusion</a></li>
+    <li><a href="#arm-template-tutorial">ARM Template Tutorial</a>
+      <ul>
+        <li><a href="#introduction">Introduction</a></li>
+        <li><a href="#template-structure">Template Structure</a></li>
+        <li><a href="#step-1-define-a-basic-arm-template">Step 1: Define a Basic ARM Template</a></li>
+        <li><a href="#deploy-the-template">Deploy the Template</a></li>
+      </ul>
+    </li>
+    <li><a href="#azure-bicep">Azure Bicep</a>
+      <ul>
+        <li><a href="#key-features-1">Key Features</a></li>
+      </ul>
+    </li>
+    <li><a href="#advantages-of-bicep-over-arm-templates">Advantages of Bicep Over ARM Templates</a>
+      <ul>
+        <li><a href="#example-deploying-an-azure-storage-account">Example: Deploying an Azure Storage Account</a></li>
+        <li><a href="#running-a-bicep-deployment-in-azure">Running a Bicep Deployment in Azure</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+        
+    
+
+</div>
+          </aside>
+          <main class="col-12 col-md-9 col-xl-8 pl-md-5" role="main">
+            
+  
+
+            <nav aria-label="breadcrumb" class="td-breadcrumbs">
+  <ol class="breadcrumb">
+  <li class="breadcrumb-item">
+    <a href="/docs/">Docs</a>
+  </li>
+  <li class="breadcrumb-item">
+    <a href="/docs/azure-devops/">Azure Devops</a>
+  </li>
+  <li class="breadcrumb-item active" aria-current="page">
+    <a href="/docs/azure-devops/azuredevops-05/">Part 5</a>
+  </li>
+  </ol>
+</nav>
+            
+<div class="td-content">
+	<h1>Part 5</h1>
+	<div class="lead">Azure devops</div>
+	<header class="article-meta">
+		
+
+  
+    
+
+
+  
+    
+
+
+  
+
+		
+	</header>    
+	<!-- end-chunk -->
+<!-- begin-chunk data-anchor="azure-artifacts" data-heading="Azure Artifacts" data-level="2" data-permalink="/docs/azure-devops/azuredevops-05/" data-title="Part 5" -->
+<h2 id="azure-artifacts">Azure Artifacts</h2><p><strong>Azure Artifacts</strong> is a service in <strong>Azure DevOps</strong> that allows teams to create, host, and share packages. It supports multiple package types such as <strong>NuGet</strong>, <strong>npm</strong>, <strong>Maven</strong>, <strong>Python</strong>, and <strong>Universal Packages</strong>, making it easier to manage dependencies across projects.</p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="key-features" data-heading="Key Features" data-level="3" data-permalink="/docs/azure-devops/azuredevops-05/" data-title="Part 5" -->
+<h3 id="key-features">Key Features</h3><ul>
+<li><strong>Package Management</strong>: Supports <strong>NuGet</strong>, <strong>npm</strong>, <strong>Maven</strong>, <strong>Python</strong>, and <strong>Universal Packages</strong>.</li>
+<li><strong>Unified Feeds</strong>: Store different types of packages in a single feed, helping manage project dependencies.</li>
+<li><strong>Versioning &amp; Retention Policies</strong>: Automatically manage package versions and delete old packages based on retention policies.</li>
+<li><strong>Upstream Sources</strong>: Connect to external sources like <strong>npmjs.org</strong>, <strong>NuGet.org</strong>, and <strong>Maven Central</strong> for public and private packages.</li>
+<li><strong>Security</strong>: Integrates with <strong>Azure Active Directory (Azure AD)</strong> for role-based access control (RBAC), ensuring secure package access.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="supported-package-types" data-heading="Supported Package Types" data-level="3" data-permalink="/docs/azure-devops/azuredevops-05/" data-title="Part 5" -->
+<h3 id="supported-package-types">Supported Package Types</h3><ol>
+<li><strong>NuGet</strong>: For .NET development.</li>
+<li><strong>npm</strong>: For JavaScript and Node.js projects.</li>
+<li><strong>Maven</strong>: For Java and Spring development.</li>
+<li><strong>Python</strong>: Python package management.</li>
+<li><strong>Universal Packages</strong>: General binary or file storage for distribution.</li>
+</ol>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="how-to-use-azure-artifacts" data-heading="How to Use Azure Artifacts" data-level="2" data-permalink="/docs/azure-devops/azuredevops-05/" data-title="Part 5" -->
+<h2 id="how-to-use-azure-artifacts">How to Use Azure Artifacts</h2><!-- end-chunk -->
+<!-- begin-chunk data-anchor="1-setting-up-a-feed" data-heading="1. Setting Up a Feed" data-level="3" data-permalink="/docs/azure-devops/azuredevops-05/" data-title="Part 5" -->
+<h3 id="1-setting-up-a-feed">1. Setting Up a Feed</h3><ul>
+<li>Navigate to your project in <strong>Azure DevOps</strong>.</li>
+<li>Select <strong>Artifacts</strong> from the left menu.</li>
+<li>Click on <strong>Create Feed</strong>.</li>
+<li>Name the feed and set its visibility to either public or private.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="2-publishing-packages" data-heading="2. Publishing Packages" data-level="3" data-permalink="/docs/azure-devops/azuredevops-05/" data-title="Part 5" -->
+<h3 id="2-publishing-packages">2. Publishing Packages</h3><p>To publish a package, use the respective CLI command for your package type:</p>
+<ul>
+<li>
+<p><strong>NuGet</strong>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>dotnet nuget push &lt;package-name&gt;.nupkg --source <span style="color:#e6db74">&#34;your-feed-url&#34;</span> --api-key &lt;your-api-key&gt;
+</span></span></code></pre></div></li>
+<li>
+<p><strong>npm</strong>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>npm publish --registry &lt;your-feed-url&gt;
+</span></span></code></pre></div></li>
+<li>
+<p><strong>Maven</strong>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;distributionManagement&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;repository&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;id&gt;</span>your-feed-id<span style="color:#f92672">&lt;/id&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;url&gt;</span>your-feed-url<span style="color:#f92672">&lt;/url&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/repository&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/distributionManagement&gt;</span>
+</span></span></code></pre></div></li>
+<li>
+<p><strong>Python</strong>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>twine upload --repository-url &lt;your-feed-url&gt; dist/*
+</span></span></code></pre></div></li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="3-consuming-packages" data-heading="3. Consuming Packages" data-level="3" data-permalink="/docs/azure-devops/azuredevops-05/" data-title="Part 5" -->
+<h3 id="3-consuming-packages">3. Consuming Packages</h3><p>To use packages hosted on Azure Artifacts, configure your project’s package manager to point to your feed.</p>
+<ul>
+<li>
+<p><strong>NuGet</strong>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>dotnet add package &lt;package-name&gt; --source <span style="color:#e6db74">&#34;your-feed-url&#34;</span>
+</span></span></code></pre></div></li>
+<li>
+<p><strong>npm</strong>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>npm install &lt;package-name&gt; --registry &lt;your-feed-url&gt;
+</span></span></code></pre></div></li>
+<li>
+<p><strong>Maven</strong>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;repositories&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;repository&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;id&gt;</span>your-feed-id<span style="color:#f92672">&lt;/id&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;url&gt;</span>your-feed-url<span style="color:#f92672">&lt;/url&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/repository&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/repositories&gt;</span>
+</span></span></code></pre></div></li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="conclusion" data-heading="Conclusion" data-level="2" data-permalink="/docs/azure-devops/azuredevops-05/" data-title="Part 5" -->
+<h2 id="conclusion">Conclusion</h2><p>Azure Artifacts simplifies managing package dependencies across projects, supports multiple package types, and provides seamless integration with Azure DevOps for efficient and secure package management.</p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="permissions-in-azure-devops" data-heading="Permissions in Azure DevOps" data-level="2" data-permalink="/docs/azure-devops/azuredevops-05/" data-title="Part 5" -->
+<h2 id="permissions-in-azure-devops">Permissions in Azure DevOps</h2><!-- end-chunk -->
+<!-- begin-chunk data-anchor="overview" data-heading="Overview" data-level="3" data-permalink="/docs/azure-devops/azuredevops-05/" data-title="Part 5" -->
+<h3 id="overview">Overview</h3><p>Permissions in Azure DevOps control access to various resources and functionalities within your organization and projects. They help manage who can view, edit, and manage different aspects of your DevOps environment, ensuring security and compliance.</p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="key-concepts" data-heading="Key Concepts" data-level="3" data-permalink="/docs/azure-devops/azuredevops-05/" data-title="Part 5" -->
+<h3 id="key-concepts">Key Concepts</h3><ul>
+<li><strong>Security Groups</strong>: A collection of users that can be assigned permissions collectively. Azure DevOps has built-in groups (e.g., Project Administrators, Contributors, Readers) and allows you to create custom groups.</li>
+<li><strong>Roles</strong>: Assign predefined roles to users or groups to simplify permission management.</li>
+<li><strong>Inheritance</strong>: Permissions can be inherited from higher levels (e.g., organization, project) down to lower levels (e.g., repositories, pipelines).</li>
+</ul>
+<hr>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="types-of-permissions" data-heading="Types of Permissions" data-level="3" data-permalink="/docs/azure-devops/azuredevops-05/" data-title="Part 5" -->
+<h3 id="types-of-permissions">Types of Permissions</h3><!-- end-chunk -->
+<!-- begin-chunk data-anchor="1-organization-level-permissions" data-heading="1. Organization-Level Permissions" data-level="3" data-permalink="/docs/azure-devops/azuredevops-05/" data-title="Part 5" -->
+<h3 id="1-organization-level-permissions">1. Organization-Level Permissions</h3><p>These permissions apply across the entire Azure DevOps organization.</p>
+<ul>
+<li><strong>Access Level</strong>: Defines the level of access a user has (Basic, Stakeholder, Visual Studio subscriber, etc.).</li>
+<li><strong>Billing</strong>: Manage billing and subscriptions.</li>
+<li><strong>Extensions</strong>: Manage extensions and services at the organization level.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="2-project-level-permissions" data-heading="2. Project-Level Permissions" data-level="3" data-permalink="/docs/azure-devops/azuredevops-05/" data-title="Part 5" -->
+<h3 id="2-project-level-permissions">2. Project-Level Permissions</h3><p>These permissions control access within a specific project.</p>
+<ul>
+<li><strong>Project Administrators</strong>: Users can manage project settings and permissions.</li>
+<li><strong>Contributors</strong>: Users can contribute code, create and manage work items, and modify pipelines.</li>
+<li><strong>Readers</strong>: Users can view project content but cannot make changes.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="3-repository-permissions" data-heading="3. Repository Permissions" data-level="3" data-permalink="/docs/azure-devops/azuredevops-05/" data-title="Part 5" -->
+<h3 id="3-repository-permissions">3. Repository Permissions</h3><p>These permissions control access to repositories within a project.</p>
+<ul>
+<li><strong>Read</strong>: Allow users to read or clone the repository.</li>
+<li><strong>Contribute</strong>: Allow users to push code to the repository.</li>
+<li><strong>Manage permissions</strong>: Allow users to manage repository settings and permissions.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="4-pipeline-permissions" data-heading="4. Pipeline Permissions" data-level="3" data-permalink="/docs/azure-devops/azuredevops-05/" data-title="Part 5" -->
+<h3 id="4-pipeline-permissions">4. Pipeline Permissions</h3><p>Permissions for managing build and release pipelines.</p>
+<ul>
+<li><strong>Edit</strong>: Users can create, edit, and delete pipelines.</li>
+<li><strong>Queue builds</strong>: Users can queue new builds.</li>
+<li><strong>View builds</strong>: Users can view build logs and results.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="5-work-item-permissions" data-heading="5. Work Item Permissions" data-level="3" data-permalink="/docs/azure-devops/azuredevops-05/" data-title="Part 5" -->
+<h3 id="5-work-item-permissions">5. Work Item Permissions</h3><p>Permissions related to work item tracking.</p>
+<ul>
+<li><strong>Create</strong>: Users can create work items.</li>
+<li><strong>Edit</strong>: Users can edit work items.</li>
+<li><strong>Delete</strong>: Users can delete work items.</li>
+</ul>
+<hr>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="managing-permissions" data-heading="Managing Permissions" data-level="2" data-permalink="/docs/azure-devops/azuredevops-05/" data-title="Part 5" -->
+<h2 id="managing-permissions">Managing Permissions</h2><!-- end-chunk -->
+<!-- begin-chunk data-anchor="step-1-access-project-settings" data-heading="Step 1: Access Project Settings" data-level="3" data-permalink="/docs/azure-devops/azuredevops-05/" data-title="Part 5" -->
+<h3 id="step-1-access-project-settings">Step 1: Access Project Settings</h3><ol>
+<li>Sign in to your Azure DevOps organization.</li>
+<li>Go to your project.</li>
+<li>In the lower-left corner, click on <strong>Project settings</strong>.</li>
+</ol>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="step-2-navigate-to-permissions" data-heading="Step 2: Navigate to Permissions" data-level="3" data-permalink="/docs/azure-devops/azuredevops-05/" data-title="Part 5" -->
+<h3 id="step-2-navigate-to-permissions">Step 2: Navigate to Permissions</h3><ul>
+<li>Under <strong>General</strong>, click on <strong>Permissions</strong> to view existing groups and permissions.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="step-3-modify-permissions" data-heading="Step 3: Modify Permissions" data-level="3" data-permalink="/docs/azure-devops/azuredevops-05/" data-title="Part 5" -->
+<h3 id="step-3-modify-permissions">Step 3: Modify Permissions</h3><ol>
+<li><strong>Select a Security Group</strong>: Choose a group (e.g., Project Administrators, Contributors) or create a new one.</li>
+<li><strong>Adjust Permissions</strong>:
+<ul>
+<li>For each permission type (e.g., Repositories, Pipelines), set the desired permission levels (Allow, Deny, Not set).</li>
+<li>Click <strong>Save Changes</strong> after adjusting permissions.</li>
+</ul>
+</li>
+</ol>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="step-4-add-users-to-security-groups" data-heading="Step 4: Add Users to Security Groups" data-level="3" data-permalink="/docs/azure-devops/azuredevops-05/" data-title="Part 5" -->
+<h3 id="step-4-add-users-to-security-groups">Step 4: Add Users to Security Groups</h3><ol>
+<li>In the <strong>Permissions</strong> section, click on the group you want to modify.</li>
+<li>Click on <strong>Members</strong> and then <strong>+ Add</strong> to add users or groups to the selected security group.</li>
+</ol>
+<hr>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="best-practices" data-heading="Best Practices" data-level="2" data-permalink="/docs/azure-devops/azuredevops-05/" data-title="Part 5" -->
+<h2 id="best-practices">Best Practices</h2><ol>
+<li><strong>Follow the Principle of Least Privilege</strong>: Grant users the minimum permissions necessary to perform their roles effectively.</li>
+<li><strong>Use Security Groups</strong>: Manage permissions through groups rather than individual users to simplify administration.</li>
+<li><strong>Regularly Review Permissions</strong>: Periodically review permissions to ensure they are up to date and aligned with organizational policies.</li>
+<li><strong>Document Permission Changes</strong>: Keep records of permission changes and access control to maintain compliance and audit trails.</li>
+</ol>
+<hr>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="summary" data-heading="Summary" data-level="3" data-permalink="/docs/azure-devops/azuredevops-05/" data-title="Part 5" -->
+<h3 id="summary">Summary</h3><p>Azure DevOps permissions provide a robust framework for managing access and control over resources within your organization and projects. By understanding and effectively managing permissions, you can enhance security, ensure compliance, and optimize collaboration across your development teams.</p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="azure-devops-test-plans" data-heading="Azure DevOps Test Plans" data-level="2" data-permalink="/docs/azure-devops/azuredevops-05/" data-title="Part 5" -->
+<h2 id="azure-devops-test-plans">Azure DevOps Test Plans</h2><p>Azure DevOps Test Plans is a service designed to help teams manage their testing efforts efficiently. It provides a suite of tools for planning, executing, and tracking tests throughout the development lifecycle.</p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="key-features-of-azure-test-plans" data-heading="Key Features of Azure Test Plans" data-level="3" data-permalink="/docs/azure-devops/azuredevops-05/" data-title="Part 5" -->
+<h3 id="key-features-of-azure-test-plans">Key Features of Azure Test Plans</h3><ol>
+<li><strong>Test Case Management</strong>: Organize and manage test cases with detailed steps and expected outcomes.</li>
+<li><strong>Manual Testing</strong>: Execute manual tests, record results, and log defects directly from the test runner.</li>
+<li><strong>Automated Testing Integration</strong>: Support for integrating automated tests from various frameworks.</li>
+<li><strong>Test Suites</strong>: Group test cases into test suites for organized testing.</li>
+<li><strong>Rich Reporting and Analytics</strong>: Generate reports and dashboards to track quality metrics and test results.</li>
+</ol>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="creating-a-test-plan" data-heading="Creating a Test Plan" data-level="3" data-permalink="/docs/azure-devops/azuredevops-05/" data-title="Part 5" -->
+<h3 id="creating-a-test-plan">Creating a Test Plan</h3><!-- end-chunk -->
+<!-- begin-chunk data-anchor="step-1-navigate-to-azure-devops" data-heading="Step 1: Navigate to Azure DevOps" data-level="3" data-permalink="/docs/azure-devops/azuredevops-05/" data-title="Part 5" -->
+<h3 id="step-1-navigate-to-azure-devops">Step 1: Navigate to Azure DevOps</h3><ol>
+<li>Open your Azure DevOps project.</li>
+<li>Click on <strong>Test Plans</strong> in the left-hand menu.</li>
+</ol>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="step-2-create-a-new-test-plan" data-heading="Step 2: Create a New Test Plan" data-level="3" data-permalink="/docs/azure-devops/azuredevops-05/" data-title="Part 5" -->
+<h3 id="step-2-create-a-new-test-plan">Step 2: Create a New Test Plan</h3><ol>
+<li>Click on <strong>New Test Plan</strong>.</li>
+<li>Enter a name and description for your test plan.</li>
+<li>Click <strong>Create</strong>.</li>
+</ol>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="adding-test-suites" data-heading="Adding Test Suites" data-level="2" data-permalink="/docs/azure-devops/azuredevops-05/" data-title="Part 5" -->
+<h2 id="adding-test-suites">Adding Test Suites</h2><!-- end-chunk -->
+<!-- begin-chunk data-anchor="step-1-create-a-test-suite" data-heading="Step 1: Create a Test Suite" data-level="3" data-permalink="/docs/azure-devops/azuredevops-05/" data-title="Part 5" -->
+<h3 id="step-1-create-a-test-suite">Step 1: Create a Test Suite</h3><ol>
+<li>In your test plan, click on <strong>New Suite</strong>.</li>
+<li>Choose between:
+<ul>
+<li><strong>Static Suite</strong>: A fixed set of test cases.</li>
+<li><strong>Requirement-Based Suite</strong>: Linked to work items or requirements.</li>
+</ul>
+</li>
+<li>Click <strong>Add</strong> to create the suite.</li>
+</ol>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="creating-test-cases" data-heading="Creating Test Cases" data-level="2" data-permalink="/docs/azure-devops/azuredevops-05/" data-title="Part 5" -->
+<h2 id="creating-test-cases">Creating Test Cases</h2><!-- end-chunk -->
+<!-- begin-chunk data-anchor="step-1-define-a-test-case" data-heading="Step 1: Define a Test Case" data-level="3" data-permalink="/docs/azure-devops/azuredevops-05/" data-title="Part 5" -->
+<h3 id="step-1-define-a-test-case">Step 1: Define a Test Case</h3><ol>
+<li>In the test suite, click on <strong>New Test Case</strong>.</li>
+<li>Fill in the details:
+<ul>
+<li><strong>Title</strong>: Name of the test case.</li>
+<li><strong>Steps</strong>: Detailed execution steps.</li>
+<li><strong>Expected Result</strong>: Outcome of the test.</li>
+</ul>
+</li>
+</ol>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="step-2-save-the-test-case" data-heading="Step 2: Save the Test Case" data-level="3" data-permalink="/docs/azure-devops/azuredevops-05/" data-title="Part 5" -->
+<h3 id="step-2-save-the-test-case">Step 2: Save the Test Case</h3><ol>
+<li>Click <strong>Save</strong> to store your test case.</li>
+</ol>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="running-tests" data-heading="Running Tests" data-level="2" data-permalink="/docs/azure-devops/azuredevops-05/" data-title="Part 5" -->
+<h2 id="running-tests">Running Tests</h2><!-- end-chunk -->
+<!-- begin-chunk data-anchor="step-1-execute-test-cases" data-heading="Step 1: Execute Test Cases" data-level="3" data-permalink="/docs/azure-devops/azuredevops-05/" data-title="Part 5" -->
+<h3 id="step-1-execute-test-cases">Step 1: Execute Test Cases</h3><ol>
+<li>Select a test case and click <strong>Run</strong>.</li>
+<li>Perform the test and record results (e.g., Passed, Failed, Blocked).</li>
+</ol>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="step-2-logging-defects" data-heading="Step 2: Logging Defects" data-level="3" data-permalink="/docs/azure-devops/azuredevops-05/" data-title="Part 5" -->
+<h3 id="step-2-logging-defects">Step 2: Logging Defects</h3><p>If a test case fails:</p>
+<ol>
+<li>Click <strong>Add a bug</strong> in the test runner.</li>
+<li>Fill in the details and link it to the test case.</li>
+<li>Click <strong>Save</strong> to create the bug.</li>
+</ol>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="viewing-test-results" data-heading="Viewing Test Results" data-level="2" data-permalink="/docs/azure-devops/azuredevops-05/" data-title="Part 5" -->
+<h2 id="viewing-test-results">Viewing Test Results</h2><ol>
+<li>Go to the <strong>Test Plans</strong> tab to see the status of test cases.</li>
+<li>Review results and any associated bugs.</li>
+</ol>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="integrating-automated-tests" data-heading="Integrating Automated Tests" data-level="2" data-permalink="/docs/azure-devops/azuredevops-05/" data-title="Part 5" -->
+<h2 id="integrating-automated-tests">Integrating Automated Tests</h2><!-- end-chunk -->
+<!-- begin-chunk data-anchor="step-1-set-up-cicd" data-heading="Step 1: Set Up CI/CD" data-level="3" data-permalink="/docs/azure-devops/azuredevops-05/" data-title="Part 5" -->
+<h3 id="step-1-set-up-cicd">Step 1: Set Up CI/CD</h3><ol>
+<li>Configure your CI/CD pipeline to run automated tests with your preferred framework (e.g., Selenium, NUnit).</li>
+<li>Ensure that the pipeline publishes test results.</li>
+</ol>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="step-2-monitor-test-results" data-heading="Step 2: Monitor Test Results" data-level="3" data-permalink="/docs/azure-devops/azuredevops-05/" data-title="Part 5" -->
+<h3 id="step-2-monitor-test-results">Step 2: Monitor Test Results</h3><ol>
+<li>After the build completes, navigate to the <strong>Tests</strong> tab in the build summary.</li>
+<li>Review results and any linked defects.</li>
+</ol>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="summary-1" data-heading="Summary" data-level="3" data-permalink="/docs/azure-devops/azuredevops-05/" data-title="Part 5" -->
+<h3 id="summary-1">Summary</h3><p>Azure DevOps Test Plans streamlines the testing process, allowing teams to effectively manage manual and automated testing efforts. By leveraging its features, teams can ensure higher software quality and improved project outcomes.</p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="azure-kubernetes-service-aks-tutorial" data-heading="Azure Kubernetes Service (AKS) Tutorial" data-level="1" data-permalink="/docs/azure-devops/azuredevops-05/" data-title="Part 5" -->
+<h1 id="azure-kubernetes-service-aks-tutorial">Azure Kubernetes Service (AKS) Tutorial</h1><!-- end-chunk -->
+<!-- begin-chunk data-anchor="introduction-to-aks" data-heading="Introduction to AKS" data-level="2" data-permalink="/docs/azure-devops/azuredevops-05/" data-title="Part 5" -->
+<h2 id="introduction-to-aks">Introduction to AKS</h2><p><strong>Azure Kubernetes Service (AKS)</strong> is a managed container orchestration service provided by Microsoft Azure. It simplifies the deployment, management, and operations of Kubernetes, making it easier to manage containerized applications.</p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="prerequisites" data-heading="Prerequisites" data-level="2" data-permalink="/docs/azure-devops/azuredevops-05/" data-title="Part 5" -->
+<h2 id="prerequisites">Prerequisites</h2><p>Before you start with AKS, ensure you have:</p>
+<ul>
+<li>An <strong>Azure account</strong>. You can create a free account <a href="https://azure.com/free" target="_blank" rel="noopener">here</a>.</li>
+<li>The <strong>Azure CLI</strong> installed on your machine. You can download it <a href="https://docs.microsoft.com/en-us/cli/azure/install-azure-cli" target="_blank" rel="noopener">here</a>.</li>
+<li>Basic knowledge of Kubernetes concepts.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="step-by-step-guide-to-setting-up-aks" data-heading="Step-by-Step Guide to Setting Up AKS" data-level="2" data-permalink="/docs/azure-devops/azuredevops-05/" data-title="Part 5" -->
+<h2 id="step-by-step-guide-to-setting-up-aks">Step-by-Step Guide to Setting Up AKS</h2><!-- end-chunk -->
+<!-- begin-chunk data-anchor="step-1-log-in-to-azure" data-heading="Step 1: Log in to Azure" data-level="3" data-permalink="/docs/azure-devops/azuredevops-05/" data-title="Part 5" -->
+<h3 id="step-1-log-in-to-azure">Step 1: Log in to Azure</h3><p>Open your terminal or command prompt and log in to your Azure account:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>az login
+</span></span></code></pre></div><!-- end-chunk -->
+<!-- begin-chunk data-anchor="step-2-create-a-resource-group" data-heading="Step 2: Create a Resource Group" data-level="3" data-permalink="/docs/azure-devops/azuredevops-05/" data-title="Part 5" -->
+<h3 id="step-2-create-a-resource-group">Step 2: Create a Resource Group</h3><p>Create a resource group to hold your AKS cluster:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>az group create --name myResourceGroup --location southcentralus
+</span></span></code></pre></div><!-- end-chunk -->
+<!-- begin-chunk data-anchor="step-3-create-an-aks-cluster" data-heading="Step 3: Create an AKS Cluster" data-level="3" data-permalink="/docs/azure-devops/azuredevops-05/" data-title="Part 5" -->
+<h3 id="step-3-create-an-aks-cluster">Step 3: Create an AKS Cluster</h3><p>Create an AKS cluster with the following command. Adjust the parameters as needed:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>az aks create --resource-group myResourceGroup --name myAKSCluster --node-count <span style="color:#ae81ff">1</span> --enable-addons monitoring --generate-ssh-keys
+</span></span></code></pre></div><!-- end-chunk -->
+<!-- begin-chunk data-anchor="step-4-configure-kubectl" data-heading="Step 4: Configure kubectl" data-level="3" data-permalink="/docs/azure-devops/azuredevops-05/" data-title="Part 5" -->
+<h3 id="step-4-configure-kubectl">Step 4: Configure kubectl</h3><p>Configure <code>kubectl</code>, the command-line tool for Kubernetes:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
+</span></span></code></pre></div><!-- end-chunk -->
+<!-- begin-chunk data-anchor="step-5-verify-the-cluster" data-heading="Step 5: Verify the Cluster" data-level="3" data-permalink="/docs/azure-devops/azuredevops-05/" data-title="Part 5" -->
+<h3 id="step-5-verify-the-cluster">Step 5: Verify the Cluster</h3><p>Check that your AKS cluster is running:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>kubectl get nodes
+</span></span></code></pre></div><!-- end-chunk -->
+<!-- begin-chunk data-anchor="step-6-deploy-an-application" data-heading="Step 6: Deploy an Application" data-level="3" data-permalink="/docs/azure-devops/azuredevops-05/" data-title="Part 5" -->
+<h3 id="step-6-deploy-an-application">Step 6: Deploy an Application</h3><p>Deploy a sample application, like Nginx:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>kubectl create deployment nginx --image<span style="color:#f92672">=</span>nginx
+</span></span></code></pre></div><!-- end-chunk -->
+<!-- begin-chunk data-anchor="step-7-expose-the-application" data-heading="Step 7: Expose the Application" data-level="3" data-permalink="/docs/azure-devops/azuredevops-05/" data-title="Part 5" -->
+<h3 id="step-7-expose-the-application">Step 7: Expose the Application</h3><p>Expose your Nginx deployment using a LoadBalancer service:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>kubectl expose deployment nginx --port<span style="color:#f92672">=</span><span style="color:#ae81ff">80</span> --type<span style="color:#f92672">=</span>LoadBalancer
+</span></span></code></pre></div><!-- end-chunk -->
+<!-- begin-chunk data-anchor="step-8-get-the-external-ip-address" data-heading="Step 8: Get the External IP Address" data-level="3" data-permalink="/docs/azure-devops/azuredevops-05/" data-title="Part 5" -->
+<h3 id="step-8-get-the-external-ip-address">Step 8: Get the External IP Address</h3><p>Retrieve the external IP address assigned to your service:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>kubectl get services
+</span></span></code></pre></div><!-- end-chunk -->
+<!-- begin-chunk data-anchor="step-9-scale-the-application" data-heading="Step 9: Scale the Application" data-level="3" data-permalink="/docs/azure-devops/azuredevops-05/" data-title="Part 5" -->
+<h3 id="step-9-scale-the-application">Step 9: Scale the Application</h3><p>Scale your application as needed:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>kubectl scale deployment nginx --replicas<span style="color:#f92672">=</span><span style="color:#ae81ff">3</span>
+</span></span></code></pre></div><!-- end-chunk -->
+<!-- begin-chunk data-anchor="step-10-clean-up-resources" data-heading="Step 10: Clean Up Resources" data-level="3" data-permalink="/docs/azure-devops/azuredevops-05/" data-title="Part 5" -->
+<h3 id="step-10-clean-up-resources">Step 10: Clean Up Resources</h3><p>Delete the resource group and all associated resources when finished:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>az group delete --name myResourceGroup --yes --no-wait
+</span></span></code></pre></div><!-- end-chunk -->
+<!-- begin-chunk data-anchor="best-practices-for-using-aks" data-heading="Best Practices for Using AKS" data-level="2" data-permalink="/docs/azure-devops/azuredevops-05/" data-title="Part 5" -->
+<h2 id="best-practices-for-using-aks">Best Practices for Using AKS</h2><ol>
+<li><strong>Use Azure Monitor</strong>: Enable Azure Monitor for containers to gain insights into the performance and health of your applications.</li>
+<li><strong>Implement RBAC</strong>: Use Role-Based Access Control (RBAC) for managing permissions within your Kubernetes cluster.</li>
+<li><strong>Use Network Policies</strong>: Control traffic between pods for enhanced security.</li>
+<li><strong>Monitor Costs</strong>: Keep track of your resource usage to manage costs effectively.</li>
+<li><strong>Backup your Data</strong>: Implement backup and disaster recovery strategies for your applications and data.</li>
+</ol>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="conclusion-1" data-heading="Conclusion" data-level="2" data-permalink="/docs/azure-devops/azuredevops-05/" data-title="Part 5" -->
+<h2 id="conclusion-1">Conclusion</h2><p>Azure Kubernetes Service (AKS) provides a powerful and flexible platform for deploying and managing containerized applications. By following this guide, you can set up an AKS cluster and deploy a simple application. Explore further by implementing more complex scenarios and leveraging additional Azure services.</p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="arm-template-tutorial" data-heading="ARM Template Tutorial" data-level="2" data-permalink="/docs/azure-devops/azuredevops-05/" data-title="Part 5" -->
+<h2 id="arm-template-tutorial">ARM Template Tutorial</h2><!-- end-chunk -->
+<!-- begin-chunk data-anchor="introduction" data-heading="Introduction" data-level="3" data-permalink="/docs/azure-devops/azuredevops-05/" data-title="Part 5" -->
+<h3 id="introduction">Introduction</h3><p>An Azure Resource Manager (ARM) template is a JSON file that defines resources for Azure to deploy. ARM templates help automate the provisioning of resources in a consistent and repeatable way.</p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="template-structure" data-heading="Template Structure" data-level="3" data-permalink="/docs/azure-devops/azuredevops-05/" data-title="Part 5" -->
+<h3 id="template-structure">Template Structure</h3><p>An ARM template typically contains the following main sections:</p>
+<ul>
+<li><strong><code>$schema</code></strong>: Specifies the schema for the template.</li>
+<li><strong><code>contentVersion</code></strong>: The version of the template (e.g., &ldquo;1.0.0.0&rdquo;).</li>
+<li><strong><code>parameters</code></strong>: Defines inputs for the template, like resource names and configurations.</li>
+<li><strong><code>variables</code></strong>: Holds reusable values within the template.</li>
+<li><strong><code>resources</code></strong>: Defines the resources to be deployed to Azure.</li>
+<li><strong><code>outputs</code></strong>: (Optional) Outputs information like resource IDs or endpoints after deployment.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="step-1-define-a-basic-arm-template" data-heading="Step 1: Define a Basic ARM Template" data-level="3" data-permalink="/docs/azure-devops/azuredevops-05/" data-title="Part 5" -->
+<h3 id="step-1-define-a-basic-arm-template">Step 1: Define a Basic ARM Template</h3><p>Below is an ARM template to deploy an Azure Storage Account.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;$schema&#34;</span>: <span style="color:#e6db74">&#34;https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;contentVersion&#34;</span>: <span style="color:#e6db74">&#34;1.0.0.0&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;parameters&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;storageAccountName&#34;</span>: {
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;type&#34;</span>: <span style="color:#e6db74">&#34;string&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;defaultValue&#34;</span>: <span style="color:#e6db74">&#34;mystorageaccount&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;metadata&#34;</span>: {
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;description&#34;</span>: <span style="color:#e6db74">&#34;Name of the storage account&#34;</span>
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;location&#34;</span>: {
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;type&#34;</span>: <span style="color:#e6db74">&#34;string&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;defaultValue&#34;</span>: <span style="color:#e6db74">&#34;[resourceGroup().location]&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;metadata&#34;</span>: {
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;description&#34;</span>: <span style="color:#e6db74">&#34;Location for the storage account&#34;</span>
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;sku&#34;</span>: {
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;type&#34;</span>: <span style="color:#e6db74">&#34;string&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;defaultValue&#34;</span>: <span style="color:#e6db74">&#34;Standard_LRS&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;allowedValues&#34;</span>: [
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;Standard_LRS&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;Standard_GRS&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;Standard_RAGRS&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;Standard_ZRS&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;Premium_LRS&#34;</span>
+</span></span><span style="display:flex;"><span>      ],
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;metadata&#34;</span>: {
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;description&#34;</span>: <span style="color:#e6db74">&#34;Storage account SKU&#34;</span>
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;resources&#34;</span>: [
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;type&#34;</span>: <span style="color:#e6db74">&#34;Microsoft.Storage/storageAccounts&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;apiVersion&#34;</span>: <span style="color:#e6db74">&#34;2022-09-01&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;name&#34;</span>: <span style="color:#e6db74">&#34;[parameters(&#39;storageAccountName&#39;)]&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;location&#34;</span>: <span style="color:#e6db74">&#34;[parameters(&#39;location&#39;)]&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;sku&#34;</span>: {
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;name&#34;</span>: <span style="color:#e6db74">&#34;[parameters(&#39;sku&#39;)]&#34;</span>
+</span></span><span style="display:flex;"><span>      },
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;kind&#34;</span>: <span style="color:#e6db74">&#34;StorageV2&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;properties&#34;</span>: {}
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  ]
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><!-- end-chunk -->
+<!-- begin-chunk data-anchor="deploy-the-template" data-heading="Deploy the Template" data-level="3" data-permalink="/docs/azure-devops/azuredevops-05/" data-title="Part 5" -->
+<h3 id="deploy-the-template">Deploy the Template</h3><ul>
+<li>Save the JSON above as azuredeploy.json.</li>
+<li>Open Azure CLI and run</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>az deployment group create --resource-group &lt;YourResourceGroup&gt; --template-file azuredeploy.json
+</span></span></code></pre></div><!-- end-chunk -->
+<!-- begin-chunk data-anchor="azure-bicep" data-heading="Azure Bicep" data-level="2" data-permalink="/docs/azure-devops/azuredevops-05/" data-title="Part 5" -->
+<h2 id="azure-bicep">Azure Bicep</h2><p>Azure Bicep is a domain-specific language (DSL) for deploying Azure resources declaratively. It’s designed to simplify and enhance the experience of defining infrastructure as code in Azure, providing a more readable alternative to ARM templates.</p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="key-features-1" data-heading="Key Features" data-level="3" data-permalink="/docs/azure-devops/azuredevops-05/" data-title="Part 5" -->
+<h3 id="key-features-1">Key Features</h3><ul>
+<li>
+<p><strong>Simplified Syntax</strong>: Bicep offers a cleaner, more concise syntax compared to JSON-based ARM templates, making it easier to read and write.</p>
+</li>
+<li>
+<p><strong>Modularity and Reusability</strong>:</p>
+<ul>
+<li><strong>Modules</strong>: Bicep enables modularization of code, allowing you to split complex deployments into smaller, reusable modules.</li>
+<li><strong>Parameters</strong>: Bicep supports parameterization, making templates adaptable to different environments or configurations.</li>
+</ul>
+</li>
+<li>
+<p><strong>Type-Safety and IntelliSense</strong>: Bicep provides type safety with built-in IntelliSense support, ensuring accurate resource properties and reducing deployment errors.</p>
+</li>
+<li>
+<p><strong>Integration with ARM</strong>: Bicep directly compiles to ARM JSON, maintaining compatibility with the Azure Resource Manager ecosystem. You can convert existing ARM templates to Bicep for easier management.</p>
+</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="advantages-of-bicep-over-arm-templates" data-heading="Advantages of Bicep Over ARM Templates" data-level="2" data-permalink="/docs/azure-devops/azuredevops-05/" data-title="Part 5" -->
+<h2 id="advantages-of-bicep-over-arm-templates">Advantages of Bicep Over ARM Templates</h2><ul>
+<li><strong>Readability</strong>: Bicep’s structure is more human-readable than JSON-based ARM templates, making it easier to onboard new team members.</li>
+<li><strong>Reduced Complexity</strong>: By removing the need for nested JSON structures, Bicep reduces the complexity associated with ARM templates.</li>
+<li><strong>Built-in Validation</strong>: Azure CLI and PowerShell support validation and syntax checks for Bicep files, helping catch issues early in the development process.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="example-deploying-an-azure-storage-account" data-heading="Example: Deploying an Azure Storage Account" data-level="3" data-permalink="/docs/azure-devops/azuredevops-05/" data-title="Part 5" -->
+<h3 id="example-deploying-an-azure-storage-account">Example: Deploying an Azure Storage Account</h3><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bicep" data-lang="bicep"><span style="display:flex;"><span><span style="color:#66d9ef">param</span> storageAccountName string
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">param</span> location string = <span style="color:#e6db74">&#39;eastus&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">param</span> sku string = <span style="color:#e6db74">&#39;Standard_LRS&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">resource</span> storageAccount <span style="color:#e6db74">&#39;Microsoft.Storage/storageAccounts@2021-04-01&#39;</span> = {
+</span></span><span style="display:flex;"><span>  name: storageAccountName
+</span></span><span style="display:flex;"><span>  location: location
+</span></span><span style="display:flex;"><span>  sku: {
+</span></span><span style="display:flex;"><span>    name: sku
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  kind: <span style="color:#e6db74">&#39;StorageV2&#39;</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><!-- end-chunk -->
+<!-- begin-chunk data-anchor="running-a-bicep-deployment-in-azure" data-heading="Running a Bicep Deployment in Azure" data-level="3" data-permalink="/docs/azure-devops/azuredevops-05/" data-title="Part 5" -->
+<h3 id="running-a-bicep-deployment-in-azure">Running a Bicep Deployment in Azure</h3><p>Follow these steps to deploy a Bicep file to Azure:</p>
+<ol>
+<li>
+<p><strong>Install Azure CLI and Bicep CLI</strong></p>
+<ul>
+<li>
+<p>Install Azure CLI if not already installed:<br>
+<a href="https://learn.microsoft.com/cli/azure/install-azure-cli" target="_blank" rel="noopener">Install Azure CLI</a></p>
+</li>
+<li>
+<p>Install the Bicep CLI by running:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>az bicep install
+</span></span></code></pre></div></li>
+</ul>
+</li>
+<li>
+<p><strong>Log in to Azure</strong></p>
+<ul>
+<li>Open your terminal and log in to your Azure account:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>az login
+</span></span></code></pre></div></li>
+</ul>
+</li>
+<li>
+<p><strong>Create a Resource Group (Optional)</strong></p>
+<ul>
+<li>If you don&rsquo;t already have a resource group, create one to deploy your resources:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>az group create --name myResourceGroup --location eastus
+</span></span></code></pre></div></li>
+</ul>
+</li>
+<li>
+<p><strong>Deploy the Bicep File</strong></p>
+<ul>
+<li>
+<p>Assuming your Bicep file is named <code>main.bicep</code>, deploy it with the following command:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>az deployment group create --resource-group myResourceGroup --template-file main.bicep
+</span></span></code></pre></div></li>
+<li>
+<p>For a file like <code>storageAccount.bicep</code> that requires parameters, you can deploy it like this:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>az deployment group create <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --resource-group myResourceGroup <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --template-file storageAccount.bicep <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --parameters storageAccountName<span style="color:#f92672">=</span>myUniqueStorageAccount location<span style="color:#f92672">=</span>eastus sku<span style="color:#f92672">=</span>Standard_LRS
+</span></span></code></pre></div></li>
+</ul>
+</li>
+<li>
+<p><strong>Verify Deployment</strong></p>
+<ul>
+<li>After deployment, you can verify the status of your deployment by running:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>az deployment group show --resource-group myResourceGroup --name &lt;deployment-name&gt;
+</span></span></code></pre></div></li>
+</ul>
+</li>
+</ol>
+<p>Your resources defined in the Bicep file should now be deployed to Azure.</p>
+
+	
+	
+	
+</div>
+
+
+          </main>
+        </div>
+      </div>
+      
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+    integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+    crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js"
+    integrity="sha512-UR25UO94eTnCVwjbXozyeVd6ZqpaAE9naiEUBK/A+QDbfSTQFhPGj5lOR6d8tsgbBk84Ggb5A3EkjsOgPRPcKA=="
+    crossorigin="anonymous"></script>
+
+
+
+
+
+<script src='/js/tabpane-persist.js'></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="/js/main.min.223ab2fcc7d742c1b94772c0276851c497da4343cd2d21534199ced90681e207.js" integrity="sha256-Ijqy/MfXQsG5R3LAJ2hRxJfaQ0PNLSFTQZnO2QaB4gc=" crossorigin="anonymous"></script>
+
+
+
+<script src='/js/prism.js'></script>
+
+
+
+  </body>
+</html>

@@ -1,0 +1,1386 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="generator" content="Hugo 0.122.0">
+<link rel="alternate" type="application/rss&#43;xml" href="/docs/azure-devops/index.xml">
+<meta name="robots" content="index, follow">
+
+<link rel="shortcut icon" href="/favicons/favicon.ico" >
+
+<title>Azure Devops | Documentation</title>
+<meta name="description" content="Azure Cloud">
+<meta property="og:title" content="Azure Devops" />
+<meta property="og:description" content="Azure Cloud" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="/docs/azure-devops/" />
+
+<meta itemprop="name" content="Azure Devops">
+<meta itemprop="description" content="Azure Cloud"><meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Azure Devops"/>
+<meta name="twitter:description" content="Azure Cloud"/>
+
+
+
+
+<link rel="preload" href="/scss/main.min.b5bfe2535b6f07595fd9cb7a4018024e52e136c3b43e03a17a1e47a950822d03.css" as="style">
+<link href="/scss/main.min.b5bfe2535b6f07595fd9cb7a4018024e52e136c3b43e03a17a1e47a950822d03.css" rel="stylesheet" integrity="">
+
+<script
+  src="https://code.jquery.com/jquery-3.6.0.min.js"
+  integrity="sha384-vtXRMe3mGCbOeY7l30aIg8H9p3GdeSe4IFlP6G8JMa7o7lXvnz3GFKzPxzJdPfGK"
+  crossorigin="anonymous"></script>
+<script
+  src="https://unpkg.com/lunr@2.3.9/lunr.min.js"
+  integrity="sha384-203J0SNzyqHby3iU6hzvzltrWi/M41wOP5Gu+BiJMz5nwKykbkUx8Kp7iti0Lpli"
+  crossorigin="anonymous"></script>
+<link rel="stylesheet" href="/css/prism.css"/>
+<script type="text/javascript"  src="/js/highlight-search.js"></script>
+<script type="text/javascript"  src="/js/manage-side-panels.js"></script>
+  </head>
+  <body class="td-section highlightable">
+    <header>
+      
+<nav class="js-navbar-scroll navbar navbar-expand navbar-dark flex-column flex-md-row td-navbar">
+        <a class="navbar-brand" href="/">
+		<span class="navbar-logo"><svg version="1.0" xmlns="http://www.w3.org/2000/svg" width="217pt" height="232pt" viewBox="0 0 217 232"><g transform="translate(0.000000,232.000000) scale(0.100000,-0.100000)" fill="#000" stroke="none"><path d="M1017 2250c-397-48-698-367-731-775-9-106-3-113 66-87l55 20 11-71c6-39 10-72 9-73s-58-22-127-47c-104-37-124-48-122-64 7-37 56-150 88-205l34-56 66 25 66 26 65-72c206-226 513-322 808-252 367 88 634 417 635 784 0 43-4 77-10 77-5 0-32-9-60-20s-55-20-59-20c-5 0-12 26-16 59-4 32-20 96-36 142s-30 88-31 92c-2 5 54 29 124 55l128 46-31 55c-17 31-33 58-34 59-2 2-31-6-64-19l-61-22-23 29c-81 104-172 178-292 235-140 68-309 97-458 79zm226-299c90-24 136-46 206-101l52-41 61 20 60 20 26-31c15-17 35-44 44-59l17-28-52-19c-29-11-86-32-128-47l-76-27 24-58c26-66 43-144 43-201 0-22 2-39 5-39 2 0 27 9 55 20s55 20 60 20c17 0 10-63-14-131-127-359-580-484-862-237l-35 31-70-24-71-24-30 35c-37 43-97 164-104 212l-6 34 123 46 124 45-3 64c-2 35-5 66-7 68-2 1-27-5-55-14s-53-15-55-14c-2 2 1 29 7 59 32 179 185 352 361 409 112 36 192 39 3e2 12z"/><path d="M134 321c-77-33-95-169-29-231 19-18 36-23 71-23 40 0 51 4 75 30 50 56 47 153-5 202-26 25-80 35-112 22zm82-62c26-29 26-99 0-128-24-26-47-27-77-2-19 15-24 29-24 64 0 76 58 114 101 66z"/><path d="M1172 320c-27-12-44-52-33-82 4-12 31-32 61-47 30-14 58-34 64-43 26-43-50-76-99-44-15 10-26 12-30 6-10-16 4-29 44-40 62-17 114 13 114 65 0 35-19 53-80 81-54 23-67 46-41 72 15 15 62 16 88 2 23-12 35 3 16 19-20 17-77 23-104 11z"/><path d="M350 195V70h25c23 0 25 4 25 45v45h40c76 0 115 40 103 104-8 42-38 56-120 56h-73V195zm134 69c18-18 18-17 10-38-4-11-19-16-50-16-44 0-44 0-44 35 0 33 2 35 34 35 19 0 42-7 50-16z"/><path d="M6e2 195V70h90c83 0 90 2 90 20 0 16-8 19-62 22-63 3-63 3-66 36-3 31-2 32 36 32 36 0 39 2 34 25-4 21-10 25-38 25-30 0-34 3-34 25 0 24 2 25 65 25 58 0 65 2 65 20 0 19-7 20-90 20h-90V195z"/><path d="M850 195c0-117 1-125 20-125 17 0 19 8 22 83l3 82 55-82c41-62 61-83 78-83 22 0 22 2 22 125 0 117-1 125-20 125-17 0-19-8-22-82l-3-82-54 82c-42 65-59 82-77 82-24 0-24 0-24-125z"/><path d="M1360 195c0-104 2-125 15-125 12 0 15 13 15 60v60h65 65v-60c0-47 3-60 15-60 13 0 15 21 15 125s-2 125-15 125c-12 0-15-13-15-55v-55h-65-65v55c0 42-3 55-15 55-13 0-15-21-15-125z"/><path d="M1620 195c0-104 2-125 15-125s15 21 15 125-2 125-15 125-15-21-15-125z"/><path d="M1730 195c0-77 4-125 10-125s10 27 10 60v60h35c19 0 35 5 35 10 0 6-16 10-35 10-35 0-35 0-35 45v45h60c33 0 60 4 60 10s-30 10-70 10h-70V195z"/><path d="M1930 310c0-5 18-10 40-10h40V185c0-70 4-115 10-115s10 45 10 115v115h40c22 0 40 5 40 10 0 6-37 10-90 10s-90-4-90-10z"/></g></svg></span><span class="font-weight-bold">Documentation</span>
+	</a>
+	<div class="td-navbar-nav-scroll ml-md-auto" id="main_navbar">
+		<ul class="navbar-nav mt-2 mt-lg-0">
+			
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/" ><i class='fa fa-home'></i><span>Home</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/docs/azure/" ><i class='fab fa-azure'></i><span>Azure Cloud Computing</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link active" href="/docs/azure-devops/" ><i class='fab fa-azure'></i><span class="active">Azure Devops</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/docs/gitlab/" ><i class='fab fa-gitlab'></i><span>Gitlab Tutorials</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/docs/openshift/" ><i class='fab fa-openshift'></i><span>OpenShift Administration</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/docs/kvm/" ><i class="fab fa-linux"></i><span>Redhat Ansible</span></a>
+			</li>
+			
+			
+			
+		</ul>
+	</div>
+	<div class="navbar-nav d-none d-lg-block">
+<form class="d-flex align-items-center">
+  <input type="search"
+  class="form-control td-search-input"
+  placeholder="&#xf002; Search this site…"
+  aria-label="Search this site…"
+  autocomplete="off"
+  
+  data-offline-search-index-json-src="/offline-search-index.d4ee35dfb31ed3b96d119091cf664ad4.json"
+  data-offline-search-base-href="/"
+  data-offline-search-max-results="20">
+</form>
+</div>
+</nav>
+
+      <div class="manage-panels">
+    <button type="button" class="button-left" id="left-panel-manager" title="Hide sidebar">""</button>
+    <button type="button" class="button-right" id="right-panel-manager" title="Hide sidebar">""</button>
+</div>
+    </header>
+    <div class="container-fluid td-outer">
+      <div class="td-main autonumbering">
+        <div class="row flex-xl-nowrap">
+          <aside class="col-12 col-md-3 col-xl-2 td-sidebar d-print-none">
+            
+<div id="td-sidebar-menu" class="td-sidebar__inner">
+  <div id="content-mobile">
+  <form class="td-sidebar__search d-flex align-items-center">
+    
+<form class="d-flex align-items-center">
+  <input type="search"
+  class="form-control td-search-input"
+  placeholder="&#xf002; Search this site…"
+  aria-label="Search this site…"
+  autocomplete="off"
+  
+  data-offline-search-index-json-src="/offline-search-index.d4ee35dfb31ed3b96d119091cf664ad4.json"
+  data-offline-search-base-href="/"
+  data-offline-search-max-results="20">
+</form>
+
+    <button class="btn btn-link td-sidebar__toggle d-md-none p-0 ml-3 fas fa-bars" type="button" data-toggle="collapse" data-target="#td-section-nav" aria-controls="td-docs-nav" aria-expanded="false" aria-label="Toggle section navigation">
+    </button>
+  </form>
+  </div>
+  <div id="content-desktop"></div>
+  <nav class="collapse td-sidebar-nav foldable-nav" id="td-section-nav">
+    <ul class="td-sidebar-nav__section pr-md-3 ul-0">
+      <li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id="m-docs-li">
+  <a href="/docs/" class="align-left pl-0 td-sidebar-link td-sidebar-link__section tree-root" id="m-docs"><span class="">Docs</span></a>
+  <ul class="ul-1">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-docsazure-li">
+  <input type="checkbox" id="m-docsazure-check"/>
+  <label for="m-docsazure-check"><a href="/docs/azure/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-docsazure"><i class="fab fa-azure"></i><span class="">Azure Cloud Computing</span></a></label>
+  
+  <ul class="ul-2 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazurelinux-basics-li">
+  <input type="checkbox" id="m-docsazurelinux-basics-check"/>
+  <label for="m-docsazurelinux-basics-check"><a href="/docs/azure/linux-basics/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazurelinux-basics"><i class="fab fa-azure"></i><span class="">Linux Basics</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazureazure-vm-li">
+  <input type="checkbox" id="m-docsazureazure-vm-check"/>
+  <label for="m-docsazureazure-vm-check"><a href="/docs/azure/azure-vm/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazureazure-vm"><i class="fab fa-azure"></i><span class="">Azure Cloud Virtual Machine (01)</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazureazuredevops-li">
+  <input type="checkbox" id="m-docsazureazuredevops-check"/>
+  <label for="m-docsazureazuredevops-check"><a href="/docs/azure/azuredevops/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazureazuredevops"><i class="fab fa-azure"></i><span class="">Azure Devops</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazureazure-network-li">
+  <input type="checkbox" id="m-docsazureazure-network-check"/>
+  <label for="m-docsazureazure-network-check"><a href="/docs/azure/azure-network/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazureazure-network"><i class="fab fa-azure"></i><span class="">Azure Cloud Networking</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazureazure-storage-li">
+  <input type="checkbox" id="m-docsazureazure-storage-check"/>
+  <label for="m-docsazureazure-storage-check"><a href="/docs/azure/azure-storage/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazureazure-storage"><i class="fab fa-azure"></i><span class="">Azure Cloud Storage</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazureazure-cli-li">
+  <input type="checkbox" id="m-docsazureazure-cli-check"/>
+  <label for="m-docsazureazure-cli-check"><a href="/docs/azure/azure-cli/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazureazure-cli"><i class="fab fa-azure"></i><span class="">Azure Cli</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazureazure-vmss-li">
+  <input type="checkbox" id="m-docsazureazure-vmss-check"/>
+  <label for="m-docsazureazure-vmss-check"><a href="/docs/azure/azure-vmss/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazureazure-vmss"><i class="fab fa-azure"></i><span class="">Azure Cloud Virtual Machine Scale Set</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazureazure-lb-li">
+  <input type="checkbox" id="m-docsazureazure-lb-check"/>
+  <label for="m-docsazureazure-lb-check"><a href="/docs/azure/azure-lb/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazureazure-lb"><i class="fab fa-azure"></i><span class="">Azure Cloud LoadBalancers</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazureazure-monitor-li">
+  <input type="checkbox" id="m-docsazureazure-monitor-check"/>
+  <label for="m-docsazureazure-monitor-check"><a href="/docs/azure/azure-monitor/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazureazure-monitor"><i class="fab fa-azure"></i><span class="">Azure Monitoring</span></a></label>
+  
+</li>
+  </ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-docsazure-devops-li">
+  <input type="checkbox" id="m-docsazure-devops-check"/>
+  <label for="m-docsazure-devops-check"><a href="/docs/azure-devops/" class="align-left pl-0  active td-sidebar-link td-sidebar-link__section" id="m-docsazure-devops"><i class="fab fa-azure"></i><span class="td-sidebar-nav-active-item">Azure Devops</span></a></label>
+  
+  <ul class="ul-2 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazure-devopsazure-board-li">
+  <input type="checkbox" id="m-docsazure-devopsazure-board-check"/>
+  <label for="m-docsazure-devopsazure-board-check"><a href="/docs/azure-devops/azure-board/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazure-devopsazure-board"><i class="fab fa-azure"></i><span class="">Azure Board</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazure-devopsazuredevops-01-li">
+  <input type="checkbox" id="m-docsazure-devopsazuredevops-01-check"/>
+  <label for="m-docsazure-devopsazuredevops-01-check"><a href="/docs/azure-devops/azuredevops-01/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazure-devopsazuredevops-01"><i class="fab fa-azure"></i><span class="">Part 1</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazure-devopsazuredevops-li">
+  <input type="checkbox" id="m-docsazure-devopsazuredevops-check"/>
+  <label for="m-docsazure-devopsazuredevops-check"><a href="/docs/azure-devops/azuredevops/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazure-devopsazuredevops"><i class="fab fa-azure"></i><span class="">Azure Devops</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazure-devopsazuredevops-02-li">
+  <input type="checkbox" id="m-docsazure-devopsazuredevops-02-check"/>
+  <label for="m-docsazure-devopsazuredevops-02-check"><a href="/docs/azure-devops/azuredevops-02/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazure-devopsazuredevops-02"><i class="fab fa-azure"></i><span class="">Part 2</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazure-devopsazuredevops-03-li">
+  <input type="checkbox" id="m-docsazure-devopsazuredevops-03-check"/>
+  <label for="m-docsazure-devopsazuredevops-03-check"><a href="/docs/azure-devops/azuredevops-03/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazure-devopsazuredevops-03"><i class="fab fa-azure"></i><span class="">Part 3</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazure-devopsazuredevops-04-li">
+  <input type="checkbox" id="m-docsazure-devopsazuredevops-04-check"/>
+  <label for="m-docsazure-devopsazuredevops-04-check"><a href="/docs/azure-devops/azuredevops-04/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazure-devopsazuredevops-04"><i class="fab fa-azure"></i><span class="">part 4</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazure-devopsazuredevops-05-li">
+  <input type="checkbox" id="m-docsazure-devopsazuredevops-05-check"/>
+  <label for="m-docsazure-devopsazuredevops-05-check"><a href="/docs/azure-devops/azuredevops-05/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazure-devopsazuredevops-05"><i class="fab fa-azure"></i><span class="">Part 5</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazure-devopsazuredevops-06-li">
+  <input type="checkbox" id="m-docsazure-devopsazuredevops-06-check"/>
+  <label for="m-docsazure-devopsazuredevops-06-check"><a href="/docs/azure-devops/azuredevops-06/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazure-devopsazuredevops-06"><i class="fab fa-azure"></i><span class="">Part 6</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazure-devopsaks-li">
+  <input type="checkbox" id="m-docsazure-devopsaks-check"/>
+  <label for="m-docsazure-devopsaks-check"><a href="/docs/azure-devops/aks/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazure-devopsaks"><i class="fab fa-azure"></i><span class="">AKS</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazure-devopstest-li">
+  <input type="checkbox" id="m-docsazure-devopstest-check"/>
+  <label for="m-docsazure-devopstest-check"><a href="/docs/azure-devops/test/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazure-devopstest"><i class="fab fa-azure"></i><span class="">Azure Devops Test Plans</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazure-devopsdocker-li">
+  <input type="checkbox" id="m-docsazure-devopsdocker-check"/>
+  <label for="m-docsazure-devopsdocker-check"><a href="/docs/azure-devops/docker/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazure-devopsdocker"><i class="fab fa-azure"></i><span class="">Docker</span></a></label>
+  
+</li>
+  </ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-docsgitlab-li">
+  <input type="checkbox" id="m-docsgitlab-check"/>
+  <label for="m-docsgitlab-check"><a href="/docs/gitlab/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-docsgitlab"><i class="fab fa-gitlab"></i><span class="">Gitlab Tutorials</span></a></label>
+  
+  <ul class="ul-2 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsgitlabgitlab01-li">
+  <input type="checkbox" id="m-docsgitlabgitlab01-check"/>
+  <label for="m-docsgitlabgitlab01-check"><a href="/docs/gitlab/gitlab01/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsgitlabgitlab01"><i class="fab fa-gitlab"></i><span class="">GitLab Installation</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsgitlabgitlab-with-ldap-li">
+  <input type="checkbox" id="m-docsgitlabgitlab-with-ldap-check"/>
+  <label for="m-docsgitlabgitlab-with-ldap-check"><a href="/docs/gitlab/gitlab-with-ldap/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsgitlabgitlab-with-ldap"><i class="fas fa-server"></i><span class="">Gitlab Authentication with LDAP</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsgitlabgitlab-container-registry-li">
+  <input type="checkbox" id="m-docsgitlabgitlab-container-registry-check"/>
+  <label for="m-docsgitlabgitlab-container-registry-check"><a href="/docs/gitlab/gitlab-container-registry/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsgitlabgitlab-container-registry"><i class="fab fa-docker"></i><span class="">GitLab Container Registry</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsgitlabgitlab-logs-troubleshooting-li">
+  <input type="checkbox" id="m-docsgitlabgitlab-logs-troubleshooting-check"/>
+  <label for="m-docsgitlabgitlab-logs-troubleshooting-check"><a href="/docs/gitlab/gitlab-logs-troubleshooting/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsgitlabgitlab-logs-troubleshooting"><i class="fas fa-file-alt"></i><span class="">Logs and Troubleshooting</span></a></label>
+  
+</li>
+  </ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-docsopenshift-li">
+  <input type="checkbox" id="m-docsopenshift-check"/>
+  <label for="m-docsopenshift-check"><a href="/docs/openshift/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-docsopenshift"><i class="fab fa-openshift"></i><span class="">OpenShift Administration</span></a></label>
+  
+  <ul class="ul-2 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsopenshiftocp-onvmware-copy-li">
+  <input type="checkbox" id="m-docsopenshiftocp-onvmware-copy-check"/>
+  <label for="m-docsopenshiftocp-onvmware-copy-check"><a href="/docs/openshift/ocp-onvmware-copy/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsopenshiftocp-onvmware-copy"><i class="fab fa-openshift"></i><span class="">Openshift Installation on Vmware</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsopenshiftocp-sno-li">
+  <input type="checkbox" id="m-docsopenshiftocp-sno-check"/>
+  <label for="m-docsopenshiftocp-sno-check"><a href="/docs/openshift/ocp-sno/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsopenshiftocp-sno"><i class="fab fa-openshift"></i><span class="">Openshift Single node Cluster</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsopenshiftocp-tasks-li">
+  <input type="checkbox" id="m-docsopenshiftocp-tasks-check"/>
+  <label for="m-docsopenshiftocp-tasks-check"><a href="/docs/openshift/ocp-tasks/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsopenshiftocp-tasks"><span class="">Openshift 4 Tasks</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsopenshiftocp-tekton-li">
+  <input type="checkbox" id="m-docsopenshiftocp-tekton-check"/>
+  <label for="m-docsopenshiftocp-tekton-check"><a href="/docs/openshift/ocp-tekton/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsopenshiftocp-tekton"><span class="">Openshift Tekton Pipeline</span></a></label>
+  
+</li>
+  </ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-docskvm-li">
+  <input type="checkbox" id="m-docskvm-check"/>
+  <label for="m-docskvm-check"><a href="/docs/kvm/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-docskvm"><i class="fab fa-linux"></i><span class="">Redhat Ansible</span></a></label>
+  
+  <ul class="ul-2 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docskvmkvm-li">
+  <input type="checkbox" id="m-docskvmkvm-check"/>
+  <label for="m-docskvmkvm-check"><a href="/docs/kvm/kvm/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docskvmkvm"><i class="fab fa-kvm"></i><span class="">KVM</span></a></label>
+  
+</li>
+  </ul>
+</li>
+  </ul>
+</li>
+    </ul>
+  </nav>
+</div>
+
+          </aside>
+          <aside class="d-none d-xl-block col-xl-2 td-sidebar-toc d-print-none">
+            
+
+    <div class="td-page-meta ml-2 pb-1 pt-2 mb-0">
+        <div class="toc-title">Actions</div>
+        <a href="/edit/master/content/docs/Azure%20%20Devops/_index.md" target="_blank" rel="noopener"><i class="fa fa-edit fa-fw"></i> Contribute to this page</a>
+        <a href="/issues/new?issue%5Btitle=%f0%9f%93%83%20docs:%20update%20page%20docs/Azure%20%20Devops/_index.md" target="_blank" rel="noopener"><i class="fab fa-gitlab fa-fw"></i> Create a documentation issue</a>
+       
+    </div>
+
+            
+<div class="td-page-meta ml-2 pb-1 pt-2 mb-0 right-menu-toc">
+
+    
+        
+            <div class="toc-title">Table of content</div>
+            <div class="td-toc"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#table-of-contents">Table of Contents</a></li>
+    <li><a href="#what-is-traditional-datacenter-architecture">What is Traditional Datacenter Architecture?</a>
+      <ul>
+        <li><a href="#problems-with-traditional-architecture">Problems With Traditional Architecture</a></li>
+      </ul>
+    </li>
+    <li><a href="#cloud-computing">Cloud Computing</a>
+      <ul>
+        <li><a href="#characteristics-of-cloud-computing">Characteristics of Cloud Computing</a></li>
+        <li><a href="#how-cloud-computing-overcomes-the-problems-of-traditional-architecture">How Cloud Computing Overcomes the Problems of Traditional Architecture</a></li>
+        <li><a href="#conclusion">Conclusion</a></li>
+      </ul>
+    </li>
+    <li><a href="#cloud-service-models">Cloud Service Models</a>
+      <ul>
+        <li><a href="#infrastructure-as-a-service-iaas">Infrastructure as a Service (IaaS)</a></li>
+        <li><a href="#platform-as-a-service-paas">Platform as a Service (PaaS)</a></li>
+        <li><a href="#software-as-a-service-saas">Software as a Service (SaaS)</a></li>
+        <li><a href="#examples">Examples</a></li>
+        <li><a href="#conclusion-1">Conclusion</a></li>
+      </ul>
+    </li>
+    <li><a href="#cloud-deployment-models">Cloud Deployment Models</a>
+      <ul>
+        <li><a href="#public-cloud">Public Cloud</a></li>
+        <li><a href="#private-cloud">Private Cloud</a></li>
+        <li><a href="#hybrid-cloud">Hybrid Cloud</a></li>
+        <li><a href="#community-cloud">Community Cloud</a></li>
+        <li><a href="#conclusion-2">Conclusion</a></li>
+      </ul>
+    </li>
+    <li><a href="#well-architected-framework">Well-Architected Framework</a>
+      <ul>
+        <li><a href="#operational-excellence">Operational Excellence</a></li>
+        <li><a href="#security">Security</a></li>
+        <li><a href="#reliability">Reliability</a></li>
+        <li><a href="#performance-efficiency">Performance Efficiency</a></li>
+        <li><a href="#cost-optimization">Cost Optimization</a></li>
+        <li><a href="#conclusion-3">Conclusion</a></li>
+      </ul>
+    </li>
+    <li><a href="#pillars-of-cloud-computing">Pillars of Cloud Computing</a>
+      <ul>
+        <li><a href="#cost-efficiency">Cost Efficiency</a></li>
+        <li><a href="#scalability">Scalability</a></li>
+        <li><a href="#performance">Performance</a></li>
+        <li><a href="#security-1">Security</a></li>
+        <li><a href="#reliability-1">Reliability</a></li>
+        <li><a href="#flexibility">Flexibility</a></li>
+        <li><a href="#conclusion-4">Conclusion</a></li>
+      </ul>
+    </li>
+    <li><a href="#introduction-to-azure-cloud">Introduction to Azure Cloud</a></li>
+    <li><a href="#azure-core-concepts">Azure Core Concepts</a>
+      <ul>
+        <li><a href="#azure-cloud-account">Azure Cloud Account</a></li>
+        <li><a href="#azure-subscription">Azure Subscription</a></li>
+        <li><a href="#resource-groups">Resource Groups</a></li>
+        <li><a href="#regions-and-availability-zones">Regions and Availability Zones</a></li>
+        <li><a href="#azure-free-account-creation">Azure Free Account Creation</a>
+          <ul>
+            <li><a href="#discuss-what-is-free-there">Discuss what is free there</a></li>
+            <li><a href="#walk-through-some-azure-services-and-options">Walk through Some Azure Services and options</a></li>
+          </ul>
+        </li>
+        <li><a href="#azure-cli-commands">Azure CLI Commands</a></li>
+      </ul>
+    </li>
+    <li><a href="#steps-to-create-service-principle">Steps to create Service Principle</a>
+      <ul>
+        <li><a href="#1-log-in-to-the-azure-portal">1. Log in to the Azure Portal</a></li>
+        <li><a href="#2-navigate-to-azure-active-directory">2. Navigate to Azure Active Directory</a></li>
+        <li><a href="#3-create-a-new-app-registration">3. Create a New App Registration</a></li>
+        <li><a href="#4-fill-in-the-app-registration-details">4. Fill in the App Registration Details</a></li>
+        <li><a href="#5-create-a-client-secret">5. Create a Client Secret</a></li>
+        <li><a href="#6-assign-roles-to-the-service-principal">6. Assign Roles to the Service Principal</a></li>
+        <li><a href="#7-collect-key-information">7. Collect Key Information</a></li>
+        <li><a href="#optional-create-a-service-principal-via-cli">Optional: Create a Service Principal via CLI</a></li>
+        <li><a href="#how-to-login-with-service-principle">How to login with service principle</a></li>
+        <li><a href="#how-to-create-ssh-key">How to create ssh key</a></li>
+      </ul>
+    </li>
+    <li><a href="#managed-identity">Managed Identity</a>
+      <ul>
+        <li><a href="#types-of-managed-identity">Types of Managed Identity</a></li>
+        <li><a href="#key-features">Key Features</a></li>
+        <li><a href="#use-cases">Use Cases</a></li>
+        <li><a href="#how-to-use">How to Use</a></li>
+        <li><a href="#login-with-managed-identity">Login with Managed identity</a></li>
+        <li><a href="#login-with-user-assigned-managed-identity">Login with user assigned managed identity</a></li>
+      </ul>
+    </li>
+    <li><a href="#azure-app-service">Azure App Service</a>
+      <ul>
+        <li><a href="#key-features-1">Key Features</a></li>
+        <li><a href="#types-of-azure-app-services">Types of Azure App Services</a></li>
+        <li><a href="#getting-started">Getting Started</a></li>
+        <li><a href="#prerequisites-tools">Prerequisites tools.</a></li>
+      </ul>
+    </li>
+    <li><a href="#day-wise-planning">Day Wise Planning</a>
+      <ul>
+        <li><a href="#day-01-cloud-basics-and-planning">Day 01 Cloud Basics and Planning</a></li>
+        <li><a href="#day-02--azure-cloud">Day 02  Azure Cloud</a></li>
+        <li><a href="#day-03">Day 03</a></li>
+        <li><a href="#day-04">Day 04</a></li>
+        <li><a href="#day-05">Day 05</a></li>
+        <li><a href="#day-06">Day 06</a></li>
+        <li><a href="#day-07">Day 07</a></li>
+        <li><a href="#day-08">Day 08</a></li>
+        <li><a href="#class-09">Class 09</a></li>
+        <li><a href="#class-10">Class 10</a></li>
+        <li><a href="#class-11">Class 11</a></li>
+        <li><a href="#class-12">Class 12</a></li>
+        <li><a href="#class-13">Class 13</a></li>
+        <li><a href="#class-14">Class 14</a></li>
+        <li><a href="#class-15">Class 15</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+        
+    
+
+</div>
+          </aside>
+          <main class="col-12 col-md-9 col-xl-8 pl-md-5" role="main">
+            
+  
+
+            <nav aria-label="breadcrumb" class="td-breadcrumbs">
+  <ol class="breadcrumb">
+  <li class="breadcrumb-item">
+    <a href="/docs/">Docs</a>
+  </li>
+  <li class="breadcrumb-item active" aria-current="page">
+    <a href="/docs/azure-devops/">Azure Devops</a>
+  </li>
+  </ol>
+</nav>
+            
+<div class="td-content">
+	<h1>Azure Devops</h1>
+  <div class="lead">Azure Cloud</div>
+	<header class="article-meta">
+		
+
+  
+    
+
+
+  
+    
+
+
+  
+
+		
+	</header>
+	<!-- end-chunk -->
+<!-- begin-chunk data-anchor="table-of-contents" data-heading="Table of Contents" data-level="2" data-permalink="/docs/azure-devops/" data-title="Azure Devops" -->
+<h2 id="table-of-contents">Table of Contents</h2><ol>
+<li><a href="#what-is-traditional-datacenter-architecture">Traditional Datacenter Architecture?</a>
+<ul>
+<li><a href="#problems-with-traditional-architecture">Problems With Traditional Architecture</a></li>
+</ul>
+</li>
+<li><a href="#cloud-computing">Cloud Computing</a>
+<ul>
+<li><a href="#characteristics-of-cloud-computing">Characteristics of Cloud Computing</a></li>
+<li><a href="#how-cloud-computing-overcomes-the-problems-of-traditional-architecture">How Cloud Computing Overcomes the Problems of Traditional Architecture</a></li>
+<li><a href="#conclusion">Conclusion</a></li>
+</ul>
+</li>
+<li><a href="#cloud-deployment-models">Cloud Service Models</a>
+<ul>
+<li><a href="#infrastructure-as-a-service-iaas">Infrastructure as a Service</a></li>
+<li><a href="#platform-as-a-service-paas">Platform as a Service</a></li>
+<li><a href="#software-as-a-service-saas">Software as a Service</a></li>
+</ul>
+</li>
+<li><a href="#cloud-deployment-models">Cloud Deployment Models</a>
+<ul>
+<li><a href="#public-cloud">public Cloud</a></li>
+<li><a href="#private-cloud">Private Cloud</a></li>
+<li><a href="#hybrid-cloud">Hybrid Cloud</a></li>
+<li><a href="#community-cloud">Community Cloud</a></li>
+</ul>
+</li>
+<li><a href="#well-architected-framework">Well-Architected Framework</a></li>
+<li><a href="#pillars-of-cloud-computing">Pillars of Cloud Computing</a></li>
+<li><a href="#introduction-to-azure-cloud">Introduction to Azure Cloud</a></li>
+<li><a href="#azure-core-concepts">Azure Core Concepts</a></li>
+<li><a href="#azure-free-account-creation">Azure Cloud Account</a>
+<ul>
+<li><a href="#discuss-what-is-free-there">Free Service</a></li>
+<li><a href="#walk-through-some-azure-services-and-options">Azure Services</a></li>
+<li><a href="#azure-cli-commands">Azure Cli</a></li>
+</ul>
+</li>
+<li><a href="#prerequisites-tools">Prerequisites Tools</a></li>
+</ol>
+<hr>
+<p>This module introduces you to cloud computing. It covers things such as cloud concepts, deployment models, and understanding shared responsibility in the cloud.</p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="what-is-traditional-datacenter-architecture" data-heading="What is Traditional Datacenter Architecture?" data-level="2" data-permalink="/docs/azure-devops/" data-title="Azure Devops" -->
+<h2 id="what-is-traditional-datacenter-architecture">What is Traditional Datacenter Architecture?</h2><div align="center">
+<p><img src="/images/azuredc.png" alt="Data Center Image"></p>
+</div>
+<p>Traditional IT infrastructure comprises physical hardware and software components, including data centers, servers, networking hardware, and enterprise applications. Maintaining such an infrastructure involves significant costs and challenges:</p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="problems-with-traditional-architecture" data-heading="Problems With Traditional Architecture" data-level="3" data-permalink="/docs/azure-devops/" data-title="Azure Devops" -->
+<h3 id="problems-with-traditional-architecture">Problems With Traditional Architecture</h3><ul>
+<li><strong>Recurring Costs</strong>: Ongoing expenses for data center rent can be significant.</li>
+<li><strong>Operational Expenses</strong>: Costs for power supply, cooling, and maintenance can quickly add up.</li>
+<li><strong>Hardware Management</strong>: Adding or replacing hardware can be time-consuming and complex.</li>
+<li><strong>Scaling Challenges</strong>: Scaling up resources is often limited and can require substantial lead time.</li>
+<li><strong>Infrastructure Monitoring</strong>: A dedicated team is needed to continuously monitor and maintain the infrastructure.</li>
+<li><strong>Disaster Preparedness</strong>: How do you effectively manage disasters such as earthquakes, power outages, or fires?</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="cloud-computing" data-heading="Cloud Computing" data-level="2" data-permalink="/docs/azure-devops/" data-title="Azure Devops" -->
+<h2 id="cloud-computing">Cloud Computing</h2><p>Cloud computing is the delivery of computing services over the internet, enabling users to access and store data, applications, and resources on remote servers. It provides flexibility, scalability, and cost-efficiency, allowing businesses and individuals to leverage resources without the need for on-premises infrastructure.</p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="characteristics-of-cloud-computing" data-heading="Characteristics of Cloud Computing" data-level="3" data-permalink="/docs/azure-devops/" data-title="Azure Devops" -->
+<h3 id="characteristics-of-cloud-computing">Characteristics of Cloud Computing</h3><ol>
+<li>
+<p><strong>On-Demand Self-Service</strong></p>
+<p>Users can provision resources automatically as needed without requiring human interaction from the service provider.</p>
+</li>
+<li>
+<p><strong>Broad Network Access</strong></p>
+<p>Cloud services are available over the network and can be accessed through standard mechanisms (e.g., mobile phones, tablets, laptops).</p>
+</li>
+<li>
+<p><strong>Resource Pooling</strong></p>
+<p>The provider’s computing resources are pooled to serve multiple consumers using a multi-tenant model, with different physical and virtual resources dynamically assigned according to demand.</p>
+</li>
+<li>
+<p><strong>Rapid Elasticity</strong></p>
+<p>Resources can be elastically provisioned and released to scale rapidly outward and inward commensurate with demand.</p>
+</li>
+<li>
+<p><strong>Measured Service</strong></p>
+<p>Cloud systems automatically control and optimize resource use by leveraging a metering capability at some level of abstraction appropriate to the type of service.</p>
+</li>
+<li>
+<p><strong>Security and Compliance</strong></p>
+<p>Cloud providers implement robust security measures to protect data and comply with industry standards and regulations.</p>
+</li>
+<li>
+<p><strong>Cost Efficiency</strong></p>
+<p>With a pay-as-you-go model, businesses can save on upfront capital costs and reduce the overall cost of IT infrastructure.</p>
+</li>
+<li>
+<p><strong>High Availability</strong></p>
+<p>Cloud computing services are designed for high availability and reliability, ensuring minimal downtime for users.</p>
+</li>
+</ol>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="how-cloud-computing-overcomes-the-problems-of-traditional-architecture" data-heading="How Cloud Computing Overcomes the Problems of Traditional Architecture" data-level="3" data-permalink="/docs/azure-devops/" data-title="Azure Devops" -->
+<h3 id="how-cloud-computing-overcomes-the-problems-of-traditional-architecture">How Cloud Computing Overcomes the Problems of Traditional Architecture</h3><ol>
+<li>
+<p><strong>Lower IT Costs</strong>:<br>
+The cloud allows organizations to offload many costs associated with maintaining on-premises infrastructure, including purchasing, installing, configuring, and managing hardware. This shift can lead to substantial savings, as businesses only pay for what they use, reducing capital expenditures and ongoing operational costs</p>
+</li>
+<li>
+<p><strong>Improved Agility and Time-to-Value</strong>:<br>
+With cloud computing, organizations can deploy enterprise applications almost instantly, significantly reducing the time needed to respond to IT requests. Instead of waiting weeks or months for hardware and software setup, users—particularly developers and data scientists—can provision resources on demand, enhancing productivity and innovation</p>
+</li>
+<li>
+<p><strong>Scalability and Cost-Effectiveness</strong>:<br>
+The elasticity of cloud services enables businesses to scale their resources up or down based on current demand, effectively managing traffic spikes and dips without investing in excess capacity that may sit idle. This flexibility not only optimizes resource use but also ensures that organizations can adapt to changing business needs in real time</p>
+</li>
+</ol>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="conclusion" data-heading="Conclusion" data-level="3" data-permalink="/docs/azure-devops/" data-title="Azure Devops" -->
+<h3 id="conclusion">Conclusion</h3><p>Cloud computing offers flexible, scalable, and cost-effective solutions, enabling organizations to innovate faster and focus on core business activities rather than managing infrastructure.</p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="cloud-service-models" data-heading="Cloud Service Models" data-level="2" data-permalink="/docs/azure-devops/" data-title="Azure Devops" -->
+<h2 id="cloud-service-models">Cloud Service Models</h2><p>Cloud computing is categorized into three primary service models, each serving different business needs and technical requirements:</p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="infrastructure-as-a-service-iaas" data-heading="Infrastructure as a Service (IaaS)" data-level="3" data-permalink="/docs/azure-devops/" data-title="Azure Devops" -->
+<h3 id="infrastructure-as-a-service-iaas">Infrastructure as a Service (IaaS)</h3><p>IaaS provides virtualized computing resources over the internet. It offers the fundamental building blocks of computing, including:</p>
+<ul>
+<li><strong>Compute</strong>: Virtual machines with various configurations.</li>
+<li><strong>Storage</strong>: Options for data storage like block, file, and object storage.</li>
+<li><strong>Networking</strong>: Virtual networks, load balancers, and firewalls.</li>
+</ul>
+<p><strong>Key Features:</strong></p>
+<ul>
+<li><strong>Scalability</strong>: Easily scale up or down based on demand.</li>
+<li><strong>Control</strong>: Provides users with greater control over the infrastructure.</li>
+</ul>
+<p><strong>Example Providers</strong>: Amazon Web Services (AWS), Microsoft Azure, Google Cloud Platform (GCP).</p>
+<hr>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="platform-as-a-service-paas" data-heading="Platform as a Service (PaaS)" data-level="3" data-permalink="/docs/azure-devops/" data-title="Azure Devops" -->
+<h3 id="platform-as-a-service-paas">Platform as a Service (PaaS)</h3><p>PaaS offers a platform allowing customers to develop, run, and manage applications without the complexity of building and maintaining the underlying infrastructure.</p>
+<p><strong>Key Features:</strong></p>
+<ul>
+<li><strong>Development Tools</strong>: Integrated development environments (IDEs) and application hosting.</li>
+<li><strong>Middleware</strong>: Services that help manage application operations.</li>
+</ul>
+<p><strong>Example Providers</strong>: Google App Engine, Microsoft Azure App Service, Heroku.</p>
+<hr>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="software-as-a-service-saas" data-heading="Software as a Service (SaaS)" data-level="3" data-permalink="/docs/azure-devops/" data-title="Azure Devops" -->
+<h3 id="software-as-a-service-saas">Software as a Service (SaaS)</h3><p>SaaS delivers software applications over the internet, on a subscription basis. Users access the software via a web browser, eliminating the need for installation and maintenance.</p>
+<p><strong>Key Features:</strong></p>
+<ul>
+<li><strong>Accessibility</strong>: Accessible from any device with internet connectivity.</li>
+<li><strong>Automatic Updates</strong>: Providers manage the infrastructure, security, and updates.</li>
+</ul>
+<p><strong>Example Providers</strong>: Salesforce, Google Workspace, Microsoft 365.</p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="examples" data-heading="Examples" data-level="3" data-permalink="/docs/azure-devops/" data-title="Azure Devops" -->
+<h3 id="examples">Examples</h3><table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>IaaS (Infrastructure as a Service)</th>
+<th>PaaS (Platform as a Service)</th>
+<th>SaaS (Software as a Service)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Definition</td>
+<td>Virtualized computing resources over the internet.</td>
+<td>Cloud-based platform allowing developers to build, deploy, and manage applications.</td>
+<td>Software delivered over the internet on a subscription basis.</td>
+</tr>
+<tr>
+<td>Management Responsibility</td>
+<td>User manages the OS, applications, and data.</td>
+<td>Provider manages the infrastructure and platform; user manages applications and data.</td>
+<td>Provider manages everything; user simply uses the software.</td>
+</tr>
+<tr>
+<td>Scalability</td>
+<td>Highly scalable; users can adjust resources as needed.</td>
+<td>Scalable; resources can be adjusted for application needs.</td>
+<td>Limited scalability; depends on the service plan.</td>
+</tr>
+<tr>
+<td>Examples</td>
+<td>Amazon EC2,Azure Virtual Machine, Google Compute Engine</td>
+<td>Google App Engine, Microsoft Azure</td>
+<td>Google Workspace, Salesforce</td>
+</tr>
+<tr>
+<td>Use Case</td>
+<td>Hosting websites, storage, and backups.</td>
+<td>Developing and deploying applications without worrying about underlying infrastructure.</td>
+<td>Accessing software applications like email or CRM systems.</td>
+</tr>
+<tr>
+<td>Customization</td>
+<td>High level of customization for OS and applications.</td>
+<td>Moderate customization; focuses on app development.</td>
+<td>Low customization; pre-built software solutions.</td>
+</tr>
+<tr>
+<td>Cost Structure</td>
+<td>Pay-as-you-go for usage and storage.</td>
+<td>Subscription-based, usually with tiered pricing.</td>
+<td>Subscription-based, often with different pricing tiers.</td>
+</tr>
+<tr>
+<td>Ideal For</td>
+<td>IT administrators, system architects.</td>
+<td>Developers, software engineers.</td>
+<td>End-users, businesses.</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="conclusion-1" data-heading="Conclusion" data-level="3" data-permalink="/docs/azure-devops/" data-title="Azure Devops" -->
+<h3 id="conclusion-1">Conclusion</h3><p>Understanding these cloud service models helps businesses choose the right solution based on their operational needs and technical requirements.</p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="cloud-deployment-models" data-heading="Cloud Deployment Models" data-level="2" data-permalink="/docs/azure-devops/" data-title="Azure Devops" -->
+<h2 id="cloud-deployment-models">Cloud Deployment Models</h2><p>Cloud deployment models define how cloud services are provided and utilized. The main types of cloud deployment models are:</p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="public-cloud" data-heading="Public Cloud" data-level="3" data-permalink="/docs/azure-devops/" data-title="Azure Devops" -->
+<h3 id="public-cloud">Public Cloud</h3><p>In a public cloud deployment, the services and infrastructure are provided off-site over the internet and shared across multiple organizations. The cloud provider manages everything, and users pay for the resources they consume.</p>
+<p><strong>Key Features:</strong></p>
+<ul>
+<li><strong>Cost-Effective</strong>: No capital expenditure, only operational costs.</li>
+<li><strong>Scalability</strong>: Easily scalable to accommodate varying workloads.</li>
+</ul>
+<p><strong>Example Providers</strong>: Amazon Web Services (AWS), Microsoft Azure, Google Cloud Platform (GCP).</p>
+<hr>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="private-cloud" data-heading="Private Cloud" data-level="3" data-permalink="/docs/azure-devops/" data-title="Azure Devops" -->
+<h3 id="private-cloud">Private Cloud</h3><p>A private cloud is dedicated to a single organization and can be hosted either on-premises or off-site. It offers more control over data security and privacy but requires a higher capital investment.</p>
+<p><strong>Key Features:</strong></p>
+<ul>
+<li><strong>Enhanced Security</strong>: Greater control over sensitive data and compliance.</li>
+<li><strong>Customization</strong>: Tailored to specific business needs.</li>
+</ul>
+<p><strong>Example Use Cases</strong>: Enterprises with strict regulatory requirements or sensitive data management.</p>
+<hr>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="hybrid-cloud" data-heading="Hybrid Cloud" data-level="3" data-permalink="/docs/azure-devops/" data-title="Azure Devops" -->
+<h3 id="hybrid-cloud">Hybrid Cloud</h3><p>The hybrid cloud model combines both public and private clouds, allowing data and applications to be shared between them. This offers greater flexibility and more deployment options.</p>
+<p><strong>Key Features:</strong></p>
+<ul>
+<li><strong>Flexibility</strong>: Businesses can leverage both environments based on their needs.</li>
+<li><strong>Cost Efficiency</strong>: Balance between cost and performance by utilizing both public and private resources.</li>
+</ul>
+<p><strong>Example Use Cases</strong>: Organizations that need to handle varying workloads and want to maintain control over sensitive data while leveraging public resources for other applications.</p>
+<hr>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="community-cloud" data-heading="Community Cloud" data-level="3" data-permalink="/docs/azure-devops/" data-title="Azure Devops" -->
+<h3 id="community-cloud">Community Cloud</h3><p>A community cloud is shared among several organizations with similar requirements, often within the same industry. It can be managed internally or by a third-party provider.</p>
+<p><strong>Key Features:</strong></p>
+<ul>
+<li><strong>Cost Sharing</strong>: Organizations share the costs of infrastructure and services.</li>
+<li><strong>Collaboration</strong>: Facilitates collaboration among organizations with shared interests or requirements.</li>
+</ul>
+<p><strong>Example Use Cases</strong>: Government agencies or educational institutions sharing resources for collaborative projects.</p>
+<hr>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="conclusion-2" data-heading="Conclusion" data-level="3" data-permalink="/docs/azure-devops/" data-title="Azure Devops" -->
+<h3 id="conclusion-2">Conclusion</h3><p>Understanding the different cloud deployment models allows organizations to choose the right mix of solutions based on their business needs, security requirements, and budget constraints.</p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="well-architected-framework" data-heading="Well-Architected Framework" data-level="2" data-permalink="/docs/azure-devops/" data-title="Azure Devops" -->
+<h2 id="well-architected-framework">Well-Architected Framework</h2><p>The <strong>Well-Architected Framework</strong> (WAF) is a set of best practices created by Amazon Web Services (AWS) to assist cloud architects in building secure, high-performing, resilient, and efficient infrastructure for their applications. The framework is divided into five key pillars:</p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="operational-excellence" data-heading="Operational Excellence" data-level="3" data-permalink="/docs/azure-devops/" data-title="Azure Devops" -->
+<h3 id="operational-excellence">Operational Excellence</h3><ul>
+<li><strong>Focus</strong>: Emphasizes running and monitoring systems to deliver business value and continuously improve processes and procedures.</li>
+<li><strong>Key Practices</strong>: Implement automation, monitoring, incident response, and evolve procedures based on feedback.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="security" data-heading="Security" data-level="3" data-permalink="/docs/azure-devops/" data-title="Azure Devops" -->
+<h3 id="security">Security</h3><ul>
+<li><strong>Focus</strong>: Protects data, systems, and assets while delivering business value through risk assessments and mitigation strategies.</li>
+<li><strong>Key Practices</strong>: Implement strong identity and access management, use encryption for data protection, and maintain compliance with regulations.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="reliability" data-heading="Reliability" data-level="3" data-permalink="/docs/azure-devops/" data-title="Azure Devops" -->
+<h3 id="reliability">Reliability</h3><ul>
+<li><strong>Focus</strong>: Ensures a workload performs its intended function correctly and consistently when expected.</li>
+<li><strong>Key Practices</strong>: Design systems for failover and recovery, implement backups, and use redundancy to minimize the impact of failures.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="performance-efficiency" data-heading="Performance Efficiency" data-level="3" data-permalink="/docs/azure-devops/" data-title="Azure Devops" -->
+<h3 id="performance-efficiency">Performance Efficiency</h3><ul>
+<li><strong>Focus</strong>: Utilizes IT and computing resources efficiently to meet system requirements and maintain that efficiency as demand changes and technologies evolve.</li>
+<li><strong>Key Practices</strong>: Select the right resource types and sizes, monitor performance, and adjust resources dynamically to meet demand.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="cost-optimization" data-heading="Cost Optimization" data-level="3" data-permalink="/docs/azure-devops/" data-title="Azure Devops" -->
+<h3 id="cost-optimization">Cost Optimization</h3><ul>
+<li><strong>Focus</strong>: Avoids unnecessary costs by understanding where money is spent and eliminating unneeded expenses.</li>
+<li><strong>Key Practices</strong>: Monitor and analyze costs, implement resource optimization strategies, and use pricing models effectively.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="conclusion-3" data-heading="Conclusion" data-level="3" data-permalink="/docs/azure-devops/" data-title="Azure Devops" -->
+<h3 id="conclusion-3">Conclusion</h3><p>By following the Well-Architected Framework, organizations can enhance their cloud architectures&rsquo; resilience, efficiency, and security. AWS provides a Well-Architected Tool that helps review workloads against these best practices, offering insights and recommendations to improve architecture.</p>
+<p>For further details, check the official <a href="https://aws.amazon.com/architecture/well-architected/" target="_blank" rel="noopener">AWS Well-Architected Framework documentation</a>.</p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="pillars-of-cloud-computing" data-heading="Pillars of Cloud Computing" data-level="2" data-permalink="/docs/azure-devops/" data-title="Azure Devops" -->
+<h2 id="pillars-of-cloud-computing">Pillars of Cloud Computing</h2><p>The <strong>pillars of cloud computing</strong> refer to essential principles that guide the design, deployment, and management of cloud services. Below are the primary pillars:</p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="cost-efficiency" data-heading="Cost Efficiency" data-level="3" data-permalink="/docs/azure-devops/" data-title="Azure Devops" -->
+<h3 id="cost-efficiency">Cost Efficiency</h3><ul>
+<li>Organizations can reduce costs associated with hardware and software by utilizing cloud services, which operate on a pay-as-you-go model. This allows businesses to scale resources based on demand without significant upfront investments.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="scalability" data-heading="Scalability" data-level="3" data-permalink="/docs/azure-devops/" data-title="Azure Devops" -->
+<h3 id="scalability">Scalability</h3><ul>
+<li>Cloud computing offers the ability to scale resources up or down quickly based on usage. This elasticity is crucial for businesses that experience variable workloads, enabling them to accommodate peak demands without overprovisioning.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="performance" data-heading="Performance" data-level="3" data-permalink="/docs/azure-devops/" data-title="Azure Devops" -->
+<h3 id="performance">Performance</h3><ul>
+<li>Cloud providers typically offer robust infrastructure and high availability, ensuring that applications run efficiently and with low latency. They also provide various tools for monitoring and optimizing performance.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="security-1" data-heading="Security" data-level="3" data-permalink="/docs/azure-devops/" data-title="Azure Devops" -->
+<h3 id="security-1">Security</h3><ul>
+<li>Security is a critical pillar, as cloud providers implement a range of security measures to protect data and applications. This includes identity and access management, encryption, and compliance with industry regulations.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="reliability-1" data-heading="Reliability" data-level="3" data-permalink="/docs/azure-devops/" data-title="Azure Devops" -->
+<h3 id="reliability-1">Reliability</h3><ul>
+<li>Cloud services are designed to be reliable, with built-in redundancies and backup solutions to ensure continuity. This minimizes downtime and enhances the overall resilience of applications.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="flexibility" data-heading="Flexibility" data-level="3" data-permalink="/docs/azure-devops/" data-title="Azure Devops" -->
+<h3 id="flexibility">Flexibility</h3><ul>
+<li>The cloud allows organizations to deploy applications and services quickly without the constraints of physical infrastructure. This flexibility supports innovation and rapid experimentation.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="conclusion-4" data-heading="Conclusion" data-level="3" data-permalink="/docs/azure-devops/" data-title="Azure Devops" -->
+<h3 id="conclusion-4">Conclusion</h3><p>Understanding these pillars is essential for organizations looking to leverage cloud computing effectively. They serve as a foundation for building cloud strategies that optimize resources and improve overall operations</p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="introduction-to-azure-cloud" data-heading="Introduction to Azure Cloud" data-level="2" data-permalink="/docs/azure-devops/" data-title="Azure Devops" -->
+<h2 id="introduction-to-azure-cloud">Introduction to Azure Cloud</h2><p>Azure is a cloud computing platform by Microsoft, offering a wide range of services such as virtual machines, storage, networking, and databases. It enables businesses to build, deploy, and manage applications in a scalable, secure, and global environment.</p>
+<p>Azure offers services under three primary models:</p>
+<ol>
+<li><strong>Infrastructure as a Service (IaaS)</strong></li>
+<li><strong>Platform as a Service (PaaS)</strong></li>
+<li><strong>Software as a Service (SaaS)</strong></li>
+</ol>
+<hr>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="azure-core-concepts" data-heading="Azure Core Concepts" data-level="2" data-permalink="/docs/azure-devops/" data-title="Azure Devops" -->
+<h2 id="azure-core-concepts">Azure Core Concepts</h2><!-- end-chunk -->
+<!-- begin-chunk data-anchor="azure-cloud-account" data-heading="Azure Cloud Account" data-level="3" data-permalink="/docs/azure-devops/" data-title="Azure Devops" -->
+<h3 id="azure-cloud-account">Azure Cloud Account</h3><p>An Azure cloud account is a user account that provides access to Microsoft Azure&rsquo;s cloud services, allowing users to create, manage, and scale resources such as virtual machines, databases, and applications over the internet.</p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="azure-subscription" data-heading="Azure Subscription" data-level="3" data-permalink="/docs/azure-devops/" data-title="Azure Devops" -->
+<h3 id="azure-subscription">Azure Subscription</h3><p>An Azure subscription is an agreement that allows users to access and use Microsoft Azure cloud services. It defines the resources available to the user, billing details, and usage limits. Each subscription can contain multiple resources and services, and users can choose from various pricing plans, including free, pay-as-you-go, and enterprise options.</p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="resource-groups" data-heading="Resource Groups" data-level="3" data-permalink="/docs/azure-devops/" data-title="Azure Devops" -->
+<h3 id="resource-groups">Resource Groups</h3><p>A <strong>Resource Group</strong> is a logical container used to organize and manage Azure resources (like virtual machines, databases, and storage accounts). All the resources inside a resource group share the same lifecycle—meaning you can deploy, update, or delete them together.</p>
+<p>Here’s how you can create a resource group:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>az group create --name myResourceGroup --location eastus
+</span></span></code></pre></div><!-- end-chunk -->
+<!-- begin-chunk data-anchor="regions-and-availability-zones" data-heading="Regions and Availability Zones" data-level="3" data-permalink="/docs/azure-devops/" data-title="Azure Devops" -->
+<h3 id="regions-and-availability-zones">Regions and Availability Zones</h3><ul>
+<li>
+<p><strong>Regions</strong>: Azure has data centers around the globe. A region is a specific geographical location where Azure resources are hosted. When you deploy resources, you must choose a region to locate them.</p>
+</li>
+<li>
+<p><strong>Availability Zones</strong>: These are isolated locations within a region. They provide redundancy and protect resources from data center failures.</p>
+</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="azure-free-account-creation" data-heading="Azure Free Account Creation" data-level="3" data-permalink="/docs/azure-devops/" data-title="Azure Devops" -->
+<h3 id="azure-free-account-creation">Azure Free Account Creation</h3><p><a href="https://azure.microsoft.com/en-in/free/search/?ef_id=_k_CjwKCAjwmaO4BhAhEiwA5p4YL8rm00pFI5MBYLBlZkT7jdiUzxYTMYgE_cqL6HyPyyRsqCn3IX4lixoCiXcQAvD_BwE_k_&amp;OCID=AIDcmm86ncqk20_SEM__k_CjwKCAjwmaO4BhAhEiwA5p4YL8rm00pFI5MBYLBlZkT7jdiUzxYTMYgE_cqL6HyPyyRsqCn3IX4lixoCiXcQAvD_BwE_k_&amp;gad_source=1&amp;gclid=CjwKCAjwmaO4BhAhEiwA5p4YL8rm00pFI5MBYLBlZkT7jdiUzxYTMYgE_cqL6HyPyyRsqCn3IX4lixoCiXcQAvD_BwE" target="_blank" rel="noopener">Click here to create Azure Cloud Free Account </a></p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="discuss-what-is-free-there" data-heading="Discuss what is free there" data-level="4" data-permalink="/docs/azure-devops/" data-title="Azure Devops" -->
+<h4 id="discuss-what-is-free-there">Discuss what is free there</h4><!-- end-chunk -->
+<!-- begin-chunk data-anchor="walk-through-some-azure-services-and-options" data-heading="Walk through Some Azure Services and options" data-level="4" data-permalink="/docs/azure-devops/" data-title="Azure Devops" -->
+<h4 id="walk-through-some-azure-services-and-options">Walk through Some Azure Services and options</h4><ul>
+<li>Create your Azure Account</li>
+<li>Walk through some of the services from Azure Cloud
+<ul>
+<li>Azure Cloud shell</li>
+<li>Create a resource Group</li>
+<li>Create a Virtual Machine
+<ul>
+<li>Linux Vm and login with ssh user and password</li>
+<li>Linux vm and login with ssh user and key</li>
+<li>Windows vm</li>
+</ul>
+</li>
+<li>Create SP and generate creds</li>
+<li>Give Permission to newly created Service principal</li>
+<li>Install Azure cli
+<ul>
+<li>Login to Azure cloud with Az cli</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="azure-cli-commands" data-heading="Azure CLI Commands" data-level="3" data-permalink="/docs/azure-devops/" data-title="Azure Devops" -->
+<h3 id="azure-cli-commands">Azure CLI Commands</h3><ol>
+<li><strong>Login to Azure</strong>: <code>az login</code></li>
+<li><strong>List Subscriptions</strong>: <code>az account list</code></li>
+<li><strong>Create a Resource Group</strong>: <code>az group create --name &lt;ResourceGroupName&gt; --location &lt;Location&gt;</code></li>
+<li><strong>List Resource Groups</strong>: <code>az group list</code></li>
+<li><strong>Create a Virtual Machine</strong>: <code>az vm create --resource-group &lt;ResourceGroupName&gt; --name &lt;VMName&gt; --image &lt;ImageName&gt;</code></li>
+<li><strong>List Virtual Machines</strong>: <code>az vm list --output table</code></li>
+<li><strong>Start a Virtual Machine</strong>: <code>az vm start --resource-group &lt;ResourceGroupName&gt; --name &lt;VMName&gt;</code></li>
+<li><strong>Stop a Virtual Machine</strong>: <code>az vm stop --resource-group &lt;ResourceGroupName&gt; --name &lt;VMName&gt;</code></li>
+<li><strong>Delete a Resource Group</strong>: <code>az group delete --name &lt;ResourceGroupName&gt; --yes --no-wait</code></li>
+<li><strong>Get Help for a Command</strong>: <code>az &lt;command&gt; --help</code></li>
+</ol>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="steps-to-create-service-principle" data-heading="Steps to create Service Principle" data-level="2" data-permalink="/docs/azure-devops/" data-title="Azure Devops" -->
+<h2 id="steps-to-create-service-principle">Steps to create Service Principle</h2><p>Follow these steps to create a <strong>Service Principal</strong> using the <strong>Azure Portal UI</strong>.</p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="1-log-in-to-the-azure-portal" data-heading="1. Log in to the Azure Portal" data-level="3" data-permalink="/docs/azure-devops/" data-title="Azure Devops" -->
+<h3 id="1-log-in-to-the-azure-portal">1. Log in to the Azure Portal</h3><ul>
+<li>Go to <a href="https://portal.azure.com" target="_blank" rel="noopener">Azure Portal</a> and log in with your Azure credentials.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="2-navigate-to-azure-active-directory" data-heading="2. Navigate to Azure Active Directory" data-level="3" data-permalink="/docs/azure-devops/" data-title="Azure Devops" -->
+<h3 id="2-navigate-to-azure-active-directory">2. Navigate to Azure Active Directory</h3><ul>
+<li>In the left-hand sidebar, click on <strong>Azure Active Directory</strong>.</li>
+<li>If you don&rsquo;t see it, search for &ldquo;Azure Active Directory&rdquo; in the search bar at the top.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="3-create-a-new-app-registration" data-heading="3. Create a New App Registration" data-level="3" data-permalink="/docs/azure-devops/" data-title="Azure Devops" -->
+<h3 id="3-create-a-new-app-registration">3. Create a New App Registration</h3><ul>
+<li>In the <strong>Azure Active Directory</strong> page, under <strong>Manage</strong>, select <strong>App registrations</strong>.</li>
+<li>Click the <strong>New registration</strong> button at the top.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="4-fill-in-the-app-registration-details" data-heading="4. Fill in the App Registration Details" data-level="3" data-permalink="/docs/azure-devops/" data-title="Azure Devops" -->
+<h3 id="4-fill-in-the-app-registration-details">4. Fill in the App Registration Details</h3><ul>
+<li><strong>Name</strong>: Provide a name for your service principal (e.g., <code>MyServicePrincipal</code>).</li>
+<li><strong>Supported account types</strong>: Select <strong>Accounts in this organizational directory only</strong>.</li>
+<li><strong>Redirect URI</strong>: Leave this blank unless required for your setup.</li>
+<li>Click <strong>Register</strong> to create the App Registration.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="5-create-a-client-secret" data-heading="5. Create a Client Secret" data-level="3" data-permalink="/docs/azure-devops/" data-title="Azure Devops" -->
+<h3 id="5-create-a-client-secret">5. Create a Client Secret</h3><ul>
+<li>After registering the app, you will be redirected to the app’s <strong>Overview</strong> page.</li>
+<li>In the left-hand menu, click on <strong>Certificates &amp; secrets</strong>.</li>
+<li>Under the <strong>Client secrets</strong> section, click on <strong>New client secret</strong>.</li>
+<li>Provide a description (e.g., <code>MySecret</code>) and set an expiration time (e.g., 6 months, 1 year).</li>
+<li>Click <strong>Add</strong>.</li>
+<li><strong>Copy the client secret value</strong> that is generated. You won’t be able to view it again after you leave this page.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="6-assign-roles-to-the-service-principal" data-heading="6. Assign Roles to the Service Principal" data-level="3" data-permalink="/docs/azure-devops/" data-title="Azure Devops" -->
+<h3 id="6-assign-roles-to-the-service-principal">6. Assign Roles to the Service Principal</h3><ul>
+<li>Navigate to the <strong>Subscription</strong> or <strong>Resource Group</strong> where you want to give the service principal access.</li>
+<li>In the left-hand menu, click on <strong>Access control (IAM)</strong>.</li>
+<li>Click the <strong>Add role assignment</strong> button.</li>
+<li>Choose a role (e.g., <strong>Contributor</strong>, <strong>Reader</strong>), and then click <strong>Next</strong>.</li>
+<li>Under <strong>Assign access to</strong>, select <strong>User, group, or service principal</strong>.</li>
+<li>In the <strong>Select</strong> box, search for the name of your service principal (App registration name), and then click <strong>Next</strong>.</li>
+<li>Review and click <strong>Assign</strong> to complete the role assignment.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="7-collect-key-information" data-heading="7. Collect Key Information" data-level="3" data-permalink="/docs/azure-devops/" data-title="Azure Devops" -->
+<h3 id="7-collect-key-information">7. Collect Key Information</h3><p>You will need the following details to log in with the service principal via Azure CLI or use it in scripts:</p>
+<ul>
+<li><strong>Client ID (AppId)</strong>: This can be found on the <strong>Overview</strong> page of your App Registration.</li>
+<li><strong>Tenant ID</strong>: This can also be found on the <strong>Overview</strong> page.</li>
+<li><strong>Client Secret</strong>: The value you copied earlier from the <strong>Certificates &amp; secrets</strong> section.</li>
+</ul>
+<hr>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="optional-create-a-service-principal-via-cli" data-heading="Optional: Create a Service Principal via CLI" data-level="3" data-permalink="/docs/azure-devops/" data-title="Azure Devops" -->
+<h3 id="optional-create-a-service-principal-via-cli">Optional: Create a Service Principal via CLI</h3><p>Alternatively, if you want to create a service principal using Azure CLI, you can run the following command:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>az ad sp create-for-rbac --name <span style="color:#e6db74">&#34;&lt;your-app-name&gt;&#34;</span> --role contributor --scopes /subscriptions/&lt;subscription-id&gt;
+</span></span></code></pre></div><!-- end-chunk -->
+<!-- begin-chunk data-anchor="how-to-login-with-service-principle" data-heading="How to login with service principle" data-level="3" data-permalink="/docs/azure-devops/" data-title="Azure Devops" -->
+<h3 id="how-to-login-with-service-principle">How to login with service principle</h3><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>az login --service-principal <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>--username &lt;AppId&gt; <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>--password &lt;Password&gt; <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>--tenant &lt;TenantId&gt;
+</span></span></code></pre></div><!-- end-chunk -->
+<!-- begin-chunk data-anchor="how-to-create-ssh-key" data-heading="How to create ssh key" data-level="3" data-permalink="/docs/azure-devops/" data-title="Azure Devops" -->
+<h3 id="how-to-create-ssh-key">How to create ssh key</h3><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span> ssh-keygen -f ubuntu
+</span></span></code></pre></div><!-- end-chunk -->
+<!-- begin-chunk data-anchor="managed-identity" data-heading="Managed Identity" data-level="2" data-permalink="/docs/azure-devops/" data-title="Azure Devops" -->
+<h2 id="managed-identity">Managed Identity</h2><p>Managed Identity is a feature of Azure Active Directory (Azure AD) that provides an automatically managed identity for applications. With Managed Identity, applications can authenticate to Azure services without storing credentials, making it a secure and streamlined method for handling access to resources.</p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="types-of-managed-identity" data-heading="Types of Managed Identity" data-level="3" data-permalink="/docs/azure-devops/" data-title="Azure Devops" -->
+<h3 id="types-of-managed-identity">Types of Managed Identity</h3><ol>
+<li>
+<p><strong>System-assigned Managed Identity</strong>:</p>
+<ul>
+<li>Created directly by Azure for a specific resource.</li>
+<li>The identity is tied to the resource lifecycle (created with the resource and deleted when the resource is deleted).</li>
+</ul>
+</li>
+<li>
+<p><strong>User-assigned Managed Identity</strong>:</p>
+<ul>
+<li>Created independently of a specific resource.</li>
+<li>Can be assigned to multiple resources.</li>
+<li>Persisted even when the assigned resources are deleted.</li>
+</ul>
+</li>
+</ol>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="key-features" data-heading="Key Features" data-level="3" data-permalink="/docs/azure-devops/" data-title="Azure Devops" -->
+<h3 id="key-features">Key Features</h3><ul>
+<li><strong>Credential management</strong>: No need to hard-code credentials in the application.</li>
+<li><strong>Integration with Azure services</strong>: Managed Identity integrates seamlessly with services like Azure Key Vault, Azure Storage, and Azure SQL Database.</li>
+<li><strong>Secure authentication</strong>: Utilizes Azure AD for authentication, eliminating the risk of leaking secrets.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="use-cases" data-heading="Use Cases" data-level="3" data-permalink="/docs/azure-devops/" data-title="Azure Devops" -->
+<h3 id="use-cases">Use Cases</h3><ul>
+<li>Accessing Azure Key Vault securely without storing secrets.</li>
+<li>Managing access to Azure Blob Storage from an Azure Virtual Machine or App Service.</li>
+<li>Authenticating to Azure SQL Database without credentials.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="how-to-use" data-heading="How to Use" data-level="3" data-permalink="/docs/azure-devops/" data-title="Azure Devops" -->
+<h3 id="how-to-use">How to Use</h3><ol>
+<li><strong>Enable Managed Identity</strong> for your Azure service (e.g., Virtual Machine, App Service).</li>
+<li><strong>Assign roles</strong> to the Managed Identity via Azure RBAC (Role-Based Access Control).</li>
+<li>Use the appropriate <strong>SDK or Azure CLI</strong> to authenticate and access resources securely.</li>
+</ol>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="login-with-managed-identity" data-heading="Login with Managed identity" data-level="3" data-permalink="/docs/azure-devops/" data-title="Azure Devops" -->
+<h3 id="login-with-managed-identity">Login with Managed identity</h3><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span> az login --identity
+</span></span></code></pre></div><!-- end-chunk -->
+<!-- begin-chunk data-anchor="login-with-user-assigned-managed-identity" data-heading="Login with user assigned managed identity" data-level="3" data-permalink="/docs/azure-devops/" data-title="Azure Devops" -->
+<h3 id="login-with-user-assigned-managed-identity">Login with user assigned managed identity</h3><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>az login --identity --username &lt;client-id&gt;
+</span></span></code></pre></div><!-- end-chunk -->
+<!-- begin-chunk data-anchor="azure-app-service" data-heading="Azure App Service" data-level="2" data-permalink="/docs/azure-devops/" data-title="Azure Devops" -->
+<h2 id="azure-app-service">Azure App Service</h2><!-- end-chunk -->
+<!-- begin-chunk data-anchor="key-features-1" data-heading="Key Features" data-level="3" data-permalink="/docs/azure-devops/" data-title="Azure Devops" -->
+<h3 id="key-features-1">Key Features</h3><ul>
+<li><strong>Multi-Language Support</strong>: .NET, Java, Node.js, Python, PHP, Ruby</li>
+<li><strong>Integrated Development Environment</strong>: Supports Visual Studio, Visual Studio Code, GitHub</li>
+<li><strong>Continuous Integration and Deployment (CI/CD)</strong>: Integrates with GitHub, Azure DevOps, Bitbucket, Docker Hub</li>
+<li><strong>Scaling and Load Balancing</strong>: Built-in autoscaling and load balancing</li>
+<li><strong>Security Features</strong>:
+<ul>
+<li>Managed Identity for secure access</li>
+<li>App Service Environment (ASE) for isolation</li>
+<li>Built-in authentication and authorization</li>
+</ul>
+</li>
+<li><strong>Custom Domains and SSL</strong>: Easy configuration for custom domains and SSL certificates</li>
+<li><strong>Monitoring and Diagnostics</strong>: Insights through Azure Monitor and Application Insights</li>
+<li><strong>API Management</strong>: Features for API versioning, security, and analytics</li>
+<li><strong>Global Reach</strong>: Deploy applications in multiple Azure regions</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="types-of-azure-app-services" data-heading="Types of Azure App Services" data-level="3" data-permalink="/docs/azure-devops/" data-title="Azure Devops" -->
+<h3 id="types-of-azure-app-services">Types of Azure App Services</h3><ul>
+<li><strong>Web Apps</strong>: Host websites and web applications</li>
+<li><strong>API Apps</strong>: Build and host APIs</li>
+<li><strong>Mobile Apps</strong>: Provide backend services for mobile applications</li>
+<li><strong>Function Apps</strong>: Run serverless functions in response to events</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="getting-started" data-heading="Getting Started" data-level="3" data-permalink="/docs/azure-devops/" data-title="Azure Devops" -->
+<h3 id="getting-started">Getting Started</h3><ol>
+<li>
+<p><strong>Create an Azure App Service</strong>:</p>
+<ul>
+<li>Log in to Azure Portal</li>
+<li>Click on <strong>Create a resource</strong></li>
+<li>Search for <strong>App Service</strong></li>
+<li>Configure settings (Subscription, Resource Group, Name, Publish method, Runtime Stack, Region)</li>
+<li>Select or create an App Service plan</li>
+<li>Click <strong>Create</strong></li>
+</ul>
+</li>
+<li>
+<p><strong>Deploy Your Application</strong>:</p>
+<ul>
+<li>Use CI/CD pipelines or manual upload</li>
+<li>Configure application settings and environment variables</li>
+<li>Monitor and manage through Azure Portal</li>
+</ul>
+</li>
+</ol>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="prerequisites-tools" data-heading="Prerequisites tools." data-level="3" data-permalink="/docs/azure-devops/" data-title="Azure Devops" -->
+<h3 id="prerequisites-tools">Prerequisites tools.</h3><ul>
+<li><a href="https://learn.microsoft.com/en-us/cli/azure/install-azure-cli" target="_blank" rel="noopener">Azure cli</a></li>
+<li><a href="https://code.visualstudio.com/download" target="_blank" rel="noopener">Vscode</a></li>
+<li><a href="https://visualstudio.microsoft.com/downloads/" target="_blank" rel="noopener">Visual studio</a></li>
+<li><a href="https://git-scm.com/downloads" target="_blank" rel="noopener">Gitbash</a></li>
+<li><a href="https://www.putty.org/" target="_blank" rel="noopener">Putty</a></li>
+<li><a href="https://mobaxterm.mobatek.net/" target="_blank" rel="noopener">mobaxterm</a></li>
+</ul>
+<p><a href="https://gitlab.com/khushiramsingh680/terraform-azure-devops-labs/-/issues" target="_blank" rel="noopener">Follow This for Terraform based Azure Devops</a></p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="day-wise-planning" data-heading="Day Wise Planning" data-level="2" data-permalink="/docs/azure-devops/" data-title="Azure Devops" -->
+<h2 id="day-wise-planning">Day Wise Planning</h2><!-- end-chunk -->
+<!-- begin-chunk data-anchor="day-01-cloud-basics-and-planning" data-heading="Day 01 Cloud Basics and Planning" data-level="3" data-permalink="/docs/azure-devops/" data-title="Azure Devops" -->
+<h3 id="day-01-cloud-basics-and-planning">Day 01 Cloud Basics and Planning</h3><!-- end-chunk -->
+<!-- begin-chunk data-anchor="day-02--azure-cloud" data-heading="Day 02  Azure Cloud" data-level="3" data-permalink="/docs/azure-devops/" data-title="Azure Devops" -->
+<h3 id="day-02--azure-cloud">Day 02  Azure Cloud</h3><ul>
+<li>Free tier account creation</li>
+<li>Cloud shell</li>
+<li>Azure virtual machine</li>
+<li>Network security group</li>
+<li>Azure cli</li>
+<li>Azure AD Entra ID
+<ul>
+<li>user</li>
+<li>Service Principle</li>
+</ul>
+</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="day-03" data-heading="Day 03" data-level="3" data-permalink="/docs/azure-devops/" data-title="Azure Devops" -->
+<h3 id="day-03">Day 03</h3><ul>
+<li>Azure App Service</li>
+<li>Create dotnet project</li>
+<li>Create Mavcen project</li>
+<li>Deploy to Azure App</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="day-04" data-heading="Day 04" data-level="3" data-permalink="/docs/azure-devops/" data-title="Azure Devops" -->
+<h3 id="day-04">Day 04</h3><ul>
+<li>Docker basics
+<ul>
+<li>Dockerfile</li>
+<li>ACR</li>
+<li>Docker hub</li>
+</ul>
+</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="day-05" data-heading="Day 05" data-level="3" data-permalink="/docs/azure-devops/" data-title="Azure Devops" -->
+<h3 id="day-05">Day 05</h3><ul>
+<li>AKS Deployment</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="day-06" data-heading="Day 06" data-level="3" data-permalink="/docs/azure-devops/" data-title="Azure Devops" -->
+<h3 id="day-06">Day 06</h3><ul>
+<li>Azure Devops
+<ul>
+<li>Account Creation</li>
+<li>Organization creation</li>
+<li>Project Creation</li>
+<li>organization setting</li>
+<li>Project settings</li>
+</ul>
+</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="day-07" data-heading="Day 07" data-level="3" data-permalink="/docs/azure-devops/" data-title="Azure Devops" -->
+<h3 id="day-07">Day 07</h3><ul>
+<li>Azure Repos</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="day-08" data-heading="Day 08" data-level="3" data-permalink="/docs/azure-devops/" data-title="Azure Devops" -->
+<h3 id="day-08">Day 08</h3><ul>
+<li>Azure Pipeline
+<ul>
+<li>Classic</li>
+</ul>
+</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="class-09" data-heading="Class 09" data-level="3" data-permalink="/docs/azure-devops/" data-title="Azure Devops" -->
+<h3 id="class-09">Class 09</h3><ul>
+<li>Azure Pipeline
+<ul>
+<li>Classic</li>
+</ul>
+</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="class-10" data-heading="Class 10" data-level="3" data-permalink="/docs/azure-devops/" data-title="Azure Devops" -->
+<h3 id="class-10">Class 10</h3><ul>
+<li>Azure Pipeline
+<ul>
+<li>Yaml based</li>
+</ul>
+</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="class-11" data-heading="Class 11" data-level="3" data-permalink="/docs/azure-devops/" data-title="Azure Devops" -->
+<h3 id="class-11">Class 11</h3><ul>
+<li>Azure Pipeline
+<ul>
+<li>Yaml based</li>
+</ul>
+</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="class-12" data-heading="Class 12" data-level="3" data-permalink="/docs/azure-devops/" data-title="Azure Devops" -->
+<h3 id="class-12">Class 12</h3><ul>
+<li>Azure Release Pipeline</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="class-13" data-heading="Class 13" data-level="3" data-permalink="/docs/azure-devops/" data-title="Azure Devops" -->
+<h3 id="class-13">Class 13</h3><ul>
+<li>End to end pipeline from build to deploy to multiple environment</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="class-14" data-heading="Class 14" data-level="3" data-permalink="/docs/azure-devops/" data-title="Azure Devops" -->
+<h3 id="class-14">Class 14</h3><ul>
+<li>Terraform pipeline with Azure Devops</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="class-15" data-heading="Class 15" data-level="3" data-permalink="/docs/azure-devops/" data-title="Azure Devops" -->
+<h3 id="class-15">Class 15</h3><ul>
+<li>Azure Devops Integrations</li>
+</ul>
+
+        <div class="section-index">
+    
+    
+    
+    
+    
+    
+    
+    
+    <hr class="panel-line">
+        
+            
+            <div class="entry">
+                <h5>
+                    <a href="/docs/azure-devops/azure-board/">Azure Board</a>
+                </h5>
+                <p>Azure Devops</p>
+            </div>
+        
+            
+            <div class="entry">
+                <h5>
+                    <a href="/docs/azure-devops/azuredevops-01/">Part 1</a>
+                </h5>
+                <p>Azure Devops</p>
+            </div>
+        
+            
+            <div class="entry">
+                <h5>
+                    <a href="/docs/azure-devops/azuredevops/">Azure Devops</a>
+                </h5>
+                <p>Azure Cloud</p>
+            </div>
+        
+            
+            <div class="entry">
+                <h5>
+                    <a href="/docs/azure-devops/azuredevops-02/">Part 2</a>
+                </h5>
+                <p>Azure Devops</p>
+            </div>
+        
+            
+            <div class="entry">
+                <h5>
+                    <a href="/docs/azure-devops/azuredevops-03/">Part 3</a>
+                </h5>
+                <p>Azure Devops</p>
+            </div>
+        
+            
+            <div class="entry">
+                <h5>
+                    <a href="/docs/azure-devops/azuredevops-04/">part 4</a>
+                </h5>
+                <p>Azure Devops</p>
+            </div>
+        
+            
+            <div class="entry">
+                <h5>
+                    <a href="/docs/azure-devops/azuredevops-05/">Part 5</a>
+                </h5>
+                <p>Azure devops</p>
+            </div>
+        
+            
+            <div class="entry">
+                <h5>
+                    <a href="/docs/azure-devops/azuredevops-06/">Part 6</a>
+                </h5>
+                <p>Azure devops</p>
+            </div>
+        
+            
+            <div class="entry">
+                <h5>
+                    <a href="/docs/azure-devops/aks/">AKS</a>
+                </h5>
+                <p>Managed Kubernetes</p>
+            </div>
+        
+            
+            <div class="entry">
+                <h5>
+                    <a href="/docs/azure-devops/test/">Azure Devops Test Plans</a>
+                </h5>
+                <p>Azure Devops</p>
+            </div>
+        
+            
+            <div class="entry">
+                <h5>
+                    <a href="/docs/azure-devops/docker/">Docker</a>
+                </h5>
+                <p>Dockerfile</p>
+            </div>
+        
+    
+</div>
+
+	
+	
+	
+</div>
+
+          </main>
+        </div>
+      </div>
+      
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+    integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+    crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js"
+    integrity="sha512-UR25UO94eTnCVwjbXozyeVd6ZqpaAE9naiEUBK/A+QDbfSTQFhPGj5lOR6d8tsgbBk84Ggb5A3EkjsOgPRPcKA=="
+    crossorigin="anonymous"></script>
+
+
+
+
+
+<script src='/js/tabpane-persist.js'></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="/js/main.min.223ab2fcc7d742c1b94772c0276851c497da4343cd2d21534199ced90681e207.js" integrity="sha256-Ijqy/MfXQsG5R3LAJ2hRxJfaQ0PNLSFTQZnO2QaB4gc=" crossorigin="anonymous"></script>
+
+
+
+<script src='/js/prism.js'></script>
+
+
+
+  </body>
+</html>

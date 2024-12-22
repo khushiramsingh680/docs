@@ -1,0 +1,1782 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="generator" content="Hugo 0.122.0">
+<meta name="robots" content="index, follow">
+
+<link rel="shortcut icon" href="/favicons/favicon.ico" >
+
+<title>Azure Cloud LoadBalancers | Documentation</title>
+<meta name="description" content="Azure Cloud">
+<meta property="og:title" content="Azure Cloud LoadBalancers" />
+<meta property="og:description" content="Azure Cloud" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/docs/azure/azure-lb/" /><meta property="article:section" content="docs" />
+
+
+
+<meta itemprop="name" content="Azure Cloud LoadBalancers">
+<meta itemprop="description" content="Azure Cloud">
+
+<meta itemprop="wordCount" content="4673">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Azure Cloud LoadBalancers"/>
+<meta name="twitter:description" content="Azure Cloud"/>
+
+
+
+
+<link rel="preload" href="/scss/main.min.b5bfe2535b6f07595fd9cb7a4018024e52e136c3b43e03a17a1e47a950822d03.css" as="style">
+<link href="/scss/main.min.b5bfe2535b6f07595fd9cb7a4018024e52e136c3b43e03a17a1e47a950822d03.css" rel="stylesheet" integrity="">
+
+<script
+  src="https://code.jquery.com/jquery-3.6.0.min.js"
+  integrity="sha384-vtXRMe3mGCbOeY7l30aIg8H9p3GdeSe4IFlP6G8JMa7o7lXvnz3GFKzPxzJdPfGK"
+  crossorigin="anonymous"></script>
+<script
+  src="https://unpkg.com/lunr@2.3.9/lunr.min.js"
+  integrity="sha384-203J0SNzyqHby3iU6hzvzltrWi/M41wOP5Gu+BiJMz5nwKykbkUx8Kp7iti0Lpli"
+  crossorigin="anonymous"></script>
+<link rel="stylesheet" href="/css/prism.css"/>
+<script type="text/javascript"  src="/js/highlight-search.js"></script>
+<script type="text/javascript"  src="/js/manage-side-panels.js"></script>
+  </head>
+  <body class="td-page highlightable">
+    <header>
+      
+<nav class="js-navbar-scroll navbar navbar-expand navbar-dark flex-column flex-md-row td-navbar">
+        <a class="navbar-brand" href="/">
+		<span class="navbar-logo"><svg version="1.0" xmlns="http://www.w3.org/2000/svg" width="217pt" height="232pt" viewBox="0 0 217 232"><g transform="translate(0.000000,232.000000) scale(0.100000,-0.100000)" fill="#000" stroke="none"><path d="M1017 2250c-397-48-698-367-731-775-9-106-3-113 66-87l55 20 11-71c6-39 10-72 9-73s-58-22-127-47c-104-37-124-48-122-64 7-37 56-150 88-205l34-56 66 25 66 26 65-72c206-226 513-322 808-252 367 88 634 417 635 784 0 43-4 77-10 77-5 0-32-9-60-20s-55-20-59-20c-5 0-12 26-16 59-4 32-20 96-36 142s-30 88-31 92c-2 5 54 29 124 55l128 46-31 55c-17 31-33 58-34 59-2 2-31-6-64-19l-61-22-23 29c-81 104-172 178-292 235-140 68-309 97-458 79zm226-299c90-24 136-46 206-101l52-41 61 20 60 20 26-31c15-17 35-44 44-59l17-28-52-19c-29-11-86-32-128-47l-76-27 24-58c26-66 43-144 43-201 0-22 2-39 5-39 2 0 27 9 55 20s55 20 60 20c17 0 10-63-14-131-127-359-580-484-862-237l-35 31-70-24-71-24-30 35c-37 43-97 164-104 212l-6 34 123 46 124 45-3 64c-2 35-5 66-7 68-2 1-27-5-55-14s-53-15-55-14c-2 2 1 29 7 59 32 179 185 352 361 409 112 36 192 39 3e2 12z"/><path d="M134 321c-77-33-95-169-29-231 19-18 36-23 71-23 40 0 51 4 75 30 50 56 47 153-5 202-26 25-80 35-112 22zm82-62c26-29 26-99 0-128-24-26-47-27-77-2-19 15-24 29-24 64 0 76 58 114 101 66z"/><path d="M1172 320c-27-12-44-52-33-82 4-12 31-32 61-47 30-14 58-34 64-43 26-43-50-76-99-44-15 10-26 12-30 6-10-16 4-29 44-40 62-17 114 13 114 65 0 35-19 53-80 81-54 23-67 46-41 72 15 15 62 16 88 2 23-12 35 3 16 19-20 17-77 23-104 11z"/><path d="M350 195V70h25c23 0 25 4 25 45v45h40c76 0 115 40 103 104-8 42-38 56-120 56h-73V195zm134 69c18-18 18-17 10-38-4-11-19-16-50-16-44 0-44 0-44 35 0 33 2 35 34 35 19 0 42-7 50-16z"/><path d="M6e2 195V70h90c83 0 90 2 90 20 0 16-8 19-62 22-63 3-63 3-66 36-3 31-2 32 36 32 36 0 39 2 34 25-4 21-10 25-38 25-30 0-34 3-34 25 0 24 2 25 65 25 58 0 65 2 65 20 0 19-7 20-90 20h-90V195z"/><path d="M850 195c0-117 1-125 20-125 17 0 19 8 22 83l3 82 55-82c41-62 61-83 78-83 22 0 22 2 22 125 0 117-1 125-20 125-17 0-19-8-22-82l-3-82-54 82c-42 65-59 82-77 82-24 0-24 0-24-125z"/><path d="M1360 195c0-104 2-125 15-125 12 0 15 13 15 60v60h65 65v-60c0-47 3-60 15-60 13 0 15 21 15 125s-2 125-15 125c-12 0-15-13-15-55v-55h-65-65v55c0 42-3 55-15 55-13 0-15-21-15-125z"/><path d="M1620 195c0-104 2-125 15-125s15 21 15 125-2 125-15 125-15-21-15-125z"/><path d="M1730 195c0-77 4-125 10-125s10 27 10 60v60h35c19 0 35 5 35 10 0 6-16 10-35 10-35 0-35 0-35 45v45h60c33 0 60 4 60 10s-30 10-70 10h-70V195z"/><path d="M1930 310c0-5 18-10 40-10h40V185c0-70 4-115 10-115s10 45 10 115v115h40c22 0 40 5 40 10 0 6-37 10-90 10s-90-4-90-10z"/></g></svg></span><span class="font-weight-bold">Documentation</span>
+	</a>
+	<div class="td-navbar-nav-scroll ml-md-auto" id="main_navbar">
+		<ul class="navbar-nav mt-2 mt-lg-0">
+			
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/" ><i class='fa fa-home'></i><span>Home</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link active" href="/docs/azure/" ><i class='fab fa-azure'></i><span class="active">Azure Cloud Computing</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/docs/azure-devops/" ><i class='fab fa-azure'></i><span>Azure Devops</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/docs/gitlab/" ><i class='fab fa-gitlab'></i><span>Gitlab Tutorials</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/docs/openshift/" ><i class='fab fa-openshift'></i><span>OpenShift Administration</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/docs/kvm/" ><i class="fab fa-linux"></i><span>Redhat Ansible</span></a>
+			</li>
+			
+			
+			
+		</ul>
+	</div>
+	<div class="navbar-nav d-none d-lg-block">
+<form class="d-flex align-items-center">
+  <input type="search"
+  class="form-control td-search-input"
+  placeholder="&#xf002; Search this site…"
+  aria-label="Search this site…"
+  autocomplete="off"
+  
+  data-offline-search-index-json-src="/offline-search-index.d4ee35dfb31ed3b96d119091cf664ad4.json"
+  data-offline-search-base-href="/"
+  data-offline-search-max-results="20">
+</form>
+</div>
+</nav>
+
+      <div class="manage-panels">
+    <button type="button" class="button-left" id="left-panel-manager" title="Hide sidebar">""</button>
+    <button type="button" class="button-right" id="right-panel-manager" title="Hide sidebar">""</button>
+</div>
+    </header>
+    <div class="container-fluid td-outer">
+      <div class="td-main autonumbering">
+        <div class="row flex-xl-nowrap">
+          <aside class="col-12 col-md-3 col-xl-2 td-sidebar d-print-none">
+            
+<div id="td-sidebar-menu" class="td-sidebar__inner">
+  <div id="content-mobile">
+  <form class="td-sidebar__search d-flex align-items-center">
+    
+<form class="d-flex align-items-center">
+  <input type="search"
+  class="form-control td-search-input"
+  placeholder="&#xf002; Search this site…"
+  aria-label="Search this site…"
+  autocomplete="off"
+  
+  data-offline-search-index-json-src="/offline-search-index.d4ee35dfb31ed3b96d119091cf664ad4.json"
+  data-offline-search-base-href="/"
+  data-offline-search-max-results="20">
+</form>
+
+    <button class="btn btn-link td-sidebar__toggle d-md-none p-0 ml-3 fas fa-bars" type="button" data-toggle="collapse" data-target="#td-section-nav" aria-controls="td-docs-nav" aria-expanded="false" aria-label="Toggle section navigation">
+    </button>
+  </form>
+  </div>
+  <div id="content-desktop"></div>
+  <nav class="collapse td-sidebar-nav foldable-nav" id="td-section-nav">
+    <ul class="td-sidebar-nav__section pr-md-3 ul-0">
+      <li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id="m-docs-li">
+  <a href="/docs/" class="align-left pl-0 td-sidebar-link td-sidebar-link__section tree-root" id="m-docs"><span class="">Docs</span></a>
+  <ul class="ul-1">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id="m-docsazure-li">
+  <input type="checkbox" id="m-docsazure-check" checked/>
+  <label for="m-docsazure-check"><a href="/docs/azure/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-docsazure"><i class="fab fa-azure"></i><span class="">Azure Cloud Computing</span></a></label>
+  
+  <ul class="ul-2 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazurelinux-basics-li">
+  <input type="checkbox" id="m-docsazurelinux-basics-check"/>
+  <label for="m-docsazurelinux-basics-check"><a href="/docs/azure/linux-basics/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazurelinux-basics"><i class="fab fa-azure"></i><span class="">Linux Basics</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazureazure-vm-li">
+  <input type="checkbox" id="m-docsazureazure-vm-check"/>
+  <label for="m-docsazureazure-vm-check"><a href="/docs/azure/azure-vm/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazureazure-vm"><i class="fab fa-azure"></i><span class="">Azure Cloud Virtual Machine (01)</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazureazuredevops-li">
+  <input type="checkbox" id="m-docsazureazuredevops-check"/>
+  <label for="m-docsazureazuredevops-check"><a href="/docs/azure/azuredevops/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazureazuredevops"><i class="fab fa-azure"></i><span class="">Azure Devops</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazureazure-network-li">
+  <input type="checkbox" id="m-docsazureazure-network-check"/>
+  <label for="m-docsazureazure-network-check"><a href="/docs/azure/azure-network/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazureazure-network"><i class="fab fa-azure"></i><span class="">Azure Cloud Networking</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazureazure-storage-li">
+  <input type="checkbox" id="m-docsazureazure-storage-check"/>
+  <label for="m-docsazureazure-storage-check"><a href="/docs/azure/azure-storage/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazureazure-storage"><i class="fab fa-azure"></i><span class="">Azure Cloud Storage</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazureazure-cli-li">
+  <input type="checkbox" id="m-docsazureazure-cli-check"/>
+  <label for="m-docsazureazure-cli-check"><a href="/docs/azure/azure-cli/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazureazure-cli"><i class="fab fa-azure"></i><span class="">Azure Cli</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazureazure-vmss-li">
+  <input type="checkbox" id="m-docsazureazure-vmss-check"/>
+  <label for="m-docsazureazure-vmss-check"><a href="/docs/azure/azure-vmss/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazureazure-vmss"><i class="fab fa-azure"></i><span class="">Azure Cloud Virtual Machine Scale Set</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazureazure-lb-li">
+  <input type="checkbox" id="m-docsazureazure-lb-check"/>
+  <label for="m-docsazureazure-lb-check"><a href="/docs/azure/azure-lb/" class="align-left pl-0  active td-sidebar-link td-sidebar-link__page" id="m-docsazureazure-lb"><i class="fab fa-azure"></i><span class="td-sidebar-nav-active-item">Azure Cloud LoadBalancers</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazureazure-monitor-li">
+  <input type="checkbox" id="m-docsazureazure-monitor-check"/>
+  <label for="m-docsazureazure-monitor-check"><a href="/docs/azure/azure-monitor/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazureazure-monitor"><i class="fab fa-azure"></i><span class="">Azure Monitoring</span></a></label>
+  
+</li>
+  </ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-docsazure-devops-li">
+  <input type="checkbox" id="m-docsazure-devops-check"/>
+  <label for="m-docsazure-devops-check"><a href="/docs/azure-devops/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-docsazure-devops"><i class="fab fa-azure"></i><span class="">Azure Devops</span></a></label>
+  
+  <ul class="ul-2 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazure-devopsazure-board-li">
+  <input type="checkbox" id="m-docsazure-devopsazure-board-check"/>
+  <label for="m-docsazure-devopsazure-board-check"><a href="/docs/azure-devops/azure-board/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazure-devopsazure-board"><i class="fab fa-azure"></i><span class="">Azure Board</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazure-devopsazuredevops-01-li">
+  <input type="checkbox" id="m-docsazure-devopsazuredevops-01-check"/>
+  <label for="m-docsazure-devopsazuredevops-01-check"><a href="/docs/azure-devops/azuredevops-01/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazure-devopsazuredevops-01"><i class="fab fa-azure"></i><span class="">Part 1</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazure-devopsazuredevops-li">
+  <input type="checkbox" id="m-docsazure-devopsazuredevops-check"/>
+  <label for="m-docsazure-devopsazuredevops-check"><a href="/docs/azure-devops/azuredevops/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazure-devopsazuredevops"><i class="fab fa-azure"></i><span class="">Azure Devops</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazure-devopsazuredevops-02-li">
+  <input type="checkbox" id="m-docsazure-devopsazuredevops-02-check"/>
+  <label for="m-docsazure-devopsazuredevops-02-check"><a href="/docs/azure-devops/azuredevops-02/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazure-devopsazuredevops-02"><i class="fab fa-azure"></i><span class="">Part 2</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazure-devopsazuredevops-03-li">
+  <input type="checkbox" id="m-docsazure-devopsazuredevops-03-check"/>
+  <label for="m-docsazure-devopsazuredevops-03-check"><a href="/docs/azure-devops/azuredevops-03/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazure-devopsazuredevops-03"><i class="fab fa-azure"></i><span class="">Part 3</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazure-devopsazuredevops-04-li">
+  <input type="checkbox" id="m-docsazure-devopsazuredevops-04-check"/>
+  <label for="m-docsazure-devopsazuredevops-04-check"><a href="/docs/azure-devops/azuredevops-04/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazure-devopsazuredevops-04"><i class="fab fa-azure"></i><span class="">part 4</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazure-devopsazuredevops-05-li">
+  <input type="checkbox" id="m-docsazure-devopsazuredevops-05-check"/>
+  <label for="m-docsazure-devopsazuredevops-05-check"><a href="/docs/azure-devops/azuredevops-05/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazure-devopsazuredevops-05"><i class="fab fa-azure"></i><span class="">Part 5</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazure-devopsazuredevops-06-li">
+  <input type="checkbox" id="m-docsazure-devopsazuredevops-06-check"/>
+  <label for="m-docsazure-devopsazuredevops-06-check"><a href="/docs/azure-devops/azuredevops-06/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazure-devopsazuredevops-06"><i class="fab fa-azure"></i><span class="">Part 6</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazure-devopsaks-li">
+  <input type="checkbox" id="m-docsazure-devopsaks-check"/>
+  <label for="m-docsazure-devopsaks-check"><a href="/docs/azure-devops/aks/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazure-devopsaks"><i class="fab fa-azure"></i><span class="">AKS</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazure-devopstest-li">
+  <input type="checkbox" id="m-docsazure-devopstest-check"/>
+  <label for="m-docsazure-devopstest-check"><a href="/docs/azure-devops/test/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazure-devopstest"><i class="fab fa-azure"></i><span class="">Azure Devops Test Plans</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazure-devopsdocker-li">
+  <input type="checkbox" id="m-docsazure-devopsdocker-check"/>
+  <label for="m-docsazure-devopsdocker-check"><a href="/docs/azure-devops/docker/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazure-devopsdocker"><i class="fab fa-azure"></i><span class="">Docker</span></a></label>
+  
+</li>
+  </ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-docsgitlab-li">
+  <input type="checkbox" id="m-docsgitlab-check"/>
+  <label for="m-docsgitlab-check"><a href="/docs/gitlab/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-docsgitlab"><i class="fab fa-gitlab"></i><span class="">Gitlab Tutorials</span></a></label>
+  
+  <ul class="ul-2 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsgitlabgitlab01-li">
+  <input type="checkbox" id="m-docsgitlabgitlab01-check"/>
+  <label for="m-docsgitlabgitlab01-check"><a href="/docs/gitlab/gitlab01/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsgitlabgitlab01"><i class="fab fa-gitlab"></i><span class="">GitLab Installation</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsgitlabgitlab-with-ldap-li">
+  <input type="checkbox" id="m-docsgitlabgitlab-with-ldap-check"/>
+  <label for="m-docsgitlabgitlab-with-ldap-check"><a href="/docs/gitlab/gitlab-with-ldap/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsgitlabgitlab-with-ldap"><i class="fas fa-server"></i><span class="">Gitlab Authentication with LDAP</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsgitlabgitlab-container-registry-li">
+  <input type="checkbox" id="m-docsgitlabgitlab-container-registry-check"/>
+  <label for="m-docsgitlabgitlab-container-registry-check"><a href="/docs/gitlab/gitlab-container-registry/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsgitlabgitlab-container-registry"><i class="fab fa-docker"></i><span class="">GitLab Container Registry</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsgitlabgitlab-logs-troubleshooting-li">
+  <input type="checkbox" id="m-docsgitlabgitlab-logs-troubleshooting-check"/>
+  <label for="m-docsgitlabgitlab-logs-troubleshooting-check"><a href="/docs/gitlab/gitlab-logs-troubleshooting/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsgitlabgitlab-logs-troubleshooting"><i class="fas fa-file-alt"></i><span class="">Logs and Troubleshooting</span></a></label>
+  
+</li>
+  </ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-docsopenshift-li">
+  <input type="checkbox" id="m-docsopenshift-check"/>
+  <label for="m-docsopenshift-check"><a href="/docs/openshift/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-docsopenshift"><i class="fab fa-openshift"></i><span class="">OpenShift Administration</span></a></label>
+  
+  <ul class="ul-2 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsopenshiftocp-onvmware-copy-li">
+  <input type="checkbox" id="m-docsopenshiftocp-onvmware-copy-check"/>
+  <label for="m-docsopenshiftocp-onvmware-copy-check"><a href="/docs/openshift/ocp-onvmware-copy/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsopenshiftocp-onvmware-copy"><i class="fab fa-openshift"></i><span class="">Openshift Installation on Vmware</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsopenshiftocp-sno-li">
+  <input type="checkbox" id="m-docsopenshiftocp-sno-check"/>
+  <label for="m-docsopenshiftocp-sno-check"><a href="/docs/openshift/ocp-sno/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsopenshiftocp-sno"><i class="fab fa-openshift"></i><span class="">Openshift Single node Cluster</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsopenshiftocp-tasks-li">
+  <input type="checkbox" id="m-docsopenshiftocp-tasks-check"/>
+  <label for="m-docsopenshiftocp-tasks-check"><a href="/docs/openshift/ocp-tasks/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsopenshiftocp-tasks"><span class="">Openshift 4 Tasks</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsopenshiftocp-tekton-li">
+  <input type="checkbox" id="m-docsopenshiftocp-tekton-check"/>
+  <label for="m-docsopenshiftocp-tekton-check"><a href="/docs/openshift/ocp-tekton/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsopenshiftocp-tekton"><span class="">Openshift Tekton Pipeline</span></a></label>
+  
+</li>
+  </ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-docskvm-li">
+  <input type="checkbox" id="m-docskvm-check"/>
+  <label for="m-docskvm-check"><a href="/docs/kvm/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-docskvm"><i class="fab fa-linux"></i><span class="">Redhat Ansible</span></a></label>
+  
+  <ul class="ul-2 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docskvmkvm-li">
+  <input type="checkbox" id="m-docskvmkvm-check"/>
+  <label for="m-docskvmkvm-check"><a href="/docs/kvm/kvm/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docskvmkvm"><i class="fab fa-kvm"></i><span class="">KVM</span></a></label>
+  
+</li>
+  </ul>
+</li>
+  </ul>
+</li>
+    </ul>
+  </nav>
+</div>
+
+          </aside>
+          <aside class="d-none d-xl-block col-xl-2 td-sidebar-toc d-print-none">
+            
+
+    <div class="td-page-meta ml-2 pb-1 pt-2 mb-0">
+        <div class="toc-title">Actions</div>
+        <a href="/edit/master/content/docs/Azure/Azure-LB.md" target="_blank" rel="noopener"><i class="fa fa-edit fa-fw"></i> Contribute to this page</a>
+        <a href="/issues/new?issue%5Btitle=%f0%9f%93%83%20docs:%20update%20page%20docs/Azure/Azure-LB.md" target="_blank" rel="noopener"><i class="fab fa-gitlab fa-fw"></i> Create a documentation issue</a>
+       
+    </div>
+
+            
+<div class="td-page-meta ml-2 pb-1 pt-2 mb-0 right-menu-toc">
+
+    
+        
+            <div class="toc-title">Table of content</div>
+            <div class="td-toc"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#azure-load-balancer">Azure Load Balancer</a>
+      <ul>
+        <li><a href="#types-of-azure-load-balancer">Types of Azure Load Balancer</a></li>
+        <li><a href="#key-features-of-azure-load-balancer">Key Features of Azure Load Balancer</a></li>
+        <li><a href="#how-azure-load-balancer-works">How Azure Load Balancer Works</a></li>
+        <li><a href="#use-cases-for-azure-load-balancer">Use Cases for Azure Load Balancer</a></li>
+      </ul>
+    </li>
+    <li><a href="#azure-load-balancer-basic-vs-standard">Azure Load Balancer: Basic vs. Standard</a>
+      <ul>
+        <li><a href="#1-availability"><strong>1. Availability</strong></a></li>
+        <li><a href="#2-scalability"><strong>2. Scalability</strong></a></li>
+        <li><a href="#3-security"><strong>3. Security</strong></a></li>
+        <li><a href="#4-features"><strong>4. Features</strong></a></li>
+        <li><a href="#5-cost"><strong>5. Cost</strong></a></li>
+      </ul>
+    </li>
+    <li><a href="#key-recommendations"><strong>Key Recommendations</strong></a>
+      <ul>
+        <li><a href="#configuring-azure-load-balancer">Configuring Azure Load Balancer</a></li>
+      </ul>
+    </li>
+    <li><a href="#azure-application-gateway">Azure Application Gateway</a>
+      <ul>
+        <li><a href="#key-features-of-azure-application-gateway">Key Features of Azure Application Gateway</a></li>
+        <li><a href="#how-azure-application-gateway-works">How Azure Application Gateway Works</a></li>
+        <li><a href="#use-cases-for-azure-application-gateway">Use Cases for Azure Application Gateway</a></li>
+        <li><a href="#configuring-azure-application-gateway">Configuring Azure Application Gateway</a></li>
+      </ul>
+    </li>
+    <li><a href="#azure-front-door">Azure Front Door</a>
+      <ul>
+        <li><a href="#key-features-of-azure-front-door">Key Features of Azure Front Door</a></li>
+        <li><a href="#how-azure-front-door-works">How Azure Front Door Works</a></li>
+        <li><a href="#use-cases-for-azure-front-door">Use Cases for Azure Front Door</a></li>
+        <li><a href="#configuring-azure-front-door">Configuring Azure Front Door</a></li>
+      </ul>
+    </li>
+    <li><a href="#azure-traffic-manager">Azure Traffic Manager</a>
+      <ul>
+        <li><a href="#key-features-of-azure-traffic-manager">Key Features of Azure Traffic Manager</a></li>
+        <li><a href="#how-azure-traffic-manager-works">How Azure Traffic Manager Works</a></li>
+        <li><a href="#use-cases-for-azure-traffic-manager">Use Cases for Azure Traffic Manager</a></li>
+        <li><a href="#configuring-azure-traffic-manager">Configuring Azure Traffic Manager</a></li>
+      </ul>
+    </li>
+    <li><a href="#azure-cdn-content-delivery-network">Azure CDN (Content Delivery Network)</a>
+      <ul>
+        <li><a href="#key-features-of-azure-cdn">Key Features of Azure CDN</a></li>
+        <li><a href="#how-azure-cdn-works">How Azure CDN Works</a></li>
+        <li><a href="#use-cases-for-azure-cdn">Use Cases for Azure CDN</a></li>
+        <li><a href="#configuring-azure-cdn">Configuring Azure CDN</a></li>
+        <li><a href="#benefits-of-using-azure-cdn">Benefits of Using Azure CDN</a></li>
+      </ul>
+    </li>
+    <li><a href="#azure-networking-services-comparison-front-door-vs-load-balancer-vs-application-gateway-vs-traffic-manager">Azure Networking Services Comparison: Front Door vs. Load Balancer vs. Application Gateway vs. Traffic Manager</a>
+      <ul>
+        <li><a href="#1-purpose"><strong>1. Purpose</strong></a></li>
+        <li><a href="#2-layer-of-operation"><strong>2. Layer of Operation</strong></a></li>
+        <li><a href="#3-key-features"><strong>3. Key Features</strong></a></li>
+        <li><a href="#4-use-cases"><strong>4. Use Cases</strong></a></li>
+        <li><a href="#5-security"><strong>5. Security</strong></a></li>
+        <li><a href="#6-global-vs-regional"><strong>6. Global vs. Regional</strong></a></li>
+        <li><a href="#7-pricing"><strong>7. Pricing</strong></a></li>
+        <li><a href="#choosing-the-right-service"><strong>Choosing the Right Service</strong></a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+        
+    
+
+</div>
+          </aside>
+          <main class="col-12 col-md-9 col-xl-8 pl-md-5" role="main">
+            
+  
+
+            <nav aria-label="breadcrumb" class="td-breadcrumbs">
+  <ol class="breadcrumb">
+  <li class="breadcrumb-item">
+    <a href="/docs/">Docs</a>
+  </li>
+  <li class="breadcrumb-item">
+    <a href="/docs/azure/">Azure Cloud Computing</a>
+  </li>
+  <li class="breadcrumb-item active" aria-current="page">
+    <a href="/docs/azure/azure-lb/">Azure Cloud LoadBalancers</a>
+  </li>
+  </ol>
+</nav>
+            
+<div class="td-content">
+	<h1>Azure Cloud LoadBalancers</h1>
+	<div class="lead">Azure Cloud</div>
+	<header class="article-meta">
+		
+
+  
+    
+
+
+  
+    
+
+
+  
+
+		
+	</header>    
+	<ul>
+<li><a href="#azure-load-balancer">Azure Load Balancer</a></li>
+<li><a href="#azure-application-gateway">Azure Application Gateway</a></li>
+<li><a href="#azure-front-door">Azure Front Door</a></li>
+<li><a href="#azure-traffic-manager">Azure Traffic Manager</a></li>
+<li><a href="#azure-cdn-content-delivery-network">Azure CDN</a></li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="azure-load-balancer" data-heading="Azure Load Balancer" data-level="2" data-permalink="/docs/azure/azure-lb/" data-title="Azure Cloud LoadBalancers" -->
+<h2 id="azure-load-balancer">Azure Load Balancer</h2><p>An <strong>Azure Load Balancer</strong> is a fully managed service that provides high availability by distributing incoming network traffic across multiple servers or virtual machines (VMs). It helps ensure that your applications remain available, scalable, and fault-tolerant.</p>
+<p><img src="/images/lb01.png" alt="lb01"></p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="types-of-azure-load-balancer" data-heading="Types of Azure Load Balancer" data-level="3" data-permalink="/docs/azure/azure-lb/" data-title="Azure Cloud LoadBalancers" -->
+<h3 id="types-of-azure-load-balancer">Types of Azure Load Balancer</h3><ol>
+<li>
+<p><strong>Basic Load Balancer</strong></p>
+<ul>
+<li>Designed for small-scale applications and services.</li>
+<li>Supports only one region and is ideal for development and test environments.</li>
+<li>Limited configuration options compared to Standard Load Balancer.</li>
+</ul>
+</li>
+<li>
+<p><strong>Standard Load Balancer</strong></p>
+<ul>
+<li>More advanced, suitable for production environments.</li>
+<li>Supports multiple regions and larger, more complex workloads.</li>
+<li>Offers advanced features like health probes, NAT rules, and cross-region load balancing.</li>
+<li>Supports both <strong>internal</strong> and <strong>public</strong> load balancing.</li>
+</ul>
+</li>
+</ol>
+<hr>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="key-features-of-azure-load-balancer" data-heading="Key Features of Azure Load Balancer" data-level="3" data-permalink="/docs/azure/azure-lb/" data-title="Azure Cloud LoadBalancers" -->
+<h3 id="key-features-of-azure-load-balancer">Key Features of Azure Load Balancer</h3><ol>
+<li>
+<p><strong>High Availability</strong></p>
+<ul>
+<li>Distributes traffic across multiple VMs or services, ensuring that your application remains available even if one or more VMs become unhealthy or fail.</li>
+<li>Supports automatic rerouting of traffic in case of VM failure.</li>
+</ul>
+</li>
+<li>
+<p><strong>Health Probes</strong></p>
+<ul>
+<li>Monitors the health of backend resources (e.g., VMs or applications) by sending periodic requests to check if they are responsive.</li>
+<li>Ensures that traffic is only routed to healthy resources.</li>
+</ul>
+</li>
+<li>
+<p><strong>Internal and External Load Balancing</strong></p>
+<ul>
+<li><strong>Public Load Balancer</strong>: Distributes traffic from the internet to VMs or services in a virtual network.</li>
+<li><strong>Internal Load Balancer</strong>: Distributes traffic between VMs within a private virtual network, suitable for internal services.</li>
+</ul>
+</li>
+<li>
+<p><strong>Automatic Scaling</strong></p>
+<ul>
+<li>Works with <strong>Virtual Machine Scale Sets (VMSS)</strong> to scale the application up or down based on demand, automatically adjusting the number of VMs in the pool.</li>
+</ul>
+</li>
+<li>
+<p><strong>Cross-Zone Load Balancing</strong></p>
+<ul>
+<li>Distributes traffic across multiple <strong>Availability Zones</strong> to ensure better availability and fault tolerance.</li>
+</ul>
+</li>
+<li>
+<p><strong>Support for IPv6</strong></p>
+<ul>
+<li>Azure Load Balancer supports <strong>IPv6</strong> for both internal and public load balancing.</li>
+</ul>
+</li>
+</ol>
+<hr>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="how-azure-load-balancer-works" data-heading="How Azure Load Balancer Works" data-level="3" data-permalink="/docs/azure/azure-lb/" data-title="Azure Cloud LoadBalancers" -->
+<h3 id="how-azure-load-balancer-works">How Azure Load Balancer Works</h3><ul>
+<li>Azure Load Balancer uses <strong>Layer 4 (TCP/UDP)</strong> load balancing, meaning it works at the transport layer of the OSI model.</li>
+<li>It routes traffic based on the <strong>IP address</strong> and <strong>port</strong> to the appropriate backend VM or service.</li>
+<li>Traffic distribution is done using algorithms like <strong>Round Robin</strong>, <strong>Least Connections</strong>, or <strong>Source IP Affinity</strong>.</li>
+</ul>
+<hr>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="use-cases-for-azure-load-balancer" data-heading="Use Cases for Azure Load Balancer" data-level="3" data-permalink="/docs/azure/azure-lb/" data-title="Azure Cloud LoadBalancers" -->
+<h3 id="use-cases-for-azure-load-balancer">Use Cases for Azure Load Balancer</h3><ol>
+<li>
+<p><strong>Web and Application Traffic Distribution</strong></p>
+<ul>
+<li>Distribute user requests to multiple web servers or application instances, ensuring better resource utilization and faster response times.</li>
+</ul>
+</li>
+<li>
+<p><strong>Microservices Architecture</strong></p>
+<ul>
+<li>Route traffic between different services within a microservices architecture, ensuring each service is scaled according to demand.</li>
+</ul>
+</li>
+<li>
+<p><strong>High Availability Services</strong></p>
+<ul>
+<li>Ensure that mission-critical applications like databases, web servers, or API services remain available even if individual VMs or services fail.</li>
+</ul>
+</li>
+<li>
+<p><strong>Hybrid Applications</strong></p>
+<ul>
+<li>Azure Load Balancer can be used to distribute traffic across both <strong>on-premises</strong> and <strong>Azure-based</strong> applications.</li>
+</ul>
+</li>
+</ol>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="azure-load-balancer-basic-vs-standard" data-heading="Azure Load Balancer: Basic vs. Standard" data-level="2" data-permalink="/docs/azure/azure-lb/" data-title="Azure Cloud LoadBalancers" -->
+<h2 id="azure-load-balancer-basic-vs-standard">Azure Load Balancer: Basic vs. Standard</h2><p>Azure Load Balancer provides high availability and load balancing for your applications. It is available in two tiers: <strong>Basic</strong> and <strong>Standard</strong>. Below is a comparison of the key features and differences:</p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="1-availability" data-heading="<strong>1. Availability</strong>" data-level="3" data-permalink="/docs/azure/azure-lb/" data-title="Azure Cloud LoadBalancers" -->
+<h3 id="1-availability"><strong>1. Availability</strong></h3><table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Basic Load Balancer</th>
+<th>Standard Load Balancer</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SLA</td>
+<td>Not provided</td>
+<td>99.99% availability</td>
+</tr>
+<tr>
+<td>Availability Zones</td>
+<td>Not supported</td>
+<td>Zone-redundant and zonal</td>
+</tr>
+<tr>
+<td>Regional Balancing</td>
+<td>Single region</td>
+<td>Regional balancing supported</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="2-scalability" data-heading="<strong>2. Scalability</strong>" data-level="3" data-permalink="/docs/azure/azure-lb/" data-title="Azure Cloud LoadBalancers" -->
+<h3 id="2-scalability"><strong>2. Scalability</strong></h3><table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Basic Load Balancer</th>
+<th>Standard Load Balancer</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Backend Pool Size</td>
+<td>Up to 300 instances</td>
+<td>Up to 1000 instances</td>
+</tr>
+<tr>
+<td>Outbound Connections</td>
+<td>Limited</td>
+<td>Scalable</td>
+</tr>
+<tr>
+<td>High Scalability</td>
+<td>Limited</td>
+<td>Optimized for large workloads</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="3-security" data-heading="<strong>3. Security</strong>" data-level="3" data-permalink="/docs/azure/azure-lb/" data-title="Azure Cloud LoadBalancers" -->
+<h3 id="3-security"><strong>3. Security</strong></h3><table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Basic Load Balancer</th>
+<th>Standard Load Balancer</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Virtual Network Integration</td>
+<td>Public IP only</td>
+<td>Full VNet integration</td>
+</tr>
+<tr>
+<td>NSG Association</td>
+<td>Not supported</td>
+<td>Supported</td>
+</tr>
+<tr>
+<td>Backend Pool Connectivity</td>
+<td>Unrestricted</td>
+<td>Secure (VMs explicitly defined)</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="4-features" data-heading="<strong>4. Features</strong>" data-level="3" data-permalink="/docs/azure/azure-lb/" data-title="Azure Cloud LoadBalancers" -->
+<h3 id="4-features"><strong>4. Features</strong></h3><table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Basic Load Balancer</th>
+<th>Standard Load Balancer</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Protocol Support</td>
+<td>TCP/UDP</td>
+<td>TCP/UDP</td>
+</tr>
+<tr>
+<td>Health Probes</td>
+<td>Basic</td>
+<td>Enhanced</td>
+</tr>
+<tr>
+<td>Cross-Zone Load Balancing</td>
+<td>Not supported</td>
+<td>Supported</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="5-cost" data-heading="<strong>5. Cost</strong>" data-level="3" data-permalink="/docs/azure/azure-lb/" data-title="Azure Cloud LoadBalancers" -->
+<h3 id="5-cost"><strong>5. Cost</strong></h3><table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Basic Load Balancer</th>
+<th>Standard Load Balancer</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Pricing Model</td>
+<td>Free for basic features</td>
+<td>Pay-as-you-go</td>
+</tr>
+<tr>
+<td>Billing</td>
+<td>No cost for data processing</td>
+<td>Charges based on usage</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="key-recommendations" data-heading="<strong>Key Recommendations</strong>" data-level="2" data-permalink="/docs/azure/azure-lb/" data-title="Azure Cloud LoadBalancers" -->
+<h2 id="key-recommendations"><strong>Key Recommendations</strong></h2><ul>
+<li><strong>Use Basic Load Balancer</strong> for simple, small-scale applications where cost is a primary concern, and high availability is not critical.</li>
+<li><strong>Use Standard Load Balancer</strong> for production workloads requiring enhanced security, scalability, and reliability.</li>
+</ul>
+<hr>
+<p><strong>References:</strong></p>
+<ul>
+<li><a href="https://learn.microsoft.com/en-us/azure/load-balancer/" target="_blank" rel="noopener">Azure Load Balancer Documentation</a></li>
+</ul>
+<hr>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="configuring-azure-load-balancer" data-heading="Configuring Azure Load Balancer" data-level="3" data-permalink="/docs/azure/azure-lb/" data-title="Azure Cloud LoadBalancers" -->
+<h3 id="configuring-azure-load-balancer">Configuring Azure Load Balancer</h3><ol>
+<li>
+<p><strong>Create Load Balancer</strong>:</p>
+<ul>
+<li>Go to <strong>Azure Portal</strong>, navigate to <strong>Load Balancers</strong>, and click <strong>Create</strong>.</li>
+<li>Choose <strong>Public</strong> or <strong>Internal</strong> based on your needs.</li>
+<li>Select your <strong>Resource Group</strong>, <strong>Region</strong>, and other basic configuration settings.</li>
+</ul>
+</li>
+<li>
+<p><strong>Set Up Backend Pool</strong>:</p>
+<ul>
+<li>Define the backend pool with the VMs or instances that will receive traffic.</li>
+<li>Choose the VMs manually or use a <strong>Virtual Machine Scale Set</strong> for automatic scaling.</li>
+</ul>
+</li>
+<li>
+<p><strong>Configure Health Probes</strong>:</p>
+<ul>
+<li>Create health probes to monitor the availability of backend VMs or services.</li>
+<li>Set parameters such as protocol, port, and interval for the probe.</li>
+</ul>
+</li>
+<li>
+<p><strong>Create Load Balancing Rules</strong>:</p>
+<ul>
+<li>Define rules that specify how traffic is distributed to backend VMs.</li>
+<li>Configure the ports, IPs, and protocols (e.g., HTTP, HTTPS, or custom TCP).</li>
+</ul>
+</li>
+<li>
+<p><strong>Review and Create</strong>:</p>
+<ul>
+<li>Review your settings and click <strong>Create</strong> to deploy the load balancer.</li>
+</ul>
+</li>
+</ol>
+<hr>
+<p>Azure Load Balancer helps ensure your services remain highly available and can scale as needed, delivering better performance and fault tolerance for your applications.</p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="azure-application-gateway" data-heading="Azure Application Gateway" data-level="2" data-permalink="/docs/azure/azure-lb/" data-title="Azure Cloud LoadBalancers" -->
+<h2 id="azure-application-gateway">Azure Application Gateway</h2><p><strong>Azure Application Gateway</strong> is a web traffic load balancer that enables you to manage and route traffic based on advanced HTTP(S) routing rules. It operates at the <strong>Application Layer (Layer 7)</strong> of the OSI model, which allows for more granular control of web traffic compared to Layer 4 load balancers like the Azure Load Balancer.</p>
+<p><img src="/images/lb02.png" alt="lb02"></p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="key-features-of-azure-application-gateway" data-heading="Key Features of Azure Application Gateway" data-level="3" data-permalink="/docs/azure/azure-lb/" data-title="Azure Cloud LoadBalancers" -->
+<h3 id="key-features-of-azure-application-gateway">Key Features of Azure Application Gateway</h3><ol>
+<li>
+<p><strong>Layer 7 Load Balancing</strong></p>
+<ul>
+<li>Unlike the Azure Load Balancer, which works at Layer 4 (TCP/UDP), <strong>Application Gateway</strong> works at Layer 7 (HTTP/HTTPS), allowing routing decisions based on URL paths, host headers, HTTP methods, and other content-based criteria.</li>
+</ul>
+</li>
+<li>
+<p><strong>URL-based Routing</strong></p>
+<ul>
+<li>Application Gateway can route traffic based on the URL path, enabling you to route different types of traffic to different backend pools. For example:
+<ul>
+<li><code>/images</code> can route to one pool of servers.</li>
+<li><code>/api</code> can route to another pool.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Host-based Routing</strong></p>
+<ul>
+<li>Traffic can be routed based on the domain name (host) in the request. This is useful for multi-tenant applications or handling traffic for multiple websites hosted behind the same gateway.</li>
+</ul>
+</li>
+<li>
+<p><strong>SSL/TLS Termination</strong></p>
+<ul>
+<li>Application Gateway can handle SSL/TLS termination (decryption of secure traffic). This offloads the decryption process from backend servers, improving their performance.</li>
+</ul>
+</li>
+<li>
+<p><strong>Web Application Firewall (WAF)</strong></p>
+<ul>
+<li>Application Gateway integrates with <strong>Azure Web Application Firewall (WAF)</strong>, providing centralized protection against common threats like SQL injection, cross-site scripting (XSS), and other OWASP top 10 vulnerabilities.</li>
+<li>WAF can be configured with custom rules for enhanced security.</li>
+</ul>
+</li>
+<li>
+<p><strong>Autoscaling</strong></p>
+<ul>
+<li>Azure Application Gateway supports autoscaling, which adjusts the number of gateway instances based on the incoming traffic, ensuring that you always have the right amount of resources to handle the load.</li>
+</ul>
+</li>
+<li>
+<p><strong>Session Affinity (Cookie-based routing)</strong></p>
+<ul>
+<li>Application Gateway can route requests from a particular user to the same backend server using session affinity (based on a cookie). This ensures that requests from the same user are consistently handled by the same backend for stateful applications.</li>
+</ul>
+</li>
+<li>
+<p><strong>Multi-site Hosting</strong></p>
+<ul>
+<li>Supports hosting multiple websites on the same Application Gateway, routing traffic based on different URL paths or host headers.</li>
+</ul>
+</li>
+<li>
+<p><strong>Custom Health Probes</strong></p>
+<ul>
+<li>Custom health probes are available to monitor the health of backend servers or services. The gateway will only route traffic to healthy resources, ensuring availability.</li>
+</ul>
+</li>
+<li>
+<p><strong>Redirection</strong></p>
+</li>
+</ol>
+<ul>
+<li>Azure Application Gateway allows you to redirect traffic from one URL to another. For example, you can configure it to redirect HTTP traffic to HTTPS.</li>
+</ul>
+<hr>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="how-azure-application-gateway-works" data-heading="How Azure Application Gateway Works" data-level="3" data-permalink="/docs/azure/azure-lb/" data-title="Azure Cloud LoadBalancers" -->
+<h3 id="how-azure-application-gateway-works">How Azure Application Gateway Works</h3><ul>
+<li><strong>Traffic Routing</strong>: When a request is sent to an Application Gateway, the gateway inspects the HTTP(S) request based on the configured routing rules. The traffic is then directed to the appropriate backend pool or service.</li>
+<li><strong>Health Monitoring</strong>: The gateway constantly monitors the health of backend servers using health probes. If a server is unhealthy, the gateway reroutes traffic to a healthy instance.</li>
+<li><strong>SSL Termination</strong>: Application Gateway decrypts incoming SSL/TLS traffic, inspects the traffic, and forwards it to the backend as unencrypted HTTP traffic. This improves backend server performance by offloading SSL processing.</li>
+<li><strong>Firewall Protection</strong>: The WAF functionality inspects HTTP traffic for malicious patterns, blocking traffic that matches predefined rules for common web vulnerabilities.</li>
+</ul>
+<hr>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="use-cases-for-azure-application-gateway" data-heading="Use Cases for Azure Application Gateway" data-level="3" data-permalink="/docs/azure/azure-lb/" data-title="Azure Cloud LoadBalancers" -->
+<h3 id="use-cases-for-azure-application-gateway">Use Cases for Azure Application Gateway</h3><ol>
+<li>
+<p><strong>Web Application Load Balancing</strong></p>
+<ul>
+<li>Use Application Gateway to balance traffic across multiple web servers, improving performance and availability for web applications.</li>
+</ul>
+</li>
+<li>
+<p><strong>Secure Applications</strong></p>
+<ul>
+<li>By enabling SSL termination, WAF, and custom routing rules, Application Gateway helps secure web applications from attacks while ensuring optimal performance.</li>
+</ul>
+</li>
+<li>
+<p><strong>Multi-Tenant Applications</strong></p>
+<ul>
+<li>Host multiple websites or applications behind a single Application Gateway instance, using host-based or URL-based routing to direct traffic to the appropriate backend.</li>
+</ul>
+</li>
+<li>
+<p><strong>Microservices Architecture</strong></p>
+<ul>
+<li>Direct traffic to different backend services or microservices based on URL paths, allowing you to implement complex routing logic for distributed applications.</li>
+</ul>
+</li>
+<li>
+<p><strong>Global Distribution and Traffic Optimization</strong></p>
+<ul>
+<li>Application Gateway integrates with <strong>Azure Front Door</strong> to provide global routing and load balancing for applications that need to scale across multiple regions.</li>
+</ul>
+</li>
+</ol>
+<hr>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="configuring-azure-application-gateway" data-heading="Configuring Azure Application Gateway" data-level="3" data-permalink="/docs/azure/azure-lb/" data-title="Azure Cloud LoadBalancers" -->
+<h3 id="configuring-azure-application-gateway">Configuring Azure Application Gateway</h3><ol>
+<li>
+<p><strong>Create Application Gateway</strong>:</p>
+<ul>
+<li>Navigate to <strong>Azure Portal</strong>, search for <strong>Application Gateway</strong>, and click <strong>Create</strong>.</li>
+<li>Choose your <strong>Subscription</strong>, <strong>Resource Group</strong>, and <strong>Region</strong>.</li>
+<li>Provide a name and configure basic settings like SKU and virtual network.</li>
+</ul>
+</li>
+<li>
+<p><strong>Define Backend Pools</strong>:</p>
+<ul>
+<li>Add backend servers or services to your backend pools (e.g., Virtual Machines, VM Scale Sets, or Web Apps).</li>
+</ul>
+</li>
+<li>
+<p><strong>Set Up Routing Rules</strong>:</p>
+<ul>
+<li>Define URL-based or host-based routing rules to specify how traffic is distributed to your backend pools.</li>
+</ul>
+</li>
+<li>
+<p><strong>Configure Health Probes</strong>:</p>
+<ul>
+<li>Set up health probes to monitor the health of your backend services, ensuring only healthy instances receive traffic.</li>
+</ul>
+</li>
+<li>
+<p><strong>Enable SSL Termination</strong>:</p>
+<ul>
+<li>Upload your SSL certificates and configure SSL termination for secure communication with clients.</li>
+</ul>
+</li>
+<li>
+<p><strong>Configure Web Application Firewall (WAF)</strong>:</p>
+<ul>
+<li>Enable and configure WAF to protect your application from common vulnerabilities and threats.</li>
+</ul>
+</li>
+<li>
+<p><strong>Review and Deploy</strong>:</p>
+<ul>
+<li>Review all your configurations and click <strong>Create</strong> to deploy the Application Gateway.</li>
+</ul>
+</li>
+</ol>
+<hr>
+<p>Azure Application Gateway provides intelligent load balancing, security features, and high availability for web applications, making it ideal for modern cloud-based web architectures. It ensures that applications are scalable, secure, and highly available while delivering fast, efficient traffic management.</p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="azure-front-door" data-heading="Azure Front Door" data-level="2" data-permalink="/docs/azure/azure-lb/" data-title="Azure Cloud LoadBalancers" -->
+<h2 id="azure-front-door">Azure Front Door</h2><p><strong>Azure Front Door</strong> is a global, scalable entry point that optimizes the delivery of your applications and services. It provides high availability and performance by using intelligent routing and various features like SSL offloading, web application firewall, and content caching.</p>
+<p><img src="/images/lb03.webp" alt="lb03"></p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="key-features-of-azure-front-door" data-heading="Key Features of Azure Front Door" data-level="3" data-permalink="/docs/azure/azure-lb/" data-title="Azure Cloud LoadBalancers" -->
+<h3 id="key-features-of-azure-front-door">Key Features of Azure Front Door</h3><ol>
+<li>
+<p><strong>Global Load Balancing</strong></p>
+<ul>
+<li>Azure Front Door provides global load balancing to route traffic to the nearest region based on factors like latency, geography, and availability.</li>
+<li>It ensures that users always connect to the nearest available region for optimal performance.</li>
+</ul>
+</li>
+<li>
+<p><strong>Web Application Firewall (WAF)</strong></p>
+<ul>
+<li>Azure Front Door integrates with <strong>Web Application Firewall (WAF)</strong> to protect your applications from common threats and vulnerabilities, such as SQL injection, cross-site scripting (XSS), and bot attacks.</li>
+<li>It provides customizable security policies and automated rule sets for web traffic protection.</li>
+</ul>
+</li>
+<li>
+<p><strong>SSL Offloading</strong></p>
+<ul>
+<li>It supports SSL/TLS termination, which offloads the encryption/decryption tasks from your backend services, improving performance and simplifying certificate management.</li>
+<li>Front Door automatically handles HTTPS traffic to secure your applications without burdening the origin server.</li>
+</ul>
+</li>
+<li>
+<p><strong>Customizable Routing</strong></p>
+<ul>
+<li>Front Door supports intelligent routing based on user-defined rules, allowing traffic to be directed to specific backend pools based on URL paths, HTTP methods, and headers.</li>
+<li>It can route traffic to specific regions or services to optimize the user experience.</li>
+</ul>
+</li>
+<li>
+<p><strong>Global Caching</strong></p>
+<ul>
+<li>Front Door caches static content closer to users at edge locations worldwide, improving response times for static content delivery.</li>
+<li>It reduces latency and helps improve the performance of content-heavy applications.</li>
+</ul>
+</li>
+<li>
+<p><strong>URL Rewrite and Redirects</strong></p>
+<ul>
+<li>Azure Front Door enables flexible URL rewriting and redirection rules to customize how requests are processed and directed to the appropriate backend.</li>
+<li>You can modify incoming requests or responses without the need to alter your backend code.</li>
+</ul>
+</li>
+<li>
+<p><strong>Automatic Failover and High Availability</strong></p>
+<ul>
+<li>Front Door provides automatic failover and traffic rerouting to ensure business continuity in case of backend failures or regional outages.</li>
+<li>It guarantees high availability by routing traffic to healthy backend endpoints.</li>
+</ul>
+</li>
+</ol>
+<hr>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="how-azure-front-door-works" data-heading="How Azure Front Door Works" data-level="3" data-permalink="/docs/azure/azure-lb/" data-title="Azure Cloud LoadBalancers" -->
+<h3 id="how-azure-front-door-works">How Azure Front Door Works</h3><ul>
+<li><strong>Global Distribution</strong>: Azure Front Door uses a global network of edge locations to route user requests to the closest available backend.</li>
+<li><strong>Routing Methods</strong>: It uses various routing techniques:
+<ul>
+<li><strong>Latency-based routing</strong>: Routes requests to the backend with the lowest latency.</li>
+<li><strong>Priority-based routing</strong>: Routes requests based on a configured priority.</li>
+<li><strong>Weighted routing</strong>: Routes traffic to multiple backends based on weighted percentages.</li>
+</ul>
+</li>
+<li><strong>Health Probes</strong>: Azure Front Door continuously monitors the health of backend services and automatically routes traffic to healthy instances, ensuring high availability.</li>
+</ul>
+<hr>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="use-cases-for-azure-front-door" data-heading="Use Cases for Azure Front Door" data-level="3" data-permalink="/docs/azure/azure-lb/" data-title="Azure Cloud LoadBalancers" -->
+<h3 id="use-cases-for-azure-front-door">Use Cases for Azure Front Door</h3><ol>
+<li>
+<p><strong>Global Web Application Delivery</strong></p>
+<ul>
+<li>Azure Front Door is ideal for delivering globally distributed web applications that need to serve a large number of users from different regions with minimal latency.</li>
+</ul>
+</li>
+<li>
+<p><strong>Multi-Region Application Architectures</strong></p>
+<ul>
+<li>Distribute traffic intelligently across multiple Azure regions to improve availability and ensure disaster recovery, reducing downtime for critical applications.</li>
+</ul>
+</li>
+<li>
+<p><strong>Enhanced Security for Web Applications</strong></p>
+<ul>
+<li>Protect applications from threats with integrated <strong>WAF</strong>, SSL offloading, and custom routing rules that enhance both security and performance.</li>
+</ul>
+</li>
+<li>
+<p><strong>High-Performance Content Delivery</strong></p>
+<ul>
+<li>Cache static content closer to end users, reducing load on backend services and improving the user experience for high-traffic applications.</li>
+</ul>
+</li>
+<li>
+<p><strong>Load Balancing for Microservices</strong></p>
+<ul>
+<li>Use Front Door to manage and balance traffic across multiple microservices deployed in different regions, ensuring seamless communication and fault tolerance.</li>
+</ul>
+</li>
+</ol>
+<hr>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="configuring-azure-front-door" data-heading="Configuring Azure Front Door" data-level="3" data-permalink="/docs/azure/azure-lb/" data-title="Azure Cloud LoadBalancers" -->
+<h3 id="configuring-azure-front-door">Configuring Azure Front Door</h3><ol>
+<li>
+<p><strong>Create Front Door Instance</strong>:</p>
+<ul>
+<li>Go to the <strong>Azure Portal</strong>, navigate to <strong>Front Door</strong> and click <strong>Create</strong>.</li>
+<li>Choose your <strong>Subscription</strong>, <strong>Resource Group</strong>, and <strong>Region</strong>.</li>
+<li>Provide a name for the Front Door instance and configure basic settings.</li>
+</ul>
+</li>
+<li>
+<p><strong>Define Backend Pools</strong>:</p>
+<ul>
+<li>Create backend pools with your services (e.g., VMs, web apps, or APIs).</li>
+<li>Configure load balancing settings for each backend to ensure optimal traffic distribution.</li>
+</ul>
+</li>
+<li>
+<p><strong>Set Routing Rules</strong>:</p>
+<ul>
+<li>Define routing rules that determine how traffic is directed to the backend pools.</li>
+<li>You can route based on URL paths, HTTP methods, and more.</li>
+</ul>
+</li>
+<li>
+<p><strong>Enable Web Application Firewall (WAF)</strong>:</p>
+<ul>
+<li>Configure WAF policies to protect your application from common vulnerabilities and attacks.</li>
+</ul>
+</li>
+<li>
+<p><strong>Set Up SSL/TLS Offloading</strong>:</p>
+<ul>
+<li>Configure SSL certificates for Front Door to handle HTTPS traffic and offload SSL termination from backend servers.</li>
+</ul>
+</li>
+<li>
+<p><strong>Review and Deploy</strong>:</p>
+<ul>
+<li>Review your settings and click <strong>Create</strong> to deploy your Azure Front Door instance.</li>
+</ul>
+</li>
+</ol>
+<hr>
+<p>Azure Front Door is an effective solution for building highly available, secure, and performant web applications that serve users globally. It integrates load balancing, security features, and intelligent routing to provide a seamless experience across different regions and services.</p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="azure-traffic-manager" data-heading="Azure Traffic Manager" data-level="2" data-permalink="/docs/azure/azure-lb/" data-title="Azure Cloud LoadBalancers" -->
+<h2 id="azure-traffic-manager">Azure Traffic Manager</h2><p><strong>Azure Traffic Manager</strong> is a global DNS-based traffic load balancer that enables you to distribute traffic to different endpoints across the world. It allows you to optimize the performance of your applications by directing user requests to the closest or most available instance based on configurable routing policies.</p>
+<p><img src="/images/lb04.png" alt="lb04"></p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="key-features-of-azure-traffic-manager" data-heading="Key Features of Azure Traffic Manager" data-level="3" data-permalink="/docs/azure/azure-lb/" data-title="Azure Cloud LoadBalancers" -->
+<h3 id="key-features-of-azure-traffic-manager">Key Features of Azure Traffic Manager</h3><ol>
+<li>
+<p><strong>DNS-based Traffic Distribution</strong></p>
+<ul>
+<li>Traffic Manager works by managing DNS requests. When a user attempts to access a service, it returns the DNS records of the most appropriate endpoint based on the routing method and health of the endpoints.</li>
+</ul>
+</li>
+<li>
+<p><strong>Multiple Routing Methods</strong></p>
+<ul>
+<li>Azure Traffic Manager supports several routing methods that help optimize traffic flow to your resources:
+<ul>
+<li><strong>Priority-based Routing</strong>: Routes traffic to a primary endpoint and fails over to secondary endpoints based on their priority.</li>
+<li><strong>Weighted Routing</strong>: Distributes traffic across multiple endpoints based on weights (percentage).</li>
+<li><strong>Performance-based Routing</strong>: Directs traffic to the endpoint that offers the best performance (lowest latency) based on the user’s location.</li>
+<li><strong>Geographic Routing</strong>: Routes traffic based on the geographical location of the user to comply with legal and regulatory requirements or to provide region-specific services.</li>
+<li><strong>Multivalue Routing</strong>: Returns multiple healthy endpoints to clients, balancing traffic between them.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Endpoint Monitoring</strong></p>
+<ul>
+<li>Traffic Manager regularly checks the health of your endpoints using health probes to ensure they are available and responsive.</li>
+<li>If an endpoint is determined to be unhealthy, Traffic Manager routes traffic to the next healthiest endpoint automatically.</li>
+</ul>
+</li>
+<li>
+<p><strong>Automatic Failover</strong></p>
+<ul>
+<li>Traffic Manager provides high availability by routing traffic to healthy endpoints in the event of failures. This helps in creating a disaster recovery solution by balancing traffic between multiple regions or services.</li>
+</ul>
+</li>
+<li>
+<p><strong>Global Reach and Redundancy</strong></p>
+<ul>
+<li>Traffic Manager enables global load balancing by allowing you to distribute traffic across Azure regions or even on-premises data centers, providing geographic redundancy for your applications.</li>
+</ul>
+</li>
+<li>
+<p><strong>Customizable TTL (Time-to-Live) Settings</strong></p>
+<ul>
+<li>Traffic Manager allows you to configure the TTL for DNS records, controlling how frequently DNS information is refreshed across clients.</li>
+</ul>
+</li>
+<li>
+<p><strong>Integration with Other Azure Services</strong></p>
+<ul>
+<li>Traffic Manager can be integrated with other Azure services like <strong>Azure App Services</strong>, <strong>Virtual Machines</strong>, <strong>VM Scale Sets</strong>, <strong>Azure Web Apps</strong>, and custom endpoints (on-premises or other cloud providers).</li>
+</ul>
+</li>
+</ol>
+<hr>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="how-azure-traffic-manager-works" data-heading="How Azure Traffic Manager Works" data-level="3" data-permalink="/docs/azure/azure-lb/" data-title="Azure Cloud LoadBalancers" -->
+<h3 id="how-azure-traffic-manager-works">How Azure Traffic Manager Works</h3><ol>
+<li>
+<p><strong>DNS Request Handling</strong>:</p>
+<ul>
+<li>When a user tries to access an application or service, a DNS request is made to Azure Traffic Manager.</li>
+<li>Traffic Manager returns the IP address of the most appropriate endpoint based on the routing method, such as the nearest endpoint or the one with the best performance.</li>
+</ul>
+</li>
+<li>
+<p><strong>Health Monitoring</strong>:</p>
+<ul>
+<li>Traffic Manager monitors the health of each endpoint through health probes.</li>
+<li>If an endpoint fails the health check, traffic is automatically redirected to the next available endpoint.</li>
+</ul>
+</li>
+<li>
+<p><strong>Traffic Routing</strong>:</p>
+<ul>
+<li>The routing decision is based on the routing method you&rsquo;ve selected. For instance, with performance-based routing, traffic will be routed to the endpoint with the best performance for the user’s location.</li>
+</ul>
+</li>
+</ol>
+<hr>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="use-cases-for-azure-traffic-manager" data-heading="Use Cases for Azure Traffic Manager" data-level="3" data-permalink="/docs/azure/azure-lb/" data-title="Azure Cloud LoadBalancers" -->
+<h3 id="use-cases-for-azure-traffic-manager">Use Cases for Azure Traffic Manager</h3><ol>
+<li>
+<p><strong>High Availability and Failover</strong></p>
+<ul>
+<li>Use Traffic Manager to distribute traffic to multiple regional or global endpoints, ensuring that your application is highly available, with automatic failover in case of regional outages.</li>
+</ul>
+</li>
+<li>
+<p><strong>Geographically Distributed Applications</strong></p>
+<ul>
+<li>When your users are located in different parts of the world, you can use Traffic Manager to route traffic to the nearest available service, improving performance and reducing latency.</li>
+</ul>
+</li>
+<li>
+<p><strong>Disaster Recovery</strong></p>
+<ul>
+<li>Implement disaster recovery strategies by routing traffic to a secondary endpoint if the primary service becomes unavailable.</li>
+</ul>
+</li>
+<li>
+<p><strong>Traffic Optimization</strong></p>
+<ul>
+<li>Use performance-based routing to direct traffic to the endpoint that provides the best response time, based on real-time latency measurements.</li>
+</ul>
+</li>
+<li>
+<p><strong>Regulatory Compliance</strong></p>
+<ul>
+<li>Use geographic routing to direct users to the appropriate region to meet legal and regulatory requirements, such as data residency or locality laws.</li>
+</ul>
+</li>
+</ol>
+<hr>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="configuring-azure-traffic-manager" data-heading="Configuring Azure Traffic Manager" data-level="3" data-permalink="/docs/azure/azure-lb/" data-title="Azure Cloud LoadBalancers" -->
+<h3 id="configuring-azure-traffic-manager">Configuring Azure Traffic Manager</h3><ol>
+<li>
+<p><strong>Create a Traffic Manager Profile</strong>:</p>
+<ul>
+<li>Go to the <strong>Azure Portal</strong>, search for <strong>Traffic Manager profiles</strong>, and click <strong>Create</strong>.</li>
+<li>Choose the <strong>Routing Method</strong> (e.g., Priority, Weighted, Performance, Geographic, or Multivalue).</li>
+<li>Configure a <strong>DNS name</strong> that will be used by Traffic Manager to route traffic.</li>
+</ul>
+</li>
+<li>
+<p><strong>Define Endpoints</strong>:</p>
+<ul>
+<li>Add the endpoints you want Traffic Manager to route to. These can be Azure services like <strong>App Services</strong>, <strong>Virtual Machines</strong>, or external endpoints such as on-premises servers or services outside of Azure.</li>
+</ul>
+</li>
+<li>
+<p><strong>Configure Health Probes</strong>:</p>
+<ul>
+<li>Set up health probes to check the availability and performance of your endpoints. You can define the protocol (HTTP/HTTPS) and the URL path for the health probe.</li>
+</ul>
+</li>
+<li>
+<p><strong>Define Routing Settings</strong>:</p>
+<ul>
+<li>Set weights for weighted routing or configure geographic settings for geographic routing.</li>
+<li>For performance-based routing, the system will automatically assess the best-performing endpoint for your users.</li>
+</ul>
+</li>
+<li>
+<p><strong>Monitor and Adjust</strong>:</p>
+<ul>
+<li>Traffic Manager allows you to monitor the health and performance of your endpoints in real-time.</li>
+<li>Make adjustments to routing methods, endpoints, and health probes based on the results.</li>
+</ul>
+</li>
+<li>
+<p><strong>Configure TTL</strong>:</p>
+<ul>
+<li>Set the <strong>TTL (Time-to-Live)</strong> for DNS responses to control how long clients cache the DNS information.</li>
+</ul>
+</li>
+<li>
+<p><strong>Review and Deploy</strong>:</p>
+<ul>
+<li>After setting up routing rules, health checks, and endpoint configurations, review your setup and click <strong>Create</strong>.</li>
+</ul>
+</li>
+</ol>
+<hr>
+<p>Azure Traffic Manager is ideal for improving the performance, availability, and resilience of your applications by intelligently distributing traffic across multiple endpoints. It allows for high flexibility, whether you are managing geographically distributed workloads, implementing disaster recovery, or optimizing performance.</p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="azure-cdn-content-delivery-network" data-heading="Azure CDN (Content Delivery Network)" data-level="2" data-permalink="/docs/azure/azure-lb/" data-title="Azure Cloud LoadBalancers" -->
+<h2 id="azure-cdn-content-delivery-network">Azure CDN (Content Delivery Network)</h2><p><strong>Azure Content Delivery Network (CDN)</strong> is a global network of servers that provides fast delivery of web content, such as HTML pages, images, videos, stylesheets, and scripts, by caching the content at strategically placed locations around the world. The main goal of Azure CDN is to reduce latency and improve the performance of your applications by serving content from a nearby location to the end user.</p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="key-features-of-azure-cdn" data-heading="Key Features of Azure CDN" data-level="3" data-permalink="/docs/azure/azure-lb/" data-title="Azure Cloud LoadBalancers" -->
+<h3 id="key-features-of-azure-cdn">Key Features of Azure CDN</h3><ol>
+<li>
+<p><strong>Global Reach</strong></p>
+<ul>
+<li>Azure CDN has a vast network of servers distributed across many regions worldwide. This ensures that content is served from the closest edge node, reducing latency and improving performance for end users globally.</li>
+</ul>
+</li>
+<li>
+<p><strong>Caching and Content Delivery</strong></p>
+<ul>
+<li>Azure CDN caches static content at edge nodes and serves it directly to users, offloading traffic from your origin server. This helps to reduce load times for frequently accessed content and lowers the load on the origin server.</li>
+</ul>
+</li>
+<li>
+<p><strong>Dynamic Site Acceleration</strong></p>
+<ul>
+<li>While primarily focused on static content, Azure CDN also supports dynamic content acceleration, improving the performance of dynamic web pages by reducing latency and optimizing traffic routes between users and servers.</li>
+</ul>
+</li>
+<li>
+<p><strong>Custom Domain and SSL Support</strong></p>
+<ul>
+<li>Azure CDN allows you to use your own custom domain for content delivery and supports SSL for secure communication between clients and the CDN edge servers.</li>
+</ul>
+</li>
+<li>
+<p><strong>Content Optimization</strong></p>
+<ul>
+<li>Azure CDN can optimize content delivery by automatically compressing files (e.g., images, JavaScript, CSS) and using techniques such as caching headers and minification to improve load times.</li>
+</ul>
+</li>
+<li>
+<p><strong>Security Features</strong></p>
+<ul>
+<li><strong>HTTPS Support</strong>: Azure CDN supports HTTPS, ensuring that content is delivered securely.</li>
+<li><strong>DDoS Protection</strong>: Azure&rsquo;s global network can help mitigate distributed denial-of-service (DDoS) attacks by handling traffic spikes and ensuring that content is served without interruption.</li>
+<li><strong>Token Authentication</strong>: Protect your content by using token-based authentication to restrict access to specific users or applications.</li>
+</ul>
+</li>
+<li>
+<p><strong>Analytics and Reporting</strong></p>
+<ul>
+<li>Azure CDN provides detailed analytics and reporting on traffic, cache hit/miss ratios, content performance, and more, helping you monitor and optimize the delivery of your content.</li>
+</ul>
+</li>
+<li>
+<p><strong>Custom Cache Control</strong></p>
+<ul>
+<li>With Azure CDN, you can configure cache settings to control how long content is cached at the edge nodes, and you can clear the cache when content is updated.</li>
+</ul>
+</li>
+<li>
+<p><strong>Multiple CDN Providers</strong></p>
+<ul>
+<li>Azure offers different CDN providers, including <strong>Microsoft CDN</strong>, <strong>Verizon</strong>, and <strong>Akamai</strong>. You can choose a provider based on your needs for performance, regional presence, and features.</li>
+</ul>
+</li>
+</ol>
+<hr>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="how-azure-cdn-works" data-heading="How Azure CDN Works" data-level="3" data-permalink="/docs/azure/azure-lb/" data-title="Azure Cloud LoadBalancers" -->
+<h3 id="how-azure-cdn-works">How Azure CDN Works</h3><ol>
+<li>
+<p><strong>Request Routing</strong>:</p>
+<ul>
+<li>When a user requests content, Azure CDN directs the request to the nearest edge server based on geographic location, network conditions, and other factors.</li>
+</ul>
+</li>
+<li>
+<p><strong>Content Caching</strong>:</p>
+<ul>
+<li>The edge server checks if the requested content is already cached. If it is, the server delivers the cached content directly to the user. If it’s not cached, the CDN server fetches the content from the origin server and caches it for future requests.</li>
+</ul>
+</li>
+<li>
+<p><strong>Content Delivery</strong>:</p>
+<ul>
+<li>Once the content is cached at the edge server, subsequent users who request the same content will receive it from the edge server, reducing latency and improving performance.</li>
+</ul>
+</li>
+<li>
+<p><strong>Cache Expiration and Purge</strong>:</p>
+<ul>
+<li>Content in the cache is served for a specific duration (TTL - Time to Live) before it expires. After expiration, the CDN will fetch fresh content from the origin. You can also manually purge content from the cache if updates are required.</li>
+</ul>
+</li>
+</ol>
+<hr>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="use-cases-for-azure-cdn" data-heading="Use Cases for Azure CDN" data-level="3" data-permalink="/docs/azure/azure-lb/" data-title="Azure Cloud LoadBalancers" -->
+<h3 id="use-cases-for-azure-cdn">Use Cases for Azure CDN</h3><ol>
+<li>
+<p><strong>Improved Website Performance</strong></p>
+<ul>
+<li>Serve static website content like images, stylesheets, and scripts from the nearest CDN edge node, reducing load times and improving user experience.</li>
+</ul>
+</li>
+<li>
+<p><strong>Video Streaming</strong></p>
+<ul>
+<li>Distribute media content such as videos and live streaming events to users across the world, providing high-quality, low-latency playback.</li>
+</ul>
+</li>
+<li>
+<p><strong>API Acceleration</strong></p>
+<ul>
+<li>Accelerate the delivery of dynamic API responses, reducing latency for API-driven applications.</li>
+</ul>
+</li>
+<li>
+<p><strong>Global Web Applications</strong></p>
+<ul>
+<li>Azure CDN is ideal for applications that are accessed by users globally. It reduces the time taken for requests to travel to the origin server by serving the content from nearby edge nodes.</li>
+</ul>
+</li>
+<li>
+<p><strong>Software Downloads</strong></p>
+<ul>
+<li>Host software packages, patches, and updates on Azure CDN to ensure faster download speeds for users worldwide.</li>
+</ul>
+</li>
+</ol>
+<hr>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="configuring-azure-cdn" data-heading="Configuring Azure CDN" data-level="3" data-permalink="/docs/azure/azure-lb/" data-title="Azure Cloud LoadBalancers" -->
+<h3 id="configuring-azure-cdn">Configuring Azure CDN</h3><ol>
+<li>
+<p><strong>Create a CDN Profile</strong>:</p>
+<ul>
+<li>Go to the <strong>Azure Portal</strong>, search for <strong>CDN</strong>, and click <strong>Create</strong>.</li>
+<li>Choose your <strong>Subscription</strong>, <strong>Resource Group</strong>, and <strong>Region</strong>.</li>
+<li>Define a <strong>CDN Profile</strong> and provide a <strong>name</strong> for the profile.</li>
+</ul>
+</li>
+<li>
+<p><strong>Choose CDN Provider</strong>:</p>
+<ul>
+<li>Select a CDN provider, such as <strong>Microsoft</strong>, <strong>Verizon</strong>, or <strong>Akamai</strong>, based on your needs for performance and global reach.</li>
+</ul>
+</li>
+<li>
+<p><strong>Create a CDN Endpoint</strong>:</p>
+<ul>
+<li>Add an <strong>Endpoint</strong> to the CDN profile, where you specify the origin (e.g., Azure Blob Storage, Web App, or custom origin).</li>
+<li>Set the <strong>custom domain</strong> (if using one) and configure <strong>SSL certificates</strong> if necessary.</li>
+</ul>
+</li>
+<li>
+<p><strong>Configure Caching Rules</strong>:</p>
+<ul>
+<li>Define caching rules to control how long content is cached at edge nodes. You can customize the cache duration for different content types or files.</li>
+</ul>
+</li>
+<li>
+<p><strong>Enable HTTPS</strong>:</p>
+<ul>
+<li>If necessary, enable <strong>HTTPS</strong> for secure content delivery. You can use an Azure-managed certificate or your own custom certificate.</li>
+</ul>
+</li>
+<li>
+<p><strong>Monitor Traffic and Performance</strong>:</p>
+<ul>
+<li>Use the <strong>Azure Portal</strong> to monitor CDN performance, cache hits/misses, traffic analytics, and other key metrics.</li>
+</ul>
+</li>
+<li>
+<p><strong>Clear or Refresh Cache</strong>:</p>
+<ul>
+<li>You can manually purge the cache or set up cache-control headers to refresh the content as needed.</li>
+</ul>
+</li>
+</ol>
+<hr>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="benefits-of-using-azure-cdn" data-heading="Benefits of Using Azure CDN" data-level="3" data-permalink="/docs/azure/azure-lb/" data-title="Azure Cloud LoadBalancers" -->
+<h3 id="benefits-of-using-azure-cdn">Benefits of Using Azure CDN</h3><ol>
+<li>
+<p><strong>Faster Content Delivery</strong>:</p>
+<ul>
+<li>By caching content at edge locations, Azure CDN reduces latency and ensures faster content delivery, improving user experience.</li>
+</ul>
+</li>
+<li>
+<p><strong>Scalability</strong>:</p>
+<ul>
+<li>Azure CDN is highly scalable and can handle large volumes of traffic without impacting performance, making it suitable for high-traffic websites and applications.</li>
+</ul>
+</li>
+<li>
+<p><strong>Global Performance Optimization</strong>:</p>
+<ul>
+<li>Azure CDN ensures that content is served from the closest edge server to the user, optimizing performance globally and reducing the burden on your origin servers.</li>
+</ul>
+</li>
+<li>
+<p><strong>Cost Savings</strong>:</p>
+<ul>
+<li>Offloading traffic to CDN reduces the load on your origin servers, which can lead to cost savings in infrastructure and bandwidth.</li>
+</ul>
+</li>
+<li>
+<p><strong>Improved Availability</strong>:</p>
+<ul>
+<li>With a global network of servers, Azure CDN improves the availability and reliability of content delivery, ensuring uptime even during traffic spikes.</li>
+</ul>
+</li>
+</ol>
+<hr>
+<p>Azure CDN is a powerful tool to improve the performance, scalability, and availability of web applications by caching content at strategic locations worldwide. Whether you&rsquo;re delivering static content, streaming media, or optimizing APIs, Azure CDN enhances the user experience by reducing latency and increasing the speed of content delivery.</p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="azure-networking-services-comparison-front-door-vs-load-balancer-vs-application-gateway-vs-traffic-manager" data-heading="Azure Networking Services Comparison: Front Door vs. Load Balancer vs. Application Gateway vs. Traffic Manager" data-level="2" data-permalink="/docs/azure/azure-lb/" data-title="Azure Cloud LoadBalancers" -->
+<h2 id="azure-networking-services-comparison-front-door-vs-load-balancer-vs-application-gateway-vs-traffic-manager">Azure Networking Services Comparison: Front Door vs. Load Balancer vs. Application Gateway vs. Traffic Manager</h2><p>Azure provides multiple networking services tailored for different scenarios. Here&rsquo;s a detailed comparison of <strong>Azure Front Door</strong>, <strong>Azure Load Balancer</strong>, <strong>Azure Application Gateway</strong>, and <strong>Azure Traffic Manager</strong>:</p>
+<hr>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="1-purpose" data-heading="<strong>1. Purpose</strong>" data-level="3" data-permalink="/docs/azure/azure-lb/" data-title="Azure Cloud LoadBalancers" -->
+<h3 id="1-purpose"><strong>1. Purpose</strong></h3><table>
+<thead>
+<tr>
+<th>Service</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Azure Front Door</strong></td>
+<td>Global load balancing and accelerated delivery of web applications across regions.</td>
+</tr>
+<tr>
+<td><strong>Azure Load Balancer</strong></td>
+<td>Provides Layer 4 (TCP/UDP) load balancing within a region for high availability.</td>
+</tr>
+<tr>
+<td><strong>Azure Application Gateway</strong></td>
+<td>Layer 7 (HTTP/HTTPS) load balancing with advanced application delivery features.</td>
+</tr>
+<tr>
+<td><strong>Azure Traffic Manager</strong></td>
+<td>DNS-based global traffic routing to distribute requests across multiple regions.</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="2-layer-of-operation" data-heading="<strong>2. Layer of Operation</strong>" data-level="3" data-permalink="/docs/azure/azure-lb/" data-title="Azure Cloud LoadBalancers" -->
+<h3 id="2-layer-of-operation"><strong>2. Layer of Operation</strong></h3><table>
+<thead>
+<tr>
+<th>Service</th>
+<th>Layer in OSI Model</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Azure Front Door</strong></td>
+<td>Layer 7 (HTTP/HTTPS)</td>
+</tr>
+<tr>
+<td><strong>Azure Load Balancer</strong></td>
+<td>Layer 4 (TCP/UDP)</td>
+</tr>
+<tr>
+<td><strong>Azure Application Gateway</strong></td>
+<td>Layer 7 (HTTP/HTTPS)</td>
+</tr>
+<tr>
+<td><strong>Azure Traffic Manager</strong></td>
+<td>DNS-level routing (not tied to a specific OSI layer)</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="3-key-features" data-heading="<strong>3. Key Features</strong>" data-level="3" data-permalink="/docs/azure/azure-lb/" data-title="Azure Cloud LoadBalancers" -->
+<h3 id="3-key-features"><strong>3. Key Features</strong></h3><table>
+<thead>
+<tr>
+<th>Service</th>
+<th>Key Features</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Azure Front Door</strong></td>
+<td>Global distribution, caching, WAF, TLS termination, session affinity, path-based routing.</td>
+</tr>
+<tr>
+<td><strong>Azure Load Balancer</strong></td>
+<td>Low latency, regional load balancing, zonal support, outbound NAT.</td>
+</tr>
+<tr>
+<td><strong>Azure Application Gateway</strong></td>
+<td>URL-based routing, WAF, SSL offloading, session affinity, autoscaling.</td>
+</tr>
+<tr>
+<td><strong>Azure Traffic Manager</strong></td>
+<td>Geographic-based routing, performance-based routing, failover, priority routing.</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="4-use-cases" data-heading="<strong>4. Use Cases</strong>" data-level="3" data-permalink="/docs/azure/azure-lb/" data-title="Azure Cloud LoadBalancers" -->
+<h3 id="4-use-cases"><strong>4. Use Cases</strong></h3><table>
+<thead>
+<tr>
+<th>Service</th>
+<th>Typical Use Cases</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Azure Front Door</strong></td>
+<td>Global web application delivery, CDN integration, multi-region redundancy.</td>
+</tr>
+<tr>
+<td><strong>Azure Load Balancer</strong></td>
+<td>Distributing traffic across VMs, containers, or services within a region.</td>
+</tr>
+<tr>
+<td><strong>Azure Application Gateway</strong></td>
+<td>Web application firewall (WAF), load balancing for APIs, SSL offloading.</td>
+</tr>
+<tr>
+<td><strong>Azure Traffic Manager</strong></td>
+<td>Disaster recovery, routing to the nearest region, region-specific failover.</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="5-security" data-heading="<strong>5. Security</strong>" data-level="3" data-permalink="/docs/azure/azure-lb/" data-title="Azure Cloud LoadBalancers" -->
+<h3 id="5-security"><strong>5. Security</strong></h3><table>
+<thead>
+<tr>
+<th>Service</th>
+<th>Security Features</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Azure Front Door</strong></td>
+<td>Web Application Firewall (WAF), DDoS protection, TLS termination.</td>
+</tr>
+<tr>
+<td><strong>Azure Load Balancer</strong></td>
+<td>NSG support, but no built-in WAF or TLS termination.</td>
+</tr>
+<tr>
+<td><strong>Azure Application Gateway</strong></td>
+<td>Integrated WAF, TLS termination, and secure traffic handling.</td>
+</tr>
+<tr>
+<td><strong>Azure Traffic Manager</strong></td>
+<td>No built-in security features; relies on endpoints&rsquo; security measures.</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="6-global-vs-regional" data-heading="<strong>6. Global vs. Regional</strong>" data-level="3" data-permalink="/docs/azure/azure-lb/" data-title="Azure Cloud LoadBalancers" -->
+<h3 id="6-global-vs-regional"><strong>6. Global vs. Regional</strong></h3><table>
+<thead>
+<tr>
+<th>Service</th>
+<th>Scope</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Azure Front Door</strong></td>
+<td>Global</td>
+</tr>
+<tr>
+<td><strong>Azure Load Balancer</strong></td>
+<td>Regional</td>
+</tr>
+<tr>
+<td><strong>Azure Application Gateway</strong></td>
+<td>Regional</td>
+</tr>
+<tr>
+<td><strong>Azure Traffic Manager</strong></td>
+<td>Global</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="7-pricing" data-heading="<strong>7. Pricing</strong>" data-level="3" data-permalink="/docs/azure/azure-lb/" data-title="Azure Cloud LoadBalancers" -->
+<h3 id="7-pricing"><strong>7. Pricing</strong></h3><table>
+<thead>
+<tr>
+<th>Service</th>
+<th>Pricing Model</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Azure Front Door</strong></td>
+<td>Based on data transfer, requests, and WAF policies.</td>
+</tr>
+<tr>
+<td><strong>Azure Load Balancer</strong></td>
+<td>Pay-as-you-go for rules, processed data, and outbound traffic.</td>
+</tr>
+<tr>
+<td><strong>Azure Application Gateway</strong></td>
+<td>Based on instance size, capacity units, and WAF usage.</td>
+</tr>
+<tr>
+<td><strong>Azure Traffic Manager</strong></td>
+<td>Based on number of DNS queries processed.</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="choosing-the-right-service" data-heading="<strong>Choosing the Right Service</strong>" data-level="3" data-permalink="/docs/azure/azure-lb/" data-title="Azure Cloud LoadBalancers" -->
+<h3 id="choosing-the-right-service"><strong>Choosing the Right Service</strong></h3><table>
+<thead>
+<tr>
+<th>Scenario</th>
+<th>Recommended Service</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Delivering web applications globally with caching and acceleration.</td>
+<td><strong>Azure Front Door</strong></td>
+</tr>
+<tr>
+<td>Balancing traffic between VMs or containers in a single region.</td>
+<td><strong>Azure Load Balancer</strong></td>
+</tr>
+<tr>
+<td>Routing traffic to specific paths or URLs with advanced Layer 7 capabilities.</td>
+<td><strong>Azure Application Gateway</strong></td>
+</tr>
+<tr>
+<td>Distributing traffic globally and routing based on proximity or performance.</td>
+<td><strong>Azure Traffic Manager</strong></td>
+</tr>
+</tbody>
+</table>
+<hr>
+<p><strong>References:</strong></p>
+<ul>
+<li><a href="https://learn.microsoft.com/en-us/azure/frontdoor/" target="_blank" rel="noopener">Azure Front Door Documentation</a></li>
+<li><a href="https://learn.microsoft.com/en-us/azure/load-balancer/" target="_blank" rel="noopener">Azure Load Balancer Documentation</a></li>
+<li><a href="https://learn.microsoft.com/en-us/azure/application-gateway/" target="_blank" rel="noopener">Azure Application Gateway Documentation</a></li>
+<li><a href="https://learn.microsoft.com/en-us/azure/traffic-manager/" target="_blank" rel="noopener">Azure Traffic Manager Documentation</a></li>
+</ul>
+
+	
+	
+	
+</div>
+
+
+          </main>
+        </div>
+      </div>
+      
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+    integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+    crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js"
+    integrity="sha512-UR25UO94eTnCVwjbXozyeVd6ZqpaAE9naiEUBK/A+QDbfSTQFhPGj5lOR6d8tsgbBk84Ggb5A3EkjsOgPRPcKA=="
+    crossorigin="anonymous"></script>
+
+
+
+
+
+<script src='/js/tabpane-persist.js'></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="/js/main.min.223ab2fcc7d742c1b94772c0276851c497da4343cd2d21534199ced90681e207.js" integrity="sha256-Ijqy/MfXQsG5R3LAJ2hRxJfaQ0PNLSFTQZnO2QaB4gc=" crossorigin="anonymous"></script>
+
+
+
+<script src='/js/prism.js'></script>
+
+
+
+  </body>
+</html>

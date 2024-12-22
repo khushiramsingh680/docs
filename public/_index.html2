@@ -1,0 +1,43 @@
+---
+title: Home
+---
+
+{{< blocks/section color="section1">}}
+<h2>IN PROGRESS</h2>
+<br>
+<div class="mx-auto text-white" >
+    IT Devops Documentation.<br>
+    <body>
+        <header>
+             <p>Our Documentation page is your one-stop destination for all things IT DevOps, covering a wide range of topics including Kubernetes, OpenShift, Terraform, Ansible, Azure DevOps, and more.</p>
+        </header>
+        <main>
+            <section>
+                <h2>Kubernetes and OpenShift</h2>
+                <p>Learn how to deploy, manage, and scale containerized applications using Kubernetes and OpenShift.</p>
+            </section>
+            <section>
+                <h2>Terraform</h2>
+                <p>Explore how Terraform can help you automate infrastructure provisioning and management across a variety of cloud providers.</p>
+            </section>
+            <section>
+                <h2>Ansible</h2>
+                <p>Discover how Ansible can simplify your IT automation tasks, from configuration management to application deployment.</p>
+            </section>
+            <section>
+                <h2>Azure DevOps</h2>
+                <p>Dive into Azure DevOps to streamline your software development lifecycle.</p>
+            </section>
+        </main>
+        <footer>
+            <p>Our Documentation Hub is designed to empower you with the knowledge and tools you need to excel in IT DevOps. Explore our content, enhance your skills, and elevate your DevOps game with us.</p>
+        </footer>
+    </body>
+    <br/>
+</div>
+{{< /blocks/section >}}
+
+
+
+
+

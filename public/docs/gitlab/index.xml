@@ -1,0 +1,527 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Documentation – Gitlab Tutorials</title>
+    <link>/docs/gitlab/</link>
+    <description>Recent content in Gitlab Tutorials on Documentation</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    
+	  <atom:link href="/docs/gitlab/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>Docs: GitLab Installation</title>
+      <link>/docs/gitlab/gitlab01/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/docs/gitlab/gitlab01/</guid>
+      <description>
+        
+        
+        &lt;!-- end-chunk --&gt;
+&lt;!-- begin-chunk data-anchor=&#34;gitlab-installation-guide-for-rocky-linux&#34; data-heading=&#34;&lt;strong&gt;GitLab Installation Guide for Rocky Linux&lt;/strong&gt;&#34; data-level=&#34;2&#34; data-permalink=&#34;/docs/gitlab/gitlab01/&#34; data-title=&#34;GitLab Installation&#34; --&gt;
+&lt;h2 id=&#34;gitlab-installation-guide-for-rocky-linux&#34;&gt;&lt;strong&gt;GitLab Installation Guide for Rocky Linux&lt;/strong&gt;&lt;/h2&gt;&lt;!-- end-chunk --&gt;
+&lt;!-- begin-chunk data-anchor=&#34;tier-free-premium-ultimate&#34; data-heading=&#34;Tier: Free, Premium, Ultimate&#34; data-level=&#34;3&#34; data-permalink=&#34;/docs/gitlab/gitlab01/&#34; data-title=&#34;GitLab Installation&#34; --&gt;
+&lt;h3 id=&#34;tier-free-premium-ultimate&#34;&gt;Tier: Free, Premium, Ultimate&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;Offering&lt;/strong&gt;: Self-managed&lt;/p&gt;
+&lt;p&gt;In this tutorial, you will learn how to install and securely configure a single-node GitLab instance that can accommodate up to &lt;strong&gt;20 RPS&lt;/strong&gt; or &lt;strong&gt;1,000 users&lt;/strong&gt;.&lt;/p&gt;
+&lt;hr&gt;
+&lt;!-- end-chunk --&gt;
+&lt;!-- begin-chunk data-anchor=&#34;prerequisites&#34; data-heading=&#34;&lt;strong&gt;Prerequisites&lt;/strong&gt;&#34; data-level=&#34;2&#34; data-permalink=&#34;/docs/gitlab/gitlab01/&#34; data-title=&#34;GitLab Installation&#34; --&gt;
+&lt;h2 id=&#34;prerequisites&#34;&gt;&lt;strong&gt;Prerequisites&lt;/strong&gt;&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Server&lt;/strong&gt;:  A Rocky/Centos/RHEL server with the following minimum specs:&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;4 vCPU&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;8 GB memory&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;50GB Disk&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;&lt;strong&gt;Domain Name&lt;/strong&gt;: Optional but recommended for accessing GitLab.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Dependencies&lt;/strong&gt;: Ensure you have &lt;code&gt;curl&lt;/code&gt;, &lt;code&gt;openssh-server&lt;/code&gt;, and &lt;code&gt;policycoreutils-python-utils&lt;/code&gt; installed.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;!-- end-chunk --&gt;
+&lt;!-- begin-chunk data-anchor=&#34;required-software-for-environment-setup&#34; data-heading=&#34;Required Software for Environment Setup&#34; data-level=&#34;2&#34; data-permalink=&#34;/docs/gitlab/gitlab01/&#34; data-title=&#34;GitLab Installation&#34; --&gt;
+&lt;h2 id=&#34;required-software-for-environment-setup&#34;&gt;Required Software for Environment Setup&lt;/h2&gt;&lt;p&gt;To automatically create and manage your test environment, please ensure you have the following software installed:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;VirtualBox&lt;/strong&gt;: A powerful open-source virtualization software that enables you to run multiple operating systems on your computer seamlessly.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Vagrant&lt;/strong&gt;: A tool designed for building and managing virtualized development environments&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Git Bash&lt;/strong&gt;: A command-line interface that allows you to use Git along with Bash commands, providing a robust environment for running scripts and version control.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Visual Studio Code (VSCode)&lt;/strong&gt;: A free and feature-rich code editor developed by Microsoft, ideal for writing, debugging, and managing code in various programming languages.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;!-- end-chunk --&gt;
+&lt;!-- begin-chunk data-anchor=&#34;follow-the-below-steps-to-create-a-vm-with-rocky-9&#34; data-heading=&#34;Follow the below steps to create a vm with rocky 9&#34; data-level=&#34;2&#34; data-permalink=&#34;/docs/gitlab/gitlab01/&#34; data-title=&#34;GitLab Installation&#34; --&gt;
+&lt;h2 id=&#34;follow-the-below-steps-to-create-a-vm-with-rocky-9&#34;&gt;Follow the below steps to create a vm with rocky 9&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;Create a file with name vagrantfile&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-t&#34; data-lang=&#34;t&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;vi Vagrantfile
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# -*- mode: ruby -*-&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# vi: set ft=ruby :&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Vagrant&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;configure(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;2&amp;#34;&lt;/span&gt;) &lt;span style=&#34;color:#66d9ef&#34;&gt;do&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;|&lt;/span&gt;config&lt;span style=&#34;color:#f92672&#34;&gt;|&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  config&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;vm&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;box &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;rockylinux/9&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  config&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;vm&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;hostname &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;gitlab.local.com&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  config&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;vm&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;network &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;public_network&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  config&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;vm&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;provider &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;virtualbox&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;do&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;|&lt;/span&gt;vb&lt;span style=&#34;color:#f92672&#34;&gt;|&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    vb&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;memory &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;8192&amp;#34;&lt;/span&gt;  &lt;span style=&#34;color:#75715e&#34;&gt;# Set the VM memory to 8GB.&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    vb&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;cpus &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;         &lt;span style=&#34;color:#75715e&#34;&gt;# Set the number of CPUs to 2.&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    vb&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;customize [&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;modifyvm&amp;#34;&lt;/span&gt;, :id, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;--nic1&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;bridged&amp;#34;&lt;/span&gt;]
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    vb&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;customize [&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;modifyvm&amp;#34;&lt;/span&gt;, :id, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;--cpus&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;2&amp;#34;&lt;/span&gt;]
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    vb&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;customize [&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;modifyvm&amp;#34;&lt;/span&gt;, :id, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;--memory&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;8192&amp;#34;&lt;/span&gt;]
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    vb&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;customize [&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;modifyvm&amp;#34;&lt;/span&gt;, :id, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;--vram&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;128&amp;#34;&lt;/span&gt;]
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  end
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;end
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;!-- end-chunk --&gt;
+&lt;!-- begin-chunk data-anchor=&#34;steps-to-install-gitlab&#34; data-heading=&#34;Steps to Install GitLab&#34; data-level=&#34;2&#34; data-permalink=&#34;/docs/gitlab/gitlab01/&#34; data-title=&#34;GitLab Installation&#34; --&gt;
+&lt;h2 id=&#34;steps-to-install-gitlab&#34;&gt;Steps to Install GitLab&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Update your system&lt;/strong&gt;:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sudo dnf update -y
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Install necessary packages&lt;/strong&gt;:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sudo dnf install -y curl openssh-server policycoreutils-python-utils
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Enable and start the SSH service&lt;/strong&gt;:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sudo systemctl enable sshd
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sudo systemctl start sshd
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Add the GitLab package repository&lt;/strong&gt;:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;curl -s https://packages.gitlab.com/install/repositories/gitlab/gitlab-ee/script.rpm.sh | sudo bash
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Install GitLab&lt;/strong&gt;:
+Replace &lt;code&gt;YOUR_GITLAB_URL&lt;/code&gt; with your desired URL.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sudo EXTERNAL_URL&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;http://YOUR_GITLAB_URL&amp;#34;&lt;/span&gt; dnf install -y gitlab-ee
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Configure GitLab&lt;/strong&gt;:
+After installation, configure GitLab by running:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sudo gitlab-ctl reconfigure
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Access GitLab&lt;/strong&gt;:
+Open a web browser and go to &lt;code&gt;http://YOUR_GITLAB_URL&lt;/code&gt;. You&amp;rsquo;ll be prompted to set up an admin password.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Log in&lt;/strong&gt;:
+Use the username &lt;code&gt;root&lt;/code&gt; and the password you set to log in.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;GitLab Initial Root Password&lt;/strong&gt;:&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;After the first-time installation of GitLab, the root password is stored in the following file for only 24 hours:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Path&lt;/strong&gt;: &lt;code&gt;/etc/gitlab/initial_root_password&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;You can retrieve the password from this file if you need it during the initial setup. However, this file will automatically be deleted after 24 hours for security reasons.&lt;/p&gt;
+&lt;!-- end-chunk --&gt;
+&lt;!-- begin-chunk data-anchor=&#34;important-notes&#34; data-heading=&#34;Important Notes:&#34; data-level=&#34;3&#34; data-permalink=&#34;/docs/gitlab/gitlab01/&#34; data-title=&#34;GitLab Installation&#34; --&gt;
+&lt;h3 id=&#34;important-notes&#34;&gt;Important Notes:&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;If you lose access to this file or the password, you can always reset the root password using the following command:&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sudo gitlab-rake &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;gitlab:password:reset&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;!-- end-chunk --&gt;
+&lt;!-- begin-chunk data-anchor=&#34;configuring-ssl-certificate-for-gitlab-external-url&#34; data-heading=&#34;Configuring SSL Certificate for GitLab External URL&#34; data-level=&#34;2&#34; data-permalink=&#34;/docs/gitlab/gitlab01/&#34; data-title=&#34;GitLab Installation&#34; --&gt;
+&lt;h2 id=&#34;configuring-ssl-certificate-for-gitlab-external-url&#34;&gt;Configuring SSL Certificate for GitLab External URL&lt;/h2&gt;&lt;p&gt;This guide explains how to configure Let’s Encrypt for securing your GitLab instance with SSL.&lt;/p&gt;
+&lt;!-- end-chunk --&gt;
+&lt;!-- begin-chunk data-anchor=&#34;prerequisites-1&#34; data-heading=&#34;Prerequisites&#34; data-level=&#34;3&#34; data-permalink=&#34;/docs/gitlab/gitlab01/&#34; data-title=&#34;GitLab Installation&#34; --&gt;
+&lt;h3 id=&#34;prerequisites-1&#34;&gt;Prerequisites&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;Before starting, ensure you have:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;A domain name pointing to your GitLab server.&lt;/li&gt;
+&lt;li&gt;Ports &lt;code&gt;80&lt;/code&gt; (HTTP) and &lt;code&gt;443&lt;/code&gt; (HTTPS) open on your firewall.&lt;/li&gt;
+&lt;li&gt;GitLab installed and configured.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Edit GitLab Configuration File&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;You need to edit the GitLab configuration file to set up Let’s Encrypt.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sudo vi /etc/gitlab/gitlab.rb
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;&lt;strong&gt;Set External URL&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;In the configuration file, ensure that the &lt;code&gt;external_url&lt;/code&gt; is set to your domain, which you want to secure with Let’s Encrypt.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-ruby&#34; data-lang=&#34;ruby&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;external_url &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;https://your-domain.com&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Replace &lt;code&gt;&amp;quot;your-domain.com&amp;quot;&lt;/code&gt; with your actual domain name.&lt;/p&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;&lt;strong&gt;Enable Let’s Encrypt in GitLab&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Enable Let’s Encrypt by adding the following lines in the &lt;code&gt;gitlab.rb&lt;/code&gt; file:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-ruby&#34; data-lang=&#34;ruby&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;letsencrypt&lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;enable&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;true&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;letsencrypt&lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;contact_emails&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;your-email@example.com&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt;  &lt;span style=&#34;color:#75715e&#34;&gt;# Replace with your email&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;letsencrypt&lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;auto_renew&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;true&lt;/span&gt;  &lt;span style=&#34;color:#75715e&#34;&gt;# Automatically renew certificates&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;This will enable SSL through Let’s Encrypt and ensure automatic renewal.&lt;/p&gt;
+&lt;ol start=&#34;4&#34;&gt;
+&lt;li&gt;&lt;strong&gt;Optional Let’s Encrypt Settings&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;You can optionally fine-tune Let’s Encrypt settings, such as specifying when auto-renewal should take place:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-ruby&#34; data-lang=&#34;ruby&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;letsencrypt&lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;auto_renew_hour&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;12&lt;/span&gt;  &lt;span style=&#34;color:#75715e&#34;&gt;# The hour for auto-renewal (0-23)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;letsencrypt&lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;auto_renew_minute&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;30&lt;/span&gt;  &lt;span style=&#34;color:#75715e&#34;&gt;# The minute for auto-renewal (0-59)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;letsencrypt&lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;auto_renew_day_of_month&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;*/7&amp;#34;&lt;/span&gt;  &lt;span style=&#34;color:#75715e&#34;&gt;# Attempt auto-renewal every 7 days&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;These options give you control over when GitLab attempts to renew the certificates.&lt;/p&gt;
+&lt;ol start=&#34;5&#34;&gt;
+&lt;li&gt;&lt;strong&gt;Reconfigure GitLab&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;After updating the configuration, run the following command to apply the changes:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sudo gitlab-ctl reconfigure
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;This will trigger the reconfiguration process and install the Let’s Encrypt SSL certificates.&lt;/p&gt;
+&lt;ol start=&#34;6&#34;&gt;
+&lt;li&gt;&lt;strong&gt;Verify the Configuration&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Once GitLab is reconfigured, open a web browser and visit:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-t&#34; data-lang=&#34;t&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;https:&lt;span style=&#34;color:#e6db74&#34;&gt;//&lt;/span&gt;your&lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;domain&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;com
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;You should now see that the site is secured with an SSL certificate. Check the certificate details to confirm that it was issued by Let’s Encrypt.&lt;/p&gt;
+&lt;hr&gt;
+&lt;!-- end-chunk --&gt;
+&lt;!-- begin-chunk data-anchor=&#34;troubleshooting&#34; data-heading=&#34;Troubleshooting&#34; data-level=&#34;3&#34; data-permalink=&#34;/docs/gitlab/gitlab01/&#34; data-title=&#34;GitLab Installation&#34; --&gt;
+&lt;h3 id=&#34;troubleshooting&#34;&gt;Troubleshooting&lt;/h3&gt;&lt;p&gt;If you encounter issues with Let’s Encrypt, consider checking the following:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;DNS Configuration&lt;/strong&gt;: Ensure your domain name is correctly configured to point to your GitLab instance.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Port Accessibility&lt;/strong&gt;: Make sure ports &lt;code&gt;80&lt;/code&gt; and &lt;code&gt;443&lt;/code&gt; are open and accessible from the internet.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Firewall&lt;/strong&gt;: Verify that your firewall or hosting provider does not block the Let’s Encrypt validation process.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;In case the certificate does not renew automatically or issues occur, manually check the configuration by running:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sudo gitlab-ctl reconfigure
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Gitlab Authentication with LDAP</title>
+      <link>/docs/gitlab/gitlab-with-ldap/</link>
+      <pubDate>Tue, 24 Sep 2024 00:00:00 +0000</pubDate>
+      
+      <guid>/docs/gitlab/gitlab-with-ldap/</guid>
+      <description>
+        
+        
+        &lt;!-- end-chunk --&gt;
+&lt;!-- begin-chunk data-anchor=&#34;gitlab-server-details&#34; data-heading=&#34;GitLab Server Details&#34; data-level=&#34;2&#34; data-permalink=&#34;/docs/gitlab/gitlab-with-ldap/&#34; data-title=&#34;Gitlab Authentication with LDAP&#34; --&gt;
+&lt;h2 id=&#34;gitlab-server-details&#34;&gt;GitLab Server Details&lt;/h2&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Attribute&lt;/th&gt;
+&lt;th&gt;Value&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;IP Address&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;192.168.1.10&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;FQDN&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;gitlab.local.com&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;!-- end-chunk --&gt;
+&lt;!-- begin-chunk data-anchor=&#34;ldap-server-details&#34; data-heading=&#34;LDAP Server Details&#34; data-level=&#34;2&#34; data-permalink=&#34;/docs/gitlab/gitlab-with-ldap/&#34; data-title=&#34;Gitlab Authentication with LDAP&#34; --&gt;
+&lt;h2 id=&#34;ldap-server-details&#34;&gt;LDAP Server Details&lt;/h2&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Attribute&lt;/th&gt;
+&lt;th&gt;Value&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;IP Address&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;192.168.1.9&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;FQDN&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;ad.local.com&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;LDAP Base DN&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;dc=local,dc=com&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;LDAP Bind DN&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;cn=bind_user,dc=local,dc=com&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Bind User Password&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;your_bind_user_password&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;!-- end-chunk --&gt;
+&lt;!-- begin-chunk data-anchor=&#34;gitlab-ldap-configuration-steps&#34; data-heading=&#34;GitLab LDAP Configuration Steps&#34; data-level=&#34;2&#34; data-permalink=&#34;/docs/gitlab/gitlab-with-ldap/&#34; data-title=&#34;Gitlab Authentication with LDAP&#34; --&gt;
+&lt;h2 id=&#34;gitlab-ldap-configuration-steps&#34;&gt;GitLab LDAP Configuration Steps&lt;/h2&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Step&lt;/th&gt;
+&lt;th&gt;Description&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;1&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;Open GitLab Configuration File&lt;/strong&gt;: &lt;br&gt;SSH into your GitLab server:&lt;br&gt;&lt;code&gt;ssh root@gitlab.local.com&lt;/code&gt;&lt;br&gt;Open the GitLab configuration file:&lt;br&gt;&lt;code&gt;sudo nano /etc/gitlab/gitlab.rb&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;2&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;Configure LDAP Settings&lt;/strong&gt;: &lt;br&gt;Add the following LDAP configuration to /etc/gitlab/gitlab.rb&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-ruby&#34; data-lang=&#34;ruby&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;gitlab_rails&lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;ldap_enabled&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;true&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;gitlab_rails&lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;ldap_servers&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;YAML&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;load &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;lt;&amp;lt;-EOS
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;main&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   &lt;span style=&#34;color:#e6db74&#34;&gt;label&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;LDAP&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   &lt;span style=&#34;color:#e6db74&#34;&gt;host&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;192.168.1.9&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   &lt;span style=&#34;color:#e6db74&#34;&gt;port&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;389&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   &lt;span style=&#34;color:#e6db74&#34;&gt;uid&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;sAMAccountName&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   &lt;span style=&#34;color:#e6db74&#34;&gt;bind_dn&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;cn=bind_user,dc=local,dc=com&amp;#39;&lt;/span&gt;  &lt;span style=&#34;color:#75715e&#34;&gt;# Replace with your actual bind DN&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   &lt;span style=&#34;color:#e6db74&#34;&gt;password&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;your_bind_user_password&amp;#39;&lt;/span&gt;      &lt;span style=&#34;color:#75715e&#34;&gt;# Replace with actual passwords&amp;#39; if needed&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   &lt;span style=&#34;color:#e6db74&#34;&gt;verify_certificates&lt;/span&gt;: &lt;span style=&#34;color:#66d9ef&#34;&gt;true&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   &lt;span style=&#34;color:#e6db74&#34;&gt;active_directory&lt;/span&gt;: &lt;span style=&#34;color:#66d9ef&#34;&gt;true&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   &lt;span style=&#34;color:#e6db74&#34;&gt;allow_username_or_email_login&lt;/span&gt;: &lt;span style=&#34;color:#66d9ef&#34;&gt;true&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   &lt;span style=&#34;color:#e6db74&#34;&gt;user_filter&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   &lt;span style=&#34;color:#e6db74&#34;&gt;group_base&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   &lt;span style=&#34;color:#e6db74&#34;&gt;sync_ssh_keys&lt;/span&gt;: &lt;span style=&#34;color:#66d9ef&#34;&gt;false&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;EOS&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Reconfigure GitLab&lt;/strong&gt;: &lt;br&gt;Run the following command to reconfigure GitLab:&lt;br&gt;&lt;code&gt;sudo gitlab-ctl reconfigure&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Verify LDAP Configuration&lt;/strong&gt;: &lt;br&gt;Log into GitLab with an LDAP user account to ensure the configuration works.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Test Connection (Optional)&lt;/strong&gt;: &lt;br&gt;Test the LDAP connection using &lt;code&gt;ldapsearch&lt;/code&gt;:&lt;br&gt;&lt;code&gt;ldapsearch -x -H ldap://192.168.1.9 -D &amp;quot;cn=bind_user,dc=local,dc=com&amp;quot; -w &amp;quot;your_bind_user_password&amp;quot; -b &amp;quot;dc=local,dc=com&amp;quot;&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;!-- end-chunk --&gt;
+&lt;!-- begin-chunk data-anchor=&#34;conclusion&#34; data-heading=&#34;Conclusion&#34; data-level=&#34;2&#34; data-permalink=&#34;/docs/gitlab/gitlab-with-ldap/&#34; data-title=&#34;Gitlab Authentication with LDAP&#34; --&gt;
+&lt;h2 id=&#34;conclusion&#34;&gt;Conclusion&lt;/h2&gt;&lt;p&gt;You have successfully configured GitLab to authenticate users against your LDAP server. Users should now be able to log in using their LDAP credentials.&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: GitLab Container Registry</title>
+      <link>/docs/gitlab/gitlab-container-registry/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/docs/gitlab/gitlab-container-registry/</guid>
+      <description>
+        
+        
+        &lt;!-- end-chunk --&gt;
+&lt;!-- begin-chunk data-anchor=&#34;gitlab-container-registry-with-minio-setup-guide&#34; data-heading=&#34;GitLab Container Registry with MinIO Setup Guide&#34; data-level=&#34;1&#34; data-permalink=&#34;/docs/gitlab/gitlab-container-registry/&#34; data-title=&#34;GitLab Container Registry&#34; --&gt;
+&lt;h1 id=&#34;gitlab-container-registry-with-minio-setup-guide&#34;&gt;GitLab Container Registry with MinIO Setup Guide&lt;/h1&gt;&lt;!-- end-chunk --&gt;
+&lt;!-- begin-chunk data-anchor=&#34;introduction&#34; data-heading=&#34;Introduction&#34; data-level=&#34;2&#34; data-permalink=&#34;/docs/gitlab/gitlab-container-registry/&#34; data-title=&#34;GitLab Container Registry&#34; --&gt;
+&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&lt;p&gt;This guide provides instructions for integrating GitLab Container Registry with MinIO, an object storage server compatible with Amazon S3 APIs. MinIO can be used to store your container images and artifacts.&lt;/p&gt;
+&lt;!-- end-chunk --&gt;
+&lt;!-- begin-chunk data-anchor=&#34;prerequisites&#34; data-heading=&#34;Prerequisites&#34; data-level=&#34;2&#34; data-permalink=&#34;/docs/gitlab/gitlab-container-registry/&#34; data-title=&#34;GitLab Container Registry&#34; --&gt;
+&lt;h2 id=&#34;prerequisites&#34;&gt;Prerequisites&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;A running GitLab instance.&lt;/li&gt;
+&lt;li&gt;Administrative access to the GitLab server.&lt;/li&gt;
+&lt;li&gt;MinIO server installed and running.&lt;/li&gt;
+&lt;li&gt;Docker installed on your local machine.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;!-- end-chunk --&gt;
+&lt;!-- begin-chunk data-anchor=&#34;step-1-set-up-minio&#34; data-heading=&#34;Step 1: Set Up MinIO&#34; data-level=&#34;2&#34; data-permalink=&#34;/docs/gitlab/gitlab-container-registry/&#34; data-title=&#34;GitLab Container Registry&#34; --&gt;
+&lt;h2 id=&#34;step-1-set-up-minio&#34;&gt;Step 1: Set Up MinIO&lt;/h2&gt;&lt;!-- end-chunk --&gt;
+&lt;!-- begin-chunk data-anchor=&#34;step-11-install-minio&#34; data-heading=&#34;Step 1.1: Install MinIO&#34; data-level=&#34;3&#34; data-permalink=&#34;/docs/gitlab/gitlab-container-registry/&#34; data-title=&#34;GitLab Container Registry&#34; --&gt;
+&lt;h3 id=&#34;step-11-install-minio&#34;&gt;Step 1.1: Install MinIO&lt;/h3&gt;&lt;p&gt;Follow the instructions on the &lt;a href=&#34;https://docs.min.io/docs/minio-quickstart-guide.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;MinIO Quickstart Guide&lt;/a&gt; to install MinIO on your server.&lt;/p&gt;
+&lt;!-- end-chunk --&gt;
+&lt;!-- begin-chunk data-anchor=&#34;step-12-start-minio-server&#34; data-heading=&#34;Step 1.2: Start MinIO Server&#34; data-level=&#34;3&#34; data-permalink=&#34;/docs/gitlab/gitlab-container-registry/&#34; data-title=&#34;GitLab Container Registry&#34; --&gt;
+&lt;h3 id=&#34;step-12-start-minio-server&#34;&gt;Step 1.2: Start MinIO Server&lt;/h3&gt;&lt;p&gt;Run the MinIO server using the following command:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;minio server /data
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;!-- end-chunk --&gt;
+&lt;!-- begin-chunk data-anchor=&#34;step-13-configure-minio-client-mc&#34; data-heading=&#34;Step 1.3: Configure MinIO Client (mc)&#34; data-level=&#34;3&#34; data-permalink=&#34;/docs/gitlab/gitlab-container-registry/&#34; data-title=&#34;GitLab Container Registry&#34; --&gt;
+&lt;h3 id=&#34;step-13-configure-minio-client-mc&#34;&gt;Step 1.3: Configure MinIO Client (mc)&lt;/h3&gt;&lt;p&gt;Install the MinIO client and configure it to connect to your MinIO server:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Download and install MinIO client&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;wget https://dl.min.io/client/mc/release/linux-amd64/mc
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;chmod +x mc
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sudo mv mc /usr/local/bin/
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Configure the MinIO client&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;mc alias set myminio http://&amp;lt;minio_server_ip&amp;gt;:9000 &amp;lt;minio_access_key&amp;gt; &amp;lt;minio_secret_key&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;!-- end-chunk --&gt;
+&lt;!-- begin-chunk data-anchor=&#34;step-2-enable-container-registry-in-gitlab&#34; data-heading=&#34;Step 2: Enable Container Registry in GitLab&#34; data-level=&#34;2&#34; data-permalink=&#34;/docs/gitlab/gitlab-container-registry/&#34; data-title=&#34;GitLab Container Registry&#34; --&gt;
+&lt;h2 id=&#34;step-2-enable-container-registry-in-gitlab&#34;&gt;Step 2: Enable Container Registry in GitLab&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Log into your GitLab instance.&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Navigate to the Admin Area&lt;/strong&gt;: Click on the &lt;strong&gt;Admin&lt;/strong&gt; icon (wrench icon) on the sidebar.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Go to Settings&lt;/strong&gt;: Select &lt;strong&gt;Settings&lt;/strong&gt; &amp;gt; &lt;strong&gt;General&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Expand the &amp;ldquo;Container Registry&amp;rdquo; section&lt;/strong&gt;: Ensure the &lt;strong&gt;Container Registry&lt;/strong&gt; is enabled.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Configure the Registry&lt;/strong&gt;: Set the &lt;strong&gt;Registry Host&lt;/strong&gt; to &lt;code&gt;registry.gitlab.local&lt;/code&gt; and &lt;strong&gt;Registry Port&lt;/strong&gt; (default is 5000).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Save Changes&lt;/strong&gt;: Click on the &lt;strong&gt;Save changes&lt;/strong&gt; button at the bottom of the page.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;!-- end-chunk --&gt;
+&lt;!-- begin-chunk data-anchor=&#34;step-3-configure-gitlab-to-use-minio&#34; data-heading=&#34;Step 3: Configure GitLab to Use MinIO&#34; data-level=&#34;2&#34; data-permalink=&#34;/docs/gitlab/gitlab-container-registry/&#34; data-title=&#34;GitLab Container Registry&#34; --&gt;
+&lt;h2 id=&#34;step-3-configure-gitlab-to-use-minio&#34;&gt;Step 3: Configure GitLab to Use MinIO&lt;/h2&gt;&lt;!-- end-chunk --&gt;
+&lt;!-- begin-chunk data-anchor=&#34;step-31-update-gitlabrb&#34; data-heading=&#34;Step 3.1: Update &lt;code&gt;gitlab.rb&lt;/code&gt;&#34; data-level=&#34;3&#34; data-permalink=&#34;/docs/gitlab/gitlab-container-registry/&#34; data-title=&#34;GitLab Container Registry&#34; --&gt;
+&lt;h3 id=&#34;step-31-update-gitlabrb&#34;&gt;Step 3.1: Update &lt;code&gt;gitlab.rb&lt;/code&gt;&lt;/h3&gt;&lt;p&gt;SSH into your GitLab server and open the &lt;code&gt;gitlab.rb&lt;/code&gt; configuration file:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sudo nano /etc/gitlab/gitlab.rb
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Add or update the following lines to configure GitLab to use MinIO for the Container Registry:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-ruby&#34; data-lang=&#34;ruby&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;registry&lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;enable&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;true&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;registry&lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;host&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;registry.gitlab.local&amp;#39;&lt;/span&gt;  &lt;span style=&#34;color:#75715e&#34;&gt;# Update with your registry hostname&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;registry&lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;port&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;5000&lt;/span&gt;                       &lt;span style=&#34;color:#75715e&#34;&gt;# Update with your registry port&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Configure MinIO as the object storage backend&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;registry&lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;storage&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;s3&amp;#39;&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&amp;gt;&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;accesskey&amp;#39;&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;&amp;lt;minio_access_key&amp;gt;&amp;#39;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;secretkey&amp;#39;&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;&amp;lt;minio_secret_key&amp;gt;&amp;#39;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;bucket&amp;#39;&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;gitlab-registry&amp;#39;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;region&amp;#39;&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;us-east-1&amp;#39;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;endpoint&amp;#39;&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;http://&amp;lt;minio_server_ip&amp;gt;:9000&amp;#39;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;secure&amp;#39;&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;false&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;!-- end-chunk --&gt;
+&lt;!-- begin-chunk data-anchor=&#34;step-32-reconfigure-gitlab&#34; data-heading=&#34;Step 3.2: Reconfigure GitLab&#34; data-level=&#34;3&#34; data-permalink=&#34;/docs/gitlab/gitlab-container-registry/&#34; data-title=&#34;GitLab Container Registry&#34; --&gt;
+&lt;h3 id=&#34;step-32-reconfigure-gitlab&#34;&gt;Step 3.2: Reconfigure GitLab&lt;/h3&gt;&lt;p&gt;After saving changes to the &lt;code&gt;gitlab.rb&lt;/code&gt; file, run the following command to reconfigure GitLab:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sudo gitlab-ctl reconfigure
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;!-- end-chunk --&gt;
+&lt;!-- begin-chunk data-anchor=&#34;step-4-log-in-to-the-gitlab-container-registry&#34; data-heading=&#34;Step 4: Log in to the GitLab Container Registry&#34; data-level=&#34;2&#34; data-permalink=&#34;/docs/gitlab/gitlab-container-registry/&#34; data-title=&#34;GitLab Container Registry&#34; --&gt;
+&lt;h2 id=&#34;step-4-log-in-to-the-gitlab-container-registry&#34;&gt;Step 4: Log in to the GitLab Container Registry&lt;/h2&gt;&lt;p&gt;Use Docker to log in to your GitLab Container Registry:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;docker login registry.gitlab.local
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;You will be prompted to enter your GitLab username and personal access token (PAT) or password.&lt;/p&gt;
+&lt;!-- end-chunk --&gt;
+&lt;!-- begin-chunk data-anchor=&#34;step-5-push-an-image-to-the-registry&#34; data-heading=&#34;Step 5: Push an Image to the Registry&#34; data-level=&#34;2&#34; data-permalink=&#34;/docs/gitlab/gitlab-container-registry/&#34; data-title=&#34;GitLab Container Registry&#34; --&gt;
+&lt;h2 id=&#34;step-5-push-an-image-to-the-registry&#34;&gt;Step 5: Push an Image to the Registry&lt;/h2&gt;&lt;!-- end-chunk --&gt;
+&lt;!-- begin-chunk data-anchor=&#34;step-51-tag-your-docker-image&#34; data-heading=&#34;Step 5.1: Tag Your Docker Image&#34; data-level=&#34;3&#34; data-permalink=&#34;/docs/gitlab/gitlab-container-registry/&#34; data-title=&#34;GitLab Container Registry&#34; --&gt;
+&lt;h3 id=&#34;step-51-tag-your-docker-image&#34;&gt;Step 5.1: Tag Your Docker Image&lt;/h3&gt;&lt;p&gt;Tag your Docker image to match the registry format:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;docker tag &amp;lt;image_name&amp;gt;:&amp;lt;tag&amp;gt; registry.gitlab.local/&amp;lt;namespace&amp;gt;/&amp;lt;project_name&amp;gt;:&amp;lt;t
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Logs and Troubleshooting</title>
+      <link>/docs/gitlab/gitlab-logs-troubleshooting/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/docs/gitlab/gitlab-logs-troubleshooting/</guid>
+      <description>
+        
+        
+        &lt;!-- end-chunk --&gt;
+&lt;!-- begin-chunk data-anchor=&#34;gitlab-logs--troubleshooting-guide&#34; data-heading=&#34;GitLab Logs &amp;amp; Troubleshooting Guide&#34; data-level=&#34;1&#34; data-permalink=&#34;/docs/gitlab/gitlab-logs-troubleshooting/&#34; data-title=&#34;Logs and Troubleshooting&#34; --&gt;
+&lt;h1 id=&#34;gitlab-logs--troubleshooting-guide&#34;&gt;GitLab Logs &amp;amp; Troubleshooting Guide&lt;/h1&gt;&lt;!-- end-chunk --&gt;
+&lt;!-- begin-chunk data-anchor=&#34;introduction&#34; data-heading=&#34;Introduction&#34; data-level=&#34;2&#34; data-permalink=&#34;/docs/gitlab/gitlab-logs-troubleshooting/&#34; data-title=&#34;Logs and Troubleshooting&#34; --&gt;
+&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&lt;p&gt;This guide provides an overview of the various logs generated by GitLab and common troubleshooting steps to help diagnose and resolve issues.&lt;/p&gt;
+&lt;!-- end-chunk --&gt;
+&lt;!-- begin-chunk data-anchor=&#34;gitlab-log-files&#34; data-heading=&#34;GitLab Log Files&#34; data-level=&#34;2&#34; data-permalink=&#34;/docs/gitlab/gitlab-logs-troubleshooting/&#34; data-title=&#34;Logs and Troubleshooting&#34; --&gt;
+&lt;h2 id=&#34;gitlab-log-files&#34;&gt;GitLab Log Files&lt;/h2&gt;&lt;p&gt;GitLab maintains several log files that provide insight into the system&amp;rsquo;s operations. Below are the key logs you should be aware of:&lt;/p&gt;
+&lt;!-- end-chunk --&gt;
+&lt;!-- begin-chunk data-anchor=&#34;1-gitlab-application-logs&#34; data-heading=&#34;1. GitLab Application Logs&#34; data-level=&#34;3&#34; data-permalink=&#34;/docs/gitlab/gitlab-logs-troubleshooting/&#34; data-title=&#34;Logs and Troubleshooting&#34; --&gt;
+&lt;h3 id=&#34;1-gitlab-application-logs&#34;&gt;1. GitLab Application Logs&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Location&lt;/strong&gt;: &lt;code&gt;/var/log/gitlab/gitlab-rails/&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;File&lt;/strong&gt;: &lt;code&gt;production.log&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Description&lt;/strong&gt;: This log contains detailed information about application-level events, including requests, errors, and background job processing.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;!-- end-chunk --&gt;
+&lt;!-- begin-chunk data-anchor=&#34;2-gitlab-nginx-logs&#34; data-heading=&#34;2. GitLab NGINX Logs&#34; data-level=&#34;3&#34; data-permalink=&#34;/docs/gitlab/gitlab-logs-troubleshooting/&#34; data-title=&#34;Logs and Troubleshooting&#34; --&gt;
+&lt;h3 id=&#34;2-gitlab-nginx-logs&#34;&gt;2. GitLab NGINX Logs&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Location&lt;/strong&gt;: &lt;code&gt;/var/log/gitlab/nginx/&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Files&lt;/strong&gt;:
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;gitlab_access.log&lt;/code&gt;: Contains access logs for NGINX.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;gitlab_error.log&lt;/code&gt;: Contains error logs for NGINX.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Description&lt;/strong&gt;: These logs provide information about HTTP requests and errors encountered by the NGINX web server.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;!-- end-chunk --&gt;
+&lt;!-- begin-chunk data-anchor=&#34;3-gitlab-sidekiq-logs&#34; data-heading=&#34;3. GitLab Sidekiq Logs&#34; data-level=&#34;3&#34; data-permalink=&#34;/docs/gitlab/gitlab-logs-troubleshooting/&#34; data-title=&#34;Logs and Troubleshooting&#34; --&gt;
+&lt;h3 id=&#34;3-gitlab-sidekiq-logs&#34;&gt;3. GitLab Sidekiq Logs&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Location&lt;/strong&gt;: &lt;code&gt;/var/log/gitlab/sidekiq/&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;File&lt;/strong&gt;: &lt;code&gt;sidekiq.log&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Description&lt;/strong&gt;: This log contains information about background jobs processed by Sidekiq, including job failures.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;!-- end-chunk --&gt;
+&lt;!-- begin-chunk data-anchor=&#34;4-gitlab-workhorse-logs&#34; data-heading=&#34;4. GitLab Workhorse Logs&#34; data-level=&#34;3&#34; data-permalink=&#34;/docs/gitlab/gitlab-logs-troubleshooting/&#34; data-title=&#34;Logs and Troubleshooting&#34; --&gt;
+&lt;h3 id=&#34;4-gitlab-workhorse-logs&#34;&gt;4. GitLab Workhorse Logs&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Location&lt;/strong&gt;: &lt;code&gt;/var/log/gitlab/gitlab-workhorse/&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;File&lt;/strong&gt;: &lt;code&gt;gitlab-workhorse.log&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Description&lt;/strong&gt;: This log contains information about the GitLab Workhorse, which handles proxying requests to other components of GitLab.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;!-- end-chunk --&gt;
+&lt;!-- begin-chunk data-anchor=&#34;5-gitlab-shell-logs&#34; data-heading=&#34;5. GitLab Shell Logs&#34; data-level=&#34;3&#34; data-permalink=&#34;/docs/gitlab/gitlab-logs-troubleshooting/&#34; data-title=&#34;Logs and Troubleshooting&#34; --&gt;
+&lt;h3 id=&#34;5-gitlab-shell-logs&#34;&gt;5. GitLab Shell Logs&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Location&lt;/strong&gt;: &lt;code&gt;/var/log/gitlab/gitlab-shell/&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;File&lt;/strong&gt;: &lt;code&gt;gitlab-shell.log&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Description&lt;/strong&gt;: This log contains information about interactions with the GitLab Shell, which handles Git commands.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;!-- end-chunk --&gt;
+&lt;!-- begin-chunk data-anchor=&#34;6-gitlab-postgresql-logs&#34; data-heading=&#34;6. GitLab PostgreSQL Logs&#34; data-level=&#34;3&#34; data-permalink=&#34;/docs/gitlab/gitlab-logs-troubleshooting/&#34; data-title=&#34;Logs and Troubleshooting&#34; --&gt;
+&lt;h3 id=&#34;6-gitlab-postgresql-logs&#34;&gt;6. GitLab PostgreSQL Logs&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Location&lt;/strong&gt;: &lt;code&gt;/var/log/gitlab/postgresql/&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;File&lt;/strong&gt;: &lt;code&gt;postgresql.log&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Description&lt;/strong&gt;: This log contains information about database operations and any errors encountered.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;!-- end-chunk --&gt;
+&lt;!-- begin-chunk data-anchor=&#34;common-troubleshooting-steps&#34; data-heading=&#34;Common Troubleshooting Steps&#34; data-level=&#34;2&#34; data-permalink=&#34;/docs/gitlab/gitlab-logs-troubleshooting/&#34; data-title=&#34;Logs and Troubleshooting&#34; --&gt;
+&lt;h2 id=&#34;common-troubleshooting-steps&#34;&gt;Common Troubleshooting Steps&lt;/h2&gt;&lt;!-- end-chunk --&gt;
+&lt;!-- begin-chunk data-anchor=&#34;step-1-check-gitlab-status&#34; data-heading=&#34;Step 1: Check GitLab Status&#34; data-level=&#34;3&#34; data-permalink=&#34;/docs/gitlab/gitlab-logs-troubleshooting/&#34; data-title=&#34;Logs and Troubleshooting&#34; --&gt;
+&lt;h3 id=&#34;step-1-check-gitlab-status&#34;&gt;Step 1: Check GitLab Status&lt;/h3&gt;&lt;p&gt;Run the following command to check the overall status of your GitLab instance:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sudo gitlab-ctl status
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;!-- end-chunk --&gt;
+&lt;!-- begin-chunk data-anchor=&#34;step-2-review-logs-for-errors&#34; data-heading=&#34;Step 2: Review Logs for Errors&#34; data-level=&#34;3&#34; data-permalink=&#34;/docs/gitlab/gitlab-logs-troubleshooting/&#34; data-title=&#34;Logs and Troubleshooting&#34; --&gt;
+&lt;h3 id=&#34;step-2-review-logs-for-errors&#34;&gt;Step 2: Review Logs for Errors&lt;/h3&gt;&lt;p&gt;Identify any errors in the relevant log files by using the following command:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Example for checking the production log&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sudo tail -n &lt;span style=&#34;color:#ae81ff&#34;&gt;100&lt;/span&gt; /var/log/gitlab/gitlab-rails/production.log
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;!-- end-chunk --&gt;
+&lt;!-- begin-chunk data-anchor=&#34;step-3-run-gitlab-diagnostics&#34; data-heading=&#34;Step 3: Run GitLab Diagnostics&#34; data-level=&#34;3&#34; data-permalink=&#34;/docs/gitlab/gitlab-logs-troubleshooting/&#34; data-title=&#34;Logs and Troubleshooting&#34; --&gt;
+&lt;h3 id=&#34;step-3-run-gitlab-diagnostics&#34;&gt;Step 3: Run GitLab Diagnostics&lt;/h3&gt;&lt;p&gt;You can run GitLab&amp;rsquo;s built-in diagnostics to gather more information about the instance:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sudo gitlab-rake gitlab:check SANITIZE&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;true
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;!-- end-chunk --&gt;
+&lt;!-- begin-chunk data-anchor=&#34;step-4-check-redis-status&#34; data-heading=&#34;Step 4: Check Redis Status&#34; data-level=&#34;3&#34; data-permalink=&#34;/docs/gitlab/gitlab-logs-troubleshooting/&#34; data-title=&#34;Logs and Troubleshooting&#34; --&gt;
+&lt;h3 id=&#34;step-4-check-redis-status&#34;&gt;Step 4: Check Redis Status&lt;/h3&gt;&lt;p&gt;If you are experiencing performance issues, check the status of Redis:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sudo gitlab-ctl status redis
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;!-- end-chunk --&gt;
+&lt;!-- begin-chunk data-anchor=&#34;step-5-restart-gitlab-services&#34; data-heading=&#34;Step 5: Restart GitLab Services&#34; data-level=&#34;3&#34; data-permalink=&#34;/docs/gitlab/gitlab-logs-troubleshooting/&#34; data-title=&#34;Logs and Troubleshooting&#34; --&gt;
+&lt;h3 id=&#34;step-5-restart-gitlab-services&#34;&gt;Step 5: Restart GitLab Services&lt;/h3&gt;&lt;p&gt;If you encounter issues, consider restarting the GitLab services:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sudo gitlab-ctl restart
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;!-- end-chunk --&gt;
+&lt;!-- begin-chunk data-anchor=&#34;step-6-reconfigure-gitlab&#34; data-heading=&#34;Step 6: Reconfigure GitLab&#34; data-level=&#34;3&#34; data-permalink=&#34;/docs/gitlab/gitlab-logs-troubleshooting/&#34; data-title=&#34;Logs and Troubleshooting&#34; --&gt;
+&lt;h3 id=&#34;step-6-reconfigure-gitlab&#34;&gt;Step 6: Reconfigure GitLab&lt;/h3&gt;&lt;p&gt;If configuration changes have been made, reconfigure GitLab:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sudo gitlab-ctl reconfigure
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;!-- end-chunk --&gt;
+&lt;!-- begin-chunk data-anchor=&#34;step-7-update-gitlab&#34; data-heading=&#34;Step 7: Update GitLab&#34; data-level=&#34;3&#34; data-permalink=&#34;/docs/gitlab/gitlab-logs-troubleshooting/&#34; data-title=&#34;Logs and Troubleshooting&#34; --&gt;
+&lt;h3 id=&#34;step-7-update-gitlab&#34;&gt;Step 7: Update GitLab&lt;/h3&gt;&lt;p&gt;Ensure you are running the latest version of GitLab. Update GitLab with the following commands:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Update package index&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sudo apt-get update
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Upgrade GitLab&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sudo apt-get install gitlab-ce
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;!-- end-chunk --&gt;
+&lt;!-- begin-chunk data-anchor=&#34;conclusion&#34; data-heading=&#34;Conclusion&#34; data-level=&#34;2&#34; data-permalink=&#34;/docs/gitlab/gitlab-logs-troubleshooting/&#34; data-title=&#34;Logs and Troubleshooting&#34; --&gt;
+&lt;h2 id=&#34;conclusion&#34;&gt;Conclusion&lt;/h2&gt;&lt;p&gt;Understanding GitLab logs and following these troubleshooting steps can help you quickly identify and resolve issues within your GitLab instance. Regularly monitor logs and keep your GitLab instance up-to-date for optimal performance.&lt;/p&gt;
+&lt;!-- end-chunk --&gt;
+&lt;!-- begin-chunk data-anchor=&#34;additional-resources&#34; data-heading=&#34;Additional Resources&#34; data-level=&#34;2&#34; data-permalink=&#34;/docs/gitlab/gitlab-logs-troubleshooting/&#34; data-title=&#34;Logs and Troubleshooting&#34; --&gt;
+&lt;h2 id=&#34;additional-resources&#34;&gt;Additional Resources&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://docs.gitlab.com/ee/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;GitLab Official Documentation&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://docs.gitlab.com/ee/administration/logs.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;GitLab Logging Configuration&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,2381 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="generator" content="Hugo 0.122.0">
+<meta name="robots" content="index, follow">
+
+<link rel="shortcut icon" href="/favicons/favicon.ico" >
+
+<title>Part 3 | Documentation</title>
+<meta name="description" content="Azure Devops">
+<meta property="og:title" content="Part 3" />
+<meta property="og:description" content="Azure Devops" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/docs/azure-devops/azuredevops-03/" /><meta property="article:section" content="docs" />
+
+
+
+<meta itemprop="name" content="Part 3">
+<meta itemprop="description" content="Azure Devops">
+
+<meta itemprop="wordCount" content="7688">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Part 3"/>
+<meta name="twitter:description" content="Azure Devops"/>
+
+
+
+
+<link rel="preload" href="/scss/main.min.b5bfe2535b6f07595fd9cb7a4018024e52e136c3b43e03a17a1e47a950822d03.css" as="style">
+<link href="/scss/main.min.b5bfe2535b6f07595fd9cb7a4018024e52e136c3b43e03a17a1e47a950822d03.css" rel="stylesheet" integrity="">
+
+<script
+  src="https://code.jquery.com/jquery-3.6.0.min.js"
+  integrity="sha384-vtXRMe3mGCbOeY7l30aIg8H9p3GdeSe4IFlP6G8JMa7o7lXvnz3GFKzPxzJdPfGK"
+  crossorigin="anonymous"></script>
+<script
+  src="https://unpkg.com/lunr@2.3.9/lunr.min.js"
+  integrity="sha384-203J0SNzyqHby3iU6hzvzltrWi/M41wOP5Gu+BiJMz5nwKykbkUx8Kp7iti0Lpli"
+  crossorigin="anonymous"></script>
+<link rel="stylesheet" href="/css/prism.css"/>
+<script type="text/javascript"  src="/js/highlight-search.js"></script>
+<script type="text/javascript"  src="/js/manage-side-panels.js"></script>
+  </head>
+  <body class="td-page highlightable">
+    <header>
+      
+<nav class="js-navbar-scroll navbar navbar-expand navbar-dark flex-column flex-md-row td-navbar">
+        <a class="navbar-brand" href="/">
+		<span class="navbar-logo"><svg version="1.0" xmlns="http://www.w3.org/2000/svg" width="217pt" height="232pt" viewBox="0 0 217 232"><g transform="translate(0.000000,232.000000) scale(0.100000,-0.100000)" fill="#000" stroke="none"><path d="M1017 2250c-397-48-698-367-731-775-9-106-3-113 66-87l55 20 11-71c6-39 10-72 9-73s-58-22-127-47c-104-37-124-48-122-64 7-37 56-150 88-205l34-56 66 25 66 26 65-72c206-226 513-322 808-252 367 88 634 417 635 784 0 43-4 77-10 77-5 0-32-9-60-20s-55-20-59-20c-5 0-12 26-16 59-4 32-20 96-36 142s-30 88-31 92c-2 5 54 29 124 55l128 46-31 55c-17 31-33 58-34 59-2 2-31-6-64-19l-61-22-23 29c-81 104-172 178-292 235-140 68-309 97-458 79zm226-299c90-24 136-46 206-101l52-41 61 20 60 20 26-31c15-17 35-44 44-59l17-28-52-19c-29-11-86-32-128-47l-76-27 24-58c26-66 43-144 43-201 0-22 2-39 5-39 2 0 27 9 55 20s55 20 60 20c17 0 10-63-14-131-127-359-580-484-862-237l-35 31-70-24-71-24-30 35c-37 43-97 164-104 212l-6 34 123 46 124 45-3 64c-2 35-5 66-7 68-2 1-27-5-55-14s-53-15-55-14c-2 2 1 29 7 59 32 179 185 352 361 409 112 36 192 39 3e2 12z"/><path d="M134 321c-77-33-95-169-29-231 19-18 36-23 71-23 40 0 51 4 75 30 50 56 47 153-5 202-26 25-80 35-112 22zm82-62c26-29 26-99 0-128-24-26-47-27-77-2-19 15-24 29-24 64 0 76 58 114 101 66z"/><path d="M1172 320c-27-12-44-52-33-82 4-12 31-32 61-47 30-14 58-34 64-43 26-43-50-76-99-44-15 10-26 12-30 6-10-16 4-29 44-40 62-17 114 13 114 65 0 35-19 53-80 81-54 23-67 46-41 72 15 15 62 16 88 2 23-12 35 3 16 19-20 17-77 23-104 11z"/><path d="M350 195V70h25c23 0 25 4 25 45v45h40c76 0 115 40 103 104-8 42-38 56-120 56h-73V195zm134 69c18-18 18-17 10-38-4-11-19-16-50-16-44 0-44 0-44 35 0 33 2 35 34 35 19 0 42-7 50-16z"/><path d="M6e2 195V70h90c83 0 90 2 90 20 0 16-8 19-62 22-63 3-63 3-66 36-3 31-2 32 36 32 36 0 39 2 34 25-4 21-10 25-38 25-30 0-34 3-34 25 0 24 2 25 65 25 58 0 65 2 65 20 0 19-7 20-90 20h-90V195z"/><path d="M850 195c0-117 1-125 20-125 17 0 19 8 22 83l3 82 55-82c41-62 61-83 78-83 22 0 22 2 22 125 0 117-1 125-20 125-17 0-19-8-22-82l-3-82-54 82c-42 65-59 82-77 82-24 0-24 0-24-125z"/><path d="M1360 195c0-104 2-125 15-125 12 0 15 13 15 60v60h65 65v-60c0-47 3-60 15-60 13 0 15 21 15 125s-2 125-15 125c-12 0-15-13-15-55v-55h-65-65v55c0 42-3 55-15 55-13 0-15-21-15-125z"/><path d="M1620 195c0-104 2-125 15-125s15 21 15 125-2 125-15 125-15-21-15-125z"/><path d="M1730 195c0-77 4-125 10-125s10 27 10 60v60h35c19 0 35 5 35 10 0 6-16 10-35 10-35 0-35 0-35 45v45h60c33 0 60 4 60 10s-30 10-70 10h-70V195z"/><path d="M1930 310c0-5 18-10 40-10h40V185c0-70 4-115 10-115s10 45 10 115v115h40c22 0 40 5 40 10 0 6-37 10-90 10s-90-4-90-10z"/></g></svg></span><span class="font-weight-bold">Documentation</span>
+	</a>
+	<div class="td-navbar-nav-scroll ml-md-auto" id="main_navbar">
+		<ul class="navbar-nav mt-2 mt-lg-0">
+			
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/" ><i class='fa fa-home'></i><span>Home</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/docs/azure/" ><i class='fab fa-azure'></i><span>Azure Cloud Computing</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link active" href="/docs/azure-devops/" ><i class='fab fa-azure'></i><span class="active">Azure Devops</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/docs/gitlab/" ><i class='fab fa-gitlab'></i><span>Gitlab Tutorials</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/docs/openshift/" ><i class='fab fa-openshift'></i><span>OpenShift Administration</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/docs/kvm/" ><i class="fab fa-linux"></i><span>Redhat Ansible</span></a>
+			</li>
+			
+			
+			
+		</ul>
+	</div>
+	<div class="navbar-nav d-none d-lg-block">
+<form class="d-flex align-items-center">
+  <input type="search"
+  class="form-control td-search-input"
+  placeholder="&#xf002; Search this site…"
+  aria-label="Search this site…"
+  autocomplete="off"
+  
+  data-offline-search-index-json-src="/offline-search-index.d4ee35dfb31ed3b96d119091cf664ad4.json"
+  data-offline-search-base-href="/"
+  data-offline-search-max-results="20">
+</form>
+</div>
+</nav>
+
+      <div class="manage-panels">
+    <button type="button" class="button-left" id="left-panel-manager" title="Hide sidebar">""</button>
+    <button type="button" class="button-right" id="right-panel-manager" title="Hide sidebar">""</button>
+</div>
+    </header>
+    <div class="container-fluid td-outer">
+      <div class="td-main autonumbering">
+        <div class="row flex-xl-nowrap">
+          <aside class="col-12 col-md-3 col-xl-2 td-sidebar d-print-none">
+            
+<div id="td-sidebar-menu" class="td-sidebar__inner">
+  <div id="content-mobile">
+  <form class="td-sidebar__search d-flex align-items-center">
+    
+<form class="d-flex align-items-center">
+  <input type="search"
+  class="form-control td-search-input"
+  placeholder="&#xf002; Search this site…"
+  aria-label="Search this site…"
+  autocomplete="off"
+  
+  data-offline-search-index-json-src="/offline-search-index.d4ee35dfb31ed3b96d119091cf664ad4.json"
+  data-offline-search-base-href="/"
+  data-offline-search-max-results="20">
+</form>
+
+    <button class="btn btn-link td-sidebar__toggle d-md-none p-0 ml-3 fas fa-bars" type="button" data-toggle="collapse" data-target="#td-section-nav" aria-controls="td-docs-nav" aria-expanded="false" aria-label="Toggle section navigation">
+    </button>
+  </form>
+  </div>
+  <div id="content-desktop"></div>
+  <nav class="collapse td-sidebar-nav foldable-nav" id="td-section-nav">
+    <ul class="td-sidebar-nav__section pr-md-3 ul-0">
+      <li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id="m-docs-li">
+  <a href="/docs/" class="align-left pl-0 td-sidebar-link td-sidebar-link__section tree-root" id="m-docs"><span class="">Docs</span></a>
+  <ul class="ul-1">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-docsazure-li">
+  <input type="checkbox" id="m-docsazure-check"/>
+  <label for="m-docsazure-check"><a href="/docs/azure/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-docsazure"><i class="fab fa-azure"></i><span class="">Azure Cloud Computing</span></a></label>
+  
+  <ul class="ul-2 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazurelinux-basics-li">
+  <input type="checkbox" id="m-docsazurelinux-basics-check"/>
+  <label for="m-docsazurelinux-basics-check"><a href="/docs/azure/linux-basics/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazurelinux-basics"><i class="fab fa-azure"></i><span class="">Linux Basics</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazureazure-vm-li">
+  <input type="checkbox" id="m-docsazureazure-vm-check"/>
+  <label for="m-docsazureazure-vm-check"><a href="/docs/azure/azure-vm/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazureazure-vm"><i class="fab fa-azure"></i><span class="">Azure Cloud Virtual Machine (01)</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazureazuredevops-li">
+  <input type="checkbox" id="m-docsazureazuredevops-check"/>
+  <label for="m-docsazureazuredevops-check"><a href="/docs/azure/azuredevops/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazureazuredevops"><i class="fab fa-azure"></i><span class="">Azure Devops</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazureazure-network-li">
+  <input type="checkbox" id="m-docsazureazure-network-check"/>
+  <label for="m-docsazureazure-network-check"><a href="/docs/azure/azure-network/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazureazure-network"><i class="fab fa-azure"></i><span class="">Azure Cloud Networking</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazureazure-storage-li">
+  <input type="checkbox" id="m-docsazureazure-storage-check"/>
+  <label for="m-docsazureazure-storage-check"><a href="/docs/azure/azure-storage/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazureazure-storage"><i class="fab fa-azure"></i><span class="">Azure Cloud Storage</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazureazure-cli-li">
+  <input type="checkbox" id="m-docsazureazure-cli-check"/>
+  <label for="m-docsazureazure-cli-check"><a href="/docs/azure/azure-cli/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazureazure-cli"><i class="fab fa-azure"></i><span class="">Azure Cli</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazureazure-vmss-li">
+  <input type="checkbox" id="m-docsazureazure-vmss-check"/>
+  <label for="m-docsazureazure-vmss-check"><a href="/docs/azure/azure-vmss/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazureazure-vmss"><i class="fab fa-azure"></i><span class="">Azure Cloud Virtual Machine Scale Set</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazureazure-lb-li">
+  <input type="checkbox" id="m-docsazureazure-lb-check"/>
+  <label for="m-docsazureazure-lb-check"><a href="/docs/azure/azure-lb/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazureazure-lb"><i class="fab fa-azure"></i><span class="">Azure Cloud LoadBalancers</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazureazure-monitor-li">
+  <input type="checkbox" id="m-docsazureazure-monitor-check"/>
+  <label for="m-docsazureazure-monitor-check"><a href="/docs/azure/azure-monitor/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazureazure-monitor"><i class="fab fa-azure"></i><span class="">Azure Monitoring</span></a></label>
+  
+</li>
+  </ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id="m-docsazure-devops-li">
+  <input type="checkbox" id="m-docsazure-devops-check" checked/>
+  <label for="m-docsazure-devops-check"><a href="/docs/azure-devops/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-docsazure-devops"><i class="fab fa-azure"></i><span class="">Azure Devops</span></a></label>
+  
+  <ul class="ul-2 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazure-devopsazure-board-li">
+  <input type="checkbox" id="m-docsazure-devopsazure-board-check"/>
+  <label for="m-docsazure-devopsazure-board-check"><a href="/docs/azure-devops/azure-board/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazure-devopsazure-board"><i class="fab fa-azure"></i><span class="">Azure Board</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazure-devopsazuredevops-01-li">
+  <input type="checkbox" id="m-docsazure-devopsazuredevops-01-check"/>
+  <label for="m-docsazure-devopsazuredevops-01-check"><a href="/docs/azure-devops/azuredevops-01/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazure-devopsazuredevops-01"><i class="fab fa-azure"></i><span class="">Part 1</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazure-devopsazuredevops-li">
+  <input type="checkbox" id="m-docsazure-devopsazuredevops-check"/>
+  <label for="m-docsazure-devopsazuredevops-check"><a href="/docs/azure-devops/azuredevops/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazure-devopsazuredevops"><i class="fab fa-azure"></i><span class="">Azure Devops</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazure-devopsazuredevops-02-li">
+  <input type="checkbox" id="m-docsazure-devopsazuredevops-02-check"/>
+  <label for="m-docsazure-devopsazuredevops-02-check"><a href="/docs/azure-devops/azuredevops-02/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazure-devopsazuredevops-02"><i class="fab fa-azure"></i><span class="">Part 2</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazure-devopsazuredevops-03-li">
+  <input type="checkbox" id="m-docsazure-devopsazuredevops-03-check"/>
+  <label for="m-docsazure-devopsazuredevops-03-check"><a href="/docs/azure-devops/azuredevops-03/" class="align-left pl-0  active td-sidebar-link td-sidebar-link__page" id="m-docsazure-devopsazuredevops-03"><i class="fab fa-azure"></i><span class="td-sidebar-nav-active-item">Part 3</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazure-devopsazuredevops-04-li">
+  <input type="checkbox" id="m-docsazure-devopsazuredevops-04-check"/>
+  <label for="m-docsazure-devopsazuredevops-04-check"><a href="/docs/azure-devops/azuredevops-04/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazure-devopsazuredevops-04"><i class="fab fa-azure"></i><span class="">part 4</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazure-devopsazuredevops-05-li">
+  <input type="checkbox" id="m-docsazure-devopsazuredevops-05-check"/>
+  <label for="m-docsazure-devopsazuredevops-05-check"><a href="/docs/azure-devops/azuredevops-05/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazure-devopsazuredevops-05"><i class="fab fa-azure"></i><span class="">Part 5</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazure-devopsazuredevops-06-li">
+  <input type="checkbox" id="m-docsazure-devopsazuredevops-06-check"/>
+  <label for="m-docsazure-devopsazuredevops-06-check"><a href="/docs/azure-devops/azuredevops-06/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazure-devopsazuredevops-06"><i class="fab fa-azure"></i><span class="">Part 6</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazure-devopsaks-li">
+  <input type="checkbox" id="m-docsazure-devopsaks-check"/>
+  <label for="m-docsazure-devopsaks-check"><a href="/docs/azure-devops/aks/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazure-devopsaks"><i class="fab fa-azure"></i><span class="">AKS</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazure-devopstest-li">
+  <input type="checkbox" id="m-docsazure-devopstest-check"/>
+  <label for="m-docsazure-devopstest-check"><a href="/docs/azure-devops/test/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazure-devopstest"><i class="fab fa-azure"></i><span class="">Azure Devops Test Plans</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazure-devopsdocker-li">
+  <input type="checkbox" id="m-docsazure-devopsdocker-check"/>
+  <label for="m-docsazure-devopsdocker-check"><a href="/docs/azure-devops/docker/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazure-devopsdocker"><i class="fab fa-azure"></i><span class="">Docker</span></a></label>
+  
+</li>
+  </ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-docsgitlab-li">
+  <input type="checkbox" id="m-docsgitlab-check"/>
+  <label for="m-docsgitlab-check"><a href="/docs/gitlab/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-docsgitlab"><i class="fab fa-gitlab"></i><span class="">Gitlab Tutorials</span></a></label>
+  
+  <ul class="ul-2 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsgitlabgitlab01-li">
+  <input type="checkbox" id="m-docsgitlabgitlab01-check"/>
+  <label for="m-docsgitlabgitlab01-check"><a href="/docs/gitlab/gitlab01/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsgitlabgitlab01"><i class="fab fa-gitlab"></i><span class="">GitLab Installation</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsgitlabgitlab-with-ldap-li">
+  <input type="checkbox" id="m-docsgitlabgitlab-with-ldap-check"/>
+  <label for="m-docsgitlabgitlab-with-ldap-check"><a href="/docs/gitlab/gitlab-with-ldap/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsgitlabgitlab-with-ldap"><i class="fas fa-server"></i><span class="">Gitlab Authentication with LDAP</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsgitlabgitlab-container-registry-li">
+  <input type="checkbox" id="m-docsgitlabgitlab-container-registry-check"/>
+  <label for="m-docsgitlabgitlab-container-registry-check"><a href="/docs/gitlab/gitlab-container-registry/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsgitlabgitlab-container-registry"><i class="fab fa-docker"></i><span class="">GitLab Container Registry</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsgitlabgitlab-logs-troubleshooting-li">
+  <input type="checkbox" id="m-docsgitlabgitlab-logs-troubleshooting-check"/>
+  <label for="m-docsgitlabgitlab-logs-troubleshooting-check"><a href="/docs/gitlab/gitlab-logs-troubleshooting/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsgitlabgitlab-logs-troubleshooting"><i class="fas fa-file-alt"></i><span class="">Logs and Troubleshooting</span></a></label>
+  
+</li>
+  </ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-docsopenshift-li">
+  <input type="checkbox" id="m-docsopenshift-check"/>
+  <label for="m-docsopenshift-check"><a href="/docs/openshift/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-docsopenshift"><i class="fab fa-openshift"></i><span class="">OpenShift Administration</span></a></label>
+  
+  <ul class="ul-2 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsopenshiftocp-onvmware-copy-li">
+  <input type="checkbox" id="m-docsopenshiftocp-onvmware-copy-check"/>
+  <label for="m-docsopenshiftocp-onvmware-copy-check"><a href="/docs/openshift/ocp-onvmware-copy/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsopenshiftocp-onvmware-copy"><i class="fab fa-openshift"></i><span class="">Openshift Installation on Vmware</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsopenshiftocp-sno-li">
+  <input type="checkbox" id="m-docsopenshiftocp-sno-check"/>
+  <label for="m-docsopenshiftocp-sno-check"><a href="/docs/openshift/ocp-sno/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsopenshiftocp-sno"><i class="fab fa-openshift"></i><span class="">Openshift Single node Cluster</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsopenshiftocp-tasks-li">
+  <input type="checkbox" id="m-docsopenshiftocp-tasks-check"/>
+  <label for="m-docsopenshiftocp-tasks-check"><a href="/docs/openshift/ocp-tasks/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsopenshiftocp-tasks"><span class="">Openshift 4 Tasks</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsopenshiftocp-tekton-li">
+  <input type="checkbox" id="m-docsopenshiftocp-tekton-check"/>
+  <label for="m-docsopenshiftocp-tekton-check"><a href="/docs/openshift/ocp-tekton/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsopenshiftocp-tekton"><span class="">Openshift Tekton Pipeline</span></a></label>
+  
+</li>
+  </ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-docskvm-li">
+  <input type="checkbox" id="m-docskvm-check"/>
+  <label for="m-docskvm-check"><a href="/docs/kvm/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-docskvm"><i class="fab fa-linux"></i><span class="">Redhat Ansible</span></a></label>
+  
+  <ul class="ul-2 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docskvmkvm-li">
+  <input type="checkbox" id="m-docskvmkvm-check"/>
+  <label for="m-docskvmkvm-check"><a href="/docs/kvm/kvm/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docskvmkvm"><i class="fab fa-kvm"></i><span class="">KVM</span></a></label>
+  
+</li>
+  </ul>
+</li>
+  </ul>
+</li>
+    </ul>
+  </nav>
+</div>
+
+          </aside>
+          <aside class="d-none d-xl-block col-xl-2 td-sidebar-toc d-print-none">
+            
+
+    <div class="td-page-meta ml-2 pb-1 pt-2 mb-0">
+        <div class="toc-title">Actions</div>
+        <a href="/edit/master/content/docs/Azure%20%20Devops/Azuredevops-03.md" target="_blank" rel="noopener"><i class="fa fa-edit fa-fw"></i> Contribute to this page</a>
+        <a href="/issues/new?issue%5Btitle=%f0%9f%93%83%20docs:%20update%20page%20docs/Azure%20%20Devops/Azuredevops-03.md" target="_blank" rel="noopener"><i class="fab fa-gitlab fa-fw"></i> Create a documentation issue</a>
+       
+    </div>
+
+            
+<div class="td-page-meta ml-2 pb-1 pt-2 mb-0 right-menu-toc">
+
+    
+        
+            <div class="toc-title">Table of content</div>
+            <div class="td-toc"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#agenda">Agenda</a></li>
+    <li><a href="#push-the-sample-application-to-repo">Push the Sample Application to Repo</a></li>
+    <li><a href="#create-asp-net-project-using-visual-studio-2022">Create ASP Net project using visual studio 2022</a></li>
+    <li><a href="#create-different-type-of-project">Create different type of project</a></li>
+    <li><a href="#push-the-sample-application-to-repo-maven">Push the Sample Application to Repo (Maven)</a></li>
+    <li><a href="#what-is-azure-pipelines">What is Azure Pipelines?</a></li>
+    <li><a href="#azure-pipelines-benefits">Azure Pipelines Benefits</a></li>
+    <li><a href="#key-benefits-of-azure-pipelines">Key Benefits of Azure Pipelines</a>
+      <ul>
+        <li><a href="#additional-advantages">Additional Advantages:</a></li>
+        <li><a href="#continuous-integration">Continuous integration</a></li>
+        <li><a href="#continuous-delivery">Continuous delivery</a></li>
+        <li><a href="#continuous-deployment">Continuous Deployment</a></li>
+        <li><a href="#deployment-targets">Deployment targets</a></li>
+        <li><a href="#key-differences-in-azure-devops-continuous-deployment--continuous-delivery">Key Differences in Azure DevOps Continuous Deployment &amp; Continuous Delivery</a></li>
+      </ul>
+    </li>
+    <li><a href="#pipelines-basics">Pipelines Basics</a>
+      <ul>
+        <li><a href="#agent">Agent</a></li>
+        <li><a href="#approvals">Approvals</a></li>
+        <li><a href="#artifact">Artifact</a></li>
+        <li><a href="#deployment">Deployment</a></li>
+        <li><a href="#deployment-group">Deployment group</a></li>
+        <li><a href="#environment">Environment</a></li>
+        <li><a href="#release">Release</a></li>
+        <li><a href="#script">Script</a></li>
+        <li><a href="#stage">Stage</a></li>
+        <li><a href="#job">Job</a></li>
+        <li><a href="#step">Step</a></li>
+        <li><a href="#task">Task</a></li>
+        <li><a href="#trigger">Trigger</a></li>
+        <li><a href="#library">Library</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#classical-pipeline-in-azure-devops">Classical Pipeline in Azure DevOps</a></li>
+        <li><a href="#prerequisites">Prerequisites</a></li>
+        <li><a href="#steps-to-create-a-classical-pipeline">Steps to Create a Classical Pipeline</a></li>
+        <li><a href="#1-navigate-to-pipelines">1. Navigate to Pipelines</a></li>
+        <li><a href="#2-create-a-new-pipeline">2. Create a New Pipeline</a></li>
+        <li><a href="#3-select-the-pipeline-type">3. Select the Pipeline Type</a></li>
+        <li><a href="#4-configure-the-pipeline">4. Configure the Pipeline</a></li>
+        <li><a href="#5-define-pipeline-stages">5. Define Pipeline Stages</a></li>
+        <li><a href="#6-save-and-queue-the-pipeline">6. Save and Queue the Pipeline</a></li>
+        <li><a href="#7-monitor-pipeline-execution">7. Monitor Pipeline Execution</a></li>
+        <li><a href="#create-some-basics-pipeline-as-well-to-understand-the-functionality-and-all-options">Create Some Basics Pipeline as well to understand the functionality and all options</a></li>
+        <li><a href="#pipeline-1">Pipeline 1</a></li>
+      </ul>
+    </li>
+    <li><a href="#create-your--classical-pipeline-for-maven-in-azure-devops">Create Your  Classical Pipeline for Maven in Azure DevOps</a>
+      <ul>
+        <li><a href="#steps-to-create-a-classical-pipeline-for-maven">Steps to Create a Classical Pipeline for Maven</a></li>
+        <li><a href="#1-navigate-to-pipelines-1">1. Navigate to Pipelines</a></li>
+        <li><a href="#2-create-a-new-pipeline-1">2. Create a New Pipeline</a></li>
+        <li><a href="#3-use-the-classical-editor">3. Use the Classical Editor</a></li>
+        <li><a href="#4-select-a-maven-template">4. Select a Maven Template</a></li>
+        <li><a href="#5-configure-the-build-pipeline">5. Configure the Build Pipeline</a></li>
+        <li><a href="#6-save-and-run-the-pipeline">6. Save and Run the Pipeline</a></li>
+        <li><a href="#7-monitor-pipeline-execution-1">7. Monitor Pipeline Execution</a></li>
+        <li><a href="#summary">Summary</a></li>
+      </ul>
+    </li>
+    <li><a href="#how-to-create-a-service-connection-in-azure-devops">How to Create a Service Connection in Azure DevOps</a>
+      <ul>
+        <li><a href="#what-is-a-service-connection">What is a Service Connection?</a></li>
+        <li><a href="#benefits">Benefits:</a></li>
+        <li><a href="#steps-to-create-a-service-connection">Steps to Create a Service Connection</a></li>
+        <li><a href="#1-navigate-to-the-project-settings">1. Navigate to the Project Settings</a></li>
+        <li><a href="#2-access-the-service-connections-section">2. Access the Service Connections Section</a></li>
+        <li><a href="#3-create-a-new-service-connection">3. Create a New Service Connection</a></li>
+        <li><a href="#4-provide-connection-details">4. Provide Connection Details</a></li>
+        <li><a href="#5-grant-access-permissions">5. Grant Access Permissions</a></li>
+        <li><a href="#6-verify-and-finish">6. Verify and Finish</a></li>
+        <li><a href="#using-the-service-connection-in-a-pipeline">Using the Service Connection in a Pipeline</a></li>
+      </ul>
+    </li>
+    <li><a href="#classical-pipeline-variables-in-azure-devops">Classical Pipeline Variables in Azure DevOps</a>
+      <ul>
+        <li><a href="#what-are-pipeline-variables">What are Pipeline Variables?</a></li>
+        <li><a href="#types-of-variables">Types of Variables</a></li>
+        <li><a href="#1-system-defined-variables">1. <strong>System-defined Variables</strong></a></li>
+        <li><a href="#2-user-defined-variables">2. <strong>User-defined Variables</strong></a></li>
+        <li><a href="#3-secret-variables">3. <strong>Secret Variables</strong></a></li>
+        <li><a href="#defining-variables-in-classical-pipelines">Defining Variables in Classical Pipelines</a></li>
+        <li><a href="#1-defining-pipeline-variables">1. <strong>Defining Pipeline Variables</strong></a></li>
+        <li><a href="#2-using-variables-in-pipeline-tasks">2. <strong>Using Variables in Pipeline Tasks</strong></a></li>
+      </ul>
+    </li>
+    <li><a href="#what-are-pipeline-others-options">What Are Pipeline others Options?</a></li>
+    <li><a href="#key-pipeline-options">Key Pipeline Options</a>
+      <ul>
+        <li><a href="#agent-specification"><strong>Agent Specification</strong></a></li>
+        <li><a href="#timeout"><strong>Timeout</strong></a></li>
+        <li><a href="#retain-runs"><strong>Retain Runs</strong></a></li>
+        <li><a href="#build-number-format"><strong>Build Number Format</strong></a></li>
+        <li><a href="#clean-option"><strong>Clean Option</strong></a></li>
+        <li><a href="#parallel-jobs"><strong>Parallel Jobs</strong></a></li>
+        <li><a href="#multi-stage-pipelines"><strong>Multi-Stage Pipelines</strong></a></li>
+        <li><a href="#failing-conditions"><strong>Failing Conditions</strong></a></li>
+        <li><a href="#continue-on-error"><strong>Continue on Error</strong></a></li>
+      </ul>
+    </li>
+    <li><a href="#trigger-options"><strong>Trigger Options</strong></a>
+      <ul>
+        <li><a href="#continuous-integration-ci-trigger"><strong>Continuous Integration (CI) Trigger</strong></a></li>
+        <li><a href="#scheduled-trigger"><strong>Scheduled Trigger</strong></a></li>
+        <li><a href="#pull-request-trigger"><strong>Pull Request Trigger</strong></a></li>
+        <li><a href="#branch-control"><strong>Branch Control</strong></a></li>
+        <li><a href="#artifact-publishing-options"><strong>Artifact Publishing Options</strong></a></li>
+        <li><a href="#retry-policies"><strong>Retry Policies</strong></a></li>
+        <li><a href="#customizing-pipeline-options">Customizing Pipeline Options</a></li>
+        <li><a href="#summary-1">Summary</a></li>
+        <li><a href="#create-an-issue-on-build-failure">Create an issue on Build failure</a></li>
+      </ul>
+    </li>
+    <li><a href="#classical-release-pipelines-in-azure-devops">Classical Release Pipelines in Azure DevOps</a>
+      <ul>
+        <li><a href="#what-is-a-release-pipeline">What is a Release Pipeline?</a></li>
+        <li><a href="#key-components-of-release-pipelines">Key Components of Release Pipelines</a></li>
+        <li><a href="#artifacts"><strong>Artifacts</strong></a></li>
+        <li><a href="#environments"><strong>Environments</strong></a></li>
+        <li><a href="#stages"><strong>Stages</strong></a></li>
+        <li><a href="#tasks"><strong>Tasks</strong></a></li>
+        <li><a href="#approvals-and-checks"><strong>Approvals and Checks</strong></a></li>
+      </ul>
+    </li>
+    <li><a href="#creating-a-classical-release-pipeline">Creating a Classical Release Pipeline</a>
+      <ul>
+        <li><a href="#step--define-your-artifacts">Step  Define Your Artifacts</a></li>
+        <li><a href="#step--create-a-new-release-pipeline">Step  Create a New Release Pipeline</a></li>
+        <li><a href="#add-stages">Add Stages</a></li>
+        <li><a href="#configure-the-stage">Configure the Stage</a></li>
+        <li><a href="#set-up-approvals-and-checks">Set Up Approvals and Checks</a></li>
+        <li><a href="#save-and-create-a-release">Save and Create a Release</a></li>
+      </ul>
+    </li>
+    <li><a href="#managing-release-pipelines">Managing Release Pipelines</a>
+      <ul>
+        <li><a href="#monitoring-releases"><strong>Monitoring Releases</strong></a></li>
+        <li><a href="#approvals-management"><strong>Approvals Management</strong></a></li>
+        <li><a href="#rollback-strategies"><strong>Rollback Strategies</strong></a></li>
+        <li><a href="#variable-groups"><strong>Variable Groups</strong></a></li>
+        <li><a href="#best-practices">Best Practices</a></li>
+        <li><a href="#summary-2">Summary</a></li>
+      </ul>
+    </li>
+    <li><a href="#how-to-create-a-task-group-in-azure-devops">How to Create a Task Group in Azure DevOps</a>
+      <ul>
+        <li><a href="#what-is-a-task-group">What is a Task Group?</a></li>
+        <li><a href="#steps-to-create-a-task-group">Steps to Create a Task Group</a></li>
+        <li><a href="#step-1-navigate-to-pipelines">Step 1: Navigate to Pipelines</a></li>
+        <li><a href="#step-2-access-task-groups">Step 2: Access Task Groups</a></li>
+        <li><a href="#step-3-define-the-task-group">Step 3: Define the Task Group</a></li>
+        <li><a href="#step-4-set-up-variables-optional">Step 4: Set Up Variables (Optional)</a></li>
+        <li><a href="#step-5-save-the-task-group">Step 5: Save the Task Group</a></li>
+      </ul>
+    </li>
+    <li><a href="#using-the-task-group-in-a-pipeline">Using the Task Group in a Pipeline</a>
+      <ul>
+        <li><a href="#step-1-edit-a-pipeline">Step 1: Edit a Pipeline</a></li>
+        <li><a href="#step-2-add-the-task-group">Step 2: Add the Task Group</a></li>
+        <li><a href="#step-3-configure-task-group-parameters">Step 3: Configure Task Group Parameters</a></li>
+        <li><a href="#step-4-save-and-run-the-pipeline">Step 4: Save and Run the Pipeline</a></li>
+      </ul>
+    </li>
+    <li><a href="#managing-task-groups">Managing Task Groups</a>
+      <ul>
+        <li><a href="#editing-a-task-group">Editing a Task Group</a></li>
+        <li><a href="#deleting-a-task-group">Deleting a Task Group</a></li>
+        <li><a href="#viewing-task-group-usage">Viewing Task Group Usage</a></li>
+      </ul>
+    </li>
+    <li><a href="#how-to-create-a-variable-group-in-azure-devops">How to Create a Variable Group in Azure DevOps</a>
+      <ul>
+        <li><a href="#what-is-a-variable-group">What is a Variable Group?</a></li>
+        <li><a href="#steps-to-create-a-variable-group">Steps to Create a Variable Group</a></li>
+        <li><a href="#step-1-navigate-to-pipelines-1">Step 1: Navigate to Pipelines</a></li>
+        <li><a href="#step-2-access-library">Step 2: Access Library</a></li>
+        <li><a href="#step-3-create-a-new-variable-group">Step 3: Create a New Variable Group</a></li>
+        <li><a href="#step-4-define-the-variable-group">Step 4: Define the Variable Group</a></li>
+        <li><a href="#step-5-save-the-variable-group">Step 5: Save the Variable Group</a></li>
+      </ul>
+    </li>
+    <li><a href="#using-variable-groups-in-a-pipeline">Using Variable Groups in a Pipeline</a>
+      <ul>
+        <li><a href="#step-1-edit-a-pipeline-1">Step 1: Edit a Pipeline</a></li>
+        <li><a href="#step-2-link-the-variable-group">Step 2: Link the Variable Group</a></li>
+        <li><a href="#step-3-access-variables-in-tasks">Step 3: Access Variables in Tasks</a></li>
+        <li><a href="#step-4-save-and-run-the-pipeline-1">Step 4: Save and Run the Pipeline</a></li>
+      </ul>
+    </li>
+    <li><a href="#managing-variable-groups">Managing Variable Groups</a>
+      <ul>
+        <li><a href="#editing-a-variable-group">Editing a Variable Group</a></li>
+        <li><a href="#deleting-a-variable-group">Deleting a Variable Group</a></li>
+        <li><a href="#viewing-variable-group-usage">Viewing Variable Group Usage</a></li>
+      </ul>
+    </li>
+    <li><a href="#best-practices-1">Best Practices</a></li>
+    <li><a href="#summary-3">Summary</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#what-is-azure-key-vault">What is Azure Key Vault?</a></li>
+    <li><a href="#benefits-of-integration">Benefits of Integration</a></li>
+    <li><a href="#steps-to-integrate-azure-key-vault-with-azure-devops">Steps to Integrate Azure Key Vault with Azure DevOps</a>
+      <ul>
+        <li><a href="#step-1-create-an-azure-key-vault">Step 1: Create an Azure Key Vault</a></li>
+        <li><a href="#step-2-add-secrets-to-the-key-vault">Step 2: Add Secrets to the Key Vault</a></li>
+        <li><a href="#step-3-set-up-access-policies">Step 3: Set Up Access Policies</a></li>
+        <li><a href="#step-4-enable-azure-devops-integration">Step 4: Enable Azure DevOps Integration</a></li>
+        <li><a href="#step-5-use-key-vault-secrets-in-pipelines">Step 5: Use Key Vault Secrets in Pipelines</a></li>
+        <li><a href="#example-yaml-snippet">Example YAML Snippet</a></li>
+      </ul>
+    </li>
+    <li><a href="#environments-in-azure-devops">Environments in Azure DevOps</a>
+      <ul>
+        <li><a href="#what-are-environments">What are Environments?</a></li>
+      </ul>
+    </li>
+    <li><a href="#benefits-of-using-environments">Benefits of Using Environments</a></li>
+    <li><a href="#creating-an-environment-in-azure-devops">Creating an Environment in Azure DevOps</a>
+      <ul>
+        <li><a href="#step-1-navigate-to-the-pipelines-section">Step 1: Navigate to the Pipelines Section</a></li>
+        <li><a href="#step-2-access-environments">Step 2: Access Environments</a></li>
+        <li><a href="#step-3-define-the-environment">Step 3: Define the Environment</a></li>
+        <li><a href="#step-4-configure-approvals-and-checks-optional">Step 4: Configure Approvals and Checks (Optional)</a></li>
+        <li><a href="#step-5-save-the-environment">Step 5: Save the Environment</a></li>
+      </ul>
+    </li>
+    <li><a href="#using-environments-in-a-pipeline">Using Environments in a Pipeline</a>
+      <ul>
+        <li><a href="#step-1-edit-your-pipeline">Step 1: Edit Your Pipeline</a></li>
+        <li><a href="#step-2-add-an-environment">Step 2: Add an Environment</a></li>
+        <li><a href="#step-3-configure-deployment-steps">Step 3: Configure Deployment Steps</a></li>
+        <li><a href="#step-4-save-and-run-the-pipeline-2">Step 4: Save and Run the Pipeline</a></li>
+      </ul>
+    </li>
+    <li><a href="#monitoring-environments">Monitoring Environments</a>
+      <ul>
+        <li><a href="#viewing-deployment-status">Viewing Deployment Status</a></li>
+        <li><a href="#accessing-resource-logs">Accessing Resource Logs</a></li>
+      </ul>
+    </li>
+    <li><a href="#best-practices-2">Best Practices</a>
+      <ul>
+        <li><a href="#summary-4">Summary</a></li>
+      </ul>
+    </li>
+    <li><a href="#how-to-extract-yaml-from-a-classical-pipeline-in-azure-devops">How to Extract YAML from a Classical Pipeline in Azure DevOps</a>
+      <ul>
+        <li><a href="#overview">Overview</a></li>
+      </ul>
+    </li>
+    <li><a href="#steps-to-extract-yaml-from-a-classical-pipeline">Steps to Extract YAML from a Classical Pipeline</a>
+      <ul>
+        <li><a href="#step-1-open-your-classical-pipeline">Step 1: Open Your Classical Pipeline</a></li>
+        <li><a href="#azure-devops-and-sonarqube-integration">Azure Devops and Sonarqube Integration</a></li>
+        <li><a href="#heading"></a></li>
+      </ul>
+    </li>
+    <li><a href="#create-azure-container-registry-acr">Create Azure Container Registry (ACR)</a></li>
+    <li><a href="#prerequisites-1">Prerequisites</a></li>
+    <li><a href="#steps-to-create-azure-container-registry-acr">Steps to Create Azure Container Registry (ACR)</a></li>
+    <li><a href="#create-a-pipeline-using-the-github-repo-or-importing-to-azure-repo">Create a pipeline using the Github repo or importing to Azure Repo</a></li>
+    <li><a href="#sonarqube">Sonarqube</a></li>
+    <li><a href="#integrate-sonarqube-with-azure-devops">Integrate SonarQube with Azure DevOps</a>
+      <ul>
+        <li><a href="#prerequisites-2">Prerequisites</a></li>
+      </ul>
+    </li>
+    <li><a href="#azure-devops-execution-plan--multi-agent-parallelism">Azure DevOps: Execution Plan – Multi-agent Parallelism</a>
+      <ul>
+        <li><a href="#1-parallelism-section">1. Parallelism Section</a></li>
+        <li><a href="#2-number-of-agents">2. Number of agents</a></li>
+        <li><a href="#3-continue-on-error">3. Continue on error</a></li>
+        <li><a href="#4-timeout">4. Timeout</a></li>
+        <li><a href="#5-job-cancel-timeout">5. Job cancel timeout</a></li>
+        <li><a href="#6-dependencies">6. Dependencies</a></li>
+        <li><a href="#use-case">Use Case</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+        
+    
+
+</div>
+          </aside>
+          <main class="col-12 col-md-9 col-xl-8 pl-md-5" role="main">
+            
+  
+
+            <nav aria-label="breadcrumb" class="td-breadcrumbs">
+  <ol class="breadcrumb">
+  <li class="breadcrumb-item">
+    <a href="/docs/">Docs</a>
+  </li>
+  <li class="breadcrumb-item">
+    <a href="/docs/azure-devops/">Azure Devops</a>
+  </li>
+  <li class="breadcrumb-item active" aria-current="page">
+    <a href="/docs/azure-devops/azuredevops-03/">Part 3</a>
+  </li>
+  </ol>
+</nav>
+            
+<div class="td-content">
+	<h1>Part 3</h1>
+	<div class="lead">Azure Devops</div>
+	<header class="article-meta">
+		
+
+  
+    
+
+
+  
+    
+
+
+  
+
+		
+	</header>    
+	<!-- end-chunk -->
+<!-- begin-chunk data-anchor="agenda" data-heading="Agenda" data-level="2" data-permalink="/docs/azure-devops/azuredevops-03/" data-title="Part 3" -->
+<h2 id="agenda">Agenda</h2><ul>
+<li>Azure Devops Pipeline
+<ul>
+<li>Classical Pipeline
+<ul>
+<li>Variables</li>
+<li>Triggers</li>
+<li>History</li>
+<li>Additional Optional</li>
+</ul>
+</li>
+<li>Yaml Based Pipeline</li>
+</ul>
+</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="push-the-sample-application-to-repo" data-heading="Push the Sample Application to Repo" data-level="2" data-permalink="/docs/azure-devops/azuredevops-03/" data-title="Part 3" -->
+<h2 id="push-the-sample-application-to-repo">Push the Sample Application to Repo</h2><ol>
+<li><strong>DevOps Portal</strong> → Create a Project (HelloWorldApp)</li>
+<li><strong>Project</strong> → <strong>Repo</strong> → <strong>Files</strong> → Copy Clone URL to Clipboard</li>
+<li>In your terminal, run the following commands:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git clone &lt;Paste the URL&gt;
+</span></span></code></pre></div></li>
+<li>Navigate to the directory:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>cd HelloWorldApp
+</span></span></code></pre></div></li>
+<li>Create a new solution file:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>dotnet new sln -o HelloWorldApp
+</span></span></code></pre></div></li>
+<li>Navigate to the directory:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>cd HelloWorldApp
+</span></span></code></pre></div></li>
+<li>Create a new MVC application:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>dotnet new mvc -n HelloWorldApp.Web
+</span></span></code></pre></div></li>
+<li>Add the project to the solution:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>dotnet sln HelloWorldApp.sln add HelloWorldApp.Web/HelloWorldApp.Web.csproj
+</span></span></code></pre></div></li>
+<li>Stage the changes:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git add .
+</span></span></code></pre></div></li>
+<li>Commit the changes:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git commit -m <span style="color:#e6db74">&#34;Initial Commit&#34;</span>
+</span></span></code></pre></div></li>
+<li>Push the changes to the repository:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git push origin master
+</span></span></code></pre></div></li>
+<li>Switch back to the web portal and view the committed files.</li>
+<li>Build the project locally to test first
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>dotnet build
+</span></span></code></pre></div></li>
+<li>Run the Application Locally (optional to use urls if the port 5000 is in use)
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span> cd HelloWorldApp.Web/
+</span></span><span style="display:flex;"><span> dotnet bin/Debug/net8.0/HelloWorldApp.Web.dll --urls <span style="color:#e6db74">&#34;http://localhost:5001&#34;</span>
+</span></span></code></pre></div></li>
+</ol>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="create-asp-net-project-using-visual-studio-2022" data-heading="Create ASP Net project using visual studio 2022" data-level="2" data-permalink="/docs/azure-devops/azuredevops-03/" data-title="Part 3" -->
+<h2 id="create-asp-net-project-using-visual-studio-2022">Create ASP Net project using visual studio 2022</h2><p>Open visual studio code and select as below
+<img src="/images/vs01.png" alt="vs">
+<img src="/images/vs02.png" alt="vs">
+<img src="/images/vs03.png" alt="vs">
+<img src="/images/vs04.png" alt="vs">
+<img src="/images/vs05.png" alt="vs"></p>
+<p>Now you application will be available in  respective folder and you can upload this to your Azure repo.</p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="create-different-type-of-project" data-heading="Create different type of project" data-level="2" data-permalink="/docs/azure-devops/azuredevops-03/" data-title="Part 3" -->
+<h2 id="create-different-type-of-project">Create different type of project</h2><ul>
+<li><a href="https://start.spring.io/" target="_blank" rel="noopener">Click here</a> to create maven or other type of Project</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="push-the-sample-application-to-repo-maven" data-heading="Push the Sample Application to Repo (Maven)" data-level="2" data-permalink="/docs/azure-devops/azuredevops-03/" data-title="Part 3" -->
+<h2 id="push-the-sample-application-to-repo-maven">Push the Sample Application to Repo (Maven)</h2><ol>
+<li><strong>DevOps Portal</strong> → Create a Project (HelloWorldApp)</li>
+<li><strong>Project</strong> → <strong>Repo</strong> → <strong>Files</strong> → Copy Clone URL to Clipboard</li>
+<li>In your terminal, run the following commands:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git clone &lt;Paste the URL&gt;
+</span></span></code></pre></div></li>
+<li>Navigate to the directory:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>cd HelloWorldApp
+</span></span></code></pre></div></li>
+<li>Initialize the Maven project (if not already done):
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>mvn archetype:generate -DgroupId<span style="color:#f92672">=</span>com.example -DartifactId<span style="color:#f92672">=</span>HelloWorldApp -DarchetypeArtifactId<span style="color:#f92672">=</span>maven-archetype-quickstart -DinteractiveMode<span style="color:#f92672">=</span>false
+</span></span></code></pre></div></li>
+<li>Compile the project:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>mvn compile
+</span></span></code></pre></div></li>
+<li>Run the tests:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>mvn test
+</span></span></code></pre></div></li>
+<li>Package the project:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>mvn package
+</span></span></code></pre></div></li>
+<li>Clean up the target directory (optional):
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>mvn clean
+</span></span></code></pre></div></li>
+<li>Stage the changes:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git add .
+</span></span></code></pre></div></li>
+<li>Commit the changes:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git commit -m <span style="color:#e6db74">&#34;Initial Commit&#34;</span>
+</span></span></code></pre></div></li>
+<li>Push the changes to the repository:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git push origin master
+</span></span></code></pre></div></li>
+<li>Switch back to the web portal and view the committed files.</li>
+</ol>
+<p>maven Repo
+<a href="https://github.com/nippyk9/t1-student-maven-proj" target="_blank" rel="noopener">https://github.com/nippyk9/t1-student-maven-proj</a></p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="what-is-azure-pipelines" data-heading="What is Azure Pipelines?" data-level="2" data-permalink="/docs/azure-devops/azuredevops-03/" data-title="Part 3" -->
+<h2 id="what-is-azure-pipelines">What is Azure Pipelines?</h2><p>Azure Pipelines is the part of Azure DevOps that automatically builds, tests, and deploys code projects. Azure Pipelines combines continuous integration, continuous testing, and continuous delivery to build, test, and deliver your code to any destination. Azure Pipelines supports all major languages and project types.
+<img src="/images/pipeline1.png" alt="pipeline"></p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="azure-pipelines-benefits" data-heading="Azure Pipelines Benefits" data-level="2" data-permalink="/docs/azure-devops/azuredevops-03/" data-title="Part 3" -->
+<h2 id="azure-pipelines-benefits">Azure Pipelines Benefits</h2><p><strong>Azure Pipelines</strong> provides a quick, easy, and safe way to automate building your projects with consistent and high-quality code that&rsquo;s readily available to users. It offers a wide range of features to streamline continuous integration (CI) and continuous delivery (CD) pipelines.</p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="key-benefits-of-azure-pipelines" data-heading="Key Benefits of Azure Pipelines" data-level="2" data-permalink="/docs/azure-devops/azuredevops-03/" data-title="Part 3" -->
+<h2 id="key-benefits-of-azure-pipelines">Key Benefits of Azure Pipelines</h2><ol>
+<li>
+<p><strong>Supports Any Language or Platform</strong>:</p>
+<ul>
+<li>You can build, test, and deploy applications written in any language, such as Python, Java, JavaScript, C#, Ruby, PHP, and more.</li>
+</ul>
+</li>
+<li>
+<p><strong>Deploy to Multiple Targets Simultaneously</strong>:</p>
+<ul>
+<li>Azure Pipelines allows you to deploy to various targets, including virtual machines, containers, serverless functions, on-premises environments, and multiple cloud providers at the same time.</li>
+</ul>
+</li>
+<li>
+<p><strong>Azure Integration</strong>:</p>
+<ul>
+<li>It integrates deeply with Azure, making it easy to deploy applications and services to Azure App Service, Azure Kubernetes Service (AKS), Azure Functions, and more.</li>
+</ul>
+</li>
+<li>
+<p><strong>Cross-Platform Support</strong>:</p>
+<ul>
+<li>You can build your project on Windows, Linux, or macOS build agents, ensuring compatibility and flexibility for various platforms.</li>
+</ul>
+</li>
+<li>
+<p><strong>GitHub Integration</strong>:</p>
+<ul>
+<li>Seamlessly integrates with GitHub, enabling automated builds, testing, and deployments when changes are pushed to your GitHub repositories.</li>
+</ul>
+</li>
+<li>
+<p><strong>Supports Open-Source Projects</strong>:</p>
+<ul>
+<li>Azure Pipelines provides free access to open-source projects, with unlimited build minutes for public repositories.</li>
+</ul>
+</li>
+</ol>
+<hr>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="additional-advantages" data-heading="Additional Advantages:" data-level="3" data-permalink="/docs/azure-devops/azuredevops-03/" data-title="Part 3" -->
+<h3 id="additional-advantages">Additional Advantages:</h3><ul>
+<li><strong>Parallel Jobs</strong>: Run multiple jobs in parallel, speeding up the build and deployment process.</li>
+<li><strong>Customizable Workflows</strong>: Easily configure CI/CD workflows using YAML or visual editors.</li>
+<li><strong>Cloud and Self-Hosted Agents</strong>: Use Microsoft-hosted agents or self-hosted agents for more control over the build environment.</li>
+<li><strong>Extensive Marketplace</strong>: Access a wide range of pre-built tasks and extensions from the Azure DevOps Marketplace to integrate with third-party services.</li>
+</ul>
+<p>For more information, visit the <a href="https://learn.microsoft.com/en-us/azure/devops/pipelines/?view=azure-devops" target="_blank" rel="noopener">Azure Pipelines Documentation</a>.</p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="continuous-integration" data-heading="Continuous integration" data-level="3" data-permalink="/docs/azure-devops/azuredevops-03/" data-title="Part 3" -->
+<h3 id="continuous-integration">Continuous integration</h3><ul>
+<li>Continuous integration (CI) is a practice development teams use to automate merging and testing code.</li>
+<li>CI helps to catch bugs early in the development cycle, making them less expensive to fix.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="continuous-delivery" data-heading="Continuous delivery" data-level="3" data-permalink="/docs/azure-devops/azuredevops-03/" data-title="Part 3" -->
+<h3 id="continuous-delivery">Continuous delivery</h3><ul>
+<li>Continuous delivery (CD) is the process of building, testing, and deploying code to one or more test or production environments.</li>
+<li>Deploying and testing in multiple environments optimizes quality.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="continuous-deployment" data-heading="Continuous Deployment" data-level="3" data-permalink="/docs/azure-devops/azuredevops-03/" data-title="Part 3" -->
+<h3 id="continuous-deployment">Continuous Deployment</h3><ul>
+<li>Continuous Deployment takes continuous delivery a step further by automating the entire release process, including deploying to production.</li>
+<li>There’s no human intervention once code passes the tests. Every code change that passes the testing phase is automatically deployed to the production environment.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="deployment-targets" data-heading="Deployment targets" data-level="3" data-permalink="/docs/azure-devops/azuredevops-03/" data-title="Part 3" -->
+<h3 id="deployment-targets">Deployment targets</h3><p>Use Azure Pipelines to deploy your code to multiple targets. Targets include virtual machines, environments, containers, on-premises and cloud platforms, and platform-as-a-service (PaaS) services. You can also publish your mobile application to a store.</p>
+<p>Once you have CI in place, you can create a release definition to automate the deployment of your application to one or more environments. The automation process is defined as a collection of tasks.</p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="key-differences-in-azure-devops-continuous-deployment--continuous-delivery" data-heading="Key Differences in Azure DevOps Continuous Deployment &amp; Continuous Delivery" data-level="3" data-permalink="/docs/azure-devops/azuredevops-03/" data-title="Part 3" -->
+<h3 id="key-differences-in-azure-devops-continuous-deployment--continuous-delivery">Key Differences in Azure DevOps Continuous Deployment &amp; Continuous Delivery</h3><table>
+<thead>
+<tr>
+<th><strong>Feature</strong></th>
+<th><strong>Continuous Delivery (CD)</strong></th>
+<th><strong>Continuous Deployment (CD)</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Manual Approval in Prod</strong></td>
+<td>Required before production deployment</td>
+<td>No manual intervention required</td>
+</tr>
+<tr>
+<td><strong>Automated Deployments</strong></td>
+<td>Deployments to non-production environments are automated; production needs approval</td>
+<td>All deployments, including production, are automated</td>
+</tr>
+<tr>
+<td><strong>Stages in Azure Pipelines</strong></td>
+<td>Staging environments may be automated; production requires an approval gate</td>
+<td>All environments, including production, are automatically deployed</td>
+</tr>
+<tr>
+<td><strong>Rollback Options</strong></td>
+<td>Manual rollback possible if production deployment fails</td>
+<td>Automated rollback based on tests or manual rollback tools if configured</td>
+</tr>
+</tbody>
+</table>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="pipelines-basics" data-heading="Pipelines Basics" data-level="2" data-permalink="/docs/azure-devops/azuredevops-03/" data-title="Part 3" -->
+<h2 id="pipelines-basics">Pipelines Basics</h2><p><img src="/images/key-concepts-overview.svg" alt="pipeline1"></p>
+<ul>
+<li>A trigger tells a pipeline to run.</li>
+<li>A pipeline is made up of one or more stages. A pipeline can deploy to one or more environments.</li>
+<li>A stage is a way of organizing jobs in a pipeline and each stage can have one or more jobs.</li>
+<li>Each job runs on one agent. A job can also be agentless.</li>
+<li>Each agent runs a job that contains one or more steps.</li>
+<li>A step can be a task or script and is the smallest building block of a pipeline.</li>
+<li>A task is a prepackaged script that performs an action, such as invoking a REST API or publishing a build artifact.</li>
+<li>An artifact is a collection of files or packages published by a run.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="agent" data-heading="Agent" data-level="3" data-permalink="/docs/azure-devops/azuredevops-03/" data-title="Part 3" -->
+<h3 id="agent">Agent</h3><p>When your build or deployment runs, the system begins one or more jobs. An agent is computing infrastructure with installed agent software that runs one job at a time. For example, your job could run on a Microsoft-hosted Ubuntu agent.
+<a href="https://learn.microsoft.com/en-us/azure/devops/pipelines/agents/agents?view=azure-devops&amp;tabs=yaml%2Cbrowser" target="_blank" rel="noopener">Know more about microsoft hosted Agents</a></p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="approvals" data-heading="Approvals" data-level="3" data-permalink="/docs/azure-devops/azuredevops-03/" data-title="Part 3" -->
+<h3 id="approvals">Approvals</h3><p><a href="https://learn.microsoft.com/en-us/azure/devops/pipelines/process/approvals?view=azure-devops&amp;tabs=check-pass" target="_blank" rel="noopener">Approvals</a> define a set of validations required before a deployment runs. Manual approval is a common check performed to control deployments to production environments. When checks are configured on an environment, a pipeline run pauses until all the checks are completed successfully.</p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="artifact" data-heading="Artifact" data-level="3" data-permalink="/docs/azure-devops/azuredevops-03/" data-title="Part 3" -->
+<h3 id="artifact">Artifact</h3><p>An artifact is a collection of files or packages published by a run. Artifacts are made available to subsequent tasks, such as distribution or deployment. For more information, see Artifacts in Azure Pipelines.</p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="deployment" data-heading="Deployment" data-level="3" data-permalink="/docs/azure-devops/azuredevops-03/" data-title="Part 3" -->
+<h3 id="deployment">Deployment</h3><ul>
+<li>
+<p>A classic pipeline deployment is the action of running the tasks for one stage. The deployment can include running automated tests, deploying build artifacts, and any other actions are specified for that stage.</p>
+</li>
+<li>
+<p>For YAML pipelines, a deployment refers to a deployment job. A deployment job is a collection of steps that are run sequentially against an environment. You can use strategies like run once, rolling, and canary for deployment jobs.</p>
+</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="deployment-group" data-heading="Deployment group" data-level="3" data-permalink="/docs/azure-devops/azuredevops-03/" data-title="Part 3" -->
+<h3 id="deployment-group">Deployment group</h3><p>A deployment group is a set of deployment target machines that have agents installed. A deployment group is just another grouping of agents, like an agent pool. You can set the deployment targets in a pipeline for a job using a deployment group.</p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="environment" data-heading="Environment" data-level="3" data-permalink="/docs/azure-devops/azuredevops-03/" data-title="Part 3" -->
+<h3 id="environment">Environment</h3><p>An environment is a collection of resources where you deploy your application. One environment can contain one or more virtual machines, containers, web apps, or any service. Pipelines deploy to one or more environments after a build is completed and tests are run.</p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="release" data-heading="Release" data-level="3" data-permalink="/docs/azure-devops/azuredevops-03/" data-title="Part 3" -->
+<h3 id="release">Release</h3><ul>
+<li>For classic pipelines, a release is a versioned set of artifacts specified in a pipeline.</li>
+<li>The release includes a snapshot of all the information required to carry out all the tasks and actions in the release pipeline, such as stages, tasks, policies such as triggers and approvers, and deployment options.</li>
+<li>You can create a release manually, with a deployment trigger, or with the REST API.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="script" data-heading="Script" data-level="3" data-permalink="/docs/azure-devops/azuredevops-03/" data-title="Part 3" -->
+<h3 id="script">Script</h3><ul>
+<li>A script runs code as a step in your pipeline using command line, PowerShell, or Bash.</li>
+<li>You can write cross-platform scripts for macOS, Linux, and Windows. Unlike a task, a script is custom code that is specific to your pipeline.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="stage" data-heading="Stage" data-level="3" data-permalink="/docs/azure-devops/azuredevops-03/" data-title="Part 3" -->
+<h3 id="stage">Stage</h3><p>A stage is a logical boundary in the pipeline. It can be used to mark separation of concerns (for example, Build, QA, and production). Each stage contains one or more jobs. When you define multiple stages in a pipeline, by default, they run one after the other. You can specify the conditions for when a stage runs.</p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="job" data-heading="Job" data-level="3" data-permalink="/docs/azure-devops/azuredevops-03/" data-title="Part 3" -->
+<h3 id="job">Job</h3><p>A stage contains one or more jobs. Each job runs on an agent. A job represents an execution boundary of a set of steps. All of the steps run together on the same agent. Jobs are most useful when you want to run a series of steps in different environments. For example, you might want to build two configurations - x86 and x64. In this case, you have one stage and two jobs. One job would be for x86 and the other job would be for x64.</p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="step" data-heading="Step" data-level="3" data-permalink="/docs/azure-devops/azuredevops-03/" data-title="Part 3" -->
+<h3 id="step">Step</h3><p>A step is the smallest building block of a pipeline. For example, a pipeline might consist of build and test steps. A step can either be a script or a task. A task is simply a precreated script offered as a convenience to you.</p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="task" data-heading="Task" data-level="3" data-permalink="/docs/azure-devops/azuredevops-03/" data-title="Part 3" -->
+<h3 id="task">Task</h3><p>A task is the building block for defining automation in a pipeline. A task is packaged script or procedure that has been abstracted with a set of inputs.</p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="trigger" data-heading="Trigger" data-level="3" data-permalink="/docs/azure-devops/azuredevops-03/" data-title="Part 3" -->
+<h3 id="trigger">Trigger</h3><p>A trigger is something that&rsquo;s set up to tell the pipeline when to run. You can configure a pipeline to run upon a push to a repository, at scheduled times, or upon the completion of another build. All of these actions are known as triggers.</p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="library" data-heading="Library" data-level="3" data-permalink="/docs/azure-devops/azuredevops-03/" data-title="Part 3" -->
+<h3 id="library">Library</h3><p>The Library includes secure files and variable groups. Secure files are a way to store files and share them across pipelines. For example, you may want to reference the same file for different pipelines. In that case, you can save the file within Library and use it when you need it. Variable groups store values and secrets that you might want to be passed into a YAML pipeline or make available across multiple pipelines</p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="azure-pipelines-feature-comparison" data-heading="Azure Pipelines Feature Comparison" data-level="1" data-permalink="/docs/azure-devops/azuredevops-03/" data-title="Part 3" -->
+<h1 id="azure-pipelines-feature-comparison">Azure Pipelines Feature Comparison</h1><table>
+<thead>
+<tr>
+<th><strong>Description</strong></th>
+<th><strong>YAML</strong></th>
+<th><strong>Classic Pipeline</strong></th>
+<th><strong>Classic Release</strong></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Agents</strong></td>
+<td>A software component that runs tasks defined in your Azure Pipelines on a machine.</td>
+<td>✔</td>
+<td>✔</td>
+<td>✔</td>
+</tr>
+<tr>
+<td><strong>Approvals</strong></td>
+<td>Require designated approvers before deploying to a stage.</td>
+<td></td>
+<td>✔</td>
+<td>✔</td>
+</tr>
+<tr>
+<td><strong>Artifacts</strong></td>
+<td>Download and publish your binaries/packages to various destinations.</td>
+<td>✔</td>
+<td>✔</td>
+<td>✔</td>
+</tr>
+<tr>
+<td><strong>Caching</strong></td>
+<td>Reduce build time by caching dependencies from previous runs.</td>
+<td>✔</td>
+<td>✔</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Conditions</strong></td>
+<td>Specify conditions under which a step, job, or stage runs.</td>
+<td>✔</td>
+<td>✔</td>
+<td>✔</td>
+</tr>
+<tr>
+<td><strong>Container jobs</strong></td>
+<td>Specify jobs to run in a container.</td>
+<td>✔</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Demands</strong></td>
+<td>Ensure the capabilities needed by the pipeline are present on the running agent.</td>
+<td>✔</td>
+<td>✔</td>
+<td>✔</td>
+</tr>
+<tr>
+<td><strong>Dependencies</strong></td>
+<td>Specify a requirement to be met to run the next stage.</td>
+<td>✔</td>
+<td></td>
+<td>✔</td>
+</tr>
+<tr>
+<td><strong>Deployment groups &amp; Environments</strong></td>
+<td>Deployment groups (Classic) define target machines. Environments (YAML) are collections of resources for deployment.</td>
+<td>✔</td>
+<td></td>
+<td>✔</td>
+</tr>
+<tr>
+<td><strong>Deployment jobs</strong></td>
+<td>A collection of deployment steps executed sequentially against an environment.</td>
+<td>✔</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Gates</strong></td>
+<td>Automate release controls by evaluating health signals from external services.</td>
+<td></td>
+<td></td>
+<td>✔</td>
+</tr>
+<tr>
+<td><strong>Jobs</strong></td>
+<td>A series of sequential steps that form the smallest unit of work.</td>
+<td>✔</td>
+<td>✔</td>
+<td>✔</td>
+</tr>
+<tr>
+<td><strong>Library</strong></td>
+<td>Collection of assets such as Variable groups and Secure files.</td>
+<td>✔</td>
+<td>✔</td>
+<td>✔</td>
+</tr>
+<tr>
+<td><strong>Service connections</strong></td>
+<td>Enable connection to an external service required to execute tasks in a job.</td>
+<td>✔</td>
+<td>✔</td>
+<td>✔</td>
+</tr>
+<tr>
+<td><strong>Service containers</strong></td>
+<td>Manage the lifecycle of a containerized service, often used with container jobs.</td>
+<td>✔</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Stages</strong></td>
+<td>Organize jobs within a pipeline.</td>
+<td>✔</td>
+<td></td>
+<td>✔</td>
+</tr>
+<tr>
+<td><strong>Task groups</strong></td>
+<td>Encapsulate a sequence of tasks into a single reusable task.</td>
+<td></td>
+<td>✔</td>
+<td>✔</td>
+</tr>
+<tr>
+<td><strong>Tasks</strong></td>
+<td>The building blocks that define the steps in a pipeline job.</td>
+<td>✔</td>
+<td>✔</td>
+<td>✔</td>
+</tr>
+<tr>
+<td><strong>Templates</strong></td>
+<td>Define reusable content, logic, and parameters.</td>
+<td>✔</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Triggers</strong></td>
+<td>Define the event that causes a pipeline to run.</td>
+<td>✔</td>
+<td>✔</td>
+<td>✔</td>
+</tr>
+<tr>
+<td><strong>Variables</strong></td>
+<td>Placeholders for values used throughout pipeline execution.</td>
+<td>✔</td>
+<td>✔</td>
+<td>✔</td>
+</tr>
+<tr>
+<td><strong>Variable groups</strong></td>
+<td>Store values and secrets to manage and share across multiple pipelines.</td>
+<td>✔</td>
+<td>✔</td>
+<td>✔</td>
+</tr>
+</tbody>
+</table>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="classical-pipeline-in-azure-devops" data-heading="Classical Pipeline in Azure DevOps" data-level="3" data-permalink="/docs/azure-devops/azuredevops-03/" data-title="Part 3" -->
+<h3 id="classical-pipeline-in-azure-devops">Classical Pipeline in Azure DevOps</h3><p>A <strong>Classical Pipeline</strong> in Azure DevOps is a graphical user interface (GUI) pipeline where you define the steps to build, test, and deploy your application.</p>
+<ul>
+<li>Below is a step-by-step guide to creating your first classical pipeline.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="prerequisites" data-heading="Prerequisites" data-level="3" data-permalink="/docs/azure-devops/azuredevops-03/" data-title="Part 3" -->
+<h3 id="prerequisites">Prerequisites</h3><p>Before you begin, make sure:</p>
+<ul>
+<li>You have an Azure DevOps account.</li>
+<li>You have a project and a repository set up in Azure DevOps.</li>
+<li>You have some source code in the repository that you want to build.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="steps-to-create-a-classical-pipeline" data-heading="Steps to Create a Classical Pipeline" data-level="3" data-permalink="/docs/azure-devops/azuredevops-03/" data-title="Part 3" -->
+<h3 id="steps-to-create-a-classical-pipeline">Steps to Create a Classical Pipeline</h3><!-- end-chunk -->
+<!-- begin-chunk data-anchor="1-navigate-to-pipelines" data-heading="1. Navigate to Pipelines" data-level="3" data-permalink="/docs/azure-devops/azuredevops-03/" data-title="Part 3" -->
+<h3 id="1-navigate-to-pipelines">1. Navigate to Pipelines</h3><ol>
+<li>Go to your Azure DevOps project.</li>
+<li>In the left sidebar, select <strong>Pipelines</strong>.</li>
+<li>Click on <strong>Pipelines</strong> under the dropdown to view all existing pipelines.</li>
+</ol>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="2-create-a-new-pipeline" data-heading="2. Create a New Pipeline" data-level="3" data-permalink="/docs/azure-devops/azuredevops-03/" data-title="Part 3" -->
+<h3 id="2-create-a-new-pipeline">2. Create a New Pipeline</h3><ol>
+<li>Click on the <strong>New Pipeline</strong> button.</li>
+<li>You’ll be prompted to select where your code is stored:
+<ul>
+<li><strong>Azure Repos Git</strong>: For repositories within Azure DevOps.</li>
+<li><strong>GitHub</strong>: For repositories stored on GitHub.</li>
+<li><strong>Other Git</strong>: For other Git repositories.</li>
+</ul>
+</li>
+<li>Choose the appropriate option, and authorize if needed.</li>
+</ol>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="3-select-the-pipeline-type" data-heading="3. Select the Pipeline Type" data-level="3" data-permalink="/docs/azure-devops/azuredevops-03/" data-title="Part 3" -->
+<h3 id="3-select-the-pipeline-type">3. Select the Pipeline Type</h3><ol>
+<li>Azure DevOps will ask if you want to use YAML or the <strong>Classical Editor</strong>.</li>
+<li>Choose <strong>Use the Classic Editor</strong> at the bottom of the screen.</li>
+</ol>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="4-configure-the-pipeline" data-heading="4. Configure the Pipeline" data-level="3" data-permalink="/docs/azure-devops/azuredevops-03/" data-title="Part 3" -->
+<h3 id="4-configure-the-pipeline">4. Configure the Pipeline</h3><ol>
+<li><strong>Select a repository</strong>: Choose the repository you want to use for the pipeline.</li>
+<li><strong>Select a template</strong>: Choose a pipeline template based on your project type. For example, select:
+<ul>
+<li><strong>ASP.NET</strong> for .NET applications.</li>
+</ul>
+</li>
+<li>If you don’t see a suitable template, you can start with an empty job.</li>
+</ol>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="5-define-pipeline-stages" data-heading="5. Define Pipeline Stages" data-level="3" data-permalink="/docs/azure-devops/azuredevops-03/" data-title="Part 3" -->
+<h3 id="5-define-pipeline-stages">5. Define Pipeline Stages</h3><p>A classical pipeline consists of different stages like build, test, and deploy.</p>
+<ul>
+<li>
+<p><strong>Add a Build Stage</strong>:</p>
+<ol>
+<li>Click on the <strong>Agent job 1</strong> to configure the build step.</li>
+<li>Click on the <strong>+</strong> icon to add tasks. Common tasks include:
+<ul>
+<li><strong>Restore NuGet packages</strong> (for .NET projects).</li>
+<li><strong>Run build commands</strong> (e.g., <code>MSBuild</code>, <code>npm</code>, etc.).</li>
+</ul>
+</li>
+<li>Set any relevant parameters for each task.</li>
+</ol>
+</li>
+<li>
+<p><strong>Add Test Stage</strong> (Optional):</p>
+<ul>
+<li>Add test tasks (e.g., <strong>Run Unit Tests</strong>).</li>
+<li>Define the testing framework you are using.</li>
+</ul>
+</li>
+<li>
+<p><strong>Add Deploy Stage</strong> (Optional):</p>
+<ul>
+<li>Add tasks to deploy the application to environments like Azure App Service, Kubernetes, or VMs.</li>
+</ul>
+</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="6-save-and-queue-the-pipeline" data-heading="6. Save and Queue the Pipeline" data-level="3" data-permalink="/docs/azure-devops/azuredevops-03/" data-title="Part 3" -->
+<h3 id="6-save-and-queue-the-pipeline">6. Save and Queue the Pipeline</h3><ol>
+<li>Once you&rsquo;ve defined the tasks, click <strong>Save &amp; Queue</strong>.</li>
+<li>Set the pipeline variables if needed and click <strong>Save</strong>.</li>
+<li>The pipeline will now start running, performing the steps you’ve defined (e.g., build, test, and deploy).</li>
+</ol>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="7-monitor-pipeline-execution" data-heading="7. Monitor Pipeline Execution" data-level="3" data-permalink="/docs/azure-devops/azuredevops-03/" data-title="Part 3" -->
+<h3 id="7-monitor-pipeline-execution">7. Monitor Pipeline Execution</h3><ul>
+<li>You will be redirected to the <strong>Pipelines</strong> page, where you can see the execution status of your pipeline.</li>
+<li>You can view detailed logs for each step by clicking on the specific stages or tasks.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="create-some-basics-pipeline-as-well-to-understand-the-functionality-and-all-options" data-heading="Create Some Basics Pipeline as well to understand the functionality and all options" data-level="3" data-permalink="/docs/azure-devops/azuredevops-03/" data-title="Part 3" -->
+<h3 id="create-some-basics-pipeline-as-well-to-understand-the-functionality-and-all-options">Create Some Basics Pipeline as well to understand the functionality and all options</h3><!-- end-chunk -->
+<!-- begin-chunk data-anchor="pipeline-1" data-heading="Pipeline 1" data-level="3" data-permalink="/docs/azure-devops/azuredevops-03/" data-title="Part 3" -->
+<h3 id="pipeline-1">Pipeline 1</h3><ul>
+<li>Create one service connection for Linux Vm</li>
+<li>Copy some file using pipeline or run some command over there.
+<img src="/images/ssh.png" alt="ssh"></li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="create-your--classical-pipeline-for-maven-in-azure-devops" data-heading="Create Your  Classical Pipeline for Maven in Azure DevOps" data-level="2" data-permalink="/docs/azure-devops/azuredevops-03/" data-title="Part 3" -->
+<h2 id="create-your--classical-pipeline-for-maven-in-azure-devops">Create Your  Classical Pipeline for Maven in Azure DevOps</h2><p>This guide will walk you through setting up a classical pipeline for a <strong>Maven</strong> project in Azure DevOps.</p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="steps-to-create-a-classical-pipeline-for-maven" data-heading="Steps to Create a Classical Pipeline for Maven" data-level="3" data-permalink="/docs/azure-devops/azuredevops-03/" data-title="Part 3" -->
+<h3 id="steps-to-create-a-classical-pipeline-for-maven">Steps to Create a Classical Pipeline for Maven</h3><!-- end-chunk -->
+<!-- begin-chunk data-anchor="1-navigate-to-pipelines-1" data-heading="1. Navigate to Pipelines" data-level="3" data-permalink="/docs/azure-devops/azuredevops-03/" data-title="Part 3" -->
+<h3 id="1-navigate-to-pipelines-1">1. Navigate to Pipelines</h3><ol>
+<li>Go to your Azure DevOps project.</li>
+<li>Select <strong>Pipelines</strong> from the left-hand sidebar.</li>
+<li>Click <strong>Pipelines</strong> to see all existing pipelines.</li>
+</ol>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="2-create-a-new-pipeline-1" data-heading="2. Create a New Pipeline" data-level="3" data-permalink="/docs/azure-devops/azuredevops-03/" data-title="Part 3" -->
+<h3 id="2-create-a-new-pipeline-1">2. Create a New Pipeline</h3><ol>
+<li>Click <strong>New Pipeline</strong>.</li>
+<li>Choose the location of your source code (e.g., <strong>Azure Repos Git</strong>, <strong>GitHub</strong>, etc.).</li>
+<li>Authorize the repository if required.</li>
+</ol>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="3-use-the-classical-editor" data-heading="3. Use the Classical Editor" data-level="3" data-permalink="/docs/azure-devops/azuredevops-03/" data-title="Part 3" -->
+<h3 id="3-use-the-classical-editor">3. Use the Classical Editor</h3><ol>
+<li>After selecting your repository, choose <strong>Use the Classic Editor</strong> at the bottom of the page.</li>
+</ol>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="4-select-a-maven-template" data-heading="4. Select a Maven Template" data-level="3" data-permalink="/docs/azure-devops/azuredevops-03/" data-title="Part 3" -->
+<h3 id="4-select-a-maven-template">4. Select a Maven Template</h3><ol>
+<li>Choose the repository that contains your Maven project.</li>
+<li>Select the <strong>Maven</strong> pipeline template. If the template is not available, choose <strong>Empty job</strong> and manually add the Maven tasks.</li>
+</ol>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="5-configure-the-build-pipeline" data-heading="5. Configure the Build Pipeline" data-level="3" data-permalink="/docs/azure-devops/azuredevops-03/" data-title="Part 3" -->
+<h3 id="5-configure-the-build-pipeline">5. Configure the Build Pipeline</h3><ol>
+<li>
+<p><strong>Agent Job</strong>:</p>
+<ul>
+<li>Click <strong>Agent job 1</strong> to configure the agent. Select an agent pool that supports <strong>Java</strong> and <strong>Maven</strong> (e.g., a Linux or Windows agent).</li>
+</ul>
+</li>
+<li>
+<p><strong>Add Maven Task</strong>:</p>
+<ul>
+<li>Click the <strong>+</strong> icon on the <strong>Agent job</strong> to add a new task.</li>
+<li>Search for <strong>Maven</strong> and add the <strong>Maven</strong> task.</li>
+<li>Configure the <strong>Maven POM file</strong> (usually <code>pom.xml</code>) and specify the goals (e.g., <code>clean install</code>) to build and test the project.</li>
+</ul>
+</li>
+<li>
+<p><strong>Publish Test Results</strong> (Optional):</p>
+<ul>
+<li>Add the <strong>Publish Test Results</strong> task to capture the results of unit tests.</li>
+<li>Set the test results format to <strong>JUnit</strong> and point to the test report directory (<code>**/target/surefire-reports/*.xml</code>).</li>
+</ul>
+</li>
+<li>
+<p><strong>Publish Artifacts</strong> (Optional):</p>
+<ul>
+<li>Add the <strong>Publish Build Artifacts</strong> task to store build outputs (e.g., JAR files) for deployment or download.</li>
+<li>Specify the directory containing the built artifacts (<code>target</code> for Maven).</li>
+</ul>
+</li>
+</ol>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="6-save-and-run-the-pipeline" data-heading="6. Save and Run the Pipeline" data-level="3" data-permalink="/docs/azure-devops/azuredevops-03/" data-title="Part 3" -->
+<h3 id="6-save-and-run-the-pipeline">6. Save and Run the Pipeline</h3><ol>
+<li>Once all tasks are configured, click <strong>Save &amp; Queue</strong>.</li>
+<li>You can modify pipeline variables or use the default settings and then click <strong>Run</strong>.</li>
+</ol>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="7-monitor-pipeline-execution-1" data-heading="7. Monitor Pipeline Execution" data-level="3" data-permalink="/docs/azure-devops/azuredevops-03/" data-title="Part 3" -->
+<h3 id="7-monitor-pipeline-execution-1">7. Monitor Pipeline Execution</h3><ul>
+<li>Azure DevOps will start running the pipeline, executing the steps to build your Maven project.</li>
+<li>View the logs for each stage, and review the build and test results.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="summary" data-heading="Summary" data-level="3" data-permalink="/docs/azure-devops/azuredevops-03/" data-title="Part 3" -->
+<h3 id="summary">Summary</h3><p>This classical pipeline builds, tests, and optionally publishes artifacts for a Maven project in Azure DevOps. You can extend this pipeline by adding additional stages or tasks such as deployment.</p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="how-to-create-a-service-connection-in-azure-devops" data-heading="How to Create a Service Connection in Azure DevOps" data-level="2" data-permalink="/docs/azure-devops/azuredevops-03/" data-title="Part 3" -->
+<h2 id="how-to-create-a-service-connection-in-azure-devops">How to Create a Service Connection in Azure DevOps</h2><!-- end-chunk -->
+<!-- begin-chunk data-anchor="what-is-a-service-connection" data-heading="What is a Service Connection?" data-level="3" data-permalink="/docs/azure-devops/azuredevops-03/" data-title="Part 3" -->
+<h3 id="what-is-a-service-connection">What is a Service Connection?</h3><p>A <strong>Service Connection</strong> in Azure DevOps is a secure link between Azure DevOps and external services (e.g., Azure, AWS, Docker, GitHub, Kubernetes). It allows pipelines and other features in Azure DevOps to interact with these services securely, without needing to expose sensitive credentials directly in pipeline code.</p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="benefits" data-heading="Benefits:" data-level="3" data-permalink="/docs/azure-devops/azuredevops-03/" data-title="Part 3" -->
+<h3 id="benefits">Benefits:</h3><ul>
+<li><strong>Secure Authentication</strong>: Manage credentials safely.</li>
+<li><strong>Seamless Integration</strong>: Enable Azure DevOps to communicate with external systems for builds, deployments, and other automated processes.</li>
+</ul>
+<hr>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="steps-to-create-a-service-connection" data-heading="Steps to Create a Service Connection" data-level="3" data-permalink="/docs/azure-devops/azuredevops-03/" data-title="Part 3" -->
+<h3 id="steps-to-create-a-service-connection">Steps to Create a Service Connection</h3><!-- end-chunk -->
+<!-- begin-chunk data-anchor="1-navigate-to-the-project-settings" data-heading="1. Navigate to the Project Settings" data-level="3" data-permalink="/docs/azure-devops/azuredevops-03/" data-title="Part 3" -->
+<h3 id="1-navigate-to-the-project-settings">1. Navigate to the Project Settings</h3><ol>
+<li>Go to your <strong>Azure DevOps</strong> project.</li>
+<li>In the bottom left corner, click on <strong>Project Settings</strong>.</li>
+</ol>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="2-access-the-service-connections-section" data-heading="2. Access the Service Connections Section" data-level="3" data-permalink="/docs/azure-devops/azuredevops-03/" data-title="Part 3" -->
+<h3 id="2-access-the-service-connections-section">2. Access the Service Connections Section</h3><ol>
+<li>In the left-hand sidebar under the <strong>Pipelines</strong> category, click on <strong>Service Connections</strong>.</li>
+</ol>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="3-create-a-new-service-connection" data-heading="3. Create a New Service Connection" data-level="3" data-permalink="/docs/azure-devops/azuredevops-03/" data-title="Part 3" -->
+<h3 id="3-create-a-new-service-connection">3. Create a New Service Connection</h3><ol>
+<li>
+<p>Click the <strong>New Service Connection</strong> button at the top-right.</p>
+</li>
+<li>
+<p>A list of connection types will appear. You can choose from:</p>
+<ul>
+<li><strong>Azure Resource Manager</strong> (for Azure cloud services)</li>
+<li><strong>AWS</strong> (for Amazon Web Services)</li>
+<li><strong>Docker Registry</strong> (for Docker image management)</li>
+<li><strong>GitHub</strong> (for integration with GitHub repositories)</li>
+<li><strong>Kubernetes</strong> (for managing Kubernetes clusters)</li>
+<li>Others depending on your needs.</li>
+</ul>
+</li>
+<li>
+<p>Select the type of service connection you want to create (e.g., <strong>Azure Resource Manager</strong> for Azure).</p>
+</li>
+</ol>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="4-provide-connection-details" data-heading="4. Provide Connection Details" data-level="3" data-permalink="/docs/azure-devops/azuredevops-03/" data-title="Part 3" -->
+<h3 id="4-provide-connection-details">4. Provide Connection Details</h3><ol>
+<li>
+<p>Based on the type of service connection selected, provide the necessary credentials:</p>
+<ul>
+<li>For <strong>Azure Resource Manager</strong>, you may need to authorize access using your Azure subscription or provide a service principal.</li>
+<li>For <strong>AWS</strong>, provide access keys or assume a role for authentication.</li>
+<li>For <strong>Docker Registry</strong>, provide the Docker registry URL, username, and password.</li>
+</ul>
+</li>
+<li>
+<p>Fill in the required fields, such as <strong>Subscription</strong>, <strong>Service Principal</strong>, or any other credentials related to the service you&rsquo;re connecting to.</p>
+</li>
+</ol>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="5-grant-access-permissions" data-heading="5. Grant Access Permissions" data-level="3" data-permalink="/docs/azure-devops/azuredevops-03/" data-title="Part 3" -->
+<h3 id="5-grant-access-permissions">5. Grant Access Permissions</h3><ol>
+<li>
+<p>You can configure whether this service connection should be <strong>accessible by all pipelines</strong> or <strong>restricted</strong> to specific pipelines or users.</p>
+</li>
+<li>
+<p>If needed, select the checkbox for <strong>Grant access permission to all pipelines</strong>.</p>
+</li>
+</ol>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="6-verify-and-finish" data-heading="6. Verify and Finish" data-level="3" data-permalink="/docs/azure-devops/azuredevops-03/" data-title="Part 3" -->
+<h3 id="6-verify-and-finish">6. Verify and Finish</h3><ol>
+<li>
+<p>Once you’ve filled in all the details, click <strong>Verify</strong> to test the connection.</p>
+</li>
+<li>
+<p>If the connection is successful, click <strong>Save</strong>.</p>
+</li>
+</ol>
+<hr>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="using-the-service-connection-in-a-pipeline" data-heading="Using the Service Connection in a Pipeline" data-level="3" data-permalink="/docs/azure-devops/azuredevops-03/" data-title="Part 3" -->
+<h3 id="using-the-service-connection-in-a-pipeline">Using the Service Connection in a Pipeline</h3><p>After creating the service connection, it can be referenced in your pipeline YAML or classical pipelines as needed. For example, in a YAML pipeline:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">pool</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">vmImage</span>: <span style="color:#e6db74">&#39;ubuntu-latest&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">steps</span>:
+</span></span><span style="display:flex;"><span>- <span style="color:#f92672">task</span>: <span style="color:#ae81ff">AzureCLI@2</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">inputs</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">azureSubscription</span>: <span style="color:#e6db74">&#39;&lt;your-service-connection-name&gt;&#39;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">scriptType</span>: <span style="color:#e6db74">&#39;bash&#39;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">scriptLocation</span>: <span style="color:#e6db74">&#39;inlineScript&#39;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">inlineScript</span>: <span style="color:#e6db74">&#39;az --version&#39;</span>
+</span></span></code></pre></div><!-- end-chunk -->
+<!-- begin-chunk data-anchor="classical-pipeline-variables-in-azure-devops" data-heading="Classical Pipeline Variables in Azure DevOps" data-level="2" data-permalink="/docs/azure-devops/azuredevops-03/" data-title="Part 3" -->
+<h2 id="classical-pipeline-variables-in-azure-devops">Classical Pipeline Variables in Azure DevOps</h2><!-- end-chunk -->
+<!-- begin-chunk data-anchor="what-are-pipeline-variables" data-heading="What are Pipeline Variables?" data-level="3" data-permalink="/docs/azure-devops/azuredevops-03/" data-title="Part 3" -->
+<h3 id="what-are-pipeline-variables">What are Pipeline Variables?</h3><p>In Azure DevOps, <strong>pipeline variables</strong> allow you to store and reuse values within your pipeline, such as file paths, environment names, or sensitive data like passwords. Variables help you make your pipeline more dynamic and configurable by defining them once and using them across multiple stages, jobs, or tasks.</p>
+<hr>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="types-of-variables" data-heading="Types of Variables" data-level="3" data-permalink="/docs/azure-devops/azuredevops-03/" data-title="Part 3" -->
+<h3 id="types-of-variables">Types of Variables</h3><!-- end-chunk -->
+<!-- begin-chunk data-anchor="1-system-defined-variables" data-heading="1. <strong>System-defined Variables</strong>" data-level="3" data-permalink="/docs/azure-devops/azuredevops-03/" data-title="Part 3" -->
+<h3 id="1-system-defined-variables">1. <strong>System-defined Variables</strong></h3><p>These are built-in variables provided by Azure DevOps that contain information about the environment, pipeline, or agent. Examples include:</p>
+<ul>
+<li><code>Build.SourceBranch</code>: The name of the branch the build is running on.</li>
+<li><code>Build.BuildId</code>: The unique ID of the build.</li>
+<li><code>Agent.OS</code>: The operating system of the agent.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="2-user-defined-variables" data-heading="2. <strong>User-defined Variables</strong>" data-level="3" data-permalink="/docs/azure-devops/azuredevops-03/" data-title="Part 3" -->
+<h3 id="2-user-defined-variables">2. <strong>User-defined Variables</strong></h3><p>You can define custom variables in your classical pipeline to hold specific values. These are used to customize pipeline behavior and store non-sensitive information, such as environment names or paths.</p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="3-secret-variables" data-heading="3. <strong>Secret Variables</strong>" data-level="3" data-permalink="/docs/azure-devops/azuredevops-03/" data-title="Part 3" -->
+<h3 id="3-secret-variables">3. <strong>Secret Variables</strong></h3><p>These are user-defined variables that contain sensitive information like passwords, API keys, or connection strings. They are masked in logs to prevent accidental exposure.</p>
+<hr>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="defining-variables-in-classical-pipelines" data-heading="Defining Variables in Classical Pipelines" data-level="3" data-permalink="/docs/azure-devops/azuredevops-03/" data-title="Part 3" -->
+<h3 id="defining-variables-in-classical-pipelines">Defining Variables in Classical Pipelines</h3><p>In a <strong>classical pipeline</strong>, variables can be defined at the pipeline, stage, or job level. Here’s how you can define and use them:</p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="1-defining-pipeline-variables" data-heading="1. <strong>Defining Pipeline Variables</strong>" data-level="3" data-permalink="/docs/azure-devops/azuredevops-03/" data-title="Part 3" -->
+<h3 id="1-defining-pipeline-variables">1. <strong>Defining Pipeline Variables</strong></h3><ol>
+<li>Go to the <strong>Pipelines</strong> section in Azure DevOps.</li>
+<li>Select the pipeline you want to edit.</li>
+<li>In the pipeline editor, click on the <strong>Variables</strong> tab.</li>
+<li>Click <strong>Add</strong> to create a new variable.
+<ul>
+<li>Enter a <strong>name</strong> for the variable.</li>
+<li>Enter a <strong>value</strong> (for sensitive information, check the box for <strong>Keep this value secret</strong>).</li>
+<li>Click <strong>OK</strong> to save the variable.</li>
+</ul>
+</li>
+</ol>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="2-using-variables-in-pipeline-tasks" data-heading="2. <strong>Using Variables in Pipeline Tasks</strong>" data-level="3" data-permalink="/docs/azure-devops/azuredevops-03/" data-title="Part 3" -->
+<h3 id="2-using-variables-in-pipeline-tasks">2. <strong>Using Variables in Pipeline Tasks</strong></h3><p>Once defined, you can use the variable in any task by referencing it with the <code>$(variableName)</code> syntax.</p>
+<p>Example:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">steps</span>:
+</span></span><span style="display:flex;"><span>- <span style="color:#f92672">task</span>: <span style="color:#ae81ff">Maven@3</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">inputs</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">mavenPomFile</span>: <span style="color:#e6db74">&#39;$(Build.SourcesDirectory)/pom.xml&#39;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">options</span>: <span style="color:#e6db74">&#39;-DskipTests&#39;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">goals</span>: <span style="color:#e6db74">&#39;package&#39;</span>
+</span></span></code></pre></div><!-- end-chunk -->
+<!-- begin-chunk data-anchor="what-are-pipeline-others-options" data-heading="What Are Pipeline others Options?" data-level="2" data-permalink="/docs/azure-devops/azuredevops-03/" data-title="Part 3" -->
+<h2 id="what-are-pipeline-others-options">What Are Pipeline others Options?</h2><p>Pipeline options in Azure DevOps provide additional configuration for the behavior of your pipeline. These options allow you to control how the pipeline runs, handles failures, logs information, and integrates with external systems. In classical pipelines (also known as designer-based pipelines), these settings are configurable through the Azure DevOps UI.</p>
+<hr>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="key-pipeline-options" data-heading="Key Pipeline Options" data-level="2" data-permalink="/docs/azure-devops/azuredevops-03/" data-title="Part 3" -->
+<h2 id="key-pipeline-options">Key Pipeline Options</h2><!-- end-chunk -->
+<!-- begin-chunk data-anchor="agent-specification" data-heading="<strong>Agent Specification</strong>" data-level="3" data-permalink="/docs/azure-devops/azuredevops-03/" data-title="Part 3" -->
+<h3 id="agent-specification"><strong>Agent Specification</strong></h3><p>The agent specification allows you to define the type of machine (agent) on which the pipeline tasks will run. You can specify an agent pool that consists of self-hosted or Microsoft-hosted agents, depending on your requirements.</p>
+<ul>
+<li><strong>Example Agent Pools:</strong>
+<ul>
+<li>Hosted Ubuntu 2022</li>
+<li>Hosted Windows 2022</li>
+<li>Hosted macOS 13</li>
+</ul>
+</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="timeout" data-heading="<strong>Timeout</strong>" data-level="3" data-permalink="/docs/azure-devops/azuredevops-03/" data-title="Part 3" -->
+<h3 id="timeout"><strong>Timeout</strong></h3><p>The timeout setting defines how long a pipeline can run before it is automatically canceled. You can set the duration in minutes for individual jobs or stages.</p>
+<ul>
+<li><strong>Default Value</strong>: 60 minutes</li>
+<li><strong>Example</strong>: Set the timeout to 30 minutes for a long-running job.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="retain-runs" data-heading="<strong>Retain Runs</strong>" data-level="3" data-permalink="/docs/azure-devops/azuredevops-03/" data-title="Part 3" -->
+<h3 id="retain-runs"><strong>Retain Runs</strong></h3><p>The &ldquo;Retain Runs&rdquo; option allows you to keep specific pipeline runs indefinitely, preventing them from being automatically deleted by the retention policy. This is useful for keeping runs related to important releases or key milestones.</p>
+<ul>
+<li><strong>Use Case</strong>: Retain builds for an official release.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="build-number-format" data-heading="<strong>Build Number Format</strong>" data-level="3" data-permalink="/docs/azure-devops/azuredevops-03/" data-title="Part 3" -->
+<h3 id="build-number-format"><strong>Build Number Format</strong></h3><p>The build number format defines the naming convention for the build number in your pipeline. You can use predefined variables to generate dynamic build numbers.</p>
+<ul>
+<li><strong>Example</strong>: <code>$(Build.DefinitionName)_$(Year:yyyy).$(Month).$(DayOfMonth)$(Rev:.r)</code></li>
+<li>This would produce a build number like: <code>MyPipeline_2024.10.21.r1</code>.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="clean-option" data-heading="<strong>Clean Option</strong>" data-level="3" data-permalink="/docs/azure-devops/azuredevops-03/" data-title="Part 3" -->
+<h3 id="clean-option"><strong>Clean Option</strong></h3><p>The clean option allows you to control whether the workspace (the working directory where builds happen) is cleaned between each run. This ensures that each build starts with a fresh environment, avoiding issues caused by residual files from previous runs.</p>
+<ul>
+<li><strong>Options</strong>:
+<ul>
+<li><strong>True</strong>: Cleans the workspace before starting the pipeline.</li>
+<li><strong>False</strong>: Retains the workspace between builds for faster runs.</li>
+</ul>
+</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="parallel-jobs" data-heading="<strong>Parallel Jobs</strong>" data-level="3" data-permalink="/docs/azure-devops/azuredevops-03/" data-title="Part 3" -->
+<h3 id="parallel-jobs"><strong>Parallel Jobs</strong></h3><p>If your project or build requires parallel execution, Azure DevOps allows you to configure parallel jobs. This option helps optimize build times by running multiple tasks concurrently, given that the agent pool has enough capacity.</p>
+<ul>
+<li><strong>Use Case</strong>: Running multiple test suites or parallel stages to reduce overall build time.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="multi-stage-pipelines" data-heading="<strong>Multi-Stage Pipelines</strong>" data-level="3" data-permalink="/docs/azure-devops/azuredevops-03/" data-title="Part 3" -->
+<h3 id="multi-stage-pipelines"><strong>Multi-Stage Pipelines</strong></h3><p>Classical pipelines allow you to create multi-stage pipelines, where each stage can have its own set of tasks, jobs, and agent specifications. Stages can be used to define distinct steps in your CI/CD process, such as building, testing, and deploying code.</p>
+<ul>
+<li><strong>Example Stages</strong>:
+<ul>
+<li><strong>Build Stage</strong>: Compiles the code.</li>
+<li><strong>Test Stage</strong>: Runs unit tests.</li>
+<li><strong>Deploy Stage</strong>: Deploys the code to an environment.</li>
+</ul>
+</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="failing-conditions" data-heading="<strong>Failing Conditions</strong>" data-level="3" data-permalink="/docs/azure-devops/azuredevops-03/" data-title="Part 3" -->
+<h3 id="failing-conditions"><strong>Failing Conditions</strong></h3><p>You can specify conditions under which a pipeline, stage, or job will fail. This allows you to set custom criteria for failure and ensure that certain conditions are met for a successful build.</p>
+<ul>
+<li><strong>Options</strong>:
+<ul>
+<li><strong>Fail on Specific Exit Codes</strong>: You can fail a task based on specific error codes.</li>
+<li><strong>Fail on Warnings</strong>: Mark a pipeline as failed if there are any warnings during execution.</li>
+</ul>
+</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="continue-on-error" data-heading="<strong>Continue on Error</strong>" data-level="3" data-permalink="/docs/azure-devops/azuredevops-03/" data-title="Part 3" -->
+<h3 id="continue-on-error"><strong>Continue on Error</strong></h3><p>This option allows a job or step to continue running even if a previous step has failed. It is useful when you want to allow the pipeline to complete, even if certain non-critical tasks fail.</p>
+<ul>
+<li><strong>Example</strong>: A test step may fail, but you still want the deployment to proceed.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="trigger-options" data-heading="<strong>Trigger Options</strong>" data-level="2" data-permalink="/docs/azure-devops/azuredevops-03/" data-title="Part 3" -->
+<h2 id="trigger-options"><strong>Trigger Options</strong></h2><!-- end-chunk -->
+<!-- begin-chunk data-anchor="continuous-integration-ci-trigger" data-heading="<strong>Continuous Integration (CI) Trigger</strong>" data-level="3" data-permalink="/docs/azure-devops/azuredevops-03/" data-title="Part 3" -->
+<h3 id="continuous-integration-ci-trigger"><strong>Continuous Integration (CI) Trigger</strong></h3><p>This option defines whether the pipeline should automatically trigger when new changes are pushed to the repository.</p>
+<ul>
+<li><strong>Example</strong>: Enable CI to trigger the pipeline every time code is pushed to the <code>main</code> branch.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="scheduled-trigger" data-heading="<strong>Scheduled Trigger</strong>" data-level="3" data-permalink="/docs/azure-devops/azuredevops-03/" data-title="Part 3" -->
+<h3 id="scheduled-trigger"><strong>Scheduled Trigger</strong></h3><p>This allows you to schedule pipeline runs at specific times, independent of when code is committed to the repository.</p>
+<ul>
+<li><strong>Example</strong>: Schedule a nightly build every day at midnight.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="pull-request-trigger" data-heading="<strong>Pull Request Trigger</strong>" data-level="3" data-permalink="/docs/azure-devops/azuredevops-03/" data-title="Part 3" -->
+<h3 id="pull-request-trigger"><strong>Pull Request Trigger</strong></h3><p>You can configure the pipeline to trigger automatically when a pull request is created or updated. This ensures that the pipeline runs for every change in a pull request, helping detect issues early.</p>
+<ul>
+<li><strong>Use Case</strong>: Automatically build and test changes as soon as they are submitted in a pull request.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="branch-control" data-heading="<strong>Branch Control</strong>" data-level="3" data-permalink="/docs/azure-devops/azuredevops-03/" data-title="Part 3" -->
+<h3 id="branch-control"><strong>Branch Control</strong></h3><p>You can configure your pipeline to only run for specific branches or to exclude certain branches from triggering builds.</p>
+<ul>
+<li><strong>Example</strong>: Run the pipeline only for the <code>main</code> and <code>develop</code> branches.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="artifact-publishing-options" data-heading="<strong>Artifact Publishing Options</strong>" data-level="3" data-permalink="/docs/azure-devops/azuredevops-03/" data-title="Part 3" -->
+<h3 id="artifact-publishing-options"><strong>Artifact Publishing Options</strong></h3><p>You can configure how artifacts (e.g., build outputs) are published and stored. This is important for making the results of your builds available for deployment or further processing.</p>
+<ul>
+<li><strong>Example</strong>: Publish artifacts to Azure Artifacts, a file share, or a Docker registry.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="retry-policies" data-heading="<strong>Retry Policies</strong>" data-level="3" data-permalink="/docs/azure-devops/azuredevops-03/" data-title="Part 3" -->
+<h3 id="retry-policies"><strong>Retry Policies</strong></h3><p>Azure DevOps allows you to configure retry policies for individual pipeline tasks. This is useful if a task fails due to transient issues like network errors.</p>
+<ul>
+<li><strong>Example</strong>: Retry a failed step up to 3 times.</li>
+</ul>
+<hr>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="customizing-pipeline-options" data-heading="Customizing Pipeline Options" data-level="3" data-permalink="/docs/azure-devops/azuredevops-03/" data-title="Part 3" -->
+<h3 id="customizing-pipeline-options">Customizing Pipeline Options</h3><p>You can customize pipeline options either in the <strong>classical editor</strong> or in the <strong>pipeline YAML file</strong>. In the classical editor:</p>
+<ol>
+<li>Navigate to <strong>Pipelines</strong> in your Azure DevOps project.</li>
+<li>Select the pipeline you want to edit.</li>
+<li>Go to the <strong>Options</strong> tab where you can configure settings like build number format, timeout, and triggers.</li>
+</ol>
+<hr>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="summary-1" data-heading="Summary" data-level="3" data-permalink="/docs/azure-devops/azuredevops-03/" data-title="Part 3" -->
+<h3 id="summary-1">Summary</h3><p>Pipeline options in Azure DevOps allow you to control various aspects of how your pipeline behaves, from agent specification and timeouts to triggers and artifact publishing. These options provide flexibility and help ensure that your pipeline runs smoothly and efficiently.</p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="create-an-issue-on-build-failure" data-heading="Create an issue on Build failure" data-level="3" data-permalink="/docs/azure-devops/azuredevops-03/" data-title="Part 3" -->
+<h3 id="create-an-issue-on-build-failure">Create an issue on Build failure</h3><p><img src="/images/issue.png" alt="issue"></p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="classical-release-pipelines-in-azure-devops" data-heading="Classical Release Pipelines in Azure DevOps" data-level="2" data-permalink="/docs/azure-devops/azuredevops-03/" data-title="Part 3" -->
+<h2 id="classical-release-pipelines-in-azure-devops">Classical Release Pipelines in Azure DevOps</h2><!-- end-chunk -->
+<!-- begin-chunk data-anchor="what-is-a-release-pipeline" data-heading="What is a Release Pipeline?" data-level="3" data-permalink="/docs/azure-devops/azuredevops-03/" data-title="Part 3" -->
+<h3 id="what-is-a-release-pipeline">What is a Release Pipeline?</h3><p>A <strong>release pipeline</strong> in Azure DevOps is a set of automated processes that deploy applications to different environments (e.g., development, testing, production). It helps ensure that code changes are delivered reliably and consistently, allowing teams to manage the deployment of applications effectively.</p>
+<hr>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="key-components-of-release-pipelines" data-heading="Key Components of Release Pipelines" data-level="3" data-permalink="/docs/azure-devops/azuredevops-03/" data-title="Part 3" -->
+<h3 id="key-components-of-release-pipelines">Key Components of Release Pipelines</h3><!-- end-chunk -->
+<!-- begin-chunk data-anchor="artifacts" data-heading="<strong>Artifacts</strong>" data-level="3" data-permalink="/docs/azure-devops/azuredevops-03/" data-title="Part 3" -->
+<h3 id="artifacts"><strong>Artifacts</strong></h3><ul>
+<li><strong>Definition</strong>: Artifacts are the output of build pipelines and contain the files that need to be deployed (e.g., binaries, packages, scripts).</li>
+<li><strong>Use Case</strong>: Artifacts are pulled into the release pipeline from build pipelines to deploy to target environments.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="environments" data-heading="<strong>Environments</strong>" data-level="3" data-permalink="/docs/azure-devops/azuredevops-03/" data-title="Part 3" -->
+<h3 id="environments"><strong>Environments</strong></h3><ul>
+<li><strong>Definition</strong>: Environments represent the target locations where the application will be deployed (e.g., staging, production).</li>
+<li><strong>Configuration</strong>: You can configure different settings and approvals for each environment to ensure the correct deployment process.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="stages" data-heading="<strong>Stages</strong>" data-level="3" data-permalink="/docs/azure-devops/azuredevops-03/" data-title="Part 3" -->
+<h3 id="stages"><strong>Stages</strong></h3><ul>
+<li><strong>Definition</strong>: Stages are logical grouping of deployment steps within a release pipeline. Each stage can represent a different environment or phase of deployment (e.g., QA, Production).</li>
+<li><strong>Execution</strong>: Stages can run sequentially or in parallel, depending on how you configure your pipeline.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="tasks" data-heading="<strong>Tasks</strong>" data-level="3" data-permalink="/docs/azure-devops/azuredevops-03/" data-title="Part 3" -->
+<h3 id="tasks"><strong>Tasks</strong></h3><ul>
+<li><strong>Definition</strong>: Tasks are the individual steps that perform actions within a stage (e.g., deploying an application, running scripts).</li>
+<li><strong>Customization</strong>: You can add various tasks, including deployment tasks, testing tasks, and custom scripts.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="approvals-and-checks" data-heading="<strong>Approvals and Checks</strong>" data-level="3" data-permalink="/docs/azure-devops/azuredevops-03/" data-title="Part 3" -->
+<h3 id="approvals-and-checks"><strong>Approvals and Checks</strong></h3><ul>
+<li><strong>Definition</strong>: Approvals are required before a deployment can proceed to a certain environment. Checks can include manual approvals, automated checks, or gate evaluations.</li>
+<li><strong>Use Case</strong>: Ensures that appropriate stakeholders review and authorize deployments to critical environments.</li>
+</ul>
+<hr>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="creating-a-classical-release-pipeline" data-heading="Creating a Classical Release Pipeline" data-level="2" data-permalink="/docs/azure-devops/azuredevops-03/" data-title="Part 3" -->
+<h2 id="creating-a-classical-release-pipeline">Creating a Classical Release Pipeline</h2><!-- end-chunk -->
+<!-- begin-chunk data-anchor="step--define-your-artifacts" data-heading="Step  Define Your Artifacts" data-level="3" data-permalink="/docs/azure-devops/azuredevops-03/" data-title="Part 3" -->
+<h3 id="step--define-your-artifacts">Step  Define Your Artifacts</h3><ol>
+<li>Ensure you have a build pipeline that produces the necessary artifacts.</li>
+<li>In the release pipeline, link to the artifacts from the build pipeline.</li>
+</ol>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="step--create-a-new-release-pipeline" data-heading="Step  Create a New Release Pipeline" data-level="3" data-permalink="/docs/azure-devops/azuredevops-03/" data-title="Part 3" -->
+<h3 id="step--create-a-new-release-pipeline">Step  Create a New Release Pipeline</h3><ol>
+<li>Navigate to <strong>Pipelines</strong> in Azure DevOps.</li>
+<li>Select <strong>Releases</strong> and click on <strong>New pipeline</strong>.</li>
+<li>Choose the <strong>Empty job</strong> option or select a template if available.</li>
+</ol>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="add-stages" data-heading="Add Stages" data-level="3" data-permalink="/docs/azure-devops/azuredevops-03/" data-title="Part 3" -->
+<h3 id="add-stages">Add Stages</h3><ol>
+<li>Click on the <strong>Add a stage</strong> button.</li>
+<li>Choose an existing stage or create a new one.</li>
+<li>Name the stage appropriately (e.g., <strong>QA</strong>, <strong>Production</strong>).</li>
+</ol>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="configure-the-stage" data-heading="Configure the Stage" data-level="3" data-permalink="/docs/azure-devops/azuredevops-03/" data-title="Part 3" -->
+<h3 id="configure-the-stage">Configure the Stage</h3><ol>
+<li>Select the stage and click on <strong>Jobs</strong> to add a job to the stage.</li>
+<li>Add tasks by clicking on <strong>+ Add tasks</strong> to define the deployment steps for the stage.</li>
+<li>Configure each task with the necessary inputs (e.g., Azure subscription, app service).</li>
+</ol>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="set-up-approvals-and-checks" data-heading="Set Up Approvals and Checks" data-level="3" data-permalink="/docs/azure-devops/azuredevops-03/" data-title="Part 3" -->
+<h3 id="set-up-approvals-and-checks">Set Up Approvals and Checks</h3><ol>
+<li>Click on the <strong>Pre-deployment conditions</strong> for a stage.</li>
+<li>Enable approvals and define who needs to approve deployments.</li>
+<li>Optionally, add automated checks to ensure quality gates are met before deployment.</li>
+</ol>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="save-and-create-a-release" data-heading="Save and Create a Release" data-level="3" data-permalink="/docs/azure-devops/azuredevops-03/" data-title="Part 3" -->
+<h3 id="save-and-create-a-release">Save and Create a Release</h3><ol>
+<li>Click <strong>Save</strong> to save your release pipeline configuration.</li>
+<li>Click on <strong>Create release</strong> to manually trigger a deployment.</li>
+<li>Select the artifact version and environment to deploy to.</li>
+</ol>
+<hr>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="managing-release-pipelines" data-heading="Managing Release Pipelines" data-level="2" data-permalink="/docs/azure-devops/azuredevops-03/" data-title="Part 3" -->
+<h2 id="managing-release-pipelines">Managing Release Pipelines</h2><!-- end-chunk -->
+<!-- begin-chunk data-anchor="monitoring-releases" data-heading="<strong>Monitoring Releases</strong>" data-level="3" data-permalink="/docs/azure-devops/azuredevops-03/" data-title="Part 3" -->
+<h3 id="monitoring-releases"><strong>Monitoring Releases</strong></h3><ul>
+<li>You can view the status of releases, including deployment success, failure, and logs from the <strong>Releases</strong> section.</li>
+<li>Each release instance provides detailed logs for each task, allowing you to troubleshoot issues.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="approvals-management" data-heading="<strong>Approvals Management</strong>" data-level="3" data-permalink="/docs/azure-devops/azuredevops-03/" data-title="Part 3" -->
+<h3 id="approvals-management"><strong>Approvals Management</strong></h3><ul>
+<li>Approvals can be managed in the pipeline settings, allowing you to edit who can approve releases and define approval workflows.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="rollback-strategies" data-heading="<strong>Rollback Strategies</strong>" data-level="3" data-permalink="/docs/azure-devops/azuredevops-03/" data-title="Part 3" -->
+<h3 id="rollback-strategies"><strong>Rollback Strategies</strong></h3><ul>
+<li>It’s essential to define rollback strategies in case of failed deployments. Azure DevOps allows you to redeploy previous successful releases easily.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="variable-groups" data-heading="<strong>Variable Groups</strong>" data-level="3" data-permalink="/docs/azure-devops/azuredevops-03/" data-title="Part 3" -->
+<h3 id="variable-groups"><strong>Variable Groups</strong></h3><ul>
+<li>Use variable groups to manage and store common variables across multiple release pipelines. This helps with managing configuration settings such as connection strings and API keys.</li>
+</ul>
+<hr>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="best-practices" data-heading="Best Practices" data-level="3" data-permalink="/docs/azure-devops/azuredevops-03/" data-title="Part 3" -->
+<h3 id="best-practices">Best Practices</h3><ol>
+<li><strong>Use Stages Wisely</strong>: Organize your stages based on environments and deployment processes to streamline releases.</li>
+<li><strong>Automate Approvals</strong>: Where possible, automate approvals and checks to speed up the release process while maintaining quality.</li>
+<li><strong>Monitor and Log</strong>: Continuously monitor release logs and metrics to identify trends and areas for improvement in your deployment process.</li>
+<li><strong>Implement CI/CD</strong>: Integrate continuous integration (CI) practices with your release pipeline for automated testing and validation before deployment.</li>
+</ol>
+<hr>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="summary-2" data-heading="Summary" data-level="3" data-permalink="/docs/azure-devops/azuredevops-03/" data-title="Part 3" -->
+<h3 id="summary-2">Summary</h3><p>Classical release pipelines in Azure DevOps provide a robust framework for managing the deployment of applications across various environments. By utilizing artifacts, environments, stages, and tasks, teams can ensure a reliable and consistent deployment process. Leveraging features like approvals, checks, and variable groups enhances the pipeline&rsquo;s effectiveness and security.</p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="how-to-create-a-task-group-in-azure-devops" data-heading="How to Create a Task Group in Azure DevOps" data-level="2" data-permalink="/docs/azure-devops/azuredevops-03/" data-title="Part 3" -->
+<h2 id="how-to-create-a-task-group-in-azure-devops">How to Create a Task Group in Azure DevOps</h2><!-- end-chunk -->
+<!-- begin-chunk data-anchor="what-is-a-task-group" data-heading="What is a Task Group?" data-level="3" data-permalink="/docs/azure-devops/azuredevops-03/" data-title="Part 3" -->
+<h3 id="what-is-a-task-group">What is a Task Group?</h3><p>A <strong>task group</strong> in Azure DevOps is a collection of tasks that can be reused across multiple pipelines. Task groups allow you to encapsulate a set of related tasks into a single reusable component, simplifying pipeline management and promoting consistency.</p>
+<hr>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="steps-to-create-a-task-group" data-heading="Steps to Create a Task Group" data-level="3" data-permalink="/docs/azure-devops/azuredevops-03/" data-title="Part 3" -->
+<h3 id="steps-to-create-a-task-group">Steps to Create a Task Group</h3><!-- end-chunk -->
+<!-- begin-chunk data-anchor="step-1-navigate-to-pipelines" data-heading="Step 1: Navigate to Pipelines" data-level="3" data-permalink="/docs/azure-devops/azuredevops-03/" data-title="Part 3" -->
+<h3 id="step-1-navigate-to-pipelines">Step 1: Navigate to Pipelines</h3><ol>
+<li>Sign in to your Azure DevOps organization.</li>
+<li>Go to your project.</li>
+<li>In the left-hand menu, select <strong>Pipelines</strong>.</li>
+</ol>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="step-2-access-task-groups" data-heading="Step 2: Access Task Groups" data-level="3" data-permalink="/docs/azure-devops/azuredevops-03/" data-title="Part 3" -->
+<h3 id="step-2-access-task-groups">Step 2: Access Task Groups</h3><ol>
+<li>Click on the <strong>Task groups</strong> tab (you may find it under the <strong>Library</strong> section).</li>
+<li>Click on <strong>+ New</strong> to create a new task group.</li>
+</ol>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="step-3-define-the-task-group" data-heading="Step 3: Define the Task Group" data-level="3" data-permalink="/docs/azure-devops/azuredevops-03/" data-title="Part 3" -->
+<h3 id="step-3-define-the-task-group">Step 3: Define the Task Group</h3><ol>
+<li>
+<p><strong>Name the Task Group</strong>:</p>
+<ul>
+<li>Enter a meaningful name for your task group.</li>
+<li>Optionally, provide a description to help others understand its purpose.</li>
+</ul>
+</li>
+<li>
+<p><strong>Add Tasks</strong>:</p>
+<ul>
+<li>Click on <strong>+ Add tasks</strong> to add tasks to your task group.</li>
+<li>Select the tasks you want to include from the available tasks list.</li>
+<li>You can search for specific tasks or filter by categories.</li>
+</ul>
+</li>
+<li>
+<p><strong>Configure Task Parameters</strong>:</p>
+<ul>
+<li>For each task added, configure the parameters as needed.</li>
+<li>You can set default values that can be overridden when the task group is used in a pipeline.</li>
+</ul>
+</li>
+</ol>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="step-4-set-up-variables-optional" data-heading="Step 4: Set Up Variables (Optional)" data-level="3" data-permalink="/docs/azure-devops/azuredevops-03/" data-title="Part 3" -->
+<h3 id="step-4-set-up-variables-optional">Step 4: Set Up Variables (Optional)</h3><ul>
+<li>You can define variables specific to the task group that can be used within the tasks.</li>
+<li>Click on <strong>+ Add variable</strong> to create a new variable, providing a name and value.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="step-5-save-the-task-group" data-heading="Step 5: Save the Task Group" data-level="3" data-permalink="/docs/azure-devops/azuredevops-03/" data-title="Part 3" -->
+<h3 id="step-5-save-the-task-group">Step 5: Save the Task Group</h3><ol>
+<li>After adding and configuring all tasks, click <strong>Save</strong>.</li>
+<li>Your task group will now be available for use in any pipeline.</li>
+</ol>
+<hr>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="using-the-task-group-in-a-pipeline" data-heading="Using the Task Group in a Pipeline" data-level="2" data-permalink="/docs/azure-devops/azuredevops-03/" data-title="Part 3" -->
+<h2 id="using-the-task-group-in-a-pipeline">Using the Task Group in a Pipeline</h2><!-- end-chunk -->
+<!-- begin-chunk data-anchor="step-1-edit-a-pipeline" data-heading="Step 1: Edit a Pipeline" data-level="3" data-permalink="/docs/azure-devops/azuredevops-03/" data-title="Part 3" -->
+<h3 id="step-1-edit-a-pipeline">Step 1: Edit a Pipeline</h3><ol>
+<li>Navigate to the <strong>Pipelines</strong> section.</li>
+<li>Select the pipeline where you want to use the task group and click <strong>Edit</strong>.</li>
+</ol>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="step-2-add-the-task-group" data-heading="Step 2: Add the Task Group" data-level="3" data-permalink="/docs/azure-devops/azuredevops-03/" data-title="Part 3" -->
+<h3 id="step-2-add-the-task-group">Step 2: Add the Task Group</h3><ol>
+<li>In the pipeline editor, click on <strong>+</strong> to add a new task.</li>
+<li>Search for your task group by its name.</li>
+<li>Select the task group from the list to add it to the pipeline.</li>
+</ol>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="step-3-configure-task-group-parameters" data-heading="Step 3: Configure Task Group Parameters" data-level="3" data-permalink="/docs/azure-devops/azuredevops-03/" data-title="Part 3" -->
+<h3 id="step-3-configure-task-group-parameters">Step 3: Configure Task Group Parameters</h3><ul>
+<li>Configure any parameters defined in the task group as needed.</li>
+<li>Override any default values if necessary.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="step-4-save-and-run-the-pipeline" data-heading="Step 4: Save and Run the Pipeline" data-level="3" data-permalink="/docs/azure-devops/azuredevops-03/" data-title="Part 3" -->
+<h3 id="step-4-save-and-run-the-pipeline">Step 4: Save and Run the Pipeline</h3><ul>
+<li>Save your pipeline changes and run the pipeline to execute the tasks defined in the task group.</li>
+</ul>
+<hr>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="managing-task-groups" data-heading="Managing Task Groups" data-level="2" data-permalink="/docs/azure-devops/azuredevops-03/" data-title="Part 3" -->
+<h2 id="managing-task-groups">Managing Task Groups</h2><!-- end-chunk -->
+<!-- begin-chunk data-anchor="editing-a-task-group" data-heading="Editing a Task Group" data-level="3" data-permalink="/docs/azure-devops/azuredevops-03/" data-title="Part 3" -->
+<h3 id="editing-a-task-group">Editing a Task Group</h3><ul>
+<li>To edit a task group, go back to the <strong>Task groups</strong> tab.</li>
+<li>Select the task group you want to modify and click <strong>Edit</strong>.</li>
+<li>Make your changes and save.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="deleting-a-task-group" data-heading="Deleting a Task Group" data-level="3" data-permalink="/docs/azure-devops/azuredevops-03/" data-title="Part 3" -->
+<h3 id="deleting-a-task-group">Deleting a Task Group</h3><ul>
+<li>To delete a task group, navigate to the <strong>Task groups</strong> tab.</li>
+<li>Select the task group and click on <strong>Delete</strong>.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="viewing-task-group-usage" data-heading="Viewing Task Group Usage" data-level="3" data-permalink="/docs/azure-devops/azuredevops-03/" data-title="Part 3" -->
+<h3 id="viewing-task-group-usage">Viewing Task Group Usage</h3><ul>
+<li>You can view where a task group is used across pipelines by checking its details in the <strong>Task groups</strong> tab.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="how-to-create-a-variable-group-in-azure-devops" data-heading="How to Create a Variable Group in Azure DevOps" data-level="2" data-permalink="/docs/azure-devops/azuredevops-03/" data-title="Part 3" -->
+<h2 id="how-to-create-a-variable-group-in-azure-devops">How to Create a Variable Group in Azure DevOps</h2><!-- end-chunk -->
+<!-- begin-chunk data-anchor="what-is-a-variable-group" data-heading="What is a Variable Group?" data-level="3" data-permalink="/docs/azure-devops/azuredevops-03/" data-title="Part 3" -->
+<h3 id="what-is-a-variable-group">What is a Variable Group?</h3><p>A <strong>variable group</strong> in Azure DevOps is a way to manage variables that can be shared across multiple pipelines. It allows you to centralize variable management, making it easier to update and maintain configurations used in your builds and releases.</p>
+<hr>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="steps-to-create-a-variable-group" data-heading="Steps to Create a Variable Group" data-level="3" data-permalink="/docs/azure-devops/azuredevops-03/" data-title="Part 3" -->
+<h3 id="steps-to-create-a-variable-group">Steps to Create a Variable Group</h3><!-- end-chunk -->
+<!-- begin-chunk data-anchor="step-1-navigate-to-pipelines-1" data-heading="Step 1: Navigate to Pipelines" data-level="3" data-permalink="/docs/azure-devops/azuredevops-03/" data-title="Part 3" -->
+<h3 id="step-1-navigate-to-pipelines-1">Step 1: Navigate to Pipelines</h3><ol>
+<li>Sign in to your Azure DevOps organization.</li>
+<li>Go to your project.</li>
+<li>In the left-hand menu, select <strong>Pipelines</strong>.</li>
+</ol>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="step-2-access-library" data-heading="Step 2: Access Library" data-level="3" data-permalink="/docs/azure-devops/azuredevops-03/" data-title="Part 3" -->
+<h3 id="step-2-access-library">Step 2: Access Library</h3><ol>
+<li>In the Pipelines section, click on <strong>Library</strong> in the left-hand menu.</li>
+<li>You will see the <strong>Variable groups</strong> tab.</li>
+</ol>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="step-3-create-a-new-variable-group" data-heading="Step 3: Create a New Variable Group" data-level="3" data-permalink="/docs/azure-devops/azuredevops-03/" data-title="Part 3" -->
+<h3 id="step-3-create-a-new-variable-group">Step 3: Create a New Variable Group</h3><ol>
+<li>Click on <strong>+ Variable group</strong> to create a new variable group.</li>
+</ol>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="step-4-define-the-variable-group" data-heading="Step 4: Define the Variable Group" data-level="3" data-permalink="/docs/azure-devops/azuredevops-03/" data-title="Part 3" -->
+<h3 id="step-4-define-the-variable-group">Step 4: Define the Variable Group</h3><ol>
+<li>
+<p><strong>Name the Variable Group</strong>:</p>
+<ul>
+<li>Enter a meaningful name for your variable group (e.g., <code>BuildVariables</code>, <code>ProductionSettings</code>).</li>
+<li>Optionally, provide a description to help others understand its purpose.</li>
+</ul>
+</li>
+<li>
+<p><strong>Add Variables</strong>:</p>
+<ul>
+<li>Click on <strong>+ Add</strong> to add a variable.</li>
+<li>Enter the variable name and value.</li>
+<li>You can choose to mark the variable as <strong>secret</strong> if it contains sensitive information (e.g., passwords, API keys).</li>
+</ul>
+</li>
+<li>
+<p><strong>Continue Adding Variables</strong>:</p>
+<ul>
+<li>Repeat the process to add any additional variables you need.</li>
+</ul>
+</li>
+</ol>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="step-5-save-the-variable-group" data-heading="Step 5: Save the Variable Group" data-level="3" data-permalink="/docs/azure-devops/azuredevops-03/" data-title="Part 3" -->
+<h3 id="step-5-save-the-variable-group">Step 5: Save the Variable Group</h3><ul>
+<li>After adding all desired variables, click <strong>Save</strong> to create the variable group.</li>
+</ul>
+<hr>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="using-variable-groups-in-a-pipeline" data-heading="Using Variable Groups in a Pipeline" data-level="2" data-permalink="/docs/azure-devops/azuredevops-03/" data-title="Part 3" -->
+<h2 id="using-variable-groups-in-a-pipeline">Using Variable Groups in a Pipeline</h2><!-- end-chunk -->
+<!-- begin-chunk data-anchor="step-1-edit-a-pipeline-1" data-heading="Step 1: Edit a Pipeline" data-level="3" data-permalink="/docs/azure-devops/azuredevops-03/" data-title="Part 3" -->
+<h3 id="step-1-edit-a-pipeline-1">Step 1: Edit a Pipeline</h3><ol>
+<li>Navigate to the <strong>Pipelines</strong> section.</li>
+<li>Select the pipeline where you want to use the variable group and click <strong>Edit</strong>.</li>
+</ol>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="step-2-link-the-variable-group" data-heading="Step 2: Link the Variable Group" data-level="3" data-permalink="/docs/azure-devops/azuredevops-03/" data-title="Part 3" -->
+<h3 id="step-2-link-the-variable-group">Step 2: Link the Variable Group</h3><ol>
+<li>In the pipeline editor, locate the <strong>Variables</strong> tab (usually found at the top).</li>
+<li>Click on <strong>Link variable group</strong>.</li>
+<li>Select the variable group you created and click <strong>Link</strong>.</li>
+</ol>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="step-3-access-variables-in-tasks" data-heading="Step 3: Access Variables in Tasks" data-level="3" data-permalink="/docs/azure-devops/azuredevops-03/" data-title="Part 3" -->
+<h3 id="step-3-access-variables-in-tasks">Step 3: Access Variables in Tasks</h3><ul>
+<li>You can now access the variables from the linked variable group in your pipeline tasks. Use the syntax <code>$(VariableName)</code> to reference a variable.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="step-4-save-and-run-the-pipeline-1" data-heading="Step 4: Save and Run the Pipeline" data-level="3" data-permalink="/docs/azure-devops/azuredevops-03/" data-title="Part 3" -->
+<h3 id="step-4-save-and-run-the-pipeline-1">Step 4: Save and Run the Pipeline</h3><ul>
+<li>Save your pipeline changes and run the pipeline. The tasks will use the variables from the linked variable group.</li>
+</ul>
+<hr>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="managing-variable-groups" data-heading="Managing Variable Groups" data-level="2" data-permalink="/docs/azure-devops/azuredevops-03/" data-title="Part 3" -->
+<h2 id="managing-variable-groups">Managing Variable Groups</h2><!-- end-chunk -->
+<!-- begin-chunk data-anchor="editing-a-variable-group" data-heading="Editing a Variable Group" data-level="3" data-permalink="/docs/azure-devops/azuredevops-03/" data-title="Part 3" -->
+<h3 id="editing-a-variable-group">Editing a Variable Group</h3><ul>
+<li>To edit a variable group, navigate to the <strong>Library</strong> section.</li>
+<li>Select the variable group you want to modify and click <strong>Edit</strong>.</li>
+<li>Make your changes and save.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="deleting-a-variable-group" data-heading="Deleting a Variable Group" data-level="3" data-permalink="/docs/azure-devops/azuredevops-03/" data-title="Part 3" -->
+<h3 id="deleting-a-variable-group">Deleting a Variable Group</h3><ul>
+<li>To delete a variable group, go to the <strong>Library</strong> section.</li>
+<li>Select the variable group and click on <strong>Delete</strong>.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="viewing-variable-group-usage" data-heading="Viewing Variable Group Usage" data-level="3" data-permalink="/docs/azure-devops/azuredevops-03/" data-title="Part 3" -->
+<h3 id="viewing-variable-group-usage">Viewing Variable Group Usage</h3><ul>
+<li>You can view which pipelines are using a variable group by checking its details in the <strong>Library</strong> section.</li>
+</ul>
+<hr>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="best-practices-1" data-heading="Best Practices" data-level="2" data-permalink="/docs/azure-devops/azuredevops-03/" data-title="Part 3" -->
+<h2 id="best-practices-1">Best Practices</h2><ol>
+<li><strong>Use Descriptive Names</strong>: Name your variable groups and variables clearly to indicate their purpose.</li>
+<li><strong>Limit Scope</strong>: Only include variables in a group that are relevant to specific pipelines to avoid clutter.</li>
+<li><strong>Manage Secrets Carefully</strong>: Use secret variables for sensitive information and manage access to those variables.</li>
+<li><strong>Version Control</strong>: Consider versioning your variable groups if significant changes are made frequently.</li>
+</ol>
+<hr>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="summary-3" data-heading="Summary" data-level="2" data-permalink="/docs/azure-devops/azuredevops-03/" data-title="Part 3" -->
+<h2 id="summary-3">Summary</h2><p>Creating a variable group in Azure DevOps allows you to manage and reuse variables across multiple pipelines efficiently. By following the steps outlined above, you can create, link, and utilize variable groups in your Azure DevOps projects, simplifying configuration management and promoting consistency.</p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="integrating-azure-key-vault-with-azure-devops" data-heading="Integrating Azure Key Vault with Azure DevOps" data-level="1" data-permalink="/docs/azure-devops/azuredevops-03/" data-title="Part 3" -->
+<h1 id="integrating-azure-key-vault-with-azure-devops">Integrating Azure Key Vault with Azure DevOps</h1><!-- end-chunk -->
+<!-- begin-chunk data-anchor="what-is-azure-key-vault" data-heading="What is Azure Key Vault?" data-level="2" data-permalink="/docs/azure-devops/azuredevops-03/" data-title="Part 3" -->
+<h2 id="what-is-azure-key-vault">What is Azure Key Vault?</h2><p><strong>Azure Key Vault</strong> is a cloud service that provides a secure store for secrets, keys, and certificates. It helps safeguard cryptographic keys and secrets used by cloud applications and services.</p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="benefits-of-integration" data-heading="Benefits of Integration" data-level="2" data-permalink="/docs/azure-devops/azuredevops-03/" data-title="Part 3" -->
+<h2 id="benefits-of-integration">Benefits of Integration</h2><p>Integrating Azure Key Vault with Azure DevOps allows you to:</p>
+<ul>
+<li>Store sensitive information securely.</li>
+<li>Access secrets and keys directly in your pipelines.</li>
+<li>Manage permissions and access control for secrets centrally.</li>
+</ul>
+<hr>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="steps-to-integrate-azure-key-vault-with-azure-devops" data-heading="Steps to Integrate Azure Key Vault with Azure DevOps" data-level="2" data-permalink="/docs/azure-devops/azuredevops-03/" data-title="Part 3" -->
+<h2 id="steps-to-integrate-azure-key-vault-with-azure-devops">Steps to Integrate Azure Key Vault with Azure DevOps</h2><!-- end-chunk -->
+<!-- begin-chunk data-anchor="step-1-create-an-azure-key-vault" data-heading="Step 1: Create an Azure Key Vault" data-level="3" data-permalink="/docs/azure-devops/azuredevops-03/" data-title="Part 3" -->
+<h3 id="step-1-create-an-azure-key-vault">Step 1: Create an Azure Key Vault</h3><ol>
+<li><strong>Sign in to Azure Portal</strong>: Go to the <a href="https://portal.azure.com/" target="_blank" rel="noopener">Azure Portal</a>.</li>
+<li><strong>Create a Key Vault</strong>:
+<ul>
+<li>Navigate to <strong>Create a resource</strong>.</li>
+<li>Search for <strong>Key Vault</strong> and select <strong>Create</strong>.</li>
+<li>Fill in the required fields (Subscription, Resource group, Key Vault name, Region).</li>
+<li>Click <strong>Review + Create</strong> and then <strong>Create</strong>.</li>
+</ul>
+</li>
+</ol>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="step-2-add-secrets-to-the-key-vault" data-heading="Step 2: Add Secrets to the Key Vault" data-level="3" data-permalink="/docs/azure-devops/azuredevops-03/" data-title="Part 3" -->
+<h3 id="step-2-add-secrets-to-the-key-vault">Step 2: Add Secrets to the Key Vault</h3><ol>
+<li><strong>Navigate to Your Key Vault</strong>: In the Azure Portal, go to your Key Vault.</li>
+<li><strong>Add a Secret</strong>:
+<ul>
+<li>Click on <strong>Secrets</strong> in the left-hand menu.</li>
+<li>Click on <strong>+ Generate/Import</strong>.</li>
+<li>Provide a name and value for your secret, then click <strong>Create</strong>.</li>
+</ul>
+</li>
+</ol>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="step-3-set-up-access-policies" data-heading="Step 3: Set Up Access Policies" data-level="3" data-permalink="/docs/azure-devops/azuredevops-03/" data-title="Part 3" -->
+<h3 id="step-3-set-up-access-policies">Step 3: Set Up Access Policies</h3><ol>
+<li>In your Key Vault, go to <strong>Access policies</strong>.</li>
+<li>Click on <strong>+ Add Access Policy</strong>.</li>
+<li><strong>Configure Permissions</strong>:
+<ul>
+<li>Select the <strong>Secret Management</strong> permissions you want to grant (e.g., Get, List).</li>
+<li>Under <strong>Select principal</strong>, search for the Azure DevOps service principal (or your Azure DevOps organization).</li>
+<li>Click <strong>Add</strong> to grant permissions, then click <strong>Save</strong>.</li>
+</ul>
+</li>
+</ol>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="step-4-enable-azure-devops-integration" data-heading="Step 4: Enable Azure DevOps Integration" data-level="3" data-permalink="/docs/azure-devops/azuredevops-03/" data-title="Part 3" -->
+<h3 id="step-4-enable-azure-devops-integration">Step 4: Enable Azure DevOps Integration</h3><ol>
+<li>
+<p><strong>Navigate to Azure DevOps</strong>: Go to your Azure DevOps organization.</p>
+</li>
+<li>
+<p><strong>Open Project Settings</strong>: Select your project and click on <strong>Project settings</strong> in the lower-left corner.</p>
+</li>
+<li>
+<p><strong>Select Service Connections</strong>:</p>
+<ul>
+<li>Under <strong>Pipelines</strong>, click on <strong>Service connections</strong>.</li>
+<li>Click <strong>+ New service connection</strong>.</li>
+<li>Select <strong>Azure Resource Manager</strong> and click <strong>Next</strong>.</li>
+</ul>
+</li>
+<li>
+<p><strong>Configure the Service Connection</strong>:</p>
+<ul>
+<li>Choose <strong>Service principal (automatic)</strong>.</li>
+<li>Select your Azure subscription and the resource group where your Key Vault is located.</li>
+<li>Check the box to grant access to all pipelines, then click <strong>Save</strong>.</li>
+</ul>
+</li>
+</ol>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="step-5-use-key-vault-secrets-in-pipelines" data-heading="Step 5: Use Key Vault Secrets in Pipelines" data-level="3" data-permalink="/docs/azure-devops/azuredevops-03/" data-title="Part 3" -->
+<h3 id="step-5-use-key-vault-secrets-in-pipelines">Step 5: Use Key Vault Secrets in Pipelines</h3><ol>
+<li>
+<p><strong>Edit Your Pipeline</strong>: Navigate to the pipeline where you want to use the Key Vault secrets.</p>
+</li>
+<li>
+<p><strong>Add Key Vault Task</strong>:</p>
+<ul>
+<li>In the pipeline editor, click on <strong>+</strong> to add a new task.</li>
+<li>Search for <strong>Azure Key Vault</strong> and select the <strong>Azure Key Vault</strong> task.</li>
+</ul>
+</li>
+<li>
+<p><strong>Configure the Key Vault Task</strong>:</p>
+<ul>
+<li>Set the <strong>Azure subscription</strong> to the service connection you created earlier.</li>
+<li>Specify the <strong>Key Vault name</strong> from which to fetch secrets.</li>
+<li>Optionally, select the secrets you want to retrieve.</li>
+</ul>
+</li>
+<li>
+<p><strong>Reference Secrets in Your Pipeline</strong>:</p>
+<ul>
+<li>Use the syntax <code>$(secretName)</code> to reference the secrets in subsequent tasks.</li>
+</ul>
+</li>
+</ol>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="example-yaml-snippet" data-heading="Example YAML Snippet" data-level="3" data-permalink="/docs/azure-devops/azuredevops-03/" data-title="Part 3" -->
+<h3 id="example-yaml-snippet">Example YAML Snippet</h3><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">variables</span>:
+</span></span><span style="display:flex;"><span>- <span style="color:#f92672">group</span>: <span style="color:#ae81ff">your-variable-group</span>
+</span></span><span style="display:flex;"><span>- <span style="color:#f92672">name</span>: <span style="color:#ae81ff">secretFromKeyVault</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">value</span>: <span style="color:#ae81ff">$(secretName)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">jobs</span>:
+</span></span><span style="display:flex;"><span>- <span style="color:#f92672">job</span>: <span style="color:#ae81ff">ExampleJob</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">pool</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">vmImage</span>: <span style="color:#e6db74">&#39;ubuntu-latest&#39;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">steps</span>:
+</span></span><span style="display:flex;"><span>  - <span style="color:#f92672">task</span>: <span style="color:#ae81ff">AzureKeyVault@2</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">inputs</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">azureSubscription</span>: <span style="color:#e6db74">&#39;Your Service Connection&#39;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">KeyVaultName</span>: <span style="color:#e6db74">&#39;YourKeyVaultName&#39;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">SecretsFilter</span>: <span style="color:#e6db74">&#39;*&#39;</span>
+</span></span><span style="display:flex;"><span>  - <span style="color:#f92672">script</span>: <span style="color:#ae81ff">echo $(secretFromKeyVault)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">displayName</span>: <span style="color:#e6db74">&#39;Show secret value&#39;</span>
+</span></span></code></pre></div><!-- end-chunk -->
+<!-- begin-chunk data-anchor="environments-in-azure-devops" data-heading="Environments in Azure DevOps" data-level="2" data-permalink="/docs/azure-devops/azuredevops-03/" data-title="Part 3" -->
+<h2 id="environments-in-azure-devops">Environments in Azure DevOps</h2><!-- end-chunk -->
+<!-- begin-chunk data-anchor="what-are-environments" data-heading="What are Environments?" data-level="3" data-permalink="/docs/azure-devops/azuredevops-03/" data-title="Part 3" -->
+<h3 id="what-are-environments">What are Environments?</h3><p>In Azure DevOps, <strong>Environments</strong> are a way to define and manage deployment targets where your application can be deployed. They represent specific stages in your deployment pipeline (e.g., Development, Testing, Staging, Production) and can include various resources like Azure resources, Kubernetes clusters, virtual machines, or on-premises servers.</p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="benefits-of-using-environments" data-heading="Benefits of Using Environments" data-level="2" data-permalink="/docs/azure-devops/azuredevops-03/" data-title="Part 3" -->
+<h2 id="benefits-of-using-environments">Benefits of Using Environments</h2><ul>
+<li><strong>Isolation</strong>: Separate environments for development, testing, and production ensure that changes are isolated and can be tested before production deployment.</li>
+<li><strong>Resource Management</strong>: Manage and control the deployment resources and configurations for each environment.</li>
+<li><strong>Approval Workflows</strong>: Implement approval processes before deploying to critical environments.</li>
+<li><strong>Visibility</strong>: Track and visualize the deployment status across different environments.</li>
+</ul>
+<hr>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="creating-an-environment-in-azure-devops" data-heading="Creating an Environment in Azure DevOps" data-level="2" data-permalink="/docs/azure-devops/azuredevops-03/" data-title="Part 3" -->
+<h2 id="creating-an-environment-in-azure-devops">Creating an Environment in Azure DevOps</h2><!-- end-chunk -->
+<!-- begin-chunk data-anchor="step-1-navigate-to-the-pipelines-section" data-heading="Step 1: Navigate to the Pipelines Section" data-level="3" data-permalink="/docs/azure-devops/azuredevops-03/" data-title="Part 3" -->
+<h3 id="step-1-navigate-to-the-pipelines-section">Step 1: Navigate to the Pipelines Section</h3><ol>
+<li>Sign in to your Azure DevOps organization.</li>
+<li>Go to your project.</li>
+<li>In the left-hand menu, select <strong>Pipelines</strong>.</li>
+</ol>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="step-2-access-environments" data-heading="Step 2: Access Environments" data-level="3" data-permalink="/docs/azure-devops/azuredevops-03/" data-title="Part 3" -->
+<h3 id="step-2-access-environments">Step 2: Access Environments</h3><ol>
+<li>Click on <strong>Environments</strong> in the left-hand menu under <strong>Pipelines</strong>.</li>
+<li>Click on <strong>+ New environment</strong> to create a new environment.</li>
+</ol>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="step-3-define-the-environment" data-heading="Step 3: Define the Environment" data-level="3" data-permalink="/docs/azure-devops/azuredevops-03/" data-title="Part 3" -->
+<h3 id="step-3-define-the-environment">Step 3: Define the Environment</h3><ol>
+<li>
+<p><strong>Name the Environment</strong>:</p>
+<ul>
+<li>Enter a meaningful name for your environment (e.g., <code>Development</code>, <code>Staging</code>, <code>Production</code>).</li>
+</ul>
+</li>
+<li>
+<p><strong>Add Resources</strong>:</p>
+<ul>
+<li>You can associate resources such as virtual machines, Kubernetes clusters, or other services with this environment.</li>
+<li>Click on <strong>+ Add resource</strong> to add resources if needed.</li>
+</ul>
+</li>
+</ol>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="step-4-configure-approvals-and-checks-optional" data-heading="Step 4: Configure Approvals and Checks (Optional)" data-level="3" data-permalink="/docs/azure-devops/azuredevops-03/" data-title="Part 3" -->
+<h3 id="step-4-configure-approvals-and-checks-optional">Step 4: Configure Approvals and Checks (Optional)</h3><ol>
+<li>Click on the <strong>Pre-deployment conditions</strong> for the environment.</li>
+<li>Enable approvals to require manual intervention before deploying to the environment.</li>
+<li>Optionally, set up automated checks (e.g., integration tests, quality gates) to ensure the environment meets specific criteria before allowing deployment.</li>
+</ol>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="step-5-save-the-environment" data-heading="Step 5: Save the Environment" data-level="3" data-permalink="/docs/azure-devops/azuredevops-03/" data-title="Part 3" -->
+<h3 id="step-5-save-the-environment">Step 5: Save the Environment</h3><ul>
+<li>After configuring your environment, click <strong>Create</strong> to save it.</li>
+</ul>
+<hr>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="using-environments-in-a-pipeline" data-heading="Using Environments in a Pipeline" data-level="2" data-permalink="/docs/azure-devops/azuredevops-03/" data-title="Part 3" -->
+<h2 id="using-environments-in-a-pipeline">Using Environments in a Pipeline</h2><!-- end-chunk -->
+<!-- begin-chunk data-anchor="step-1-edit-your-pipeline" data-heading="Step 1: Edit Your Pipeline" data-level="3" data-permalink="/docs/azure-devops/azuredevops-03/" data-title="Part 3" -->
+<h3 id="step-1-edit-your-pipeline">Step 1: Edit Your Pipeline</h3><ol>
+<li>Navigate to the <strong>Pipelines</strong> section.</li>
+<li>Select the pipeline where you want to use the environment and click <strong>Edit</strong>.</li>
+</ol>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="step-2-add-an-environment" data-heading="Step 2: Add an Environment" data-level="3" data-permalink="/docs/azure-devops/azuredevops-03/" data-title="Part 3" -->
+<h3 id="step-2-add-an-environment">Step 2: Add an Environment</h3><ol>
+<li>In the pipeline editor, add a deployment job by clicking on <strong>+</strong>.</li>
+<li>In the job configuration, select the <strong>Environment</strong> dropdown.</li>
+<li>Choose the environment you created from the list.</li>
+</ol>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="step-3-configure-deployment-steps" data-heading="Step 3: Configure Deployment Steps" data-level="3" data-permalink="/docs/azure-devops/azuredevops-03/" data-title="Part 3" -->
+<h3 id="step-3-configure-deployment-steps">Step 3: Configure Deployment Steps</h3><ul>
+<li>Add the tasks required for deployment in this environment (e.g., Azure App Service Deploy, Kubernetes Deploy, etc.).</li>
+<li>You can reference environment-specific variables by using the syntax <code>$(VariableName)</code>.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="step-4-save-and-run-the-pipeline-2" data-heading="Step 4: Save and Run the Pipeline" data-level="3" data-permalink="/docs/azure-devops/azuredevops-03/" data-title="Part 3" -->
+<h3 id="step-4-save-and-run-the-pipeline-2">Step 4: Save and Run the Pipeline</h3><ul>
+<li>Save your pipeline changes and run the pipeline. The tasks will execute in the context of the specified environment.</li>
+</ul>
+<hr>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="monitoring-environments" data-heading="Monitoring Environments" data-level="2" data-permalink="/docs/azure-devops/azuredevops-03/" data-title="Part 3" -->
+<h2 id="monitoring-environments">Monitoring Environments</h2><!-- end-chunk -->
+<!-- begin-chunk data-anchor="viewing-deployment-status" data-heading="Viewing Deployment Status" data-level="3" data-permalink="/docs/azure-devops/azuredevops-03/" data-title="Part 3" -->
+<h3 id="viewing-deployment-status">Viewing Deployment Status</h3><ul>
+<li>In the <strong>Environments</strong> section, you can see the status of deployments, the history of deployments, and any ongoing deployments.</li>
+<li>Click on an environment to view detailed logs and status for recent deployments.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="accessing-resource-logs" data-heading="Accessing Resource Logs" data-level="3" data-permalink="/docs/azure-devops/azuredevops-03/" data-title="Part 3" -->
+<h3 id="accessing-resource-logs">Accessing Resource Logs</h3><ul>
+<li>For resources associated with the environment (like VMs or Kubernetes clusters), you can often access their logs directly from the Azure portal or other monitoring tools integrated with Azure DevOps.</li>
+</ul>
+<hr>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="best-practices-2" data-heading="Best Practices" data-level="2" data-permalink="/docs/azure-devops/azuredevops-03/" data-title="Part 3" -->
+<h2 id="best-practices-2">Best Practices</h2><ol>
+<li><strong>Use Meaningful Names</strong>: Clearly name environments to reflect their purpose (e.g., <code>Development</code>, <code>QA</code>, <code>Production</code>).</li>
+<li><strong>Implement Approval Workflows</strong>: Require approvals for deployments to sensitive environments to enhance security and governance.</li>
+<li><strong>Monitor and Audit Deployments</strong>: Regularly review deployment histories and logs to identify issues and improve processes.</li>
+<li><strong>Version Control</strong>: Ensure that all deployments to environments are versioned and documented for better traceability.</li>
+</ol>
+<hr>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="summary-4" data-heading="Summary" data-level="3" data-permalink="/docs/azure-devops/azuredevops-03/" data-title="Part 3" -->
+<h3 id="summary-4">Summary</h3><p>Environments in Azure DevOps provide a structured way to manage deployment targets across your application lifecycle. By creating and using environments effectively, you can enhance your deployment process, enforce quality and security measures, and gain better visibility into your deployment activities.</p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="how-to-extract-yaml-from-a-classical-pipeline-in-azure-devops" data-heading="How to Extract YAML from a Classical Pipeline in Azure DevOps" data-level="2" data-permalink="/docs/azure-devops/azuredevops-03/" data-title="Part 3" -->
+<h2 id="how-to-extract-yaml-from-a-classical-pipeline-in-azure-devops">How to Extract YAML from a Classical Pipeline in Azure DevOps</h2><!-- end-chunk -->
+<!-- begin-chunk data-anchor="overview" data-heading="Overview" data-level="3" data-permalink="/docs/azure-devops/azuredevops-03/" data-title="Part 3" -->
+<h3 id="overview">Overview</h3><p>Azure DevOps allows you to create pipelines using a graphical interface (Classical Pipelines) or YAML. While Classical Pipelines don&rsquo;t natively provide a YAML view, you can manually convert them into a YAML format for better version control and collaboration.</p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="steps-to-extract-yaml-from-a-classical-pipeline" data-heading="Steps to Extract YAML from a Classical Pipeline" data-level="2" data-permalink="/docs/azure-devops/azuredevops-03/" data-title="Part 3" -->
+<h2 id="steps-to-extract-yaml-from-a-classical-pipeline">Steps to Extract YAML from a Classical Pipeline</h2><!-- end-chunk -->
+<!-- begin-chunk data-anchor="step-1-open-your-classical-pipeline" data-heading="Step 1: Open Your Classical Pipeline" data-level="3" data-permalink="/docs/azure-devops/azuredevops-03/" data-title="Part 3" -->
+<h3 id="step-1-open-your-classical-pipeline">Step 1: Open Your Classical Pipeline</h3><ol>
+<li>Sign in to your Azure DevOps organization.</li>
+<li>Navigate to your project.</li>
+<li>In the left-hand menu, select <strong>Pipelines</strong>.</li>
+<li>Click on the <strong>Classical</strong> tab to view your existing Classical Pipelines.</li>
+<li>Select the pipeline you want to extract YAML from and click <strong>Edit</strong>.</li>
+</ol>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="azure-devops-and-sonarqube-integration" data-heading="Azure Devops and Sonarqube Integration" data-level="3" data-permalink="/docs/azure-devops/azuredevops-03/" data-title="Part 3" -->
+<h3 id="azure-devops-and-sonarqube-integration">Azure Devops and Sonarqube Integration</h3><p><a href="https://azuredevopslabs.com/labs/vstsextend/sonarqube/" target="_blank" rel="noopener">https://azuredevopslabs.com/labs/vstsextend/sonarqube/</a></p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="heading" data-heading="" data-level="3" data-permalink="/docs/azure-devops/azuredevops-03/" data-title="Part 3" -->
+<h3 id="heading"></h3><p><img src="/images/docker01.png" alt="docker01"></p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="create-azure-container-registry-acr" data-heading="Create Azure Container Registry (ACR)" data-level="2" data-permalink="/docs/azure-devops/azuredevops-03/" data-title="Part 3" -->
+<h2 id="create-azure-container-registry-acr">Create Azure Container Registry (ACR)</h2><!-- end-chunk -->
+<!-- begin-chunk data-anchor="prerequisites-1" data-heading="Prerequisites" data-level="2" data-permalink="/docs/azure-devops/azuredevops-03/" data-title="Part 3" -->
+<h2 id="prerequisites-1">Prerequisites</h2><ol>
+<li><strong>Azure Container Registry (ACR)</strong> is set up in Azure cloud (follow the steps below).</li>
+<li>An <strong>Azure DevOps dashboard</strong> is already created at <a href="https://dev.azure.com/" target="_blank" rel="noopener">Azure DevOps</a>.</li>
+<li>A <strong>Dockerfile</strong> is created along with the application source code.</li>
+</ol>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="steps-to-create-azure-container-registry-acr" data-heading="Steps to Create Azure Container Registry (ACR)" data-level="2" data-permalink="/docs/azure-devops/azuredevops-03/" data-title="Part 3" -->
+<h2 id="steps-to-create-azure-container-registry-acr">Steps to Create Azure Container Registry (ACR)</h2><p>First, create a resource group. Make sure you are logged in to the Azure portal:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>az login
+</span></span></code></pre></div><ul>
+<li>Execute below command to create a resource group in Azure portal.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>az group create --name myResourceGroup --location southcentralus
+</span></span></code></pre></div><ul>
+<li>Run the below command to create your own private container registry using Azure Container Registry (ACR).</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>az acr create --resource-group myResourceGroup --name myacrrepo31 --sku Standard --location southcentralus
+</span></span></code></pre></div><ul>
+<li>Check on Azure portal or using az cli</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>az acr list -o table
+</span></span></code></pre></div><ul>
+<li>Login to your newly Created container Registry</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>az login
+</span></span><span style="display:flex;"><span>az acr login --name myacrrepo310987
+</span></span></code></pre></div><ul>
+<li>Pull and tag your image</li>
+<li>Push the image to your registry</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="create-a-pipeline-using-the-github-repo-or-importing-to-azure-repo" data-heading="Create a pipeline using the Github repo or importing to Azure Repo" data-level="2" data-permalink="/docs/azure-devops/azuredevops-03/" data-title="Part 3" -->
+<h2 id="create-a-pipeline-using-the-github-repo-or-importing-to-azure-repo">Create a pipeline using the Github repo or importing to Azure Repo</h2><ul>
+<li>
+<p>Repo Link <a href="https://github.com/kumarnirpendra25/myPythonDockerRepo.git" target="_blank" rel="noopener">Click Here </a></p>
+</li>
+<li>
+<p><img src="/images/docker02.png" alt="docker02">
+<img src="/images/docker03.png" alt="docker02">
+<img src="/images/docker04.png" alt="docker02">
+<img src="/images/docker05.png" alt="docker02">
+<img src="/images/docker06.png" alt="docker02">
+<img src="/images/docker07.png" alt="docker02"></p>
+</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="sonarqube" data-heading="Sonarqube" data-level="2" data-permalink="/docs/azure-devops/azuredevops-03/" data-title="Part 3" -->
+<h2 id="sonarqube">Sonarqube</h2><p><img src="/images/sonar01.png" alt="Sonar"></p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="integrate-sonarqube-with-azure-devops" data-heading="Integrate SonarQube with Azure DevOps" data-level="2" data-permalink="/docs/azure-devops/azuredevops-03/" data-title="Part 3" -->
+<h2 id="integrate-sonarqube-with-azure-devops">Integrate SonarQube with Azure DevOps</h2><!-- end-chunk -->
+<!-- begin-chunk data-anchor="prerequisites-2" data-heading="Prerequisites" data-level="3" data-permalink="/docs/azure-devops/azuredevops-03/" data-title="Part 3" -->
+<h3 id="prerequisites-2">Prerequisites</h3><ol>
+<li><strong>SonarQube</strong> must be up and running.</li>
+<li>A <strong>Java Project</strong> must be set up in Azure Repos.</li>
+<li>Install the <strong>SonarQube plug-in/Add-on</strong> in Azure DevOps using the following URL:<br>
+<a href="https://marketplace.visualstudio.com/acquisition?itemName=SonarSource.sonarqube" target="_blank" rel="noopener">SonarQube Marketplace</a></li>
+<li>Install Sonarqube on Docker
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>docker run -d -p 9000:9000  mc1arke/sonarqube-with-community-branch-plugin
+</span></span></code></pre></div></li>
+</ol>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="azure-devops-execution-plan--multi-agent-parallelism" data-heading="Azure DevOps: Execution Plan – Multi-agent Parallelism" data-level="2" data-permalink="/docs/azure-devops/azuredevops-03/" data-title="Part 3" -->
+<h2 id="azure-devops-execution-plan--multi-agent-parallelism">Azure DevOps: Execution Plan – Multi-agent Parallelism</h2><p>This section outlines the <strong>Execution Plan</strong> configuration for parallelism in Azure DevOps pipelines, specifically for setting up multiple agents to run tasks concurrently.</p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="1-parallelism-section" data-heading="1. Parallelism Section" data-level="3" data-permalink="/docs/azure-devops/azuredevops-03/" data-title="Part 3" -->
+<h3 id="1-parallelism-section">1. Parallelism Section</h3><ul>
+<li><strong>None</strong>: No parallelism is used. The job runs on a single agent.</li>
+<li><strong>Multi-configuration</strong>: Allows you to run multiple configurations in parallel (e.g., testing different environments or versions).</li>
+<li><strong>Multi-agent</strong>: Runs the same task on multiple agents simultaneously. This is useful for distributing work (e.g., large build jobs) across multiple agents for faster execution.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="2-number-of-agents" data-heading="2. Number of agents" data-level="3" data-permalink="/docs/azure-devops/azuredevops-03/" data-title="Part 3" -->
+<h3 id="2-number-of-agents">2. Number of agents</h3><ul>
+<li>When <strong>Multi-agent</strong> is selected, specify the number of agents (from 1 to 99) that will run the job in parallel.</li>
+<li>For example, setting the <strong>Number of agents</strong> to <code>5</code> means the pipeline will run the job on 5 agents concurrently.</li>
+<li>This is ideal for parallel processing or distributing workload across multiple agents.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="3-continue-on-error" data-heading="3. Continue on error" data-level="3" data-permalink="/docs/azure-devops/azuredevops-03/" data-title="Part 3" -->
+<h3 id="3-continue-on-error">3. Continue on error</h3><ul>
+<li>If checked, the pipeline will <strong>continue running even if one agent encounters an error</strong>.</li>
+<li>This can be useful in scenarios where certain failures can be ignored, allowing the remaining agents to complete their tasks.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="4-timeout" data-heading="4. Timeout" data-level="3" data-permalink="/docs/azure-devops/azuredevops-03/" data-title="Part 3" -->
+<h3 id="4-timeout">4. Timeout</h3><ul>
+<li>The <strong>Timeout</strong> specifies the maximum duration (in minutes) a job is allowed to run before being forcefully canceled.</li>
+<li>A value of <code>0</code> means <strong>no timeout is set</strong>.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="5-job-cancel-timeout" data-heading="5. Job cancel timeout" data-level="3" data-permalink="/docs/azure-devops/azuredevops-03/" data-title="Part 3" -->
+<h3 id="5-job-cancel-timeout">5. Job cancel timeout</h3><ul>
+<li>Specifies the time (in minutes) given for the job to perform any cleanup tasks before being forcefully canceled when the pipeline is stopped.</li>
+<li>A value of <code>0</code> means no additional time is given for cleanup, and the job will be immediately canceled.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="6-dependencies" data-heading="6. Dependencies" data-level="3" data-permalink="/docs/azure-devops/azuredevops-03/" data-title="Part 3" -->
+<h3 id="6-dependencies">6. Dependencies</h3><ul>
+<li>You can configure <strong>dependencies</strong> on other jobs or steps. The current job will only run if its dependencies (other jobs or steps) complete successfully.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="use-case" data-heading="Use Case" data-level="3" data-permalink="/docs/azure-devops/azuredevops-03/" data-title="Part 3" -->
+<h3 id="use-case">Use Case</h3><p>This configuration is often used to <strong>run the same task on multiple agents in parallel</strong>, helping speed up processing or distribute workloads for larger tasks like builds or tests.</p>
+
+	
+	
+	
+</div>
+
+
+          </main>
+        </div>
+      </div>
+      
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+    integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+    crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js"
+    integrity="sha512-UR25UO94eTnCVwjbXozyeVd6ZqpaAE9naiEUBK/A+QDbfSTQFhPGj5lOR6d8tsgbBk84Ggb5A3EkjsOgPRPcKA=="
+    crossorigin="anonymous"></script>
+
+
+
+
+
+<script src='/js/tabpane-persist.js'></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="/js/main.min.223ab2fcc7d742c1b94772c0276851c497da4343cd2d21534199ced90681e207.js" integrity="sha256-Ijqy/MfXQsG5R3LAJ2hRxJfaQ0PNLSFTQZnO2QaB4gc=" crossorigin="anonymous"></script>
+
+
+
+<script src='/js/prism.js'></script>
+
+
+
+  </body>
+</html>
